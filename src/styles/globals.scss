@@ -57,3 +57,13 @@ body {
   padding: 0;
   position: absolute;
 }
+
+.wrapper {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.wrapper .content {
+  flex-grow: 1;
+}
