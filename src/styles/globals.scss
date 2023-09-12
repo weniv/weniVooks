@@ -1,0 +1,59 @@
+/* reset */
+body,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+button,
+ul,
+ol,
+li {
+  padding: 0;
+  margin: 0;
+}
+button,
+input {
+  box-sizing: border-box;
+  font: inherit;
+}
+button:enabled {
+  cursor: pointer;
+}
+
+ul,
+ol,
+li {
+  list-style: none;
+}
+img,
+svg {
+  vertical-align: top;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* 폰트사이즈 */
+html {
+  font-size: 62.5%;
+}
+body {
+  font-size: 1.6rem;
+}
+
+/* 공통 */
+.a11y-hidden {
+  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: inset(50%);
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+}
