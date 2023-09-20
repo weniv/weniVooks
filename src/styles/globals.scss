@@ -1,4 +1,7 @@
-/* reset */
+@import '@/styles/var.scss';
+@import '@/styles/theme.scss';
+
+/* reset ------------------------------------------------------- */
 body,
 p,
 h1,
@@ -8,6 +11,7 @@ h4,
 h5,
 h6,
 button,
+input,
 ul,
 ol,
 li {
@@ -18,6 +22,12 @@ button,
 input {
   box-sizing: border-box;
   font: inherit;
+  color: inherit;
+}
+button {
+  background: none;
+  padding: 0;
+  border: 0;
 }
 button:enabled {
   cursor: pointer;
@@ -31,12 +41,31 @@ li {
 img,
 svg {
   vertical-align: top;
-  max-width: 100%;
 }
 
 a {
   text-decoration: none;
   color: inherit;
+}
+
+address {
+  font: inherit;
+}
+
+/* 폰트 ------------------------------------------------------- */
+@font-face {
+  font-family: 'Pretendard';
+  src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff')
+    format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Pretendard';
+  src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-SemiBold.woff')
+    format('woff');
+  font-weight: 500;
+  font-style: bold;
 }
 
 /* 폰트사이즈 */
@@ -45,9 +74,53 @@ html {
 }
 body {
   font-size: 1.6rem;
+  color: var(--surface);
+  background-color: var(--background);
 }
 
-/* 공통 */
+/* 테마 ------------------------------------------------------- */
+body,
+body.light {
+  --primary: #{$W-primary};
+  --background: #{$W-background};
+  --surface: #{$W-surface};
+  --grayLv1: #{$W-grayLv1};
+  --grayLv2: #{$W-grayLv2};
+  --grayLv3: #{$W-grayLv3};
+  --grayLv4: #{$W-grayLv4};
+  --error: #{$W-error};
+  --warn: #{$W-warn};
+  --activation: #{$W-activation};
+}
+
+body.dark {
+  --primary: #{$D-primary};
+  --background: #{$D-background};
+  --surface: #{$D-surface};
+  --grayLv1: #{$D-grayLv1};
+  --grayLv2: #{$D-grayLv2};
+  --grayLv3: #{$D-grayLv3};
+  --grayLv4: #{$D-grayLv4};
+  --error: #{$D-error};
+  --warn: #{$D-warn};
+  --activation: #{$D-activation};
+}
+@media (prefers-color-scheme: dark) {
+  body {
+    --primary: #{$D-primary};
+    --background: #{$D-background};
+    --surface: #{$D-surface};
+    --grayLv1: #{$D-grayLv1};
+    --grayLv2: #{$D-grayLv2};
+    --grayLv3: #{$D-grayLv3};
+    --grayLv4: #{$D-grayLv4};
+    --error: #{$D-error};
+    --warn: #{$D-warn};
+    --activation: #{$D-activation};
+  }
+}
+
+/* 공통 ------------------------------------------------------- */
 .a11y-hidden {
   clip: rect(1px, 1px, 1px, 1px);
   clip-path: inset(50%);
@@ -57,13 +130,4 @@ body {
   overflow: hidden;
   padding: 0;
   position: absolute;
-}
-
-.wrapper {
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-}
-.wrapper .content {
-  flex-grow: 1;
 }
