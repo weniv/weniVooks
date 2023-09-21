@@ -1,8 +1,8 @@
-import styles from '@/app/not-found.module.scss';
+import styles from './not-found.module.scss';
 
 import Header from '@/components/layouts/Header';
-import ButtonBack from '@/components/feature/ButtonBack';
-import Button from '@/components/common/Button';
+import Btn from '@/components/common/button/Btn';
+import BtnBack from '@/components/feature/BtnBack';
 
 export default function NotFound() {
   return (
@@ -18,10 +18,10 @@ export default function NotFound() {
         </p>
 
         <div className={styles.btnGroup}>
-          <Button style="solid" href="/">
+          <Btn solid="true" href="/">
             메인으로
-          </Button>
-          <ButtonBack>이전 페이지</ButtonBack>
+          </Btn>
+          <BtnBack>이전 페이지</BtnBack>
         </div>
       </main>
     </>
