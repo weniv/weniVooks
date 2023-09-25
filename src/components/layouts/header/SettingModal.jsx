@@ -1,9 +1,13 @@
 'use client';
-import Select from '@/components/common/Select';
-import FontSizeRange from './FontSizeRange';
-import FontStyleRadio from './FontStyleRadio';
+import { useContext } from 'react';
+import { SettingContext } from '@/context/SettingContext';
+
 import styles from './SettingModal.module.scss';
-import ThemeRadio from './ThemeRadio';
+
+import Select from '@/components/common/Select';
+import ThemeRadio from '@/components/layouts/header/ThemeRadio';
+import FontStyleRadio from '@/components/layouts/header/FontStyleRadio';
+import FontSizeRange from '@/components/layouts/header/FontSizeRange';
 
 const options = [
   {
@@ -25,8 +29,10 @@ const options = [
 ];
 
 export default function SettingModal() {
-  const savedCodeThemeValue = localStorage.getItem('codeTheme');
+  const { codeTheme, setCodeTheme } = useContext(SettingContext);
+
   const onSelect = (option) => {
+    setCodeTheme(option.value);
     localStorage.setItem('codeTheme', option.value);
   };
 
@@ -41,7 +47,7 @@ export default function SettingModal() {
           <Select
             options={options}
             onSelect={onSelect}
-            selectedValue={savedCodeThemeValue}
+            selectedValue={codeTheme}
           />
         </div>
 

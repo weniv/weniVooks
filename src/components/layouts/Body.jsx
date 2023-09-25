@@ -6,7 +6,7 @@ export default function Body({ children }) {
   const { theme, fontStyle } = useContext(SettingContext);
   return (
     <body
-      className={`body ${theme === 'dark' ? 'dark' : 'light'}
+      className={`${theme === 'dark' ? 'dark' : 'light'}
   ${fontStyle === 'serif' ? 'serif' : 'sansSerif'}`}
       suppressHydrationWarning={true}>
       {children}

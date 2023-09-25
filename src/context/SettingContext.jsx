@@ -1,26 +1,31 @@
 'use client';
-import { createContext, useState } from 'react';
+import { createContext, useEffect, useState } from 'react';
 export const SettingContext = createContext();
 
 export default function SettingProvider({ children }) {
-  // 테마
-  const savedTheme = localStorage.getItem('theme');
-  const [theme, setTheme] = useState(savedTheme === null ? 'auto' : savedTheme);
-
-  // 폰트스타일
-  const savedFontStyle = localStorage.getItem('fontStyle');
-  const [fontStyle, setFontStyle] = useState(
-    savedFontStyle === null ? 'sansSerif' : savedFontStyle,
-  );
-
-  // 폰트사이즈
+  const [theme, setTheme] = useState(null);
+  const [codeTheme, setCodeTheme] = useState(null);
+  const [fontStyle, setFontStyle] = useState(null);
   const [fontSize, setFontSize] = useState(null);
+
+  useEffect(() => {
+    const savedTheme = localStorage.getItem('theme');
+    setTheme(savedTheme === null ? 'auto' : savedTheme);
+
+    const savedFontStyle = localStorage.getItem('fontStyle');
+    setFontStyle(savedFontStyle === null ? 'sansSerif' : savedFontStyle);
+
+    const savedCodeTheme = localStorage.getItem('codeTheme');
+    setCodeTheme(savedCodeTheme === null ? null : savedCodeTheme);
+  }, []);
 
   return (
     <SettingContext.Provider
       value={{
         theme,
         setTheme,
+        codeTheme,
+        setCodeTheme,
         fontStyle,
         setFontStyle,
         fontSize,
