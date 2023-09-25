@@ -1,7 +1,16 @@
+import classNames from 'classnames';
 import Btn from './Btn';
 
 import styles from './BtnIcon.module.scss';
 
 export default function BtnIcon(props) {
-  return <Btn className={styles.btnIcon} {...props} />;
+  const { className, border, active } = props;
+
+  const buttonClass = classNames(
+    styles.btnIcon,
+    border === 'none' ? styles.borderNone : null,
+    className,
+    active ? styles.active : null,
+  );
+  return <Btn className={buttonClass} {...props} />;
 }
