@@ -7,7 +7,7 @@ import BtnBack from '@/components/feature/BtnBack';
 export default function NotFound() {
   return (
     <>
-      <Header />
+      <Header onlyTitle />
 
       <main className={`layout-content ${styles.notFound}`}>
         <img src="/img/404.png" alt="404" />

@@ -69,14 +69,19 @@ address {
   font-style: bold;
 }
 
-/* 폰트사이즈 */
+/* 폰트*/
 html {
   font-size: 62.5%;
 }
 body {
   font-size: 1.6rem;
+  font-family: 'Pretendard', sans-serif;
   color: var(--surface);
   background-color: var(--background);
+}
+
+.serif {
+  font-family: 'Nanum Myeongjo', serif;
 }
 
 /* 테마 ------------------------------------------------------- */

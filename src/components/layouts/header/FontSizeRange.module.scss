@@ -1,0 +1,63 @@
+@import '@/styles/var.scss';
+@mixin thumb {
+  width: 1.6rem;
+  height: 1.6rem;
+  background-color: var(--primary);
+  border-radius: 50%;
+  border: 0;
+  transition: 0.2s ease-in-out;
+}
+.rangeFont {
+  input[type='range'] {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    cursor: pointer;
+    outline: none;
+    border-radius: 1rem;
+    height: 0.6rem;
+    background: var(--grayLv2);
+  }
+
+  /* webkit */
+  input[type='range']::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+
+    @include thumb;
+  }
+
+  /* Firefox */
+  input[type='range']::-moz-range-thumb {
+    @include thumb;
+  }
+
+  /* Webkit */
+  input[type='range']::-webkit-slider-thumb:hover {
+    box-shadow: 0 0 0 0.8rem rgba($primary, 0.2);
+  }
+  input[type='range']:active::-webkit-slider-thumb {
+    box-shadow: 0 0 0 1.2rem rgba($primary, 0.3);
+  }
+  input[type='range']:focus-visible::-webkit-slider-thumb {
+    box-shadow: 0 0 0 1.2rem rgba($primary, 0.3);
+  }
+
+  /* Hover, active & focus Thumb: Firfox */
+  input[type='range']::-moz-range-thumb:hover {
+    box-shadow: 0 0 0 0.8rem rgba($primary, 0.2);
+  }
+  input[type='range']:active::-moz-range-thumb {
+    box-shadow: 0 0 0 1.2rem rgba($primary, 0.3);
+  }
+  input[type='range']:focus-visible::-moz-range-thumb {
+    box-shadow: 0 0 0 1.2rem rgba($primary, 0.3);
+  }
+}
+
+.text {
+  margin-top: 1.2rem;
+  font-size: 1.4rem;
+  display: flex;
+  justify-content: space-between;
+}
