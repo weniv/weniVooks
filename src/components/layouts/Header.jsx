@@ -4,6 +4,7 @@ import classNames from 'classnames';
 import styles from './Header.module.scss';
 import Logo from '@/components/svg/Logo';
 import SettingBtn from './header/SettingBtn';
+import SearchForm from './header/SearchForm';
 
 const TitleHeader = ({ children, className }) => {
   const headerClass = classNames(styles.header, className);
@@ -26,8 +27,9 @@ export default function Header({ onlyTitle }) {
 
   return (
     <TitleHeader className={styles.default}>
-      <div>
+      <div className={styles.right}>
         <SettingBtn />
+        <SearchForm />
       </div>
     </TitleHeader>
   );
