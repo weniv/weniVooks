@@ -2,7 +2,7 @@ import SVGLoading from '@/components/svg/SVGLoading';
 
 import styles from './loading.module.scss';
 
-export default function loading() {
+export default function Loading() {
   return (
     <div className={styles.wrap}>
       <p className={styles.loading}>
