@@ -12,20 +12,32 @@ import FontSizeRange from '@/components/layouts/header/FontSizeRange';
 const options = [
   {
     value: 1,
-    text: '드라큘라',
+    text: 'default',
   },
   {
     value: 2,
-    text: '엄마는 외계인',
+    text: 'dracula',
   },
   {
     value: 3,
-    text: '초코나무 숲',
+    text: 'ayu-dark',
   },
-  {
-    value: 4,
-    text: '탕후루 알로사',
-  },
+  // {
+  //   value: 1,
+  //   text: '드라큘라',
+  // },
+  // {
+  //   value: 2,
+  //   text: '엄마는 외계인',
+  // },
+  // {
+  //   value: 3,
+  //   text: '초코나무 숲',
+  // },
+  // {
+  //   value: 4,
+  //   text: '탕후루 알로사',
+  // },
 ];
 
 export default function SettingModal() {
