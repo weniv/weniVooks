@@ -14,17 +14,21 @@
     color: var(--primary);
     background-color: var(--grayLv1);
   }
+  // solid
+  &.solid,
+  &.solid:hover {
+    border-color: var(--primary);
+    background-color: var(--primary);
+    color: var(--background);
+  }
+
+  // border
+  &.borderNone {
+    border: 0;
+  }
 }
 a.btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-}
-
-// solid
-.solid,
-.solid:hover {
-  border-color: var(--primary);
-  background-color: var(--primary);
-  color: var(--background);
 }

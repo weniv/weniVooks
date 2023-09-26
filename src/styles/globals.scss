@@ -69,14 +69,19 @@ address {
   font-style: bold;
 }
 
-/* 폰트사이즈 */
+/* 폰트*/
 html {
   font-size: 62.5%;
 }
 body {
   font-size: 1.6rem;
+  font-family: 'Pretendard', sans-serif;
   color: var(--surface);
   background-color: var(--background);
+}
+
+.serif {
+  font-family: 'Nanum Myeongjo', serif;
 }
 
 /* 테마 ------------------------------------------------------- */
@@ -131,4 +136,18 @@ body.dark {
   overflow: hidden;
   padding: 0;
   position: absolute;
+}
+
+// search 삭제 버튼
+input[type='search']::-webkit-search-cancel-button {
+  appearance: none;
+  -webkit-appearance: none;
+  cursor: pointer;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  background: var(--grayLv3) url(/img/icon-X.svg) no-repeat 50% 50% / 1.2rem;
+  .dark & {
+    background-image: url(/img/icon-X-dark.svg);
+  }
 }
