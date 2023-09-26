@@ -6,10 +6,18 @@
   border: 1px solid var(--grayLv2);
   border-radius: $borderRadius;
   box-sizing: border-box;
-  transition: background-color 0.3s;
+
+  &,
+  svg path {
+    transition: background-color 0.3s;
+  }
+
   &.active,
   &:hover {
     background-color: var(--activation);
+    svg path {
+      fill: var(--primary);
+    }
   }
 }
 
