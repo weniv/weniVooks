@@ -1,0 +1,13 @@
+@import '@/styles/var.scss';
+
+.btnIcon {
+  aspect-ratio: 1/1;
+  padding: 0.5rem;
+  border: 1px solid var(--grayLv2);
+  border-radius: $borderRadius;
+}
+a.btnCircle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

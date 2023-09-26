@@ -1,0 +1,11 @@
+.btnCircle {
+  width: 5rem;
+  height: 5rem;
+  border-radius: 2.5rem;
+  border: 1px solid var(--grayLv2);
+}
+a.btnCircle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
