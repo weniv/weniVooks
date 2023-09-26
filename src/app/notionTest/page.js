@@ -7,6 +7,7 @@ async function getData() {
 
   const pages = await notion.pages.retrieve({
     page_id: process.env.PAGE_ID,
+    // property_id:
   });
   const blocks = await notion.blocks.children.list({
     block_id: process.env.PAGE_ID,
@@ -15,7 +16,8 @@ async function getData() {
   return {
     props: {
       pages: pages,
-      blocks: blocks,
+      title: pages.properties.title.title,
+      contents: blocks.results,
     },
   };
 }
