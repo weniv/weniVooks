@@ -1,10 +1,17 @@
+'use client';
 import Link from 'next/link';
 import classNames from 'classnames';
 
 import styles from './Header.module.scss';
+
+import useWindowSize from '@/context/useWindowSize';
+
+import SVGSearch from '@/components/svg/SVGSearch';
 import Logo from '@/components/svg/Logo';
-import SettingBtn from './header/SettingBtn';
-import SearchForm from './header/SearchForm';
+import BtnIcon from '@/components/common/button/BtnIcon';
+import SettingBtn from '@/components/layouts/header/SettingBtn';
+import SearchForm from '@/components/layouts/header/SearchForm';
+import ScrollBar from '@/components/layouts/header/ScrollBar';
 
 const TitleHeader = ({ children, className }) => {
   const headerClass = classNames(styles.header, className);
@@ -21,6 +28,8 @@ const TitleHeader = ({ children, className }) => {
 };
 
 export default function Header({ onlyTitle }) {
+  const size = useWindowSize();
+
   if (onlyTitle) {
     return <TitleHeader />;
   }
@@ -29,8 +38,19 @@ export default function Header({ onlyTitle }) {
     <TitleHeader className={styles.default}>
       <div className={styles.right}>
         <SettingBtn />
-        <SearchForm />
+        {size > 640 ? (
+          <SearchForm />
+        ) : (
+          <BtnIcon
+            href="/search"
+            border="none"
+            size="4"
+            children={<SVGSearch color="grayLv4" />}
+          />
+        )}
       </div>
+
+      <ScrollBar />
     </TitleHeader>
   );
 }
