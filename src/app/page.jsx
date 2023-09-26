@@ -5,7 +5,7 @@ export default function Home() {
   return (
     <>
       <Header />
-      WeniVooks
+      <div style={{ height: '200vh' }}>WeniVooks</div>
     </>
   );
 }
