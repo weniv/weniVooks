@@ -10,7 +10,7 @@ export default function Home() {
     <>
       <Header />
       {/* <div style={{ height: '200vh' }}>WeniVooks</div> */}
-      <Codeblock />
+      <Codeblock lang="python" />
     </>
   );
 }
