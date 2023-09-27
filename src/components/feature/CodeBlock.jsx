@@ -99,8 +99,13 @@ export default function codeBlock({ lang = 'javascript' }) {
     }
   };
 
-  const copyCode = () => {
-    console.log(468465);
+  const copyCode = async () => {
+    try {
+      await navigator.clipboard.writeText(code);
+      alert('코드가 클립보드에 복사되었습니다.');
+    } catch (err) {
+      alert('코드 복사에 실패하였습니다.');
+    }
   };
 
   return (
@@ -136,3 +141,6 @@ export default function codeBlock({ lang = 'javascript' }) {
     </>
   );
 }
+
+// 툴팁
+// https://inpa.tistory.com/entry/CSS-%F0%9F%92%8D-%ED%88%B4%ED%8C%81-%EB%94%94%EC%9E%90%EC%9D%B8-%F0%9F%96%8C%EF%B8%8F-%EB%AA%A8%EC%9D%8C
