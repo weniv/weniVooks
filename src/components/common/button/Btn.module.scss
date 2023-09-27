@@ -10,9 +10,17 @@
   background-color: var(--background);
   transition: all 0.3s;
 
+  svg path {
+    transition: all 0.3s;
+  }
+
   &:hover {
     color: var(--primary);
     background-color: var(--grayLv1);
+
+    svg path {
+      fill: var(--primary);
+    }
   }
   // solid
   &.solid,
