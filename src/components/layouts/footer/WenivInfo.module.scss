@@ -22,11 +22,11 @@
       box-sizing: border-box;
       border: 1px solid var(--grayLv4);
       border-width: 0px 2px 2px 0;
-      transform: rotate(-135deg) translateX(-40%);
+      transform: rotate(45deg);
       transition: transform 0.3s;
     }
     &.on::after {
-      transform: rotate(45deg);
+      transform: rotate(-135deg) translateX(-40%);
     }
   }
   .info {
