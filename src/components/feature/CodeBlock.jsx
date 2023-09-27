@@ -89,10 +89,18 @@ export default function codeBlock({ lang = 'javascript' }) {
       }
     } else {
       const regex = /{([\s\S]*)}/;
-      const returnVal = code.match(regex)[1].toString();
+      const returnVal = code && code.match(regex)[1].toString();
       try {
         const result = new Function(returnVal)();
-        setResult(result);
+        if (result instanceof Set) {
+          setResult(Array.from(result).join('\n'));
+        } else if (
+          Object.prototype.toString.call(result) === '[object Object]'
+        ) {
+          setResult('object is not iterable');
+        } else {
+          setResult(Array.isArray(result) ? result.join('\n') : String(result));
+        }
       } catch (err) {
         setResult(err.toString());
       }
@@ -131,11 +139,9 @@ export default function codeBlock({ lang = 'javascript' }) {
         </div>
         <textarea ref={codeMirrorRef}></textarea>
         <div className={styles.resultbar}>
-          <button type="button">
-            {(result && result === undefined) || result == null
-              ? 'undefined'
-              : result}
-          </button>
+          {(result && result === undefined) || result == null
+            ? 'undefined'
+            : result}
         </div>
       </div>
     </>
