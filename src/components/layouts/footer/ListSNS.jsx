@@ -40,7 +40,11 @@ export default function ListSNS({ color = 'grayLv2' }) {
     <ul className={styles.list}>
       {SNSList.map((sns, index) => (
         <li key={index}>
-          <BtnIcon href={sns.href} target={sns.target}>
+          <BtnIcon
+            className={styles.snsBtn}
+            href={sns.href}
+            target={sns.target}
+          >
             {sns.icon}
           </BtnIcon>
         </li>
