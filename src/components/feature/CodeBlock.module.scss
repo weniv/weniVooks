@@ -1,14 +1,13 @@
 .editor {
   display: flex;
   flex-direction: column;
-  width: 990px;
-  //   height: 224px;
-  height: 336px;
+  width: 61.875rem;
+  height: auto;
   justify-content: center;
   background-color: #fff;
-  margin: 50px;
   border: 1px solid #d9dbe0;
   border-radius: 8px;
+  margin: 0 auto// 삭제요망;
 }
 
 .taskbar {
@@ -31,4 +30,7 @@
 .resultbar {
   border-top: 1px solid #d9dbe0;
   padding: 20px;
+  white-space: pre;
+  font-size: 16px;
+  line-height: 22px;
 }
