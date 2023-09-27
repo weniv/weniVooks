@@ -9,10 +9,9 @@
 
   &,
   svg path {
-    transition: background-color 0.3s;
+    transition: all 0.3s;
   }
 
-  &.active,
   &:hover {
     background-color: var(--activation);
     svg path {

@@ -1,0 +1,13 @@
+@import '@/styles/theme.scss';
+
+.topBtn {
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+  position: fixed;
+  bottom: 3.2rem;
+  right: 3.2rem;
+  padding: 0;
+
+  background-color: var(--background);
+}
