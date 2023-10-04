@@ -5,6 +5,7 @@ import { useEffect, useRef, useState } from 'react';
 
 import styles from './SettingBtn.module.scss';
 import SettingModal from './SettingModal';
+import classNames from 'classnames';
 
 export default function SettingBtn() {
   const [isOpen, setIsOpen] = useState(false);
@@ -44,8 +45,7 @@ export default function SettingBtn() {
         children={
           <SVGSetting alt="설정" color={isOpen ? 'primary' : 'grayLv4'} />
         }
-        active={isOpen ? 'active' : null}
-        border="none"
+        className={classNames(styles.btnSetting, isOpen ? styles.active : null)}
         onClick={handleToggle}
       />
 
