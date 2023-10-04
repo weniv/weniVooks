@@ -91,15 +91,12 @@ export default function codeBlock({ lang = 'javascript' }) {
       const returnVal = code && code.match(regex)[1].toString();
       try {
         const result = new Function(returnVal)();
-        console.log(typeof result);
-        if (result instanceof Set) {
-          setResult(Array.from(result).join('\n'));
-        } else if (
-          Object.prototype.toString.call(result) === '[object Object]'
-        ) {
+        if (Object.prototype.toString.call(result) === '[object Object]') {
           setResult('object is not iterable');
+        } else if (result instanceof Set) {
+          setResult(Array.from(result));
         } else {
-          setResult(Array.isArray(result) ? result.join('\n') : String(result));
+          setResult(result);
         }
       } catch (err) {
         setResult(err.toString());
@@ -121,8 +118,10 @@ export default function codeBlock({ lang = 'javascript' }) {
       <div
         className={styles.editor}
         onKeyDown={(e) => {
-          e.preventDefault(),
-            e.keyCode === 13 && e.shiftKey ? printCode(lang) : null;
+          if (e.key === 'Enter' && e.shiftKey) {
+            e.preventDefault();
+            printCode(lang);
+          }
         }}
       >
         <div className={styles.taskbar}>
@@ -151,7 +150,7 @@ export default function codeBlock({ lang = 'javascript' }) {
         <div className={styles.resultbar}>
           {(result && result === undefined) || result == null
             ? 'undefined'
-            : result}
+            : JSON.stringify(result).replaceAll('"', '')}
         </div>
       </div>
     </>
