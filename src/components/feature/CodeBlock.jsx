@@ -156,6 +156,3 @@ export default function codeBlock({ lang = 'javascript' }) {
     </>
   );
 }
-
-// 툴팁
-// https://inpa.tistory.com/entry/CSS-%F0%9F%92%8D-%ED%88%B4%ED%8C%81-%EB%94%94%EC%9E%90%EC%9D%B8-%F0%9F%96%8C%EF%B8%8F-%EB%AA%A8%EC%9D%8C
