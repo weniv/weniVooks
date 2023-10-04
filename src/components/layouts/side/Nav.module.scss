@@ -31,6 +31,9 @@
 
   // 1depth
   // & > li > div > a,
+  & > li {
+    margin: 3px;
+  }
   & > li > a {
     padding-left: 4rem;
   }

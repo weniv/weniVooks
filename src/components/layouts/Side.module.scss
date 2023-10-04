@@ -13,6 +13,7 @@
 
   nav {
     flex-grow: 1;
+    padding-bottom: 1rem;
   }
 }
 
@@ -27,4 +28,29 @@
   margin: 0.4rem 1rem;
   border: none;
   position: absolute;
+}
+
+.show {
+  animation: slideIn 0.3s both;
+}
+.hide {
+  animation: slideOut 0.3s both;
+}
+
+@keyframes slideIn {
+  from {
+    margin-left: -32rem;
+  }
+  to {
+    margin-left: 0;
+  }
+}
+
+@keyframes slideOut {
+  from {
+    margin-left: 0;
+  }
+  to {
+    margin-left: -32rem;
+  }
 }

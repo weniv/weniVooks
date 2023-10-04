@@ -1,6 +1,6 @@
 'use client';
 
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Footer from './Footer';
 import BtnIcon from '../common/button/BtnIcon';
 import SVGList from '../svg/SVGList';
@@ -12,20 +12,34 @@ import Nav from './side/Nav';
 
 export default function Side(props) {
   const [isMenuShow, setIsMenuShow] = useState(true);
+  const [isSlide, setIsSlide] = useState(true);
 
-  const toggleMenu = () => {
-    setIsMenuShow((prev) => !prev);
+  const slideIn = () => {
+    setIsMenuShow(true);
+    setIsSlide(true);
+  };
+
+  const slideOut = () => {
+    setIsSlide(false);
+    setTimeout(() => {
+      setIsMenuShow(false);
+    }, 300);
   };
 
   return (
     <>
       {isMenuShow ? (
-        <div className={classNames(styles.side)}>
+        <div
+          className={classNames(
+            styles.side,
+            isSlide ? styles.show : styles.hide,
+          )}
+        >
           <Nav {...props} />
           <BtnIcon
             className={styles.btnClose}
             children={<SVGListClose color="grayLv3" />}
-            onClick={toggleMenu}
+            onClick={slideOut}
           />
           <Footer />
         </div>
@@ -36,7 +50,7 @@ export default function Side(props) {
             isMenuShow ? styles.btnHide : styles.btnShow,
           )}
           children={<SVGList color="grayLv3" />}
-          onClick={toggleMenu}
+          onClick={slideIn}
         />
       )}
     </>
