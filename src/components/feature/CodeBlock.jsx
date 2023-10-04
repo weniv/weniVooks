@@ -73,8 +73,7 @@ export default function codeBlock({ lang = 'javascript' }) {
     }
   }, [theme, code, editor]);
 
-  const printCode = async (e) => {
-    e.preventDefault();
+  const printCode = async (lang) => {
     window.localStorage.setItem(`${lang}Code`, code);
     if (lang === 'python') {
       try {
@@ -92,6 +91,7 @@ export default function codeBlock({ lang = 'javascript' }) {
       const returnVal = code && code.match(regex)[1].toString();
       try {
         const result = new Function(returnVal)();
+        console.log(typeof result);
         if (result instanceof Set) {
           setResult(Array.from(result).join('\n'));
         } else if (
@@ -120,20 +120,30 @@ export default function codeBlock({ lang = 'javascript' }) {
     <>
       <div
         className={styles.editor}
-        onKeyDown={(e) =>
-          e.keyCode === 13 && e.shiftKey ? printCode(e) : null
-        }
+        onKeyDown={(e) => {
+          e.preventDefault(),
+            e.keyCode === 13 && e.shiftKey ? printCode(lang) : null;
+        }}
       >
         <div className={styles.taskbar}>
-          <button onClick={(e) => printCode(e)}>
+          <button
+            onClick={() => {
+              printCode(lang);
+            }}
+          >
             <ExecutionIcon alt="코드 실행 버튼" />
           </button>
           <div>
-            <button onClick={copyCode}>
+            <button onClick={copyCode} className={styles.tooltip}>
               <CopyIcon alt="코드 복사 버튼" />
+              <span className={styles.tooltipText}>복사하기</span>
             </button>
-            <button>
+            <button className={styles.tooltip}>
               <HelpCircleIcon alt="코드 블록 사용법 알림" />
+              <span className={styles.tooltipText}>
+                Shift-ENTER 또는
+                <br /> 왼쪽 플레이 버튼을 누르면 실행됩니다.
+              </span>
             </button>
           </div>
         </div>
