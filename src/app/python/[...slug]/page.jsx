@@ -1,3 +1,3 @@
-export default function Page({ params }) {
-  return <>{params.slug}</>;
+export default function Page() {
+  return <>내용입력</>;
 }

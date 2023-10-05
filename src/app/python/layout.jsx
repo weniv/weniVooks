@@ -1,4 +1,3 @@
-import '@/styles/globals.scss';
 import Header from '@/components/layouts/Header';
 import BtnTop from '@/components/feature/BtnTop';
 
