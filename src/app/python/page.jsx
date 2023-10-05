@@ -1,3 +1,3 @@
 export default function Home() {
-  return <>내용내용!</>;
+  return <>파이썬 부트캠프 메인</>;
 }

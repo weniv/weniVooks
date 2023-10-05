@@ -1,0 +1,56 @@
+.side {
+  width: 32rem;
+  height: calc(100vh - 7.4rem);
+  position: sticky;
+  top: 7.4rem;
+
+  background-color: var(--background);
+  border-right: 1px solid var(--grayLv2);
+
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+
+  nav {
+    flex-grow: 1;
+    padding-bottom: 1rem;
+  }
+}
+
+.btnClose {
+  position: absolute;
+  top: 0.4rem;
+  right: 0.4rem;
+  border: none;
+}
+
+.btnOpen {
+  margin: 0.4rem 1rem;
+  border: none;
+  position: absolute;
+}
+
+.show {
+  animation: slideIn 0.3s both;
+}
+.hide {
+  animation: slideOut 0.3s both;
+}
+
+@keyframes slideIn {
+  from {
+    margin-left: -32rem;
+  }
+  to {
+    margin-left: 0;
+  }
+}
+
+@keyframes slideOut {
+  from {
+    margin-left: 0;
+  }
+  to {
+    margin-left: -32rem;
+  }
+}

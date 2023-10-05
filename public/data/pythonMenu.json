@@ -1,0 +1,152 @@
+{
+  "bookTitle": "파이썬 부트캠프",
+  "link": "/python",
+  "menu": [
+    {
+      "id": 0,
+      "title": "00. 들어가기 전",
+      "link": "/python/chapter00",
+      "sections": [
+        {
+          "id": 101,
+          "title": "머리말",
+          "link": "/python/chapter00/hello"
+        },
+        {
+          "id": 102,
+          "title": "저자소개",
+          "link": "/python/chapter00/writer"
+        }
+      ]
+    },
+    {
+      "id": 1,
+      "title": "01. 파이썬과 인사하기",
+      "link": "/python/chapter01",
+      "sections": [
+        {
+          "title": "파이썬과 파이썬을 만든 사람들",
+          "link": "/python/chapter01/creators"
+        },
+        {
+          "title": "파이썬으로 할 수 있는 것",
+          "link": "/python/chapter01/possibilities"
+        },
+        {
+          "title": "파이썬 학습방법",
+          "link": "/python/chapter01/learning-methods"
+        }
+      ]
+    },
+
+    {
+      "id": 2,
+      "title": "02. 파이썬 시작하기",
+      "link": "/python/chapter02",
+      "sections": [
+        {
+          "title": "Colab 사용법",
+          "link": "/python/chapter02/colab"
+        },
+        {
+          "title": "주석",
+          "link": "/python/chapter02/comments"
+        },
+        {
+          "title": "입력(input)과 출력(print)",
+          "link": "/python/chapter02/input-print"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "03. 타입",
+      "link": "/python/chapter03",
+      "sections": [
+        {
+          "title": "변수",
+          "link": null
+        },
+        {
+          "title": "정수(int) 자료형",
+          "link": null
+        },
+        {
+          "title": "실수(float) 자료형",
+          "link": null
+        },
+        {
+          "title": "복소수(complex) 자료형",
+          "link": null
+        },
+        {
+          "title": "문자열(str) 자료형",
+          "link": null
+        },
+        {
+          "title": "논리(bool) 자료형",
+          "link": null
+        },
+        {
+          "title": "None 자료형",
+          "link": null
+        },
+        {
+          "title": "메서드 체이닝",
+          "link": null
+        },
+        {
+          "title": "형변환",
+          "link": null
+        },
+        {
+          "title": "연습문제",
+          "link": null
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "title": "04. 연산과 구문",
+      "link": "/python/chapter04",
+      "sections": [
+        {
+          "title": "연산자",
+          "link": null
+        },
+        {
+          "title": "산술 연산",
+          "link": null
+        },
+        {
+          "title": "비교 연산",
+          "link": null
+        },
+        {
+          "title": "논리 연산",
+          "link": null
+        },
+        {
+          "title": "할당 연산",
+          "link": null
+        },
+        {
+          "title": "식별 연산",
+          "link": null
+        },
+        {
+          "title": "멤버 연산",
+          "link": null
+        },
+        {
+          "title": "연산과 연산자 우선순위",
+          "link": null
+        },
+        {
+          "title": "연습문제",
+          "link": null
+        }
+      ]
+    }
+  ]
+}
