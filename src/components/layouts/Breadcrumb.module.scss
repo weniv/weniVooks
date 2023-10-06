@@ -1,0 +1,23 @@
+.breadcrumb {
+  display: flex;
+  height: 5rem;
+  align-items: center;
+  gap: 0.4rem;
+  transform: translateX(-0.6rem);
+  li:not(:first-child)::before {
+    content: '>';
+    margin-right: 0.4rem;
+  }
+
+  a {
+    font-size: 1.4rem;
+    padding: 0.4rem 0.6rem;
+    border-radius: 0.4rem;
+  }
+  a:hover {
+    background-color: var(--activation);
+  }
+  li:last-child a {
+    font-weight: bold;
+  }
+}

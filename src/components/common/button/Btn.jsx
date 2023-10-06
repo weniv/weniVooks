@@ -14,20 +14,22 @@ export default function Btn(props) {
   if (href) {
     return (
       <Link
+        {...props}
         href={href}
         className={buttonClass}
-        {...props}
-        style={{ width: size ? `${size}rem` : null }}>
+        style={{ width: size ? `${size}rem` : null }}
+      >
         {children}
       </Link>
     );
   }
   return (
     <button
+      {...props}
       type={type}
       className={buttonClass}
       style={{ width: size ? `${size}rem` : null }}
-      {...props}>
+    >
       {children}
     </button>
   );
