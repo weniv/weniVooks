@@ -1,11 +1,17 @@
 import { Client } from '@notionhq/client';
 import { NotionToMarkdown } from 'notion-to-md';
 
-async function getData() {
-  const notion = new Client({
-    auth: process.env.NOTION_KEY,
-  });
+const notion = new Client({ auth: process.env.NOTION_KEY });
+const n2m = new NotionToMarkdown({
+  notionClient: notion,
+  // // 옵션들
+  // config: {
+  //   separateChildPage: true,
+  //   parseChildPages: false,
+  // },
+});
 
+async function getData() {
   const pages = await notion.pages.retrieve({
     page_id: process.env.PAGE_ID,
     // property_id:
@@ -24,10 +30,6 @@ async function getData() {
 }
 
 async function getDBData() {
-  const notion = new Client({
-    auth: process.env.NOTION_KEY,
-  });
-
   const dbs = await notion.databases.retrieve({
     database_id: process.env.DB_ID,
   });
@@ -38,16 +40,6 @@ async function getDBData() {
 }
 
 async function getDataMd() {
-  const notion = new Client({ auth: process.env.NOTION_KEY });
-  const n2m = new NotionToMarkdown({
-    notionClient: notion,
-    // // 옵션들
-    // config: {
-    //   separateChildPage: true,
-    //   parseChildPages: false,
-    // },
-  });
-
   // 테스트용으로 10/10 회의록 내용을 출력
   const mdblocks = await n2m.pageToMarkdown(process.env.PAGE_ID_SAMPLE);
   const mdstring = n2m.toMarkdownString(mdblocks).parent;
