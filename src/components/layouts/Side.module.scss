@@ -15,6 +15,10 @@
     flex-grow: 1;
     padding-bottom: 1rem;
   }
+
+  & + div {
+    margin-left: 2rem;
+  }
 }
 
 .btnClose {
@@ -28,6 +32,7 @@
   margin: 0.4rem 1rem;
   border: none;
   position: absolute;
+  transition: all 0.2s;
 }
 
 .show {

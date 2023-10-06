@@ -1,7 +1,7 @@
 {
   "bookTitle": "파이썬 부트캠프",
   "link": "/python",
-  "menu": [
+  "sections": [
     {
       "id": 0,
       "title": "00. 들어가기 전",

@@ -1,12 +1,12 @@
 import Breadcrumb from '@/components/layouts/Breadcrumb';
 
-export default function Home() {
+export default function Layout({ children, params }) {
   const pythonMenu = require('public/data/pythonMenu.json');
 
   return (
     <>
-      <Breadcrumb data={pythonMenu} />
-      파이썬 부트캠프 메인
+      <Breadcrumb slug={params.slug} data={pythonMenu} />
+      {children}
     </>
   );
 }

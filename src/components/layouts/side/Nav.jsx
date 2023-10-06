@@ -8,10 +8,9 @@ import styles from './Nav.module.scss';
 import SVGNavArrow from '@/components/svg/SVGNavArrow';
 
 const MenuItem = (props) => {
-  const [fold, setFold] = useState(false);
-
-  const path = usePathname();
   const { title, link, sections } = props;
+  const [fold, setFold] = useState(false);
+  const path = usePathname();
 
   const toggleList = () => {
     setFold(!fold);
@@ -48,7 +47,7 @@ const MenuItem = (props) => {
 };
 
 export default function Nav({ data }) {
-  const { bookTitle, link, menu } = data;
+  const { bookTitle, link, sections } = data;
   return (
     <>
       <h2 className={styles.title}>
@@ -57,7 +56,7 @@ export default function Nav({ data }) {
 
       <nav className={styles.nav}>
         <ol className={styles.menu}>
-          {menu.map((data, index) => (
+          {sections.map((data, index) => (
             <MenuItem key={index} {...data} />
           ))}
         </ol>
