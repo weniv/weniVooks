@@ -1,0 +1,35 @@
+.page {
+  position: fixed;
+  bottom: 3.2rem;
+  right: 9.8rem;
+  display: flex;
+  gap: 0.8rem;
+}
+
+.btnPrev,
+.btnNext {
+  span {
+    display: none;
+  }
+  &:not(:disabled):hover {
+    width: auto;
+    padding: 0 1.2rem;
+    background-color: var(--primary);
+    border-color: var(--primary);
+    color: #fff;
+    svg path {
+      fill: #fff;
+    }
+
+    span {
+      display: flex;
+    }
+  }
+}
+.btnPrev span {
+  margin-right: 1rem;
+}
+
+.btnNext span {
+  margin-left: 1rem;
+}
