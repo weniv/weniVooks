@@ -17,4 +17,7 @@
   a:hover {
     background-color: var(--activation);
   }
+  li:last-child a {
+    font-weight: bold;
+  }
 }
