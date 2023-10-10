@@ -37,6 +37,7 @@ export default function codeBlock({ lang = 'javascript' }) {
   const [code, setCode] = useState(getSaveCode());
   const [editor, setEditor] = useState(null); // CodeMirror 인스턴스를 관리
   const [result, setResult] = useState('결과 값');
+  const [color, setColor] = useState('#121314');
   const [theme, setTheme] = useState('default');
 
   const { codeTheme } = useContext(SettingContext);
@@ -83,6 +84,7 @@ export default function codeBlock({ lang = 'javascript' }) {
           },
         });
         setResult(result.data.result);
+        setColor(result.data.color);
       } catch (err) {
         console.log(err);
       }
@@ -153,7 +155,7 @@ export default function codeBlock({ lang = 'javascript' }) {
           </div>
         </div>
         <textarea ref={codeMirrorRef}></textarea>
-        <div className={styles.resultbar}>
+        <div className={styles.resultbar} style={{ color: color }}>
           {JSON.stringify(result).startsWith('"') &&
           JSON.stringify(result).endsWith('"')
             ? JSON.stringify(result).slice(1, -1)

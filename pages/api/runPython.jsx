@@ -18,22 +18,47 @@ export default (req, res) => {
     formattingCode = code;
   }
 
-  console.log('formattingCode', formattingCode);
-
   try {
+    const color = '#165a32';
     const pythonProcess = spawnSync('python', ['-c', formattingCode]);
     const pythonResult = pythonProcess.stdout
       .toString()
       .replace(/[\r\n]+/g, '');
 
-    console.log('Python 결과:', pythonResult);
+    const obj = typeCheck(pythonResult, color);
 
     if (!pythonResult) {
       throw new Error();
     }
 
-    res.status(200).json({ result: pythonResult });
+    // console.log('obj', obj);
+
+    res.status(200).json(obj);
   } catch (err) {
-    res.status(200).json({ result: 'Python 결과가 에러입니다.' });
+    res
+      .status(200)
+      .json({ result: 'Python 결과가 에러입니다.', color: '#C93864' });
   }
+};
+
+const typeCheck = (result, color) => {
+  let typeResult = result;
+  let typeColor = color;
+  if (/^\d+$/.test(result)) {
+    // 숫자 타입인지 확인
+    typeColor = '#328026';
+  } else if (/\[[^\]]*\]|\([^)]*\)|\{[^}]*\}|{[^}]*}/g.test(result)) {
+    // list, set, tuple, dict 타입인지 확인
+    typeColor = '#121314';
+  } else if (result === 'True' || result === 'False') {
+    // boolean 타입인지 확인
+    typeColor = '#C93864';
+  } else {
+    // 문자열 타입의 경우
+    typeResult = `'${result}'`;
+    typeColor = '#2E5DD6';
+  }
+
+  const resultObj = { result: typeResult, color: typeColor };
+  return resultObj;
 };
