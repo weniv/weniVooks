@@ -6,7 +6,7 @@ export default (req, res) => {
 
   const code = req.query.code
     .split('):')[1]
-    ?.replace('\r', '')
+    .replace('\r', '')
     .replace(/^\s+/gm, '');
 
   // return은 실행이 안되므로 print로 실행가능하도록 포맷팅
@@ -18,12 +18,15 @@ export default (req, res) => {
     formattingCode = code;
   }
 
+  console.log('formattingCode', formattingCode);
+
   try {
     const pythonProcess = spawnSync('python', ['-c', formattingCode]);
-
     const pythonResult = pythonProcess.stdout
       .toString()
       .replace(/[\r\n]+/g, '');
+
+    console.log('Python 결과:', pythonResult);
 
     if (!pythonResult) {
       throw new Error();

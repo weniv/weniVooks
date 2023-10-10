@@ -82,7 +82,6 @@ export default function codeBlock({ lang = 'javascript' }) {
             code: code && code,
           },
         });
-        // console.log('python', result.data.result);
         setResult(result.data.result);
       } catch (err) {
         console.log(err);
