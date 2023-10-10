@@ -82,13 +82,14 @@ export default function codeBlock({ lang = 'javascript' }) {
             code: code && code,
           },
         });
+        // console.log('python', result.data.result);
         setResult(result.data.result);
       } catch (err) {
         console.log(err);
       }
     } else {
       const regex = /{([\s\S]*)}/;
-      const returnVal = code && code?.match(regex)[1]?.toString();
+      const returnVal = code && code.match(regex)[1]?.toString();
       try {
         const result = new Function(returnVal)();
         if (Object.prototype.toString.call(result) === '[object Object]') {
@@ -98,7 +99,11 @@ export default function codeBlock({ lang = 'javascript' }) {
         } else if (result === undefined) {
           setResult('undefined');
         } else {
-          setResult(result);
+          if (typeof result === 'string') {
+            setResult(`'${result}'`);
+          } else {
+            setResult(result);
+          }
         }
       } catch (err) {
         setResult(err.toString());
