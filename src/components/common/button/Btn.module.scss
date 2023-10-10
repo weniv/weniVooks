@@ -2,24 +2,28 @@
 
 .btn {
   height: 4.2rem;
-  border: 1px solid var(--grayLv2);
-  border-radius: $borderRadius;
-  box-sizing: border-box;
   padding: 0 2rem;
+  border-radius: $borderRadius;
+
+  box-sizing: border-box;
+  border: 1px solid var(--grayLv2);
+
   color: var(--grayLv4);
-  background-color: var(--background);
+
   transition: all 0.3s;
 
   svg path {
     transition: all 0.3s;
   }
 
+  // disabled
   &:disabled {
     background-color: var(--grayLv2);
     opacity: 0.4;
     border: 0;
   }
 
+  // hover
   &:not(:disabled):hover {
     color: var(--primary);
     background-color: var(--grayLv1);
@@ -28,21 +32,27 @@
       fill: var(--primary);
     }
   }
-  // solid
-  &.solid,
-  &.solid:not(:disabled):hover {
-    border-color: var(--primary);
-    background-color: var(--primary);
-    color: var(--background);
-  }
-
-  // border
-  &.borderNone {
-    border: 0;
-  }
 }
+
 a.btn {
-  display: inline-flex;
+  display: flex;
   align-items: center;
   justify-content: center;
+}
+
+// solid
+.solid,
+.solid:not(:disabled):hover {
+  border-color: var(--primary);
+  background-color: var(--primary);
+  color: var(--background);
+
+  svg path {
+    fill: var(--background);
+  }
+}
+
+// 테두리 없음
+.borderNone {
+  border: 0;
 }
