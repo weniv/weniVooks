@@ -10,12 +10,12 @@ export default function Btn(props) {
     type = 'button',
     className,
     solid,
-    borderNone,
+    bordernone,
   } = props;
 
   const btnStyle = classNames(
     solid && styles.solid,
-    borderNone && styles.borderNone,
+    bordernone && styles.borderNone,
     className,
     styles.btn,
   );
