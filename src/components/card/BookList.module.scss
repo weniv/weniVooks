@@ -1,0 +1,16 @@
+@import '@/styles/var.scss';
+@import '@/styles/function.scss';
+.bookList {
+  width: calc(100% - ($padding * 2));
+  max-width: $maxWidth;
+
+  margin: fcSize(32, 80) auto;
+
+  display: grid;
+  gap: fcSize(32, 46);
+  grid-template-columns: repeat(2, 1fr);
+
+  @media screen and (max-width: 1024px) {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
