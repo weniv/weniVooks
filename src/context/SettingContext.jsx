@@ -6,7 +6,7 @@ export default function SettingProvider({ children }) {
   const [theme, setTheme] = useState(null);
   const [codeTheme, setCodeTheme] = useState(null);
   const [fontStyle, setFontStyle] = useState(null);
-  const [fontSize, setFontSize] = useState(null);
+  const [fontSize, setFontSize] = useState('2');
 
   useEffect(() => {
     const savedTheme = localStorage.getItem('theme');
@@ -17,6 +17,9 @@ export default function SettingProvider({ children }) {
 
     const savedCodeTheme = localStorage.getItem('codeTheme');
     setCodeTheme(savedCodeTheme === null ? null : savedCodeTheme);
+
+    const savedFontSize = localStorage.getItem('fontSize');
+    setFontSize(savedFontSize === null ? '2' : savedFontSize);
   }, []);
 
   return (
@@ -30,7 +33,8 @@ export default function SettingProvider({ children }) {
         setFontStyle,
         fontSize,
         setFontSize,
-      }}>
+      }}
+    >
       {children}
     </SettingContext.Provider>
   );

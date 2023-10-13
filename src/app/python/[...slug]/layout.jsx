@@ -1,4 +1,5 @@
 import Breadcrumb from '@/components/layouts/Breadcrumb';
+import LayoutMain from '@/components/layouts/LayoutMain';
 
 export default function Layout({ children, params }) {
   const pythonMenu = require('public/data/pythonMenu.json');
@@ -6,7 +7,7 @@ export default function Layout({ children, params }) {
   return (
     <>
       <Breadcrumb slug={params.slug} data={pythonMenu} />
-      {children}
+      <LayoutMain>{children}</LayoutMain>
     </>
   );
 }

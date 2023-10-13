@@ -3,9 +3,9 @@ import { usePathname } from 'next/navigation';
 
 import styles from './Page.module.scss';
 
-import BtnCircle from '@/components/common/button/BtnCircle';
 import SVGNextArrow from '@/components/svg/SVGNextArrow';
 import SVGPrevArrow from '@/components/svg/SVGPrevArrow';
+import Btn from '../common/button/Btn';
 
 export default function Page() {
   const data = require('public/data/pythonMenu.json');
@@ -81,22 +81,14 @@ export default function Page() {
 
   return (
     <div className={styles.page}>
-      <BtnCircle
-        className={styles.btnPrev}
-        href={prev && prev.link}
-        disabled={!prev}
-      >
+      <Btn className={styles.btnPrev} href={prev && prev.link} disabled={!prev}>
         <SVGPrevArrow color="grayLv3" />
         <span>{prev && prev.title}</span>
-      </BtnCircle>
-      <BtnCircle
-        className={styles.btnNext}
-        href={next && next.link}
-        disabled={!next}
-      >
+      </Btn>
+      <Btn className={styles.btnNext} href={next && next.link} disabled={!next}>
         <span>{next && next.title}</span>
         <SVGNextArrow color="grayLv3" />
-      </BtnCircle>
+      </Btn>
     </div>
   );
 }
