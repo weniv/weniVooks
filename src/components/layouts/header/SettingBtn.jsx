@@ -47,7 +47,7 @@ export default function SettingBtn() {
         }
         className={classNames(styles.btnSetting, isOpen ? styles.active : null)}
         onClick={handleToggle}
-        borderNone
+        bordernone="true"
       />
 
       {isOpen && <SettingModal />}

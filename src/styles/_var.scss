@@ -1,3 +1,4 @@
+@import '@/styles/function.scss';
 // color
 $background: #fff;
 $primary: #2e6ff2;
@@ -8,6 +9,16 @@ $grayLv4: #47494d;
 $activation: #dee8ff;
 
 // size
+$maxWidth: 119rem;
+$padding: 2.4rem;
+$bannerHeight: fcSize(240, 400);
+
 $headerHeight: 7rem;
 $scrollBarHeight: 0.4rem;
-$borderRadius: 1rem;
+$borderRadius: 0.625em;
+
+$breakPoint: (
+  mobile: 640px,
+  tablet: 1024px,
+  pc: 1190px,
+);

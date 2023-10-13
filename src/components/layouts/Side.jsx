@@ -40,7 +40,7 @@ export default function Side(props) {
             className={styles.btnClose}
             children={<SVGListClose color="grayLv3" />}
             onClick={slideOut}
-            borderNone
+            bordernone="true"
           />
           <Footer />
         </div>
@@ -52,7 +52,7 @@ export default function Side(props) {
           )}
           children={<SVGList color="grayLv3" />}
           onClick={slideIn}
-          borderNone
+          bordernone="true"
         />
       )}
     </>
