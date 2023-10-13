@@ -2,6 +2,7 @@ import styles from './layout.module.scss';
 
 import Aside from '@/components/layouts/Aside';
 import Breadcrumb from '@/components/layouts/Breadcrumb';
+import LayoutMain from '@/components/layouts/LayoutMain';
 
 export default function Layout({ children, params }) {
   const pythonMenu = require('public/data/pythonMenu.json');
@@ -10,7 +11,8 @@ export default function Layout({ children, params }) {
     <>
       <div className={styles.subContent}>
         <Breadcrumb slug={params.slug} data={pythonMenu} />
-        <main>{children}</main>
+        <LayoutMain>{children}</LayoutMain>
+        {/* <main>{children}</main> */}
       </div>
       <Aside />
     </>

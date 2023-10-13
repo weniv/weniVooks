@@ -1,16 +1,15 @@
-import Link from 'next/link';
-import styles from './page.module.scss';
-
 import Header from '@/components/layouts/Header';
 import Footer from '@/components/layouts/Footer';
+import Banner from '@/components/banner/Banner';
+import BookList from '@/components/card/BookList';
 
 export default function Home() {
   return (
     <>
       <Header />
       <div className="layout-grow">
-        WeniVooks
-        <Link href="/python">python 링크이동</Link>
+        <Banner />
+        <BookList />
       </div>
       <Footer intro={true} />
     </>
