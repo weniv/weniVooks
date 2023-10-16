@@ -1,9 +1,10 @@
+@import '@/styles/var.scss';
+
 .side {
   width: 32rem;
-  height: calc(100vh - 7.4rem);
+  height: calc(100vh - $headerHeight);
   position: sticky;
-  top: 7.4rem;
-
+  top: $headerHeight;
   background-color: var(--background);
   border-right: 1px solid var(--grayLv2);
 
@@ -18,6 +19,14 @@
 
   & + div {
     margin-left: 2rem;
+  }
+}
+@media screen and (max-width: map-get($breakPoint, tablet)) {
+  .side {
+    // position: fixed;
+    // height: 100vh;
+    // top: 0;
+    // z-index: 100;
   }
 }
 

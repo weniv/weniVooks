@@ -1,7 +1,7 @@
 @import '@/styles/var.scss';
 .header {
   width: 100%;
-  height: fcSize(60, 74);
+  height: $headerHeight;
   display: flex;
   align-items: center;
   border-bottom: 4px solid var(--grayLv2);
@@ -10,7 +10,7 @@
   z-index: 100;
   background-color: var(--background);
 
-  position: sticky;
+  position: fixed;
   top: 0;
   left: 0;
 
