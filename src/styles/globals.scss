@@ -75,6 +75,7 @@ html {
   font-size: 62.5%;
 }
 body {
+  min-width: 320px;
   font-size: fcSize(14, 16);
   font-family: 'Pretendard', sans-serif;
   color: var(--surface);
@@ -156,6 +157,7 @@ input[type='search']::-webkit-search-cancel-button {
 // layout
 .layout-grow {
   flex-grow: 1;
+  width: 100%;
 }
 
 .size0 {
