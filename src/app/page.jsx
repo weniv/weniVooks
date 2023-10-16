@@ -6,7 +6,7 @@ import BookList from '@/components/card/BookList';
 export default function Home() {
   return (
     <>
-      <Header />
+      <Header scroll="false" />
       <div className="layout-grow">
         <Banner />
         <BookList />

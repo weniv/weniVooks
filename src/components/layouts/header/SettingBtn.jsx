@@ -16,8 +16,23 @@ export default function SettingBtn() {
   };
 
   useEffect(() => {
+    if (isOpen) {
+      document.body.style.cssText = `
+      overflow: hidden;
+      position: relative;
+      height: 100%;`;
+    }
+    return () => {
+      document.body.removeAttribute('style');
+    };
+  }, [isOpen]);
+
+  useEffect(() => {
     const handleOutsideClick = (e) => {
-      if (!modalRef.current.contains(e.target)) {
+      if (
+        !modalRef.current.contains(e.target) ||
+        e.target.dataset.dim === 'dim'
+      ) {
         setIsOpen(false);
       }
     };
