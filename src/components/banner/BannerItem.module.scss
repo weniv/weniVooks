@@ -2,6 +2,7 @@
 @import '@/styles/function.scss';
 
 .bannerItem {
+  color: #121314;
   width: $maxWidth;
   max-width: calc(100% - 4.8rem);
   height: $bannerHeight;
@@ -22,7 +23,7 @@
 }
 .category {
   display: inline-block;
-  background-color: var(--background);
+  background-color: #fff;
   color: var(--primary);
   font-weight: bold;
   font-size: 1.4rem;
