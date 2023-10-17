@@ -11,13 +11,17 @@ export default function SettingProvider({ children }) {
 
   useEffect(() => {
     const savedTheme = localStorage.getItem('theme');
-    setTheme(savedTheme === null ? 'auto' : savedTheme);
+    setTheme(savedTheme !== null && savedTheme);
+
     const savedFontStyle = localStorage.getItem('fontStyle');
-    setFontStyle(savedFontStyle === null ? 'sansSerif' : savedFontStyle);
+    setFontStyle(savedFontStyle !== null && savedFontStyle);
+
     const savedCodeTheme = localStorage.getItem('codeTheme');
-    setCodeTheme(savedCodeTheme === null ? null : savedCodeTheme);
+    setCodeTheme(savedCodeTheme !== null && savedCodeTheme);
+
     const savedFontSize = localStorage.getItem('fontSize');
     setFontSize(savedFontSize === null ? '2' : savedFontSize);
+
     const savedOpen = localStorage.getItem('isOpenMenu');
     setIsOpenMenu(savedOpen === 'false' ? false : true);
   }, []);
