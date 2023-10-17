@@ -15,6 +15,7 @@ export default function SearchForm() {
         type="submit"
         className={styles.btnSearch}
         children={<SVGSearch color="grayLv4" />}
+        bordernone="true"
       ></BtnIcon>
     </form>
   );

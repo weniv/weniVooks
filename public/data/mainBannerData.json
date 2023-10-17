@@ -1,0 +1,32 @@
+[
+  {
+    "bgcolor": "#B6F187",
+    "thumbnail": "/img/main-banner-img1.png",
+    "category": "위니북스 새/소/식",
+    "title": "신규 온라인 강의 출시!",
+    "description": [
+      "위니브와 함께하는 파이썬 완전 정복 온라인 강의가 출시되었습니다.",
+      "얼리버드 20% 할인 혜택을 놓치지 마세요!"
+    ]
+  },
+  {
+    "thumbnail": "",
+    "category": "Badge",
+    "title": "배너의 제목이 들어갑니다.",
+    "description": [
+      "배너의 내용이 들어갑니다",
+      "두번째 줄은 굵은 글자로 들어갑니다"
+    ],
+    "link": "#"
+  },
+  {
+    "bgcolor": "#B6F187",
+    "thumbnail": "/img/main-banner-img1.png",
+    "category": "위니북스 새/소/식",
+    "title": "신규 온라인 강의 출시!",
+    "description": [
+      "위니브와 함께하는 파이썬 완전 정복 온라인 강의가 출시되었습니다.",
+      "얼리버드 20% 할인 혜택을 놓치지 마세요!"
+    ]
+  }
+]

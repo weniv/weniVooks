@@ -5,7 +5,6 @@ import { throttle } from 'lodash';
 import styles from './BtnTop.module.scss';
 
 import SVGTop from '../svg/SVGTop';
-import BtnCircle from '../common/button/BtnCircle';
 
 export default function BtnTop() {
   const [show, setShow] = useState(false);
@@ -33,7 +32,7 @@ export default function BtnTop() {
 
   if (show) {
     return (
-      <BtnCircle
+      <button
         className={styles.topBtn}
         onClick={scrollToTop}
         children={<SVGTop alt="상단으로" color="grayLv3" />}

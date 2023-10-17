@@ -1,0 +1,43 @@
+import Btn from '../common/button/Btn';
+import styles from './BookItem.module.scss';
+
+export default function BookItem({ data }) {
+  const {
+    thumbnail,
+    type,
+    title,
+    publisher,
+    price,
+    description,
+    booklink,
+    classlink,
+  } = data;
+
+  return (
+    <article className={styles.bookItem}>
+      <div className={styles.thumbnail}>
+        {thumbnail && <img src={thumbnail} alt="" />}
+      </div>
+      <div className={styles.content}>
+        <p className={styles.info}>
+          주식회사 위니브 <wbr />| 출판사: {publisher}
+        </p>
+        <h3 className={styles.title}>{title}</h3>
+        {price && (
+          <p className={styles.price}>
+            {type} <strong>{price}</strong>
+          </p>
+        )}
+        <p className={styles.desc}>{description}</p>
+      </div>
+      <div className={styles.btnGroup}>
+        {booklink && (
+          <Btn href={booklink} solid="true">
+            Web-book
+          </Btn>
+        )}
+        {classlink && <Btn href={classlink}>온라인 강의</Btn>}
+      </div>
+    </article>
+  );
+}

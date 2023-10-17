@@ -1,0 +1,86 @@
+@import '@/styles/var.scss';
+.bookItem {
+  width: 100%;
+  display: grid;
+  grid-template-areas:
+    'thumbnail content'
+    'thumbnail button';
+  gap: 2.4rem 3.2rem;
+
+  grid-template-columns: min-content 1fr;
+  grid-template-rows: 1fr min-content;
+
+  @media screen and (max-width: 640px) {
+    grid-template-areas:
+      'thumbnail content'
+      'button button';
+    gap: 1.6rem;
+  }
+}
+.thumbnail {
+  grid-area: thumbnail;
+  width: fcSize(110, 160);
+  aspect-ratio: 16/24;
+  background-color: var(--grayLv2);
+  border-radius: $borderRadius;
+  overflow: hidden;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+.content {
+  grid-area: content;
+  overflow: hidden;
+  word-break: keep-all;
+
+  z-index: 10;
+  .info {
+    font-size: fcSize(13, 16);
+    color: var(--grayLv3);
+    margin-top: 0.4em;
+  }
+
+  .title,
+  .desc {
+    line-height: 1.4;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+  }
+
+  .title {
+    font-size: fcSize(16, 24);
+    margin: 0.8rem 0 1.2rem;
+    -webkit-line-clamp: 1;
+  }
+  .price strong {
+    color: var(--primary);
+    margin-left: 0.5rem;
+  }
+
+  .desc {
+    margin-top: 1.2rem;
+    -webkit-line-clamp: 3;
+  }
+}
+.btnGroup {
+  grid-area: button;
+  display: flex;
+  gap: 1.2rem;
+
+  a {
+    min-width: 11rem;
+  }
+}
+
+@media screen and (max-width: map-get($breakPoint, mobile)) {
+  .content {
+    .title,
+    .desc {
+      -webkit-line-clamp: 2;
+    }
+  }
+}
