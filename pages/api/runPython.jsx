@@ -4,8 +4,9 @@ export default (req, res) => {
   try {
     let formattingCode;
 
+    const pattern = /def\s+[a-zA-Zㄱ-힣]+\s*\([^)]*\)\s*:/g;
     const code = req.query.code
-      .split('):')[1]
+      .replace(pattern, '')
       .replace('\r', '')
       .replace(/^\s+/gm, '');
 
@@ -32,6 +33,7 @@ export default (req, res) => {
 
     res.status(200).json(obj);
   } catch (err) {
+    console.log(err);
     res
       .status(200)
       .json({ result: 'Python 결과가 에러입니다.', color: '#C93864' });
