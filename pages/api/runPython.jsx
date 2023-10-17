@@ -1,25 +1,24 @@
 import { spawnSync } from 'child_process';
 
 export default (req, res) => {
-  // 파이썬 코드 실행
-  let formattingCode;
-
-  const code = req.query.code
-    .split('):')[1]
-    .replace('\r', '')
-    .replace(/^\s+/gm, '');
-
-  // return은 실행이 안되므로 print로 실행가능하도록 포맷팅
-  if (code.split('return').length !== 1) {
-    const regex = /return\s+(.*?)\s*(?:,|$)/g;
-    const returnVal = code.split('return')[1].trim();
-    formattingCode = code.replace(regex, `print(${returnVal})`);
-  } else {
-    formattingCode = code;
-  }
-
   try {
-    const color = '#165a32';
+    let formattingCode;
+
+    const code = req.query.code
+      .split('):')[1]
+      .replace('\r', '')
+      .replace(/^\s+/gm, '');
+
+    // return은 실행이 안되므로 print로 실행가능하도록 포맷팅
+    if (code.split('return').length !== 1) {
+      const regex = /return\s+(.*?)\s*(?:,|$)/g;
+      const returnVal = code.split('return')[1].trim();
+      formattingCode = code.replace(regex, `print(${returnVal})`);
+    } else {
+      formattingCode = code;
+    }
+
+    const color = '#121314';
     const pythonProcess = spawnSync('python', ['-c', formattingCode]);
     const pythonResult = pythonProcess.stdout
       .toString()
@@ -30,8 +29,6 @@ export default (req, res) => {
     if (!pythonResult) {
       throw new Error();
     }
-
-    // console.log('obj', obj);
 
     res.status(200).json(obj);
   } catch (err) {

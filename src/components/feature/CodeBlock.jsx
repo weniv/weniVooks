@@ -3,7 +3,7 @@
 // *문제* codemirror.css 수정사항 반영 안됨
 import React, { useContext, useEffect, useRef, useState } from 'react';
 import axios from 'axios';
-import '@codemirror/lib/codemirror.css';
+import '@/styles/codemirror.css';
 import styles from '@/components/feature/CodeBlock.module.scss';
 import CodeMirror from 'codemirror';
 import '@codemirror/mode/javascript/javascript.js';
