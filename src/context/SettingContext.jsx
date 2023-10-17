@@ -7,19 +7,19 @@ export default function SettingProvider({ children }) {
   const [codeTheme, setCodeTheme] = useState(null);
   const [fontStyle, setFontStyle] = useState(null);
   const [fontSize, setFontSize] = useState('2');
+  const [isOpenMenu, setIsOpenMenu] = useState(null);
 
   useEffect(() => {
     const savedTheme = localStorage.getItem('theme');
     setTheme(savedTheme === null ? 'auto' : savedTheme);
-
     const savedFontStyle = localStorage.getItem('fontStyle');
     setFontStyle(savedFontStyle === null ? 'sansSerif' : savedFontStyle);
-
     const savedCodeTheme = localStorage.getItem('codeTheme');
     setCodeTheme(savedCodeTheme === null ? null : savedCodeTheme);
-
     const savedFontSize = localStorage.getItem('fontSize');
     setFontSize(savedFontSize === null ? '2' : savedFontSize);
+    const savedOpen = localStorage.getItem('isOpenMenu');
+    setIsOpenMenu(savedOpen === 'false' ? false : true);
   }, []);
 
   return (
@@ -33,6 +33,8 @@ export default function SettingProvider({ children }) {
         setFontStyle,
         fontSize,
         setFontSize,
+        isOpenMenu,
+        setIsOpenMenu,
       }}
     >
       {children}

@@ -6,8 +6,10 @@ import styles from './Page.module.scss';
 import SVGNextArrow from '@/components/svg/SVGNextArrow';
 import SVGPrevArrow from '@/components/svg/SVGPrevArrow';
 import Btn from '../common/button/Btn';
+import useWindowSize from '@/context/useWindowSize';
 
 export default function Page() {
+  const windowSize = useWindowSize();
   const data = require('public/data/pythonMenu.json');
   const pathname = usePathname();
   const DEFAULT_PATH = '/python';
@@ -83,10 +85,10 @@ export default function Page() {
     <div className={styles.page}>
       <Btn className={styles.btnPrev} href={prev && prev.link} disabled={!prev}>
         <SVGPrevArrow color="grayLv3" />
-        <span>{prev && prev.title}</span>
+        {windowSize > 1024 && <span>{prev && prev.title}</span>}
       </Btn>
       <Btn className={styles.btnNext} href={next && next.link} disabled={!next}>
-        <span>{next && next.title}</span>
+        {windowSize > 1024 && <span>{next && next.title}</span>}
         <SVGNextArrow color="grayLv3" />
       </Btn>
     </div>

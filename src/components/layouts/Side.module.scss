@@ -23,10 +23,12 @@
 }
 @media screen and (max-width: map-get($breakPoint, tablet)) {
   .side {
-    // position: fixed;
-    // height: 100vh;
-    // top: 0;
-    // z-index: 100;
+    position: fixed;
+    z-index: 200;
+
+    & + div {
+      z-index: 10;
+    }
   }
 }
 
@@ -47,10 +49,21 @@
 .show {
   animation: slideIn 0.3s both;
 }
+
 .hide {
   animation: slideOut 0.3s both;
 }
 
+.dimShow {
+  animation: fadeIn 0.2s both;
+}
+.dimHide {
+  animation: fadeOut 0.2s both;
+}
+
+.default {
+  margin-left: 0;
+}
 @keyframes slideIn {
   from {
     margin-left: -32rem;
@@ -66,5 +79,23 @@
   }
   to {
     margin-left: -32rem;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
   }
 }

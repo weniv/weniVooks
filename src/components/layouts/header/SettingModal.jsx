@@ -63,7 +63,7 @@ export default function SettingModal() {
           </div>
         </div>
       </section>
-      {windowSize < 640 && <div data-dim="dim" className={styles.dim}></div>}
+      {windowSize < 640 && <div data-dim="dim" className="dim"></div>}
     </>
   );
 }

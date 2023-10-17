@@ -1,18 +1,23 @@
+'use client';
 import styles from './layout.module.scss';
 
-import Aside from '@/components/layouts/Aside';
+import useWindowSize from '@/context/useWindowSize';
+
 import Breadcrumb from '@/components/layouts/Breadcrumb';
 import LayoutMain from '@/components/layouts/LayoutMain';
+import Aside from '@/components/layouts/Aside';
 
 export default function Layout({ children, params }) {
+  const windowSize = useWindowSize();
   const pythonMenu = require('public/data/pythonMenu.json');
 
   return (
     <>
       <div className={styles.subContent}>
-        <Breadcrumb slug={params.slug} data={pythonMenu} />
+        {windowSize > 1024 && (
+          <Breadcrumb slug={params.slug} data={pythonMenu} />
+        )}
         <LayoutMain>{children}</LayoutMain>
-        {/* <main>{children}</main> */}
       </div>
       <Aside />
     </>

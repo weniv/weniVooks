@@ -52,14 +52,3 @@
 .fontSetting {
   padding: 2.8rem 3.2rem;
 }
-
-.dim {
-  background-color: rgba(0, 0, 0, 0.5);
-  backdrop-filter: blur(2px);
-  -webkit-backdrop-filter: blur(2px);
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: calc(100% - $headerHeight);
-}
