@@ -89,9 +89,9 @@ export default function codeBlock({ lang = 'javascript' }) {
         console.log(err);
       }
     } else {
-      const regex = /{([\s\S]*)}/;
-      const returnVal = code && code.match(regex)[1]?.toString();
       try {
+        const regex = /{([\s\S]*)}/;
+        const returnVal = code && code.match(regex)[1]?.toString();
         const result = new Function(returnVal)();
         if (Object.prototype.toString.call(result) === '[object Object]') {
           setResult('object is not iterable');
