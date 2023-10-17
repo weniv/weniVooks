@@ -1,6 +1,5 @@
 'use client';
 import Breadcrumb from '@/components/layouts/Breadcrumb';
-import LayoutMain from '@/components/layouts/LayoutMain';
 import useWindowSize from '@/context/useWindowSize';
 
 export default function Home() {
@@ -10,7 +9,7 @@ export default function Home() {
   return (
     <>
       {windowSize > 1024 && <Breadcrumb data={pythonMenu} />}
-      <LayoutMain>파이썬 부트캠프 메인</LayoutMain>
+      <main>파이썬 부트캠프 메인</main>
     </>
   );
 }

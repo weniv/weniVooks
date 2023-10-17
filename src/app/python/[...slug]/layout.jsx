@@ -4,7 +4,6 @@ import styles from './layout.module.scss';
 import useWindowSize from '@/context/useWindowSize';
 
 import Breadcrumb from '@/components/layouts/Breadcrumb';
-import LayoutMain from '@/components/layouts/LayoutMain';
 import Aside from '@/components/layouts/Aside';
 
 export default function Layout({ children, params }) {
@@ -17,7 +16,8 @@ export default function Layout({ children, params }) {
         {windowSize > 1024 && (
           <Breadcrumb slug={params.slug} data={pythonMenu} />
         )}
-        <LayoutMain>{children}</LayoutMain>
+
+        <main>{children}</main>
       </div>
       <Aside />
     </>
