@@ -25,7 +25,7 @@ export default function Aside() {
         <h3>연산과 구문</h3>
         <ol>
           <li>
-            <Link href="">연산과 구문이란?</Link>
+            <Link href="">1. 연산과 구문이란?</Link>
             <ol>
               <li>
                 <Link href="">1.1 가르키는것</Link>
@@ -48,6 +48,34 @@ export default function Aside() {
               </li>
               <li>
                 <Link href="">2.2 잘못된 변수 이름의 예</Link>
+              </li>
+            </ol>
+          </li>
+          <li>
+            <Link href="">3. 변수 이름의 규칙</Link>
+            <ol>
+              <li>
+                <Link href="">3.1 변수 이름 짓기</Link>
+              </li>
+              <li>
+                <Link href="">3.2 올바른 변수 이름의 예</Link>
+              </li>
+              <li>
+                <Link href="">3.2 잘못된 변수 이름의 예</Link>
+              </li>
+            </ol>
+          </li>
+          <li>
+            <Link href="">4. 변수 이름의 규칙</Link>
+            <ol>
+              <li>
+                <Link href="">4.1 변수 이름 짓기</Link>
+              </li>
+              <li>
+                <Link href="">4.2 올바른 변수 이름의 예</Link>
+              </li>
+              <li>
+                <Link href="">4.2 잘못된 변수 이름의 예</Link>
               </li>
             </ol>
           </li>

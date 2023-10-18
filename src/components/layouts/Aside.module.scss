@@ -27,14 +27,16 @@
   // height: 4.1rem;
 }
 
-
 .sublist {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  max-height: 35rem;
+  
   border-radius: 1rem;
   border: 1px solid var(--grayLv2);
-
-  position: relative;
-
   h3 {
+    flex-shrink: 0;
     height: 5rem;
     display: flex;
     align-items: center;
@@ -44,6 +46,7 @@
 
   & > ol {
     margin: 1.2rem 0;
+    overflow: auto;
     a {
       display: block;
       padding: 0.9rem;
