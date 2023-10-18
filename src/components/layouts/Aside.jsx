@@ -1,13 +1,26 @@
+'use client';
+
+import { useState } from 'react';
 import Link from 'next/link';
+
 import BtnIcon from '../common/button/BtnIcon';
+import SVGList from '../svg/SVGList';
+import SVGListClose from '../svg/SVGListClose';
 
 import styles from './Aside.module.scss';
 import SubBanner from './aside/SubBanner';
-import SVGListClose from '../svg/SVGListClose';
 
 export default function Aside() {
-  return (
-    <aside className={styles.aside}>
+  const [isMenuShow, setIsMenuShow] = useState(true);
+  const [isSlide, setIsSlide] = useState(true);
+
+  const toggleMenu = () => {
+    setIsMenuShow(!isMenuShow);
+    setIsSlide(!isSlide);
+  };
+
+  return isMenuShow ? (
+    <aside className={`${styles.aside} ${styles.show}`}>
       <div className={styles.sublist}>
         <h3>연산과 구문</h3>
         <ol>
@@ -39,13 +52,23 @@ export default function Aside() {
             </ol>
           </li>
         </ol>
+
         <BtnIcon
-          className={styles.btnClose}
-          children={<SVGListClose color="grayLv3" />}
+          className={`${styles.btnClose}`}
+          onClick={toggleMenu}
+          children={<SVGListClose alt="접기" color="grayLv3" />}
+          bordernone={true}
         />
       </div>
-
       <SubBanner />
+    </aside>
+  ) : (
+    <aside className={`${styles.aside} ${styles.hide}`}>
+      <BtnIcon
+        className={`${styles.btnOpen}`}
+        onClick={toggleMenu}
+        children={<SVGList alt="열기" color="grayLv3" />}
+      />
     </aside>
   );
 }
