@@ -12,11 +12,9 @@ import SubBanner from './aside/SubBanner';
 
 export default function Aside() {
   const [isMenuShow, setIsMenuShow] = useState(true);
-  const [isSlide, setIsSlide] = useState(true);
 
   const toggleMenu = () => {
     setIsMenuShow(!isMenuShow);
-    setIsSlide(!isSlide);
   };
 
   return isMenuShow ? (
