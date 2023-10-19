@@ -95,7 +95,7 @@ export default function Aside() {
       <BtnIcon
         className={`${styles.btnOpen}`}
         onClick={toggleMenu}
-        children={<SVGList alt="열기" color="grayLv3" />}
+        children={<SVGList alt="열기" color="grayLv4" />}
       />
     </aside>
   );
