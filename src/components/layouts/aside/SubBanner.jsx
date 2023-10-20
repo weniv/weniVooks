@@ -6,8 +6,8 @@ export default function SubBanner() {
   return (
     <div className={styles.banner}>
       <ol>
-        {banner.map((banner) => (
-          <li>
+        {banner.map((banner, index) => (
+          <li key={index}>
             <a href="#">
               <h3>{banner.title}</h3>
               <p>{banner.subText}</p>

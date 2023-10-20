@@ -101,7 +101,7 @@ export default function Aside() {
             className={`${styles.btnClose}`}
             onClick={toggleMenu}
             children={<SVGListClose alt="접기" color="grayLv3" />}
-            bordernone={true}
+            bordernone="true"
           />
         </div>
         <SubBanner />
