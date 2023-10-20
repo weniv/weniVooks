@@ -1,0 +1,69 @@
+.aside {
+  position: sticky;
+  top: 15.6rem;
+  width: 28rem;
+  button{
+    position: absolute;
+    padding: 0;
+    svg {
+      width: 2.4rem;
+    }
+  }
+}
+
+.btnClose{
+  top: 0.9rem;
+  right: 0.9rem;
+  width: 3.2rem;
+  height: 3.2rem;
+  svg{
+    rotate: 180deg;
+  }
+}
+.btnOpen{
+  top: 0;
+  right: 0;
+  width: 5rem;
+  height: 5rem;
+  box-shadow: 0 0.4rem 2rem 0 rgba(0, 0, 0, 0.04);
+}
+
+.sublist {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  max-height: 35rem;
+  
+  border-radius: 1rem;
+  border: 1px solid var(--grayLv2);
+  h3 {
+    flex-shrink: 0;
+    height: 5rem;
+    display: flex;
+    align-items: center;
+    padding: 0 2rem;
+    font-size: 1.4rem;
+  }
+
+  & > ol {
+    margin: 1.2rem 0;
+    overflow: auto;
+    a {
+      display: block;
+      padding: 0.9rem;
+      transition: background-color 0.3s;
+      &:hover {
+        background-color: var(--grayLv1);
+      }
+    }
+    & > li > a {
+      padding-left: 2rem;
+    }
+    & > li > ol > li > a {
+      padding-left: 4rem;
+    }
+    & > li > ol > li > ol > li > a {
+      padding-left: 6rem;
+    }
+  }
+}
