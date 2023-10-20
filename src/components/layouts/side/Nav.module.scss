@@ -27,13 +27,10 @@
     display: flex;
     align-items: center;
     box-sizing: border-box;
+    outline-offset: -1px;
   }
 
   // 1depth
-  // & > li > div > a,
-  & > li {
-    margin: 3px;
-  }
   & > li > a {
     padding-left: 4rem;
   }

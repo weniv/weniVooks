@@ -3,32 +3,18 @@
 .side {
   width: 32rem;
   height: calc(100vh - $headerHeight);
+
+  border-right: 1px solid var(--grayLv2);
+
   position: sticky;
   top: $headerHeight;
-  background-color: var(--background);
-  border-right: 1px solid var(--grayLv2);
 
   display: flex;
   align-items: flex-start;
   flex-direction: column;
-
   nav {
     flex-grow: 1;
     padding-bottom: 1rem;
-  }
-
-  & + div {
-    margin-left: 2rem;
-  }
-}
-@media screen and (max-width: map-get($breakPoint, tablet)) {
-  .side {
-    position: fixed;
-    z-index: 200;
-
-    & + div {
-      z-index: 10;
-    }
   }
 }
 
@@ -38,7 +24,6 @@
   right: 0.4rem;
   border: none;
 }
-
 .btnOpen {
   margin: 0.4rem 1rem;
   border: none;
@@ -46,24 +31,14 @@
   transition: all 0.2s;
 }
 
-.show {
+.menuShow {
   animation: slideIn 0.3s both;
 }
 
-.hide {
+.menuHide {
   animation: slideOut 0.3s both;
 }
 
-.dimShow {
-  animation: fadeIn 0.2s both;
-}
-.dimHide {
-  animation: fadeOut 0.2s both;
-}
-
-.default {
-  margin-left: 0;
-}
 @keyframes slideIn {
   from {
     margin-left: -32rem;
@@ -80,6 +55,16 @@
   to {
     margin-left: -32rem;
   }
+}
+
+//메뉴 열기 버튼
+.openBtn-show {
+  // display: block;
+  animation: fadeIn 0.2s 0.3s both;
+}
+.openBtn-hide {
+  // display: none;
+  animation: fadeOut 0.2s both;
 }
 
 @keyframes fadeIn {

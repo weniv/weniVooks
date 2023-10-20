@@ -11,14 +11,19 @@ export const metadata = {
 
 const BeforeFn = () => {
   const savedTheme = localStorage.getItem('theme');
-
-  const savedFontStyle = localStorage.getItem('fontStyle');
-
   if (savedTheme !== 'auto' && savedTheme !== null) {
     document.body.classList.add(savedTheme);
   }
+
+  const savedFontStyle = localStorage.getItem('fontStyle');
   if (savedFontStyle !== null) {
     document.body.classList.add(savedFontStyle);
+  }
+
+  const savedFontSize = localStorage.getItem('fontSize');
+
+  if (savedFontSize !== null) {
+    document.body.classList.add('size' + savedFontSize);
   }
 };
 
