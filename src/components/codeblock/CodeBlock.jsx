@@ -6,7 +6,7 @@ import ExecutionIcon from '../svg/ExecutionIcon';
 import CopyIcon from '../svg/CopyIcon';
 import HelpCircleIcon from '../svg/HelpCircleIcon';
 import initEditor from '@/components/codeblock/editor';
-import { getSaveCode } from './event';
+import { getSaveCode, copyCode } from './event';
 
 export default function codeBlock({ lang = 'javascript' }) {
   const codeMirrorRef = useRef(null);
@@ -34,7 +34,12 @@ export default function codeBlock({ lang = 'javascript' }) {
             <ExecutionIcon alt="코드 실행 버튼" />
           </button>
           <div>
-            <button onClick={() => {}} className={styles.tooltip}>
+            <button
+              onClick={() => {
+                copyCode(code);
+              }}
+              className={styles.tooltip}
+            >
               <CopyIcon alt="코드 복사 버튼" />
               <span className={styles.tooltipText}>복사하기</span>
             </button>

@@ -14,3 +14,13 @@ export const getSaveCode = (lang) => {
     return jsCode ? jsCode : ex;
   }
 };
+
+// 코드 복사
+export const copyCode = async (code) => {
+  try {
+    await navigator.clipboard.writeText(code);
+    alert('코드가 클립보드에 복사되었습니다.');
+  } catch (err) {
+    alert('코드 복사에 실패하였습니다.');
+  }
+};
