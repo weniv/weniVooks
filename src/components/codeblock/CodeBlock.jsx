@@ -8,7 +8,7 @@ import HelpCircleIcon from '../svg/HelpCircleIcon';
 import initEditor from '@/components/codeblock/editor';
 import { getSaveCode, copyCode } from './event';
 
-export default function codeBlock({ lang = 'javascript' }) {
+export default function codeBlock({ lang = 'python' }) {
   const codeMirrorRef = useRef(null);
   const [editor, setEditor] = useState(null); // CodeMirror 인스턴스를 관리
   const [code, setCode] = useState(getSaveCode(lang));
