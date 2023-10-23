@@ -1,11 +1,13 @@
 @import '@/styles/var.scss';
 
 .side {
-  width: 32rem;
+  width: fcSize(280, 320);
   height: calc(100vh - $headerHeight);
 
   border-right: 1px solid var(--grayLv2);
   box-sizing: border-box;
+  background-color: var(--background);
+  z-index: 1000;
   position: sticky;
   top: $headerHeight;
 
@@ -18,6 +20,10 @@
   nav {
     flex-grow: 1;
     padding-bottom: 1rem;
+  }
+
+  @media screen and (max-width: 1024px) {
+    position: fixed;
   }
 }
 
@@ -60,6 +66,10 @@
   border: none;
   position: absolute;
   transition: all 0.2s;
+
+  @media screen and (max-width: map-get($breakPoint,tablet)) {
+    position: fixed;
+  }
 }
 
 .openBtn-show {

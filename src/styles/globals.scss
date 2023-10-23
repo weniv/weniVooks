@@ -186,6 +186,7 @@ input[type='search']::-webkit-search-cancel-button {
   position: fixed;
   bottom: 0;
   left: 0;
+  z-index: 10;
 }
 
 .side-close .layout-side {

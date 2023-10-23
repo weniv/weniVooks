@@ -11,13 +11,14 @@ import Footer from './Footer';
 import SVGList from '../svg/SVGList';
 import classNames from 'classnames';
 import SVGListClose from '../svg/SVGListClose';
+import { usePathname } from 'next/navigation';
 
 export default function Side(props) {
+  const path = usePathname();
+  const windowSize = useWindowSize();
   const { menu, setMenu } = useContext(SettingContext);
   const [slide, setSlide] = useState(null);
   const [isDOM, setIsDOM] = useState(menu === 'close' ? false : true);
-
-  const windowSize = useWindowSize();
 
   const slideIn = () => {
     setIsDOM(true);
@@ -36,30 +37,63 @@ export default function Side(props) {
     localStorage.setItem('menu', 'close');
   };
 
+  useEffect(() => {
+    if (windowSize <= 1024) {
+      setMenu('close');
+      setIsDOM(false);
+      localStorage.setItem('menu', 'close');
+    }
+  }, [windowSize, path]);
+
+  useEffect(() => {
+    if (menu === 'open') {
+      document.body.style.cssText = `
+      overflow: hidden;
+      position: relative;
+      height: 100%;`;
+    } else {
+      document.body.removeAttribute('style');
+    }
+    return () => {
+      document.body.removeAttribute('style');
+    };
+  }, [menu]);
+
   return (
     <>
       {isDOM ? (
-        <div
-          className={classNames(
-            'layout-side',
-            styles.side,
-            // menu === 'close' ? 'side-close' : 'side-open',
-            slide === null
-              ? ''
-              : slide === 'slideIn'
-              ? styles.menuShow
-              : styles.menuHide,
+        <>
+          <div
+            className={classNames(
+              'layout-side',
+              styles.side,
+              // menu === 'close' ? 'side-close' : 'side-open',
+              slide === null
+                ? ''
+                : slide === 'slideIn'
+                ? styles.menuShow
+                : styles.menuHide,
+            )}
+          >
+            <Nav {...props} />
+            <BtnIcon
+              className={styles.btnClose}
+              children={<SVGListClose color="grayLv3" />}
+              onClick={slideOut}
+              bordernone="true"
+            />
+            {windowSize >= 1024 && <Footer />}
+          </div>
+          {menu === 'open' && windowSize < 1024 && (
+            <div
+              className={classNames(
+                'dim',
+                slide === 'slideIn' ? styles.dimShow : styles.dimHide,
+              )}
+              onClick={slideOut}
+            ></div>
           )}
-        >
-          <Nav {...props} />
-          <BtnIcon
-            className={styles.btnClose}
-            children={<SVGListClose color="grayLv3" />}
-            onClick={slideOut}
-            bordernone="true"
-          />
-          <Footer />
-        </div>
+        </>
       ) : (
         <BtnIcon
           className={classNames(
