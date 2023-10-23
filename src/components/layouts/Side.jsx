@@ -38,7 +38,7 @@ export default function Side(props) {
   };
 
   useEffect(() => {
-    if (windowSize <= 1024) {
+    if (windowSize !== null && windowSize <= 1024) {
       setMenu('close');
       setIsDOM(false);
       localStorage.setItem('menu', 'close');
