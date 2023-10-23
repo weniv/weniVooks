@@ -5,12 +5,12 @@ export const getSaveCode = (lang) => {
 
   if (lang === 'python') {
     const ex = `def solution(data): 
-    return None`;
+      return None`;
     return pyCode ? pyCode : ex;
   } else {
     const ex = `function solution() {
-    return undefined;
-}`;
+      return undefined;
+  }`;
     return jsCode ? jsCode : ex;
   }
 };

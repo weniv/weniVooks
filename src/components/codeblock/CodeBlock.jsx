@@ -17,7 +17,7 @@ export default function codeBlock({ lang = 'javascript' }) {
   // CodeMirror 초기화
   useEffect(() => {
     initEditor(editor, lang, code, setCode, setEditor, codeMirrorRef);
-  }, [editor]);
+  }, [code, editor]);
 
   return (
     <>
@@ -34,12 +34,7 @@ export default function codeBlock({ lang = 'javascript' }) {
             <ExecutionIcon alt="코드 실행 버튼" />
           </button>
           <div>
-            <button
-              onClick={() => {
-                copyCode(code);
-              }}
-              className={styles.tooltip}
-            >
+            <button onClick={() => copyCode(code)} className={styles.tooltip}>
               <CopyIcon alt="코드 복사 버튼" />
               <span className={styles.tooltipText}>복사하기</span>
             </button>
