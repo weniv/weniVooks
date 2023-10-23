@@ -46,7 +46,7 @@ export default function Side(props) {
   }, [windowSize, path]);
 
   useEffect(() => {
-    if (menu === 'open') {
+    if (menu === 'open' && windowSize <= 1024) {
       document.body.style.cssText = `
       overflow: hidden;
       position: relative;
@@ -57,7 +57,7 @@ export default function Side(props) {
     return () => {
       document.body.removeAttribute('style');
     };
-  }, [menu]);
+  }, [menu, windowSize]);
 
   return (
     <>
