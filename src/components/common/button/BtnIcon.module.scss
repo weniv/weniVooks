@@ -1,31 +1,9 @@
 @import '@/styles/var.scss';
 
 .btnIcon {
+  width: auto;
+  height: auto;
+  padding: 0.5rem;
   aspect-ratio: 1/1;
-  padding: 0.6rem;
-  border: 1px solid var(--grayLv2);
   border-radius: $borderRadius;
-  box-sizing: border-box;
-
-  &,
-  svg path {
-    transition: all 0.3s;
-  }
-
-  &:hover {
-    background-color: var(--activation);
-    svg path {
-      fill: var(--primary);
-    }
-  }
-}
-
-a.btnIcon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.borderNone {
-  border: 0;
 }

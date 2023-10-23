@@ -47,11 +47,11 @@ const MenuItem = (props) => {
 };
 
 export default function Nav({ data }) {
-  const { bookTitle, link, sections } = data;
+  const { title, link, sections } = data;
   return (
     <>
       <h2 className={styles.title}>
-        <Link href={link}>{bookTitle}</Link>
+        <Link href={link}>{title}</Link>
       </h2>
 
       <nav className={styles.nav}>

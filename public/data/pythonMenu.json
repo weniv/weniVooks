@@ -1,19 +1,16 @@
 {
-  "bookTitle": "파이썬 부트캠프",
+  "title": "파이썬 부트캠프",
   "link": "/python",
   "sections": [
     {
-      "id": 0,
       "title": "00. 들어가기 전",
       "link": "/python/chapter00",
       "sections": [
         {
-          "id": 101,
           "title": "머리말",
           "link": "/python/chapter00/hello"
         },
         {
-          "id": 102,
           "title": "저자소개",
           "link": "/python/chapter00/writer"
         }
@@ -65,43 +62,43 @@
       "sections": [
         {
           "title": "변수",
-          "link": null
+          "link": "/python/chapter03/a"
         },
         {
           "title": "정수(int) 자료형",
-          "link": null
+          "link": "/python/chapter03/b"
         },
         {
           "title": "실수(float) 자료형",
-          "link": null
+          "link": "/python/chapter03/c"
         },
         {
           "title": "복소수(complex) 자료형",
-          "link": null
+          "link": "/python/chapter03/d"
         },
         {
           "title": "문자열(str) 자료형",
-          "link": null
+          "link": "/python/chapter03/e"
         },
         {
           "title": "논리(bool) 자료형",
-          "link": null
+          "link": "/python/chapter03/f"
         },
         {
           "title": "None 자료형",
-          "link": null
+          "link": "/python/chapter03/g"
         },
         {
           "title": "메서드 체이닝",
-          "link": null
+          "link": "/python/chapter03/h"
         },
         {
           "title": "형변환",
-          "link": null
+          "link": "/python/chapter03/i"
         },
         {
           "title": "연습문제",
-          "link": null
+          "link": "/python/chapter03/j"
         }
       ]
     },
@@ -112,39 +109,39 @@
       "sections": [
         {
           "title": "연산자",
-          "link": null
+          "link": "/python/chapter04/a"
         },
         {
           "title": "산술 연산",
-          "link": null
+          "link": "/python/chapter04/b"
         },
         {
           "title": "비교 연산",
-          "link": null
+          "link": "/python/chapter04/c"
         },
         {
           "title": "논리 연산",
-          "link": null
+          "link": "/python/chapter04/d"
         },
         {
           "title": "할당 연산",
-          "link": null
+          "link": "/python/chapter04/e"
         },
         {
           "title": "식별 연산",
-          "link": null
+          "link": "/python/chapter04/f"
         },
         {
           "title": "멤버 연산",
-          "link": null
+          "link": "/python/chapter04/g"
         },
         {
           "title": "연산과 연산자 우선순위",
-          "link": null
+          "link": "/python/chapter04/h"
         },
         {
           "title": "연습문제",
-          "link": null
+          "link": "/python/chapter04/i"
         }
       ]
     }

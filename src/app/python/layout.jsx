@@ -1,9 +1,11 @@
-import Header from '@/components/layouts/Header';
-import BtnTop from '@/components/feature/BtnTop';
+import classNames from 'classnames';
 
 import styles from './layout.module.scss';
+
+import Header from '@/components/layouts/Header';
 import Side from '@/components/layouts/Side';
-import classNames from 'classnames';
+import Page from '@/components/layouts/Page';
+import BtnTop from '@/components/feature/BtnTop';
 
 export const metadata = {
   title: '파이썬 | 위니북스',
@@ -19,11 +21,12 @@ export default function Layout({ children }) {
 
       <div className={classNames('layout-grow', styles.wrapper)}>
         <Side data={pythonMenu} />
-        <div className={styles.content}>
-          <main>{children}</main>
+        <div className={styles.content} style={{ height: '300vh' }}>
+          {children}
         </div>
       </div>
 
+      <Page />
       <BtnTop />
     </>
   );

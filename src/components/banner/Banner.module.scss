@@ -1,0 +1,52 @@
+@import '@/styles/var.scss';
+
+.banner {
+  width: 100vw;
+  height: $bannerHeight;
+  overflow: hidden;
+  background-color: var(--grayLv2);
+  position: relative;
+}
+.bannerList {
+  display: flex;
+  transition: transform 0.3s;
+  li {
+    width: 100vw;
+    flex-shrink: 0;
+
+    img {
+      z-index: 0;
+    }
+  }
+}
+
+.bannerPager {
+  display: flex;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+
+  bottom: 1.2rem;
+  @media screen and (max-width: map-get($breakPoint, mobile)) {
+    bottom: 0.6rem;
+  }
+
+  button {
+    padding: 0.6rem;
+    &::before {
+      content: '';
+      display: block;
+      width: 1rem;
+      height: 1rem;
+      border-radius: 50%;
+      background-color: var(--background);
+    }
+    &.default {
+      opacity: 0.5;
+    }
+
+    &.active {
+      opacity: 1;
+    }
+  }
+}

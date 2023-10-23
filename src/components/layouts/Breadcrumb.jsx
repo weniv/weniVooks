@@ -31,7 +31,7 @@ export default function Breadcrumb({ slug, data }) {
   return (
     <ol className={styles.breadcrumb}>
       <li>
-        <Link href={data.link}>{data.bookTitle}</Link>
+        <Link href={data.link}>{data.title}</Link>
       </li>
       {slug &&
         breadcrumb.map((item, index) => (
