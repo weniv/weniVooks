@@ -1,5 +1,6 @@
 import Breadcrumb from '@/components/layouts/Breadcrumb';
 import LayoutMain from '@/components/layouts/LayoutMain';
+import CodeBlock from '@/components/codeblock/CodeBlock';
 
 export default function Home() {
   const pythonMenu = require('public/data/pythonMenu.json');
@@ -8,6 +9,7 @@ export default function Home() {
     <>
       <Breadcrumb data={pythonMenu} />
       <LayoutMain>파이썬 부트캠프 메인</LayoutMain>
+      <CodeBlock />
     </>
   );
 }
