@@ -62,11 +62,14 @@
 .notFold {
   transition: background-color 0.3s;
 }
-.fold div:hover,
-.notFold:hover {
-  background-color: var(--activation);
-  button {
-    background-color: var(--background);
+
+@media (hover: hover) and (pointer: fine) {
+  .fold div:hover,
+  .notFold:hover {
+    background-color: var(--activation);
+    button {
+      background-color: var(--background);
+    }
   }
 }
 

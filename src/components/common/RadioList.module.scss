@@ -32,9 +32,11 @@
       box-sizing: border-box;
       position: relative;
 
-      &:hover {
-        background-color: var(--grayLv1);
-        color: var(--grayLv4);
+      @media (hover: hover) and (pointer: fine) {
+        &:hover {
+          background-color: var(--grayLv1);
+          color: var(--grayLv4);
+        }
       }
     }
 

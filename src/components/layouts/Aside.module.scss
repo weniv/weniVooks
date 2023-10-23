@@ -2,7 +2,7 @@
   position: sticky;
   top: 15.6rem;
   width: 28rem;
-  button{
+  button {
     position: absolute;
     padding: 0;
     svg {
@@ -11,16 +11,16 @@
   }
 }
 
-.btnClose{
+.btnClose {
   top: 0.9rem;
   right: 0.9rem;
   width: 3.2rem;
   height: 3.2rem;
-  svg{
+  svg {
     rotate: 180deg;
   }
 }
-.btnOpen{
+.btnOpen {
   top: 0;
   right: 0;
   width: 5rem;
@@ -33,7 +33,7 @@
   flex-direction: column;
   position: relative;
   max-height: 35rem;
-  
+
   border-radius: 1rem;
   border: 1px solid var(--grayLv2);
   h3 {
@@ -52,8 +52,11 @@
       display: block;
       padding: 0.9rem;
       transition: background-color 0.3s;
-      &:hover {
-        background-color: var(--grayLv1);
+
+      @media (hover: hover) and (pointer: fine) {
+        &:hover {
+          background-color: var(--grayLv1);
+        }
       }
     }
     & > li > a {
