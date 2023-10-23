@@ -67,7 +67,6 @@ export default function Side(props) {
             className={classNames(
               'layout-side',
               styles.side,
-              // menu === 'close' ? 'side-close' : 'side-open',
               slide === null
                 ? ''
                 : slide === 'slideIn'
