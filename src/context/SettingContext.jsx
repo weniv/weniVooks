@@ -28,7 +28,7 @@ export default function SettingProvider({ children }) {
 
     // open(default), close
     const savedOpen = localStorage.getItem('menu');
-    setMenu(savedOpen !== null && savedOpen);
+    setMenu(savedOpen === null ? 'open' : savedOpen);
   }, []);
 
   return (
