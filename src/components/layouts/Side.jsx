@@ -14,11 +14,13 @@ import SVGListClose from '../svg/SVGListClose';
 
 export default function Side(props) {
   const { menu, setMenu } = useContext(SettingContext);
-  const { position, setPosition } = useContext(SettingContext);
   const [slide, setSlide] = useState(null);
+  const [isDOM, setIsDOM] = useState(menu === 'close' ? false : true);
+
   const windowSize = useWindowSize();
 
   const slideIn = () => {
+    setIsDOM(true);
     setMenu('open');
     setSlide('slideIn');
 
@@ -28,42 +30,47 @@ export default function Side(props) {
   const slideOut = () => {
     setMenu('close');
     setSlide('slideOut');
+    setTimeout(() => {
+      setIsDOM(false);
+    }, 300);
     localStorage.setItem('menu', 'close');
   };
 
   return (
     <>
-      <div
-        className={classNames(
-          'layout-side',
-          styles.side,
-          menu === 'close' ? 'side-close' : 'side-open',
-          slide === null
-            ? ''
-            : slide === 'slideIn'
-            ? styles.menuShow
-            : styles.menuHide,
-        )}
-      >
-        <Nav {...props} />
+      {isDOM ? (
+        <div
+          className={classNames(
+            'layout-side',
+            styles.side,
+            // menu === 'close' ? 'side-close' : 'side-open',
+            slide === null
+              ? ''
+              : slide === 'slideIn'
+              ? styles.menuShow
+              : styles.menuHide,
+          )}
+        >
+          <Nav {...props} />
+          <BtnIcon
+            className={styles.btnClose}
+            children={<SVGListClose color="grayLv3" />}
+            onClick={slideOut}
+            bordernone="true"
+          />
+          <Footer />
+        </div>
+      ) : (
         <BtnIcon
-          className={styles.btnClose}
-          children={<SVGListClose color="grayLv3" />}
-          onClick={slideOut}
+          className={classNames(
+            styles.openBtn,
+            menu == 'close' ? styles['openBtn-show'] : styles['openBtn-hide'],
+          )}
+          children={<SVGList color="grayLv3" />}
+          onClick={slideIn}
           bordernone="true"
         />
-        {windowSize >= 1024 && <Footer />}
-      </div>
-
-      <BtnIcon
-        className={classNames(
-          styles.btnOpen,
-          menu == 'close' ? styles['openBtn-show'] : styles['openBtn-hide'],
-        )}
-        children={<SVGList color="grayLv3" />}
-        onClick={slideIn}
-        bordernone="true"
-      />
+      )}
     </>
   );
 }

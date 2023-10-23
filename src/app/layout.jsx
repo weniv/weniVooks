@@ -25,6 +25,14 @@ const BeforeFn = () => {
   if (savedFontSize !== null) {
     document.body.classList.add('size' + savedFontSize);
   }
+
+  const savedOpen = localStorage.getItem('menu');
+
+  if (savedOpen === 'close') {
+    document.body.classList.add('side-close');
+  } else if (savedOpen === 'open') {
+    document.body.classList.add('side-open');
+  }
 };
 
 export default function RootLayout({ children }) {
