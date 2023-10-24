@@ -1,3 +1,4 @@
+@import url(//fonts.googleapis.com/earlyaccess/nanummyeongjo.css);
 @import '@/styles/var.scss';
 @import '@/styles/function.scss';
 @import '@/styles/theme.scss';
@@ -55,6 +56,7 @@ address {
 }
 
 /* 폰트 ------------------------------------------------------- */
+// Pretendard
 @font-face {
   font-family: 'Pretendard';
   src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff')
