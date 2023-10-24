@@ -16,7 +16,7 @@ export default function Home() {
     <>
       <Breadcrumb data={pythonMenu} />
       <LayoutMain>파이썬 부트캠프 메인</LayoutMain>
-      <CodeBlock />
+      <CodeBlock lang="javascript" />
     </>
   );
 }

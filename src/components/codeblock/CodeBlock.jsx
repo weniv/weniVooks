@@ -6,7 +6,7 @@ import ExecutionIcon from '../svg/ExecutionIcon';
 import CopyIcon from '../svg/CopyIcon';
 import HelpCircleIcon from '../svg/HelpCircleIcon';
 import initEditor from '@/components/codeblock/editor';
-import { getSaveCode, copyCode } from './event';
+import { getSaveCode, copyCode, runCode } from './event';
 
 export default function codeBlock({ lang = 'python' }) {
   const codeMirrorRef = useRef(null);
@@ -26,11 +26,17 @@ export default function codeBlock({ lang = 'python' }) {
         onKeyDown={(e) => {
           if (e.key === 'Enter' && e.shiftKey) {
             e.preventDefault();
+            runCode(lang, code, setResult);
           }
         }}
       >
         <div className={styles.taskbar}>
-          <button id="btn-run" onClick={() => {}}>
+          <button
+            id="btn-run"
+            onClick={() => {
+              runCode(lang, code, setResult);
+            }}
+          >
             <ExecutionIcon alt="코드 실행 버튼" />
           </button>
           <div>

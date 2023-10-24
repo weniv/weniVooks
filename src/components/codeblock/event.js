@@ -24,3 +24,15 @@ export const copyCode = async (code) => {
     alert('코드 복사에 실패하였습니다.');
   }
 };
+
+// 코드 실행
+import runJavascript from './runJavaScript';
+
+export const runCode = async (lang, code, setResult) => {
+  window.localStorage.setItem(`${lang}Code`, code);
+  if (lang === 'javascript') {
+    runJavascript(code, setResult);
+  } else {
+    console.log('python');
+  }
+};
