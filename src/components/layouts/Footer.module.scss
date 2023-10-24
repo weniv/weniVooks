@@ -1,0 +1,56 @@
+@use '@/styles/theme.scss' as *;
+
+.footer,
+.introFooter {
+  align-self: stretch;
+  color: var(--grayLv3);
+  font-size: 1.2rem;
+}
+
+.footer {
+  padding: 2rem 0;
+  text-align: center;
+  border-top: 1px solid var(--grayLv2);
+  background-color: var(--background);
+}
+
+.introFooter {
+  padding: 6rem 2rem;
+  background-color: var(--grayLv1);
+  font-size: 1.4rem;
+
+  .maxWidth {
+    max-width: 119rem;
+    margin: 0 auto;
+
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  .flex {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    flex-wrap: wrap;
+
+    p {
+      margin-top: 0.3em;
+    }
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .introFooter {
+    padding: 4rem 2rem;
+    .flex,
+    .maxWidth {
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    .info {
+      justify-content: center;
+    }
+  }
+}

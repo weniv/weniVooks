@@ -1,0 +1,14 @@
+@import '@/styles/theme.scss';
+
+.scroll {
+  height: 0.4rem;
+  width: 100%;
+  background-color: var(--grayLv2);
+
+  div {
+    background-color: var(--primary);
+    height: 100%;
+    width: 100%;
+    transition: transform 0.3s;
+  }
+}

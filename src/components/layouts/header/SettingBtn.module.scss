@@ -1,0 +1,9 @@
+.standard {
+  position: relative;
+}
+.btnSetting {
+  border: none;
+  &.active {
+    background-color: var(--activation);
+  }
+}

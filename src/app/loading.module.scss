@@ -1,0 +1,18 @@
+.wrap {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.loading {
+  text-align: center;
+  font-weight: bold;
+  color: var(--primary);
+  letter-spacing: 0.2em;
+  svg {
+    display: block;
+    margin: auto;
+    width: 6em;
+  }
+}

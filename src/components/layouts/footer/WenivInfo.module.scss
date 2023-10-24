@@ -1,0 +1,64 @@
+.wenivInfo {
+  text-align: center;
+  margin-top: 1.2rem;
+
+  .infoBtn {
+    font-weight: bold;
+    color: var(--grayLv4);
+    text-align: center;
+    padding: 1rem 3.6rem;
+
+    display: none;
+    position: relative;
+
+    &::after {
+      width: 0.8rem;
+      height: 0.8rem;
+      content: '';
+      position: absolute;
+      top: 50%;
+      right: 1em;
+      margin-top: -0.5rem;
+      box-sizing: border-box;
+      border: 1px solid var(--grayLv4);
+      border-width: 0px 2px 2px 0;
+      transform: rotate(45deg);
+      transition: transform 0.3s;
+    }
+    &.on::after {
+      transform: rotate(-135deg) translateX(-40%);
+    }
+  }
+  .info {
+    color: var(--grayLv4);
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 1.2rem;
+    line-height: 1.8;
+    li:not(:last-child)::after {
+      content: '';
+      display: inline-block;
+      width: 1px;
+      height: 0.8em;
+      background-color: var(--grayLv3);
+      margin: 0 1em;
+    }
+    address {
+      display: inline;
+    }
+  }
+}
+@media screen and (max-width: 640px) {
+  .wenivInfo {
+    order: 1;
+    .info:not(.on) {
+      display: none;
+    }
+    .infoBtn {
+      display: inline-block;
+    }
+    .info {
+      justify-content: center;
+    }
+  }
+}

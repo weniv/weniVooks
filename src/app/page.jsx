@@ -1,5 +1,17 @@
-import styles from './page.module.scss';
+import Header from '@/components/layouts/Header';
+import Footer from '@/components/layouts/Footer';
+import Banner from '@/components/banner/Banner';
+import BookList from '@/components/card/BookList';
 
 export default function Home() {
-  return <div>WeniVooks</div>;
+  return (
+    <>
+      <Header />
+      <div className="layout-grow">
+        <Banner />
+        <BookList />
+      </div>
+      <Footer intro={true} />
+    </>
+  );
 }

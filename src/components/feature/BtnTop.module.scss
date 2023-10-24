@@ -1,0 +1,25 @@
+.topBtn {
+  position: fixed;
+  bottom: 3.2rem;
+  right: 3.2rem;
+
+  width: 5rem;
+  height: 5rem;
+  padding: 0;
+  border-radius: 2.5rem;
+  border: 1px solid var(--grayLv2);
+  transition: all 0.3s;
+
+  svg path {
+    transition: all 0.3s;
+  }
+
+  &:not(:disabled):hover {
+    color: var(--primary);
+    background-color: var(--grayLv1);
+
+    svg path {
+      fill: var(--primary);
+    }
+  }
+}
