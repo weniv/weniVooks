@@ -18,7 +18,7 @@ const TitleHeader = ({ children, className }) => {
   return (
     <header className={headerClass}>
       <h1 className={styles.h1}>
-        <Link href="/">
+        <Link href="/" scroll={false}>
           <Logo />
         </Link>
       </h1>
@@ -27,8 +27,8 @@ const TitleHeader = ({ children, className }) => {
   );
 };
 
-export default function Header({ onlyTitle }) {
-  const size = useWindowSize();
+export default function Header({ onlyTitle, scroll }) {
+  const windowSize = useWindowSize();
 
   if (onlyTitle) {
     return <TitleHeader />;
@@ -38,19 +38,19 @@ export default function Header({ onlyTitle }) {
     <TitleHeader className={styles.default}>
       <div className={styles.right}>
         <SettingBtn />
-        {size > 640 ? (
+        {windowSize > 640 ? (
           <SearchForm />
         ) : (
           <BtnIcon
             href="/search"
-            border="none"
-            size="4"
+            bordernone="true"
+            className={styles.searchBtn}
             children={<SVGSearch color="grayLv4" />}
           />
         )}
       </div>
 
-      <ScrollBar />
+      {scroll !== 'false' && <ScrollBar />}
     </TitleHeader>
   );
 }

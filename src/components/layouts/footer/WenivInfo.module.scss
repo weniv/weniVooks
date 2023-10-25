@@ -1,3 +1,5 @@
+@use '@/styles/var.scss' as *;
+
 .wenivInfo {
   text-align: center;
   margin-top: 1.2rem;
@@ -33,7 +35,7 @@
     color: var(--grayLv4);
     display: flex;
     flex-wrap: wrap;
-    margin-top: 1.2rem;
+    margin-top: 0.2rem;
     line-height: 1.8;
     li:not(:last-child)::after {
       content: '';
@@ -41,14 +43,16 @@
       width: 1px;
       height: 0.8em;
       background-color: var(--grayLv3);
-      margin: 0 1em;
+      margin: 0 0.5em;
+      vertical-align: middle;
     }
     address {
       display: inline;
     }
   }
 }
-@media screen and (max-width: 640px) {
+
+@media screen and (max-width: map-get($breakPoint, mobile)) {
   .wenivInfo {
     order: 1;
     .info:not(.on) {
@@ -59,6 +63,9 @@
     }
     .info {
       justify-content: center;
+      li:nth-child(4)::after {
+        display: none;
+      }
     }
   }
 }
