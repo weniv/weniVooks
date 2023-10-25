@@ -6,7 +6,6 @@ import { SettingContext } from '@/context/SettingContext';
 export default function FontSizeRange() {
   const { fontSize, setFontSize } = useContext(SettingContext);
   const MAX = 4;
-  console.log(fontSize);
 
   const [progress, setProgress] = useState(50);
   const onInput = (e) => {

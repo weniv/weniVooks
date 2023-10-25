@@ -8,6 +8,7 @@ import Select from '@/components/common/Select';
 import ThemeRadio from '@/components/layouts/header/ThemeRadio';
 import FontStyleRadio from '@/components/layouts/header/FontStyleRadio';
 import FontSizeRange from '@/components/layouts/header/FontSizeRange';
+import useWindowSize from '@/context/useWindowSize';
 
 const options = [
   {
@@ -30,6 +31,7 @@ const options = [
 
 export default function SettingModal() {
   const { codeTheme, setCodeTheme } = useContext(SettingContext);
+  const windowSize = useWindowSize();
 
   const onSelect = (option) => {
     setCodeTheme(option.value);
@@ -37,28 +39,31 @@ export default function SettingModal() {
   };
 
   return (
-    <section className={styles.setting}>
-      <div>
-        <h2 className="a11y-hidden">설정</h2>
-        <div className={styles.themeSetting}>
-          <h3>테마설정</h3>
-          <ThemeRadio />
+    <>
+      <section className={styles.setting}>
+        <div>
+          <h2 className="a11y-hidden">설정</h2>
+          <div className={styles.themeSetting}>
+            <h3>테마설정</h3>
+            <ThemeRadio />
 
-          <Select
-            options={options}
-            onSelect={onSelect}
-            selectedValue={codeTheme}
-          />
+            <Select
+              options={options}
+              onSelect={onSelect}
+              selectedValue={codeTheme}
+            />
+          </div>
+
+          <div className={styles.fontSetting}>
+            <h3>폰트 스타일</h3>
+            <FontStyleRadio />
+
+            <h3>폰트 사이즈</h3>
+            <FontSizeRange />
+          </div>
         </div>
-
-        <div className={styles.fontSetting}>
-          <h3>폰트 스타일</h3>
-          <FontStyleRadio />
-
-          <h3>폰트 사이즈</h3>
-          <FontSizeRange />
-        </div>
-      </div>
-    </section>
+      </section>
+      {windowSize < 640 && <div data-dim="dim" className="dim"></div>}
+    </>
   );
 }

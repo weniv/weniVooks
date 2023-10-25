@@ -1,54 +1,103 @@
 'use client';
-
-import { useEffect, useRef, useState } from 'react';
-import Footer from './Footer';
-import BtnIcon from '../common/button/BtnIcon';
-import SVGList from '../svg/SVGList';
-import SVGListClose from '../svg/SVGListClose';
-
 import styles from './Side.module.scss';
-import classNames from 'classnames';
+
+import { useContext, useEffect, useState } from 'react';
+
+import useWindowSize from '@/context/useWindowSize';
+import { SettingContext } from '@/context/SettingContext';
 import Nav from './side/Nav';
+import BtnIcon from '../common/button/BtnIcon';
+import Footer from './Footer';
+import SVGList from '../svg/SVGList';
+import classNames from 'classnames';
+import SVGListClose from '../svg/SVGListClose';
+import { usePathname } from 'next/navigation';
 
 export default function Side(props) {
-  const [isMenuShow, setIsMenuShow] = useState(true);
-  const [isSlide, setIsSlide] = useState(true);
+  const path = usePathname();
+  const windowSize = useWindowSize();
+  const { menu, setMenu } = useContext(SettingContext);
+  const [slide, setSlide] = useState(null);
+  const [isDOM, setIsDOM] = useState(menu === 'close' ? false : true);
 
   const slideIn = () => {
-    setIsMenuShow(true);
-    setIsSlide(true);
+    setIsDOM(true);
+    setMenu('open');
+    setSlide('slideIn');
+
+    localStorage.removeItem('menu');
   };
 
   const slideOut = () => {
-    setIsSlide(false);
+    setMenu('close');
+    setSlide('slideOut');
     setTimeout(() => {
-      setIsMenuShow(false);
+      setIsDOM(false);
     }, 300);
+    localStorage.setItem('menu', 'close');
   };
+
+  useEffect(() => {
+    if (windowSize !== null && windowSize <= 1024) {
+      setMenu('close');
+      setIsDOM(false);
+      localStorage.setItem('menu', 'close');
+    }
+  }, [windowSize, path]);
+
+  useEffect(() => {
+    if (menu === 'open' && windowSize <= 1024) {
+      document.body.style.cssText = `
+      overflow: hidden;
+      position: relative;
+      height: 100%;`;
+    } else {
+      document.body.removeAttribute('style');
+    }
+    return () => {
+      document.body.removeAttribute('style');
+    };
+  }, [menu, windowSize]);
 
   return (
     <>
-      {isMenuShow ? (
-        <div
-          className={classNames(
-            styles.side,
-            isSlide ? styles.show : styles.hide,
+      {isDOM ? (
+        <>
+          <div
+            className={classNames(
+              'layout-side',
+              styles.side,
+              slide === null
+                ? ''
+                : slide === 'slideIn'
+                ? styles.menuShow
+                : styles.menuHide,
+            )}
+          >
+            <Nav {...props} />
+            <BtnIcon
+              className={styles.btnClose}
+              children={<SVGListClose color="grayLv3" />}
+              onClick={slideOut}
+              bordernone="true"
+            />
+            {windowSize >= 1024 && <Footer />}
+          </div>
+          {menu === 'open' && windowSize < 1024 && (
+            <div
+              className={classNames(
+                'dim',
+                slide === 'slideIn' ? styles.dimShow : styles.dimHide,
+              )}
+              onClick={slideOut}
+            ></div>
           )}
-        >
-          <Nav {...props} />
-          <BtnIcon
-            className={styles.btnClose}
-            children={<SVGListClose color="grayLv3" />}
-            onClick={slideOut}
-            bordernone="true"
-          />
-          <Footer />
-        </div>
+        </>
       ) : (
         <BtnIcon
           className={classNames(
-            styles.btnOpen,
-            isMenuShow ? styles.btnHide : styles.btnShow,
+            styles.openBtn,
+            menu == 'close' ? styles['openBtn-show'] : styles['openBtn-hide'],
           )}
           children={<SVGList color="grayLv3" />}
           onClick={slideIn}

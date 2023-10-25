@@ -24,7 +24,7 @@ export default function WenivInfo() {
         <li>사업자 번호: 546-86-01737</li>
         <li>정보통신업</li>
         <li>
-          주소:
+          주소:{' '}
           <address>제주 제주시 첨단로 330 세미양빌딩 A동 1층 106호</address>
         </li>
       </ul>
