@@ -2,6 +2,14 @@
 import Breadcrumb from '@/components/layouts/Breadcrumb';
 import useWindowSize from '@/context/useWindowSize';
 
+import dynamic from 'next/dynamic';
+const CodeBlock = dynamic(
+  () => import('../../components/codeblock/CodeBlock'),
+  {
+    ssr: false,
+  },
+);
+
 export default function Home() {
   const pythonMenu = require('public/data/pythonMenu.json');
   const windowSize = useWindowSize();
