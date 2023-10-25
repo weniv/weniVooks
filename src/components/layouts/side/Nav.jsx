@@ -1,7 +1,7 @@
 'use client';
 import Link from 'next/link';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { usePathname } from 'next/navigation';
 
 import styles from './Nav.module.scss';
@@ -12,13 +12,28 @@ const MenuItem = (props) => {
   const [fold, setFold] = useState(false);
   const path = usePathname();
 
+  // scroll 이동
+  useEffect(() => {
+    const sideMenu = document.querySelector('nav');
+    const currentSidebarItem = document.querySelector('#active');
+    const scrollToTop = () => {
+      sideMenu.scrollTo({
+        top:
+          currentSidebarItem &&
+          currentSidebarItem.offsetTop - window.innerHeight / 4,
+        behavior: 'smooth',
+      });
+    };
+    scrollToTop();
+  }, [path]);
+
   const toggleList = () => {
     setFold(!fold);
   };
 
   if (sections && sections.length > 0) {
     return (
-      <li className={styles.fold}>
+      <li className={styles.fold} id={link === path ? 'active' : ''}>
         <div className={link === path ? styles.active : null}>
           <Link href={link ? link : ''}>{title}</Link>
           <button
@@ -39,6 +54,7 @@ const MenuItem = (props) => {
     return (
       <li
         className={`${styles.notFold} ${link === path ? styles.active : null}`}
+        id={link === path ? 'active' : ''}
       >
         <Link href={link ? link : ''}>{title}</Link>
       </li>

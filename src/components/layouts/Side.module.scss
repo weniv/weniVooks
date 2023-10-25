@@ -1,11 +1,17 @@
-.side {
-  width: 32rem;
-  height: calc(100vh - 7.4rem);
-  position: sticky;
-  top: 7.4rem;
+@import '@/styles/var.scss';
 
-  background-color: var(--background);
+.side {
+  width: fcSize(280, 320);
+  height: calc(100vh - $headerHeight);
+
   border-right: 1px solid var(--grayLv2);
+  box-sizing: border-box;
+  background-color: var(--background);
+  z-index: 1000;
+  position: sticky;
+  top: $headerHeight;
+
+  flex-shrink: 0;
 
   display: flex;
   align-items: flex-start;
@@ -16,8 +22,8 @@
     padding-bottom: 1rem;
   }
 
-  & + div {
-    margin-left: 2rem;
+  @media screen and (max-width: 1024px) {
+    position: fixed;
   }
 }
 
@@ -28,17 +34,11 @@
   border: none;
 }
 
-.btnOpen {
-  margin: 0.4rem 1rem;
-  border: none;
-  position: absolute;
-  transition: all 0.2s;
-}
-
-.show {
+.menuShow {
   animation: slideIn 0.3s both;
 }
-.hide {
+
+.menuHide {
   animation: slideOut 0.3s both;
 }
 
@@ -57,5 +57,44 @@
   }
   to {
     margin-left: -32rem;
+  }
+}
+
+//메뉴 열기 버튼
+.openBtn {
+  margin: 0.7rem 1rem;
+  border: none;
+  position: absolute;
+  transition: all 0.2s;
+
+  @media screen and (max-width: map-get($breakPoint,tablet)) {
+    position: fixed;
+  }
+}
+
+.openBtn-show {
+  // display: block;
+  animation: fadeIn 0.2s both;
+}
+.openBtn-hide {
+  // display: none;
+  animation: fadeOut 0.2s both;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
   }
 }

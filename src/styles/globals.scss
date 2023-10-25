@@ -81,6 +81,7 @@ html {
   font-size: 62.5%;
 }
 body {
+  min-width: 320px;
   font-size: fcSize(14, 16);
   font-family: 'Pretendard', sans-serif;
   color: var(--surface);
@@ -162,21 +163,43 @@ input[type='search']::-webkit-search-cancel-button {
 // layout
 .layout-grow {
   flex-grow: 1;
+  width: 100%;
+  padding-top: $headerHeight;
 }
 
-.size0 {
+.size0 main {
   font-size: fcSize(12, 14);
 }
-.size1 {
-  font-size: 1.5rem;
+.size1 main {
   font-size: fcSize(13, 15);
 }
-.size2 {
+.size2 main {
   font-size: fcSize(14, 16);
 }
-.size3 {
+.size3 main {
   font-size: fcSize(16, 18);
 }
-.size4 {
+.size4 main {
   font-size: fcSize(18, 20);
+}
+
+.dim {
+  width: 100%;
+  height: calc(100% - $headerHeight);
+  background-color: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 10;
+}
+
+.side-close .layout-side {
+  margin-left: -32rem;
+}
+@media screen and (min-width: map-get($breakPoint, tablet)) {
+  .side-open .layout-content {
+    margin: 0 fcSize(24, 64) 0 2rem !important;
+  }
 }

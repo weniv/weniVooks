@@ -45,10 +45,10 @@ a.btn {
 .solid:not(:disabled):hover {
   border-color: var(--primary);
   background-color: var(--primary);
-  color: var(--background);
+  color: #fff;
 
   svg path {
-    fill: var(--background);
+    fill: #fff;
   }
 }
 

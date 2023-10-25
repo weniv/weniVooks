@@ -1,5 +1,6 @@
+'use client';
 import Breadcrumb from '@/components/layouts/Breadcrumb';
-import LayoutMain from '@/components/layouts/LayoutMain';
+import useWindowSize from '@/context/useWindowSize';
 
 import dynamic from 'next/dynamic';
 const CodeBlock = dynamic(
@@ -11,12 +12,12 @@ const CodeBlock = dynamic(
 
 export default function Home() {
   const pythonMenu = require('public/data/pythonMenu.json');
+  const windowSize = useWindowSize();
 
   return (
-    <>
-      <Breadcrumb data={pythonMenu} />
-      <LayoutMain>파이썬 부트캠프 메인</LayoutMain>
-      <CodeBlock lang="javascript" />
-    </>
+    <div>
+      {windowSize > 1024 && <Breadcrumb data={pythonMenu} />}
+      <main>파이썬 부트캠프 메인</main>
+    </div>
   );
 }
