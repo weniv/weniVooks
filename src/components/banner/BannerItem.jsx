@@ -6,7 +6,7 @@ export default function BannerItem({ data, ariaHidden }) {
   const { bgcolor, thumbnail, category, title, description, link } = data;
 
   return (
-    <li aria-hidden={ariaHidden} style={{ 'background-color': bgcolor }}>
+    <li aria-hidden={ariaHidden} style={{ backgroundColor: bgcolor }}>
       <article className={styles.bannerItem}>
         <div className={styles.content}>
           <p className={styles.category}>{category}</p>

@@ -1,10 +1,10 @@
+@use '@/styles/function.scss' as *;
 @use '@/styles/theme.scss' as *;
 
 .footer,
 .introFooter {
   align-self: stretch;
   color: var(--grayLv3);
-  font-size: 1.2rem;
 }
 
 .footer {
@@ -12,12 +12,13 @@
   text-align: center;
   border-top: 1px solid var(--grayLv2);
   background-color: var(--background);
+  font-size: 1.2rem;
 }
 
 .introFooter {
-  padding: 6rem 2rem;
+  padding: fcSize(40, 60) 2rem;
   background-color: var(--grayLv1);
-  font-size: 1.4rem;
+  font-size: fcSize(12, 14);
 
   .maxWidth {
     max-width: 119rem;
@@ -34,6 +35,11 @@
     gap: 1.2rem;
     flex-wrap: wrap;
 
+    h2 svg {
+      width: auto;
+      height: fcSize(26, 34);
+    }
+
     p {
       margin-top: 0.3em;
     }
@@ -42,7 +48,6 @@
 
 @media screen and (max-width: 640px) {
   .introFooter {
-    padding: 4rem 2rem;
     .flex,
     .maxWidth {
       flex-direction: column;
