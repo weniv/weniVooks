@@ -33,7 +33,7 @@ export default function codeBlock({ lang = 'python' }) {
         <div className={styles.taskbar}>
           <button
             id="btn-run"
-            onClick={() => {
+            onClick={async () => {
               runCode(lang, code, setResult);
             }}
           >
@@ -54,7 +54,9 @@ export default function codeBlock({ lang = 'python' }) {
           </div>
         </div>
         <textarea id="codeeditor" ref={codeMirrorRef}></textarea>
-        <div className={styles.resultbar}>{result}</div>
+        <div className={styles.resultbar}>
+          <p id="result">{result}</p>
+        </div>
       </div>
     </>
   );

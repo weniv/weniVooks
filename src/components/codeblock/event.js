@@ -4,8 +4,7 @@ export const getSaveCode = (lang) => {
   const jsCode = window.localStorage.getItem('javascriptCode');
 
   if (lang === 'python') {
-    const ex = `def solution(data): 
-      return None`;
+    const ex = `def solution():\n  return None`;
     return pyCode ? pyCode : ex;
   } else {
     const ex = `function solution() {
@@ -27,12 +26,16 @@ export const copyCode = async (code) => {
 
 // 코드 실행
 import runJavascript from './runJavaScript';
+import { runPython } from './runPython';
 
 export const runCode = async (lang, code, setResult) => {
   window.localStorage.setItem(`${lang}Code`, code);
   if (lang === 'javascript') {
     runJavascript(code, setResult);
   } else {
-    console.log('python');
+    const regex = /def\s+([^\s(]+)\s*\(\)/; // 정규 표현식 패턴
+    const match = code.match(regex);
+    const title = match && match[1];
+    runPython(code, title, setResult);
   }
 };

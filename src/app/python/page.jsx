@@ -18,6 +18,7 @@ export default function Home() {
     <div>
       {windowSize > 1024 && <Breadcrumb data={pythonMenu} />}
       <main>파이썬 부트캠프 메인</main>
+      <CodeBlock />
     </div>
   );
 }
