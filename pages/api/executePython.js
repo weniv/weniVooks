@@ -17,8 +17,6 @@ export default (req, res) => {
       const result = pythonProcess.stdout.toString();
       if (result) {
         res.status(200).json({ result: pythonProcess.stdout.toString() });
-      } else {
-        res.status(200).json({ result: 'None' });
       }
     }
   } catch (err) {

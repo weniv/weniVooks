@@ -7,9 +7,7 @@ export const getSaveCode = (lang) => {
     const ex = `def solution():\n  return None`;
     return pyCode ? pyCode : ex;
   } else {
-    const ex = `function solution() {
-      return undefined;
-  }`;
+    const ex = `function solution() {\n  return undefined;\n}`;
     return jsCode ? jsCode : ex;
   }
 };
