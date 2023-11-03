@@ -8,6 +8,8 @@ import SVGList from '../svg/SVGList';
 import SVGListClose from '../svg/SVGListClose';
 import styles from './Aside.module.scss';
 import SubBanner from './aside/SubBanner';
+import Script from 'next/script';
+import Toc from './aside/Toc';
 
 export default function Aside() {
   const [isMenuShow, setIsMenuShow] = useState(true);
@@ -34,86 +36,71 @@ export default function Aside() {
   }, [isMinHeight]);
 
   return (
-    isMinHeight &&
-    (isMenuShow ? (
-      <aside className={`${styles.aside} ${styles.show}`}>
-        <div className={styles.sublist}>
-          <h3>연산과 구문</h3>
-          <ol>
-            <li>
-              <Link href="">1. 연산과 구문이란?</Link>
-              <ol>
-                <li>
-                  <Link href="">1.1 가르키는것</Link>
-                  <ol>
-                    <li>
-                      <Link href="">저희 집에는 아이가 있습니다.</Link>
-                    </li>
-                  </ol>
-                </li>
-              </ol>
-            </li>
-            <li>
-              <Link href="">2. 변수 이름의 규칙</Link>
-              <ol>
-                <li>
-                  <Link href="">2.1 변수 이름 짓기</Link>
-                </li>
-                <li>
-                  <Link href="">2.2 올바른 변수 이름의 예</Link>
-                </li>
-                <li>
-                  <Link href="">2.2 잘못된 변수 이름의 예</Link>
-                </li>
-              </ol>
-            </li>
-            <li>
-              <Link href="">3. 변수 이름의 규칙</Link>
-              <ol>
-                <li>
-                  <Link href="">3.1 변수 이름 짓기</Link>
-                </li>
-                <li>
-                  <Link href="">3.2 올바른 변수 이름의 예</Link>
-                </li>
-                <li>
-                  <Link href="">3.2 잘못된 변수 이름의 예</Link>
-                </li>
-              </ol>
-            </li>
-            <li>
-              <Link href="">4. 변수 이름의 규칙</Link>
-              <ol>
-                <li>
-                  <Link href="">4.1 변수 이름 짓기</Link>
-                </li>
-                <li>
-                  <Link href="">4.2 올바른 변수 이름의 예</Link>
-                </li>
-                <li>
-                  <Link href="">4.2 잘못된 변수 이름의 예</Link>
-                </li>
-              </ol>
-            </li>
-          </ol>
+    <>
+      {isMinHeight &&
+        (isMenuShow ? (
+          <aside className={`${styles.aside} ${styles.show}`}>
+            <div className={styles.sublist}>
+              <h3>목차</h3>
+              <Toc />
 
-          <BtnIcon
-            className={`${styles.btnClose}`}
-            onClick={toggleMenu}
-            children={<SVGListClose alt="접기" color="grayLv3" />}
-            bordernone="true"
-          />
-        </div>
-        <SubBanner />
-      </aside>
-    ) : (
-      <aside className={`${styles.aside} ${styles.hide}`}>
-        <BtnIcon
-          className={`${styles.btnOpen}`}
-          onClick={toggleMenu}
-          children={<SVGList alt="열기" color="grayLv4" />}
-        />
-      </aside>
-    ))
+              <BtnIcon
+                className={`${styles.btnClose}`}
+                onClick={toggleMenu}
+                children={<SVGListClose alt="접기" color="grayLv3" />}
+                bordernone="true"
+              />
+            </div>
+            <SubBanner />
+          </aside>
+        ) : (
+          <aside className={`${styles.aside} ${styles.hide}`}>
+            <BtnIcon
+              className={`${styles.btnOpen}`}
+              onClick={toggleMenu}
+              children={<SVGList alt="열기" color="grayLv4" />}
+            />
+          </aside>
+        ))}
+      {/* <Script strategy="afterInteractive">{`(${String(script)})()`}</Script> */}
+    </>
   );
 }
+
+const script = () => {
+  const pageList = document.querySelector('#pageList');
+  const main = document.querySelector('main');
+  const headings = main.querySelectorAll('h4, h5, h6');
+  let toc = '';
+  let currentLevel = 4;
+
+  headings.forEach((heading) => {
+    let title = heading.innerHTML;
+    let tagname = heading.tagName.toLowerCase();
+    const level = parseInt(tagname[1]);
+
+    if (level > currentLevel) {
+      toc += '<ol>';
+    } else if (level < currentLevel) {
+      const levelDifference = currentLevel - level;
+      toc += '</li>'.repeat(levelDifference) + '</ol>';
+    } else {
+      toc += '</li>';
+    }
+
+    // 내부 URL 생성
+    const href = encodeURI(`${tagname}-${title}`);
+    heading.id = href;
+    toc += `<li class="${tagname}"><a href="#${href}">${title}</a>`;
+
+    currentLevel = level;
+  });
+
+  if (currentLevel > 4) {
+    toc += '</li>'.repeat(currentLevel - 1) + '</ol>';
+  } else {
+    toc += '</li>';
+  }
+
+  pageList.innerHTML = `<ol>${toc}</ol>`;
+};

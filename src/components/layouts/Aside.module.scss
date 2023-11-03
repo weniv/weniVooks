@@ -2,7 +2,8 @@
   position: sticky;
   top: 15.6rem;
   width: 28rem;
-  button{
+  flex-shrink: 0;
+  button {
     position: absolute;
     padding: 0;
     svg {
@@ -11,16 +12,16 @@
   }
 }
 
-.btnClose{
+.btnClose {
   top: 0.9rem;
   right: 0.9rem;
   width: 3.2rem;
   height: 3.2rem;
-  svg{
+  svg {
     rotate: 180deg;
   }
 }
-.btnOpen{
+.btnOpen {
   top: 0;
   right: 0;
   width: 5rem;
@@ -33,7 +34,7 @@
   flex-direction: column;
   position: relative;
   max-height: 35rem;
-  
+
   border-radius: 1rem;
   border: 1px solid var(--grayLv2);
   h3 {
@@ -44,8 +45,10 @@
     padding: 0 2rem;
     font-size: 1.4rem;
   }
-
-  & > ol {
+  .pageList {
+    overflow-y: auto;
+  }
+  .pageList > ol {
     margin: 1.2rem 0;
     overflow: auto;
     a {
