@@ -1,0 +1,51 @@
+@import '@/styles/var.scss';
+
+.aside {
+  position: fixed;
+  width: calc(100% - 5.6rem);
+  top: $headerHeight;
+
+  left: 5.6rem;
+  padding: 0.5rem 2.4rem 0.5rem 0;
+  box-sizing: border-box;
+  z-index: 10;
+  background-color: var(--background);
+  // background-color: skyblue;
+
+  h3 {
+    font-size: 1.4rem;
+    height: 3.6rem;
+
+    display: flex;
+    align-items: center;
+    margin-left: 2rem;
+  }
+}
+
+.titleWrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-right: 1rem;
+}
+
+.titleWrap,
+.inner {
+  border-radius: 1rem;
+  border: 1px solid var(--grayLv2);
+}
+
+.active .inner {
+  display: block;
+  position: relative;
+
+  & > [class^='SubBanner'] {
+    margin: 1.6rem;
+  }
+}
+
+.btnClose {
+  position: absolute;
+  top: 0.2rem;
+  right: 1rem;
+}

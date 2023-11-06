@@ -1,3 +1,5 @@
+@import '@/styles/var.scss';
+
 .aside {
   position: sticky;
   top: 15.6rem;
@@ -33,7 +35,6 @@
   display: flex;
   flex-direction: column;
   position: relative;
-  max-height: 35rem;
 
   border-radius: 1rem;
   border: 1px solid var(--grayLv2);
@@ -44,29 +45,5 @@
     align-items: center;
     padding: 0 2rem;
     font-size: 1.4rem;
-  }
-  .pageList {
-    overflow-y: auto;
-  }
-  .pageList > ol {
-    margin: 1.2rem 0;
-    overflow: auto;
-    a {
-      display: block;
-      padding: 0.9rem;
-      transition: background-color 0.3s;
-      &:hover {
-        background-color: var(--grayLv1);
-      }
-    }
-    & > li > a {
-      padding-left: 2rem;
-    }
-    & > li > ol > li > a {
-      padding-left: 4rem;
-    }
-    & > li > ol > li > ol > li > a {
-      padding-left: 6rem;
-    }
   }
 }

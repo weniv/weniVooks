@@ -1,7 +1,6 @@
-import Script from 'next/script';
 import styles from './page.module.scss';
 import { getPostDetail } from '@/utils/getPosts';
-import Aside from '@/components/layouts/Aside';
+import AsideWrap from '@/components/layouts/AsideWrap';
 
 export async function generateMetadata({ params }) {
   const post = await getPostDetail('/python', params.slug);
@@ -25,7 +24,8 @@ export default async function Page({ params }) {
           </>
         )}
       </main>
-      <Aside />
+
+      <AsideWrap />
     </div>
   );
 }

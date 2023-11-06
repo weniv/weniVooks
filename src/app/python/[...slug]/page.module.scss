@@ -2,8 +2,14 @@
 
 .container {
   display: flex;
+  align-items: flex-start;
+  @media screen and (max-width: 1024px) {
+    display: block;
+  }
 }
+
 .bookContent {
+  flex-grow: 1;
   font-size: 1.125em;
   line-height: 1.8;
 
