@@ -7,6 +7,8 @@ import CopyIcon from '../svg/CopyIcon';
 import HelpCircleIcon from '../svg/HelpCircleIcon';
 import initEditor from '@/components/codeblock/editor';
 import { getSaveCode, copyCode, runCode } from './event';
+import PythonREPL from './PythonREPL';
+import Script from 'next/script';
 
 export default function codeBlock({ lang = 'python' }) {
   const codeMirrorRef = useRef(null);
@@ -15,9 +17,9 @@ export default function codeBlock({ lang = 'python' }) {
   const [result, setResult] = useState('결과값');
 
   // CodeMirror 초기화
-  useEffect(() => {
-    initEditor(editor, lang, code, setCode, setEditor, codeMirrorRef);
-  }, [code, editor]);
+  // useEffect(() => {
+  //   initEditor(editor, lang, code, setCode, setEditor, codeMirrorRef);
+  // }, [code, editor]);
 
   return (
     <>
@@ -53,10 +55,17 @@ export default function codeBlock({ lang = 'python' }) {
             </button>
           </div>
         </div>
-        <textarea id="codeeditor" ref={codeMirrorRef}></textarea>
-        <div className={styles.resultbar}>
-          <p id="result">{result}</p>
-        </div>
+        {lang === 'python' ? (
+          <PythonREPL>{`def test(): \n    return 1 \ntest()`}</PythonREPL>
+        ) : (
+          <>
+            <textarea id="codeeditor" ref={codeMirrorRef}></textarea>
+            <div className={styles.resultbar}>
+              <p id="result">{result}</p>
+              <div id="output" class="p-4"></div>
+            </div>
+          </>
+        )}
       </div>
     </>
   );

@@ -1,4 +1,5 @@
 'use client';
+import PythonREPL from '@/components/codeblock/PythonREPL';
 import Breadcrumb from '@/components/layouts/Breadcrumb';
 import useWindowSize from '@/context/useWindowSize';
 

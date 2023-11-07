@@ -22,6 +22,7 @@ export const copyCode = async (code) => {
   }
 };
 
+import PythonREPL from './PythonREPL';
 // 코드 실행
 import runJavascript from './runJavaScript';
 import { runPython } from './runPython';
@@ -31,9 +32,9 @@ export const runCode = async (lang, code, setResult) => {
   if (lang === 'javascript') {
     runJavascript(code, setResult);
   } else {
-    const regex = /def\s+([^\s(]+)\s*\(\)/; // 정규 표현식 패턴
-    const match = code.match(regex);
-    const title = match && match[1];
-    runPython(code, title, setResult);
+    // const regex = /def\s+([^\s(]+)\s*\(\)/; // 정규 표현식 패턴
+    // const match = code.match(regex);
+    // const title = match && match[1];
+    // runPython(code, title, setResult);
   }
 };
