@@ -1,20 +1,28 @@
 @import '@/styles/var.scss';
 
 .container {
+  width: 100%;
   display: flex;
   align-items: flex-start;
+
   @media screen and (max-width: 1024px) {
     display: block;
   }
 
-  // background-color: skyblue;
-
-  width: 100%;
   main {
     flex-grow: 1;
-
-    padding: 8rem 4rem;
+    padding: fcSize(60, 80) fcSize(0, 40);
     box-sizing: border-box;
+
+    @media screen and (max-width: 1024px) {
+      padding: fcSize(60, 80) 0;
+    }
+
+    .inner {
+      max-width: max(99rem, 80%);
+      width: 100%;
+      margin: auto;
+    }
   }
   aside {
     flex-shrink: 0;
@@ -37,6 +45,7 @@
   h6 {
     margin-top: -8rem;
     padding-top: 8rem;
+    margin-bottom: 0.5em;
     @media screen and (max-width: 640px) {
       margin-top: calc($headerHeight * -1 - 5rem);
       padding-top: calc($headerHeight + 5rem);
@@ -63,7 +72,7 @@
     font-size: 1.33em;
   }
   h6 {
-    font-size: 1em;
+    font-size: 1.1em;
   }
 
   a {
@@ -140,12 +149,16 @@
     }
   }
 
-  ul li {
+  ul > li {
     list-style-type: disc;
   }
 
-  ol li {
+  ol > li {
     list-style-type: decimal;
+  }
+
+  ol ol li {
+    list-style-type: lower-alpha;
   }
 
   ul,
@@ -155,6 +168,14 @@
   p,
   table {
     margin-bottom: fcSize(20, 40);
+  }
+
+  ul,
+  ol {
+    ul,
+    ol {
+      margin-bottom: 0.5em;
+    }
   }
   blockquote,
   div {
@@ -170,6 +191,6 @@
   }
   li + li,
   p + p {
-    margin-top: fcSize(10, 20);
+    margin-top: fcSize(4, 10);
   }
 }

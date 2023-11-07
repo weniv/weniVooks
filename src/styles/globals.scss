@@ -100,6 +100,12 @@ body.light {
   --error: #{$W-error};
   --warn: #{$W-warn};
   --activation: #{$W-activation};
+
+  --code-pink: #{$W-code-pink};
+  --code-purple: #{$W-code-purple};
+  --code-blue: #{$W-code-blue};
+  --code-green: #{$W-code-green};
+  --code-orange: #{$W-code-orange};
 }
 
 body.dark {
@@ -113,6 +119,12 @@ body.dark {
   --error: #{$D-error};
   --warn: #{$D-warn};
   --activation: #{$D-activation};
+
+  --code-pink: #{$D-code-pink};
+  --code-purple: #{$D-code-purple};
+  --code-blue: #{$D-code-blue};
+  --code-green: #{$D-code-green};
+  --code-orange: #{$D-code-orange};
 }
 @media (prefers-color-scheme: dark) {
   body {
@@ -126,6 +138,12 @@ body.dark {
     --error: #{$D-error};
     --warn: #{$D-warn};
     --activation: #{$D-activation};
+
+    --code-pink: #{$D-code-pink};
+    --code-purple: #{$D-code-purple};
+    --code-blue: #{$D-code-blue};
+    --code-green: #{$D-code-green};
+    --code-orange: #{$D-code-orange};
   }
 }
 
@@ -214,4 +232,52 @@ body {
   ::-webkit-scrollbar-track {
     background: var(--background); /* 스크롤 뒷 배경*/
   }
+}
+
+// 마크다운
+div.callout {
+  border: 1px solid var(--grayLv2);
+  border-radius: 0.8em;
+  padding: 1em 2em;
+}
+a.btn-solid {
+  display: inline-flex;
+  align-items: center;
+  background-color: var(--primary);
+  height: 2.4em;
+  padding: 0 1.2em;
+  border-radius: 0.55em;
+
+  color: #fff !important;
+  text-decoration: none !important;
+}
+
+// 코드 테마
+.function_,
+.hljs-params,
+.hljs-tag {
+  color: var(--code-pink);
+}
+
+.hljs-keyword {
+  color: var(--code-purple);
+}
+
+.hljs-tag,
+// .hljs-title,
+.hljs-built_in {
+  color: var(--code-blue);
+}
+
+.hljs-literal,
+.hljs-number {
+  color: var(--code-green);
+}
+
+.hljs-string {
+  color: var(--code-orange);
+}
+
+.hljs-comment {
+  color: var(--grayLv3);
 }

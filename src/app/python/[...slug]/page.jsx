@@ -17,12 +17,14 @@ export default async function Page({ params }) {
   return (
     <div className={styles.container}>
       <main className={styles.bookContent}>
-        {post.htmlContent && (
-          <>
-            <h3 className={styles.title}>{post.title}</h3>
-            <div dangerouslySetInnerHTML={{ __html: post.htmlContent }} />
-          </>
-        )}
+        <div className={styles.inner}>
+          {post.htmlContent && (
+            <>
+              <h3 className={styles.title}>{post.title}</h3>
+              <div dangerouslySetInnerHTML={{ __html: post.htmlContent }} />
+            </>
+          )}
+        </div>
       </main>
 
       <AsideWrap />
