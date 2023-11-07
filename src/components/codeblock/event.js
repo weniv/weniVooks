@@ -4,7 +4,7 @@ export const getSaveCode = (lang) => {
   const jsCode = window.localStorage.getItem('javascriptCode');
 
   if (lang === 'python') {
-    const ex = `def solution():\n  return None`;
+    const ex = `def solution():\n  return 1111\nsolution()`;
     return pyCode ? pyCode : ex;
   } else {
     const ex = `function solution() {\n  return undefined;\n}`;
@@ -20,6 +20,32 @@ export const copyCode = async (code) => {
   } catch (err) {
     alert('코드 복사에 실패하였습니다.');
   }
+};
+
+// 파이썬 결과값 출력
+export const getResultPython = async (setResult) => {
+  try {
+    const pyResult = document.querySelector('.py-repl-output');
+
+    if (!!pyResult) {
+      if (pyResult.innerText) {
+        setResult(pyResult.innerText);
+      } else {
+        setResult('결과값');
+      }
+    }
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+// 파이썬 입력 컨텐츠 가져오기 및 저장
+export const getCode = () => {
+  const content = document.querySelectorAll('.cm-content .cm-line');
+  const list = [];
+  content.forEach((el) => list.push(el.innerText));
+  localStorage.setItem('pythonCode', list.join('\n'));
+  return list.join('\n');
 };
 
 import PythonREPL from './PythonREPL';

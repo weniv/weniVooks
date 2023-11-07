@@ -1,13 +1,14 @@
-import React from 'react';
+import React, { useReducer, useRef } from 'react';
 import Script from 'next/script';
-import './pyscript/pyscript.css';
-import styles from '@/components/codeblock/PythonREPL.module.scss';
+// import './pyscript/pyscript.css';
 
 export default function PythonREPL({ children }) {
+  // console.log('children', children);
   return (
     <div>
+      <link rel="stylesheet" href="./pyscript/pyscript.css" />
       <Script defer src="./pyscript/pyscript.js" />
-      <py-repl id="my-repl">{children}</py-repl>
+      <py-repl>{children}</py-repl>
     </div>
   );
 }

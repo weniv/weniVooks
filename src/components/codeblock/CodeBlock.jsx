@@ -6,9 +6,8 @@ import ExecutionIcon from '../svg/ExecutionIcon';
 import CopyIcon from '../svg/CopyIcon';
 import HelpCircleIcon from '../svg/HelpCircleIcon';
 import initEditor from '@/components/codeblock/editor';
-import { getSaveCode, copyCode, runCode } from './event';
+import { getSaveCode, copyCode, getResultPython, getCode } from './event';
 import PythonREPL from './PythonREPL';
-import Script from 'next/script';
 
 export default function codeBlock({ lang = 'python' }) {
   const codeMirrorRef = useRef(null);
@@ -28,7 +27,8 @@ export default function codeBlock({ lang = 'python' }) {
         onKeyDown={(e) => {
           if (e.key === 'Enter' && e.shiftKey) {
             e.preventDefault();
-            runCode(lang, code, setResult);
+            getResultPython(setResult);
+            // runCode(lang, code, setResult);
           }
         }}
       >
@@ -36,13 +36,21 @@ export default function codeBlock({ lang = 'python' }) {
           <button
             id="btn-run"
             onClick={async () => {
-              runCode(lang, code, setResult);
+              getResultPython(setResult);
+              getCode();
+              // runCode(lang, code, setResult);
             }}
           >
             <ExecutionIcon alt="코드 실행 버튼" />
           </button>
           <div>
-            <button onClick={() => copyCode(code)} className={styles.tooltip}>
+            <button
+              onClick={() => {
+                const content = getCode();
+                copyCode(content && content);
+              }}
+              className={styles.tooltip}
+            >
               <CopyIcon alt="코드 복사 버튼" />
               <span className={styles.tooltipText}>복사하기</span>
             </button>
@@ -55,17 +63,12 @@ export default function codeBlock({ lang = 'python' }) {
             </button>
           </div>
         </div>
-        {lang === 'python' ? (
-          <PythonREPL>{`def test(): \n    return 1 \ntest()`}</PythonREPL>
-        ) : (
-          <>
-            <textarea id="codeeditor" ref={codeMirrorRef}></textarea>
-            <div className={styles.resultbar}>
-              <p id="result">{result}</p>
-              <div id="output" class="p-4"></div>
-            </div>
-          </>
-        )}
+        <PythonREPL>{code}</PythonREPL>
+        <div className={styles.resultbar}>
+          <p id="result">{result}</p>
+          <div id="output" class="p-4"></div>
+        </div>
+        {/* <textarea id="codeeditor" ref={codeMirrorRef}></textarea> */}
       </div>
     </>
   );
