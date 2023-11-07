@@ -3,10 +3,8 @@
 .aside {
   position: sticky;
   top: 15.6rem;
-  width: 28rem;
   flex-shrink: 0;
   button {
-    position: absolute;
     padding: 0;
     svg {
       width: 2.4rem;
@@ -15,6 +13,7 @@
 }
 
 .btnClose {
+  position: absolute;
   top: 0.9rem;
   right: 0.9rem;
   width: 3.2rem;
@@ -24,14 +23,13 @@
   }
 }
 .btnOpen {
-  top: 0;
-  right: 0;
   width: 5rem;
   height: 5rem;
   box-shadow: 0 0.4rem 2rem 0 rgba(0, 0, 0, 0.04);
 }
 
 .sublist {
+  width: 28rem;
   display: flex;
   flex-direction: column;
   position: relative;

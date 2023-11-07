@@ -6,11 +6,10 @@
   top: $headerHeight;
 
   left: 5.6rem;
-  padding: 0.5rem 2.4rem 0.5rem 0;
+  padding: 0.5rem 2rem 0.5rem 0;
   box-sizing: border-box;
-  z-index: 10;
+  z-index: 9;
   background-color: var(--background);
-  // background-color: skyblue;
 
   h3 {
     font-size: 1.4rem;
@@ -21,15 +20,12 @@
     margin-left: 2rem;
   }
 }
-
 .titleWrap {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding-right: 1rem;
 }
-
-.titleWrap,
 .inner {
   border-radius: 1rem;
   border: 1px solid var(--grayLv2);
