@@ -1,11 +1,17 @@
 'use client';
-import PythonREPL from '@/components/codeblock/PythonREPL';
 import Breadcrumb from '@/components/layouts/Breadcrumb';
 import useWindowSize from '@/context/useWindowSize';
 
 import dynamic from 'next/dynamic';
-const CodeBlock = dynamic(
-  () => import('../../components/codeblock/CodeBlock'),
+const PythonCodeblock = dynamic(
+  () => import('../../components/codeblock/PythonCodeblock'),
+  {
+    ssr: false,
+  },
+);
+
+const JavascriptCodeblock = dynamic(
+  () => import('../../components/codeblock/JavascriptCodeblock'),
   {
     ssr: false,
   },
@@ -19,7 +25,8 @@ export default function Home() {
     <div>
       {windowSize > 1024 && <Breadcrumb data={pythonMenu} />}
       <main>파이썬 부트캠프 메인</main>
-      <CodeBlock />
+      <PythonCodeblock />
+      <JavascriptCodeblock />
     </div>
   );
 }
