@@ -41,8 +41,11 @@ export const copyCode = async (code) => {
 export const getResultPython = async (setResult) => {
   try {
     const pyResult = document.querySelector('.py-repl-output');
+    const error = document.querySelector('.py-repl-output .py-error');
 
-    if (!!pyResult) {
+    if (error) {
+      setResult('Error:' + error.innerText.toString().split('Error:')[1]);
+    } else {
       if (pyResult.innerText) {
         setResult(pyResult.innerText);
       } else {

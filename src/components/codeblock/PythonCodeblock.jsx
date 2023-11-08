@@ -1,6 +1,4 @@
-'use client';
-
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
 import {
   getResultPython,
   getInitPythonCode,
@@ -12,14 +10,14 @@ import Header from './Header';
 import ResultBar from './ResultBar';
 import Layout from './Layout';
 
-export default function PythonCodeblock() {
+function PythonCodeblock() {
   const [code, setCode] = useState(getInitPythonCode);
   const [result, setResult] = useState('결과값');
 
-  const event = () => {
+  const event = useCallback(() => {
     getResultPython(setResult);
     getPythonCode();
-  };
+  }, []);
 
   const copy = () => {
     const content = getPythonCode();
@@ -34,3 +32,5 @@ export default function PythonCodeblock() {
     </Layout>
   );
 }
+
+export default React.memo(PythonCodeblock);

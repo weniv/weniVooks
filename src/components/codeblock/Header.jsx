@@ -4,12 +4,12 @@ import ExecutionIcon from '@/components/svg/ExecutionIcon';
 import CopyIcon from '../svg/CopyIcon';
 import HelpCircleIcon from '../svg/HelpCircleIcon';
 
-export default async function Header({ event, copyCode }) {
+function Header({ event, copyCode }) {
   return (
     <div className={styles.taskbar}>
       <button
         id="btn-run"
-        onClick={async () => {
+        onClick={() => {
           event();
         }}
       >
@@ -36,3 +36,5 @@ export default async function Header({ event, copyCode }) {
     </div>
   );
 }
+
+export default React.memo(Header);
