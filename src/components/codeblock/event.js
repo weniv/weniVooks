@@ -43,11 +43,15 @@ export const getResultPython = async (setResult) => {
     const pyResult = document.querySelector('.py-repl-output');
     const error = document.querySelector('.py-repl-output .py-error');
 
+    console.log('pyResult', pyResult.innerText === '');
+
     if (error) {
       setResult('Error:' + error.innerText.toString().split('Error:')[1]);
     } else {
       if (pyResult.innerText) {
         setResult(pyResult.innerText);
+      } else if (pyResult.innerText === '') {
+        setResult('None');
       } else {
         setResult('결과값');
       }
