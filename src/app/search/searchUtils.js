@@ -1,3 +1,5 @@
+import axios from 'axios';
+
 // 개행문자 통일, 각 줄을 배열의 요소로 변환
 const normalize = (markdown) => {
   return markdown
@@ -39,10 +41,12 @@ const heading = {
   regex: /^\s*(#+)\s(.+)/,
   replace: (_, mark, group) => {
     const tagName = `h${mark.length + 1}`;
-    return `<${tagName} id="${group.replace(
-      /(\*{2})|`/g,
-      '',
-    )}">${group}</${tagName}>`;
+    // return `<${tagName} id="${group.replace(
+    //   /(\*{2})|`/g,
+    //   '',
+    // )}">${group}</${tagName}>`;
+
+    return `<${tagName}>${group}</${tagName}>`;
   },
 };
 
@@ -186,17 +190,32 @@ const parseMarkdown = (markdown) => {
 };
 
 // 로컬의 md파일 가져오기. 이후에 경로 수정 필요
-const fetchMarkdown = async () => {
+const oldfetchMarkdown = async () => {
   const response = await fetch('/data/python.md');
   const markdown = await response.text();
+
   return markdown;
+};
+
+const fetchMarkdown = async (query) => {
+  try {
+    const searchQuery = query;
+    const response = await axios.get(`/api/search?keyword=${searchQuery}`);
+    return response.data;
+  } catch (err) {
+    console.log(err);
+  }
 };
 
 export const searchInMd = async (query, setSearchResults) => {
   try {
     const searchQuery = query;
-    const markdown = await fetchMarkdown();
-    const htmlContent = parseMarkdown(markdown);
+    // const markdown = await oldfetchMarkdown();
+    // const htmlContent = parseMarkdown(markdown);
+
+    const markdown = await fetchMarkdown(query);
+    const htmlContent = parseMarkdown(markdown.join());
+
     const processedResults = {};
 
     htmlContent.forEach((value, i) => {

@@ -46,7 +46,7 @@ export default function Search() {
           <div>검색 결과가 없습니다. 다른 검색어를 입력하세요.</div>
         ) : (
           <ul>
-            {console.log(searchResults)}
+            {console.log('searchResults', searchResults)}
             {searchResults.map((data, index) => (
               <li key={index} className={classNames(styles.resultSection)}>
                 <a href={data.link}>
