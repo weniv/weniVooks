@@ -69,25 +69,6 @@ export async function GET(req) {
       (doc) => (doc.file = removeAsideContent(removeImageAltTexts(doc.file))),
     );
 
-    // Alt 텍스트 삭제
-    const removeImageAltTexts = (text) => {
-      const altTextPattern = /\[.*\]\(.*\)|!\[.*\]\(.*\)/g;
-      const result = text.replace(altTextPattern, '');
-      return result;
-    };
-
-    // aside 태그 삭제
-    const removeAsideContent = (text) => {
-      const asidePattern = /<aside>(.*?)<\/aside>|💡/gs;
-      const result = text.replace(asidePattern, '').trim();
-      return result;
-    };
-
-    // 제목과 content만을 남김
-    const nomalizaiton = filteredDocument.map((doc) =>
-      removeAsideContent(removeImageAltTexts(doc)),
-    );
-
     // HTML로 파싱
     data.map((doc) => (doc.file = parseMarkdown(doc.file)));
 
