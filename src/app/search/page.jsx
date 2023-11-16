@@ -5,6 +5,7 @@ import { useSearchParams } from 'next/navigation';
 import styles from './search.module.scss';
 import classNames from 'classnames';
 import { searchInMd } from './searchUtils';
+import SVGAlertCircle from '@/components/svg/SVGAlertCircle';
 
 // 검색키워드와 일치하는 문자열 하이라이팅
 function highlightKeyword(text, keyword) {
@@ -43,7 +44,10 @@ export default function Search() {
           <span>검색 결과: {searchResults.length}건</span>
         </div>
         {searchResults.length === 0 ? (
-          <div>검색 결과가 없습니다. 다른 검색어를 입력하세요.</div>
+          <div className={styles.notFound}>
+            <SVGAlertCircle />
+            <p>검색 결과가 없습니다. 다른 검색어를 입력해 주세요.</p>
+          </div>
         ) : (
           <ul>
             {searchResults.map((data, idx) => (

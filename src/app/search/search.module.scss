@@ -4,14 +4,19 @@ main.main {
 
 .wrapper {
   width: 100%;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
 .innerLayout {
+  display: flex;
+  flex-direction: column;
   width: 990px;
-  padding-top: 110px;
+  height: 37vh;
+  justify-content: space-between;
+  margin-top: 10vh;
 }
 
 .title {
@@ -87,5 +92,17 @@ main.main {
       font-weight: 600;
       background-color: var(--activation);
     }
+  }
+}
+
+div.notFound {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+
+  p {
+    font-size: 18px;
+    color: var(--grayLv4);
   }
 }
