@@ -41,11 +41,6 @@ const heading = {
   regex: /^\s*(#+)\s(.+)/,
   replace: (_, mark, group) => {
     const tagName = `h${mark.length + 1}`;
-    // return `<${tagName} id="${group.replace(
-    //   /(\*{2})|`/g,
-    //   '',
-    // )}">${group}</${tagName}>`;
-
     return `<${tagName}>${group}</${tagName}>`;
   },
 };
@@ -110,7 +105,7 @@ const blockRules = [
 // 인라인 컨텐츠 규칙
 const inlineRules = [link, strong, code];
 
-const parseMarkdown = (markdown) => {
+export const parseMarkdown = (markdown) => {
   const tokens = normalize(markdown);
   let isEditor = false;
   let codeBlockStartIndex = -1;
@@ -189,14 +184,7 @@ const parseMarkdown = (markdown) => {
   return tokens.filter(Boolean);
 };
 
-// 로컬의 md파일 가져오기. 이후에 경로 수정 필요
-const oldfetchMarkdown = async () => {
-  const response = await fetch('/data/python.md');
-  const markdown = await response.text();
-
-  return markdown;
-};
-
+// 로컬 md파일 가져오기
 const fetchMarkdown = async (query) => {
   try {
     const searchQuery = query;
@@ -209,82 +197,8 @@ const fetchMarkdown = async (query) => {
 
 export const searchInMd = async (query, setSearchResults) => {
   try {
-    const searchQuery = query;
-    // const markdown = await oldfetchMarkdown();
-    // const htmlContent = parseMarkdown(markdown);
-
     const markdown = await fetchMarkdown(query);
-    const htmlContent = parseMarkdown(markdown.join());
-
-    const processedResults = {};
-
-    htmlContent.forEach((value, i) => {
-      // 검색어와 일치하는지 확인 "i" => 대소문자 구분없이 확인
-      if (value.match(new RegExp(searchQuery, 'i'))) {
-        let currentDesc = '';
-        let currentTitle = '';
-
-        // p태그일 경우 내용으로 간주
-        if (value.includes('<p>')) {
-          currentDesc = value;
-
-          // p태그 이전에 제목태그가 있을 경우 해당 태그를 제목으로 간주
-          for (let j = i - 1; j >= 0; j--) {
-            if (
-              htmlContent[j].includes('h2') ||
-              htmlContent[j].includes('h3') ||
-              htmlContent[j].includes('h4')
-            ) {
-              currentTitle = htmlContent[j];
-              break;
-            }
-          }
-        } else if (
-          value.includes('h2') ||
-          value.includes('h3') ||
-          value.includes('h4')
-        ) {
-          currentTitle = value;
-
-          // 제목에 검색쿼리와 일치하는 결과물이 있을 때 하위 p태그를 설명으로 간주
-          for (let j = i + 1; j < htmlContent.length; j++) {
-            if (htmlContent[j].includes('<p>')) {
-              currentDesc = htmlContent[j];
-              break;
-            }
-          }
-        }
-
-        // 현재 제목 중 HTML 태그, 숫자와 점 제거
-        currentTitle = currentTitle
-          .replace(/<\/?[^>]+(>|$)/g, '')
-          .replace(/^\d+(\.\d+)*\.\s*/, '');
-        currentDesc = currentDesc.replace(/<\/?[^>]+(>|$)/g, '');
-
-        if (currentTitle) {
-          // currentTitle을 키로 하는 항목이 없다면 새로운 배열 할당
-          if (!processedResults[currentTitle]) {
-            processedResults[currentTitle] = [];
-          }
-          // 동일한 타이틀에 대한 중복설명이 저장되지 않도록 방지
-          if (!processedResults[currentTitle].includes(currentDesc)) {
-            processedResults[currentTitle].push(currentDesc);
-          }
-        }
-      }
-    });
-
-    // 후에 각 결괏값에 적합하게 브래드크럼과 링크 변경 필요
-    const finalResults = Object.entries(processedResults).map(
-      ([title, contents]) => ({
-        title,
-        breadCrumb:
-          '파이썬과 인사하기 > 파이썬과 파이썬을 만든 사람들 > 1. 파이썬',
-        content: contents,
-        link: '/',
-      }),
-    );
-    setSearchResults(finalResults);
+    setSearchResults(markdown);
   } catch (error) {
     console.error(error);
   }
