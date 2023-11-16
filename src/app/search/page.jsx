@@ -52,7 +52,6 @@ export default function Search() {
                 <a href={data.link}>
                   <p className={classNames(styles.subTitle)}>
                     {highlightKeyword(data.title, searchQuery)}
-                    {/* {data.title} */}
                   </p>
                 </a>
                 <p className={classNames(styles.path)}>
