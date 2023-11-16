@@ -1,7 +1,13 @@
 import { NextResponse } from 'next/server';
 import fs from 'fs';
 import path from 'path';
-import { parseMarkdown } from '@/app/search/searchUtils';
+import {
+  parseMarkdown,
+  removeImageAltTexts,
+  removeAsideContent,
+  splitArray,
+  choiceBookKind,
+} from '@/app/search/searchUtils';
 
 export async function GET(req) {
   const data = [];
@@ -25,8 +31,12 @@ export async function GET(req) {
       const filesList = fs.readdirSync(files);
 
       const result = filesList.map((file) => {
-        const url = path.join(basePath[idx], file);
-        return url;
+        const data = {
+          url: basePath[idx].split('\\').pop(),
+          fileName: path.join(basePath[idx], file),
+        };
+
+        return data;
       });
 
       return result;
@@ -37,95 +47,71 @@ export async function GET(req) {
 
     for (const dir of filePath) {
       for (const file of dir) {
-        data.push(fs.readFileSync(file).toString());
+        const wholeFiles = fs.readFileSync(file.fileName).toString();
+        let filterdFiles;
+
+        if (wholeFiles.toLowerCase().includes(keyword.toLowerCase())) {
+          filterdFiles = wholeFiles;
+        }
+
+        let val = {
+          url: file.url,
+          file: filterdFiles,
+        };
+
+        if (val.file) {
+          data.push(val);
+        }
       }
     }
 
-    // 키워드에 적합한 문서만 필터링
-    const filteredDocument = data.filter((content) =>
-      content.toLowerCase().includes(keyword.toLowerCase()),
-    );
-
-    // Alt 텍스트 삭제
-    const removeImageAltTexts = (text) => {
-      const altTextPattern = /\[.*\]\(.*\)|!\[.*\]\(.*\)/g;
-      const result = text.replace(altTextPattern, '');
-      return result;
-    };
-
-    // aside 태그 삭제
-    const removeAsideContent = (text) => {
-      const asidePattern = /<aside>(.*?)<\/aside>|💡/gs;
-      const result = text.replace(asidePattern, '').trim();
-      return result;
-    };
-
-    // 제목과 content만을 남김
-    const nomalizaiton = filteredDocument.map((doc) =>
-      removeAsideContent(removeImageAltTexts(doc)),
+    data.map(
+      (doc) => (doc.file = removeAsideContent(removeImageAltTexts(doc.file))),
     );
 
     // HTML로 파싱
-    const parseHTML = nomalizaiton.map((doc) => parseMarkdown(doc));
-
-    // 특정 문자열을 기준으로 배열을 분할하는 함수
-    function splitArray(array, delimiter) {
-      const result = [];
-      let currentArray = [];
-
-      array.forEach((item) => {
-        if (item.includes(delimiter)) {
-          if (currentArray.length > 0) {
-            result.push(currentArray);
-            currentArray = [];
-          }
-        }
-        currentArray.push(item);
-      });
-
-      if (currentArray.length > 0) {
-        result.push(currentArray);
-      }
-
-      return result;
-    }
+    data.map((doc) => (doc.file = parseMarkdown(doc.file)));
 
     // obj 형태로 변환
-    function convertData(htmlList) {
+    const convertData = (dataList) => {
       const result = [];
 
-      for (const html of htmlList) {
+      for (const data of dataList) {
+        const url = choiceBookKind(data.url);
+        const html = data.file;
         const mainTitle = html.shift().replace(/<[^>]*>/g, ''); // breadCrumb 두번째 요소로 사용될 메인 제목
-
         const outputArray = splitArray(html, '<h2>');
-
         // 검색  keyword가 존재하는 챕터만 남기기
         const filteredChapter = outputArray.filter((subArray) =>
           subArray.some((item) => item.includes(keyword)),
         );
-
         for (const chapter of filteredChapter) {
           const title = chapter
             .shift()
             .replace(/<[^>]*>/g, '')
             .replace(/[0-9.]/g, '');
-          const content = chapter
-            .slice(0, 2)
-            .map((el) => el.replace(/<[^>]*>/g, ''));
-
+          const content = [];
+          // keyword가 포함된 문자열만 남기기
+          chapter.map((row) => {
+            if (row.includes(keyword)) {
+              content.push(row.replace(/<[^>]*>/g, ''));
+            }
+          });
           result.push({
+            bookKind: url,
             mainTitle,
             title,
             content,
             link: '/',
+            url,
           });
         }
       }
 
       return result;
-    }
+    };
 
-    const ouput = convertData(parseHTML);
+    const ouput = convertData(data);
 
     return NextResponse.json(ouput);
   } catch (err) {

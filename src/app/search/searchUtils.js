@@ -191,6 +191,7 @@ const fetchMarkdown = async (query) => {
     const response = await axios.get(`/api/search?keyword=${searchQuery}`);
     return response.data;
   } catch (err) {
+    console.log('===============');
     console.log(err);
   }
 };
@@ -201,5 +202,52 @@ export const searchInMd = async (query, setSearchResults) => {
     setSearchResults(markdown);
   } catch (error) {
     console.error(error);
+  }
+};
+
+// Alt 텍스트 삭제
+export const removeImageAltTexts = (text) => {
+  const altTextPattern = /\[.*\]\(.*\)|!\[.*\]\(.*\)/g;
+  const result = text.replace(altTextPattern, '');
+  return result;
+};
+
+// aside 태그 삭제
+export const removeAsideContent = (text) => {
+  const asidePattern = /<aside>(.*?)<\/aside>|💡/gs;
+  const result = text.replace(asidePattern, '').trim();
+  return result;
+};
+
+// 특정 문자열을 기준으로 배열을 분할하는 함수
+export const splitArray = (array, delimiter) => {
+  const result = [];
+  let currentArray = [];
+
+  array.forEach((item) => {
+    if (item.includes(delimiter)) {
+      if (currentArray.length > 0) {
+        result.push(currentArray);
+        currentArray = [];
+      }
+    }
+    currentArray.push(item);
+  });
+
+  if (currentArray.length > 0) {
+    result.push(currentArray);
+  }
+
+  return result;
+};
+
+// 책 종류 선택
+export const choiceBookKind = (bookkind) => {
+  if (bookkind === 'python') {
+    return '파이썬 부트캠프';
+  } else if (bookkind === 'react') {
+    return '리액트 부트캠프';
+  } else {
+    return '위니브월드';
   }
 };

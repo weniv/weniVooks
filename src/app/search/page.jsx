@@ -46,16 +46,18 @@ export default function Search() {
           <div>검색 결과가 없습니다. 다른 검색어를 입력하세요.</div>
         ) : (
           <ul>
-            {console.log('searchResults', searchResults)}
-            {searchResults.map((data, index) => (
-              <li key={index} className={classNames(styles.resultSection)}>
+            {searchResults.map((data, idx) => (
+              <li key={idx} className={classNames(styles.resultSection)}>
                 <a href={data.link}>
                   <p className={classNames(styles.subTitle)}>
                     {highlightKeyword(data.title, searchQuery)}
                   </p>
                 </a>
                 <p className={classNames(styles.path)}>
-                  {highlightKeyword(data.breadCrumb, searchQuery)}
+                  {highlightKeyword(
+                    `${data.bookKind} > ${data.mainTitle} > ${data.title}`,
+                    searchQuery,
+                  )}
                 </p>
                 <div className={classNames(styles.contents)}>
                   {data.content.map((contentItem, contentIndex) => {
