@@ -103,7 +103,6 @@ export async function GET(req) {
             title,
             content,
             link: '/',
-            url,
           });
         }
       }
