@@ -4,22 +4,16 @@ import styles from './layout.module.scss';
 import useWindowSize from '@/context/useWindowSize';
 
 import Breadcrumb from '@/components/layouts/Breadcrumb';
-import Aside from '@/components/layouts/Aside';
 
 export default function Layout({ children, params }) {
   const windowSize = useWindowSize();
   const pythonMenu = require('public/data/pythonMenu.json');
 
   return (
-    <>
-      <div className={styles.subContent}>
-        {windowSize > 1024 && (
-          <Breadcrumb slug={params.slug} data={pythonMenu} />
-        )}
+    <div className={styles.subContent}>
+      {windowSize > 1024 && <Breadcrumb slug={params.slug} data={pythonMenu} />}
 
-        <main>{children}</main>
-      </div>
-      <Aside />
-    </>
+      {children}
+    </div>
   );
 }

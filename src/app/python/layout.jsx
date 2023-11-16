@@ -21,10 +21,7 @@ export default function Layout({ children }) {
 
       <div className={classNames('layout-grow', styles.wrapper)}>
         <Side data={pythonMenu} />
-        <div
-          className={classNames('layout-content', styles.content)}
-          style={{ height: '300vh' }}
-        >
+        <div className={classNames('layout-content', styles.content)}>
           {children}
         </div>
       </div>
