@@ -14198,7 +14198,6 @@ var pyscript = (function (exports) {
           // are, for some reason, drawn behind the element content, which
           // will cause things like the active line background to cover
           // the outline (#297).
-          outline: '1px dotted #212121',
         },
         display: 'flex !important',
         flexDirection: 'column',
@@ -16666,8 +16665,8 @@ var pyscript = (function (exports) {
   );
   const themeSpec = {
     '.cm-line': {
-      '& ::selection': { backgroundColor: 'transparent !important' },
-      '&::selection': { backgroundColor: 'transparent !important' },
+      '& ::selection': { backgroundColor: '#2E6FF233 !important' }, // 코드블럭 드래그시
+      '&::selection': { backgroundColor: '#2E6FF233 !important' },
     },
   };
   if (CanHidePrimary)
@@ -25721,7 +25720,7 @@ var pyscript = (function (exports) {
     },
   );
   const defaultTheme = /*@__PURE__*/ EditorView.baseTheme({
-    '.cm-selectionMatch': { backgroundColor: '#99ff7780' },
+    '.cm-selectionMatch': { backgroundColor: 'transparent' }, // 선택한 요소와 일치하는 요소 하이라이팅
     '.cm-searchMatch .cm-selectionMatch': { backgroundColor: 'transparent' },
   });
   // Select the words around the cursors.
