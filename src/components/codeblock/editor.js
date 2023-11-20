@@ -22,7 +22,7 @@ export default function initEditor(
       lineNumbers: true,
       matchBrackets: true,
       autofocus: true,
-      indentUnit: 4,
+      indentUnit: 2,
       theme: 'default',
       styleActiveLine: true,
     });

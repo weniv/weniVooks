@@ -1,10 +1,24 @@
 'use client';
+import '@/styles/subpage.scss';
+import { DEFAULT_PATH, MENU_DATA } from './data';
+
 import Breadcrumb from '@/components/layouts/Breadcrumb';
 import useWindowSize from '@/context/useWindowSize';
 
-import '@/styles/subpage.scss';
+import dynamic from 'next/dynamic';
+const PythonCodeblock = dynamic(
+  () => import('../../components/codeblock/PythonCodeblock'),
+  {
+    ssr: false,
+  },
+);
 
-import { DEFAULT_PATH, MENU_DATA } from './data';
+const JavascriptCodeblock = dynamic(
+  () => import('../../components/codeblock/JavascriptCodeblock'),
+  {
+    ssr: false,
+  },
+);
 
 export default function Home() {
   const windowSize = useWindowSize();
@@ -18,6 +32,8 @@ export default function Home() {
         <main className="bookContent">
           <div className="inner">
             <h3 className="title">파이썬 부트캠프</h3>
+            <PythonCodeblock />
+            {/* <JavascriptCodeblock /> */}
           </div>
         </main>
       </div>
