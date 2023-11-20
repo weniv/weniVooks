@@ -23,7 +23,7 @@ export default function Home() {
             <img
               src="/images/wenivworld/cover-weniv-world-student.png"
               alt="위니브월드 탐험대 - 게임으로 배우는 파이썬 교육 플랫폼(학생용)"
-              className="tac"
+              className="cover"
             />
           </div>
         </main>
