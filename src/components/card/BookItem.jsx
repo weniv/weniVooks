@@ -6,6 +6,7 @@ export default function BookItem({ data }) {
     thumbnail,
     type,
     title,
+    subtitle,
     publisher,
     price,
     description,
@@ -22,7 +23,10 @@ export default function BookItem({ data }) {
         <p className={styles.info}>
           주식회사 위니브 <wbr />| 출판사: {publisher}
         </p>
-        <h3 className={styles.title}>{title}</h3>
+        <div className={styles.titleWrap}>
+          <h3 className={styles.title}>{title}</h3>
+          {subtitle && <h4 className={styles.subtitle}>{subtitle}</h4>}
+        </div>
         {price && (
           <p className={styles.price}>
             {type} <strong>{price}</strong>
