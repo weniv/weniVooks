@@ -9,6 +9,27 @@ import {
   choiceBookKind,
 } from '@/app/search/searchUtils';
 
+const BASEURL = '_md';
+
+// 재귀적으로 디렉토리를 순회하며 파일 목록을 가져오는 함수
+function getFiles(dir) {
+  const files = fs.readdirSync(dir);
+  let fileList = [];
+
+  files.forEach((file) => {
+    const filePath = path.join(dir, file);
+    const stat = fs.statSync(filePath);
+
+    if (stat.isDirectory()) {
+      fileList = fileList.concat(getFiles(filePath));
+    } else if (file.endsWith('.md')) {
+      fileList.push(filePath);
+    }
+  });
+
+  return fileList;
+}
+
 export async function GET(req) {
   const data = [];
 
@@ -16,52 +37,34 @@ export async function GET(req) {
     const searchParams = new URL(req.url).searchParams;
     const keyword = searchParams.get('keyword') || '';
 
-    // data 디렉토리 내부 디렉토리 이름 가져오기 ex) python, react...
-    const dirName = fs
-      .readdirSync(path.join(process.cwd(), 'public/data'))
-      .filter((dir) => path.extname(dir) === '');
-
-    // 기본 경로
-    const basePath = dirName.map((dir) =>
-      path.join(process.cwd(), 'public/data/', dir),
-    );
+    // data 디렉토리 내부의 .md 파일 및 하위 디렉토리의 .md 파일을 재귀적으로 읽어옴
+    const mdFiles = getFiles(path.join(process.cwd(), BASEURL));
 
     // 파일과 경로 합치기
-    const readFile = (files, idx) => {
-      const filesList = fs.readdirSync(files);
+    const filePath = mdFiles.map((file) => {
+      const data = {
+        url: path.dirname(file).split(path.sep).pop(),
+        fileName: file,
+      };
 
-      const result = filesList.map((file) => {
-        const data = {
-          url: basePath[idx].split('\\').pop(),
-          fileName: path.join(basePath[idx], file),
-        };
+      return data;
+    });
 
-        return data;
-      });
+    for (const file of filePath) {
+      const wholeFiles = fs.readFileSync(file.fileName).toString();
+      let filteredFiles;
 
-      return result;
-    };
+      if (wholeFiles.toLowerCase().includes(keyword.toLowerCase())) {
+        filteredFiles = wholeFiles;
+      }
 
-    // md 파일 경로 출력
-    const filePath = basePath.map((files, idx) => readFile(files, idx));
+      let val = {
+        url: file.url,
+        file: filteredFiles,
+      };
 
-    for (const dir of filePath) {
-      for (const file of dir) {
-        const wholeFiles = fs.readFileSync(file.fileName).toString();
-        let filterdFiles;
-
-        if (wholeFiles.toLowerCase().includes(keyword.toLowerCase())) {
-          filterdFiles = wholeFiles;
-        }
-
-        let val = {
-          url: file.url,
-          file: filterdFiles,
-        };
-
-        if (val.file) {
-          data.push(val);
-        }
+      if (val.file) {
+        data.push(val);
       }
     }
 
@@ -79,9 +82,9 @@ export async function GET(req) {
       for (const data of dataList) {
         const url = choiceBookKind(data.url);
         const html = data.file;
-        const mainTitle = html.shift().replace(/<[^>]*>/g, ''); // breadCrumb 두번째 요소로 사용될 메인 제목
+        const mainTitle = html.shift().replace(/<[^>]*>/g, ''); // breadcrumb 두 번째 요소로 사용될 메인 제목
         const outputArray = splitArray(html, '<h2>');
-        // 검색  keyword가 존재하는 챕터만 남기기
+        // 검색 키워드가 존재하는 챕터만 남기기
         const filteredChapter = outputArray.filter((subArray) =>
           subArray.some((item) => item.includes(keyword)),
         );
@@ -91,7 +94,7 @@ export async function GET(req) {
             .replace(/<[^>]*>/g, '')
             .replace(/[0-9.]/g, '');
           const content = [];
-          // keyword가 포함된 문자열만 남기기
+          // 키워드가 포함된 문자열만 남기기
           chapter.map((row) => {
             if (row.includes(keyword)) {
               content.push(row.replace(/<[^>]*>/g, ''));
@@ -110,9 +113,9 @@ export async function GET(req) {
       return result;
     };
 
-    const ouput = convertData(data);
+    const output = convertData(data);
 
-    return NextResponse.json(ouput);
+    return NextResponse.json(output);
   } catch (err) {
     console.log(err);
     return NextResponse.json('Internal Server Error');
