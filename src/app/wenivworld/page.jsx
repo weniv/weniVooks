@@ -17,7 +17,14 @@ export default function Home() {
       <div className="container">
         <main className="bookContent">
           <div className="inner">
-            <h3 className="title">파이썬 부트캠프</h3>
+            <h3 className="title">
+              "위니브월드 탐험대 - 게임으로 배우는 파이썬 교육 플랫폼(학생용)
+            </h3>
+            <img
+              src="/images/wenivworld/cover-weniv-world-student.png"
+              alt="위니브월드 탐험대 - 게임으로 배우는 파이썬 교육 플랫폼(학생용)"
+              className="tac"
+            />
           </div>
         </main>
       </div>
