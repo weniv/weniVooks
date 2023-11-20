@@ -150,6 +150,6 @@ export async function GET(req) {
     return NextResponse.json(output);
   } catch (err) {
     console.log(err);
-    return NextResponse.json('Internal Server Error');
+    return NextResponse.json('정보를 가져오는데 실패하였습니다');
   }
 }

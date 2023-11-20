@@ -191,7 +191,6 @@ const fetchMarkdown = async (query) => {
     const response = await axios.get(`/api/search?keyword=${searchQuery}`);
     return response.data;
   } catch (err) {
-    console.log('===============');
     console.log(err);
   }
 };
@@ -199,7 +198,10 @@ const fetchMarkdown = async (query) => {
 export const searchInMd = async (query, setSearchResults) => {
   try {
     const markdown = await fetchMarkdown(query);
-    setSearchResults(markdown);
+
+    if (Array.isArray(markdown)) {
+      setSearchResults(markdown);
+    }
   } catch (error) {
     console.error(error);
   }

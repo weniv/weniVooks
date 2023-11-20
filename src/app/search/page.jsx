@@ -43,7 +43,7 @@ export default function Search() {
           <strong>{searchQuery}</strong>
           <span>검색 결과: {searchResults?.length}건</span>
         </div>
-        {searchResults?.length === 0 ? (
+        {searchResults.length === 0 ? (
           <div className={styles.notFound}>
             <SVGAlertCircle />
             <p>검색 결과가 없습니다. 다른 검색어를 입력해 주세요.</p>
@@ -64,18 +64,19 @@ export default function Search() {
                   )}
                 </p>
                 <div className={classNames(styles.contents)}>
-                  {data.content.map((contentItem, contentIndex) => {
-                    const sentences = contentItem.split('.');
-                    const displayContent =
-                      sentences.length > 2
-                        ? sentences.slice(0, 2).join('.') + '...'
-                        : contentItem;
-                    return (
-                      <span key={contentIndex}>
-                        {highlightKeyword(displayContent, searchQuery)}
-                      </span>
-                    );
-                  })}
+                  {data.content &&
+                    data.content.map((contentItem, contentIndex) => {
+                      const sentences = contentItem.split('.');
+                      const displayContent =
+                        sentences.length > 2
+                          ? sentences.slice(0, 2).join('.') + '...'
+                          : contentItem;
+                      return (
+                        <span key={contentIndex}>
+                          {highlightKeyword(displayContent, searchQuery)}
+                        </span>
+                      );
+                    })}
                 </div>
               </li>
             ))}
