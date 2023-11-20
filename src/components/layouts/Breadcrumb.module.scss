@@ -14,8 +14,10 @@
     padding: 0.4rem 0.6rem;
     border-radius: 0.4rem;
   }
-  a:hover {
-    background-color: var(--activation);
+  @media (hover: hover) {
+    a:hover {
+      background-color: var(--activation);
+    }
   }
   li:last-child a {
     font-weight: bold;

@@ -10,18 +10,28 @@
   padding: 0;
   border-radius: 2.5rem;
   border: 1px solid var(--grayLv2);
+  background-color: var(--background);
   transition: all 0.3s;
 
   svg path {
     transition: all 0.3s;
   }
-
-  &:not(:disabled):hover {
+  &:not(:disabled):active {
     color: var(--primary);
     background-color: var(--grayLv1);
 
     svg path {
       fill: var(--primary);
+    }
+  }
+  @media (hover: hover) {
+    &:not(:disabled):hover {
+      color: var(--primary);
+      background-color: var(--grayLv1);
+
+      svg path {
+        fill: var(--primary);
+      }
     }
   }
 }

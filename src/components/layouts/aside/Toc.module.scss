@@ -34,8 +34,10 @@
       background-color: var(--activation);
     }
 
-    &:not(.active):hover {
-      background-color: var(--grayLv1);
+    @media (hover: hover) {
+      &:not(.active):hover {
+        background-color: var(--grayLv1);
+      }
     }
   }
   & > li > a {
