@@ -7,7 +7,7 @@ import { useState } from 'react';
 export default function Banner() {
   const CONTROLL_ID = 'slide_ctrl';
   const [page, setPage] = useState(0);
-  const bannerData = require('/public/data/mainBannerData.json');
+  const bannerData = require('/public/data/mainBanner.json');
 
   const onClick = (e) => {
     setPage(Number(e.target.value));
