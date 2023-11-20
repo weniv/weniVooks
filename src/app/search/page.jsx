@@ -41,9 +41,9 @@ export default function Search() {
       <div className={classNames(styles.innerLayout)}>
         <div className={classNames(styles.title)}>
           <strong>{searchQuery}</strong>
-          <span>검색 결과: {searchResults.length}건</span>
+          <span>검색 결과: {searchResults?.length}건</span>
         </div>
-        {searchResults.length === 0 ? (
+        {searchResults?.length === 0 ? (
           <div className={styles.notFound}>
             <SVGAlertCircle />
             <p>검색 결과가 없습니다. 다른 검색어를 입력해 주세요.</p>

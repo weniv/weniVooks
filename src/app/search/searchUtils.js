@@ -243,7 +243,8 @@ export const splitArray = (array, delimiter) => {
 
 // 책 종류 선택
 export const choiceBookKind = (bookkind) => {
-  if (bookkind === 'python') {
+  const kind = bookkind.toLowerCase();
+  if (kind === 'python') {
     return '파이썬 부트캠프';
   } else if (bookkind === 'react') {
     return '리액트 부트캠프';

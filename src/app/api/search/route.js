@@ -42,8 +42,14 @@ export async function GET(req) {
 
     // 파일과 경로 합치기
     const filePath = mdFiles.map((file) => {
+      const match = file.match(/_md\\([^\\]+)/);
+      // const data = {
+      //   url: path.dirname(file).split(path.sep).pop(),
+      //   fileName: file,
+      // };
+
       const data = {
-        url: path.dirname(file).split(path.sep).pop(),
+        url: match ? match[1] : null,
         fileName: file,
       };
 
@@ -73,21 +79,44 @@ export async function GET(req) {
     );
 
     // HTML로 파싱
-    data.map((doc) => (doc.file = parseMarkdown(doc.file)));
+    data.map((doc) => {
+      doc.file = parseMarkdown(doc.file);
+    });
 
     // obj 형태로 변환
     const convertData = (dataList) => {
       const result = [];
 
       for (const data of dataList) {
-        const url = choiceBookKind(data.url);
+        const url = choiceBookKind(data.url); // breadcrumb 첫 번째 요소, 책 종류
         const html = data.file;
-        const mainTitle = html.shift().replace(/<[^>]*>/g, ''); // breadcrumb 두 번째 요소로 사용될 메인 제목
-        const outputArray = splitArray(html, '<h2>');
+        // const mainTitle = html.shift().replace(/<[^>]*>/g, '');
+        let mainTitle = ''; // breadcrumb 두 번째 요소, 메인 제목
+
+        html.map((line) => {
+          if (line.includes('title:')) {
+            mainTitle = line
+              .replace(/<[^>]*>/g, '')
+              .replace(/title:\s*([\d.]+\s*)?/g, '')
+              .trim();
+          }
+        });
+
+        // title과 date 정보 삭제
+        const filteredHtml = html.filter(
+          (item) =>
+            !item.includes('<p>---</p>') &&
+            !item.includes('title:') &&
+            !item.includes('date:'),
+        );
+
+        const outputArray = splitArray(filteredHtml, '<h2>');
+
         // 검색 키워드가 존재하는 챕터만 남기기
         const filteredChapter = outputArray.filter((subArray) =>
           subArray.some((item) => item.includes(keyword)),
         );
+
         for (const chapter of filteredChapter) {
           const title = chapter
             .shift()
