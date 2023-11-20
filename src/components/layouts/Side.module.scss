@@ -64,12 +64,8 @@
 .openBtn {
   margin: 0.7rem 1rem;
   border: none;
-  position: absolute;
+  position: fixed;
   transition: all 0.2s;
-
-  @media screen and (max-width: map-get($breakPoint,tablet)) {
-    position: fixed;
-  }
 }
 
 .openBtn-show {

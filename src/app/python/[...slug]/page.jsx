@@ -1,3 +1,33 @@
-export default function Page() {
-  return <div style={{ height: '200vh' }}>내용입력</div>;
+import styles from './page.module.scss';
+import { getPostDetail } from '@/utils/getPosts';
+import AsideWrap from '@/components/layouts/AsideWrap';
+
+export async function generateMetadata({ params }) {
+  const post = await getPostDetail('/python', params.slug);
+  const { title } = post;
+
+  return {
+    title: `${title ? title + ' | ' : ''} 파이썬 부트캠프`,
+  };
+}
+
+export default async function Page({ params }) {
+  const post = await getPostDetail('/python', params.slug);
+
+  return (
+    <div className={styles.container}>
+      <main className={styles.bookContent}>
+        <div className={styles.inner}>
+          {post.htmlContent && (
+            <>
+              <h3 className={styles.title}>{post.title}</h3>
+              <div dangerouslySetInnerHTML={{ __html: post.htmlContent }} />
+            </>
+          )}
+        </div>
+      </main>
+
+      <AsideWrap />
+    </div>
+  );
 }
