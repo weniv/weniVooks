@@ -19,7 +19,7 @@
     box-sizing: border-box;
 
     @media screen and (max-width: 1024px) {
-      padding: fcSize(60, 80) 0;
+      padding: fcSize(60, 80) 0 fcSize(80, 100);
     }
 
     .inner {
@@ -120,13 +120,19 @@
     background-color: var(--grayLv1);
     padding: 3.2rem;
     border-radius: 1rem;
-    text-wrap: wrap;
+
+    [data-line] {
+      span {
+        white-space: normal;
+      }
+    }
   }
 
   pre,
   code {
     font-family: 'Source Code Pro', monospace;
   }
+
   figure {
     margin: 1em 0 2em;
     img {
@@ -216,33 +222,45 @@
 
   .btn-link {
     text-decoration: none;
-    display: flex;
     width: fit-content;
+    min-height: 2.8em;
+    padding: 0.3em 1.5em 0.3em 3.8em;
+    box-sizing: border-box;
 
+    display: flex;
     align-items: center;
     gap: 1em;
-    padding: 0 1.5em 0 0;
 
     background-color: var(--grayLv1);
     border: 1px solid var(--activation);
     border-radius: $borderRadius;
     transition: all 0.3s;
+    line-height: 1.4;
+    word-break: keep-all;
 
+    position: relative;
     & + * {
       margin-top: 1em;
     }
     &::before {
       content: '';
-      display: block;
+      flex-shrink: 0;
+
       width: 2.8em;
-      height: 2.8em;
+      height: 100%;
+
       background: var(--primary) url('/images/commons/weniv-favicon.svg')
         no-repeat center / 80%;
       border-radius: $borderRadius 0 0 $borderRadius;
+
+      position: absolute;
+      left: 0;
+
       transition: all 0.3s;
     }
 
     &::after {
+      flex-shrink: 0;
       content: '';
       display: block;
       width: 1em;
@@ -252,11 +270,13 @@
       transition: all 0.3s;
     }
 
-    &:hover {
-      background-color: var(--activation);
+    @media (hover: hover) {
+      &:hover {
+        background-color: var(--activation);
 
-      &::after {
-        animation: newwindow 0.3s infinite alternate;
+        &::after {
+          animation: newwindow 0.3s infinite alternate;
+        }
       }
     }
   }
