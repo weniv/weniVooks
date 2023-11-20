@@ -129,13 +129,16 @@ export async function GET(req) {
               content.push(row.replace(/<[^>]*>/g, ''));
             }
           });
-          result.push({
-            bookKind: url,
-            mainTitle,
-            title,
-            content,
-            link: '/',
-          });
+
+          if (content.length !== 0) {
+            result.push({
+              bookKind: url,
+              mainTitle,
+              title,
+              content,
+              link: '/',
+            });
+          }
         }
       }
 
