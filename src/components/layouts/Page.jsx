@@ -8,23 +8,16 @@ import SVGPrevArrow from '@/components/svg/SVGPrevArrow';
 import Btn from '../common/button/Btn';
 import useWindowSize from '@/context/useWindowSize';
 
-export default function Page() {
+export default function Page({ data, DEFAULT_PATH }) {
   const windowSize = useWindowSize();
-  const data = require('public/data/pythonMenu.json');
   const pathname = usePathname();
-  const DEFAULT_PATH = '/python';
 
   const findPage = (sections, path) => {
-    let pageData = {
-      prev: null,
-      next: null,
-    };
-
     if (path === DEFAULT_PATH) {
-      return (pageData = {
+      return {
         prev: null,
         next: sections[0],
-      });
+      };
     }
 
     for (const section of sections) {
@@ -34,16 +27,16 @@ export default function Page() {
 
         if (index === 0) {
           // 첫번째
-          return (pageData = {
+          return {
             prev: data,
             next: section.sections[0],
-          });
+          };
         } else {
           const prevSection = sections[index - 1].sections;
-          return (pageData = {
+          return {
             prev: prevSection[prevSection.length - 1],
             next: section.sections ? section.sections[0] : '다음챕터',
-          });
+          };
         }
       }
       if (section.sections) {
@@ -56,27 +49,31 @@ export default function Page() {
           const index = section.sections.indexOf(currentSection);
 
           if (index === 0) {
-            console.log();
-            return (pageData = {
+            return {
               prev: section,
               next: section.sections[index + 1],
-            });
+            };
           } else if (index === sectionLength) {
             const parentIndex = sections.indexOf(section) + 1;
 
-            return (pageData = {
+            return {
               prev: section.sections[index - 1],
               next: sections[parentIndex] ? sections[parentIndex] : null,
-            });
+            };
           } else {
-            return (pageData = {
+            return {
               prev: section.sections[index - 1],
               next: section.sections[index + 1],
-            });
+            };
           }
         }
       }
     }
+
+    return {
+      prev: null,
+      next: null,
+    };
   };
 
   const { prev, next } = findPage(data.sections, pathname);

@@ -7,13 +7,13 @@
   border-bottom: 4px solid var(--grayLv2);
   box-sizing: border-box;
   justify-content: center;
-  z-index: 100;
+
   background-color: var(--background);
 
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 300;
+  z-index: 2000;
 
   .h1 {
     margin-left: 2rem;

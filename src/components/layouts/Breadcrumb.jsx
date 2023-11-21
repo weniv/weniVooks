@@ -2,12 +2,12 @@ import Link from 'next/link';
 
 import styles from './Breadcrumb.module.scss';
 
-export default function Breadcrumb({ slug, data }) {
+export default function Breadcrumb({ slug, data, DEFAULT_PATH }) {
   let breadcrumb = [];
   let currentSection = data;
 
   if (slug && data) {
-    let currentPath = '/python';
+    let currentPath = DEFAULT_PATH;
 
     for (let i = 0; i < slug.length; i++) {
       const currentSlug = slug[i];

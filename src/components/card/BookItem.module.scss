@@ -37,6 +37,14 @@
   word-break: keep-all;
 
   z-index: 10;
+
+  display: flex;
+  flex-direction: column;
+
+  .titleWrap {
+    flex-grow: 1;
+  }
+
   .info {
     font-size: fcSize(13, 16);
     color: var(--grayLv3);
@@ -44,16 +52,27 @@
   }
 
   .title,
-  .desc {
+  .desc,
+  .subtitle {
     line-height: 1.4;
     overflow: hidden;
     display: -webkit-box;
     -webkit-box-orient: vertical;
+    word-break: break-all;
   }
 
   .title {
     font-size: fcSize(16, 24);
-    margin: 0.8rem 0 1.2rem;
+    margin-top: 0.8rem;
+    -webkit-line-clamp: 1;
+  }
+
+  .subtitle {
+    font-size: fcSize(16, 18);
+    font-weight: normal;
+    margin: 0.2rem 0 1.2rem;
+    color: var(--grayLv4);
+
     -webkit-line-clamp: 1;
   }
   .price strong {
@@ -63,7 +82,7 @@
 
   .desc {
     margin-top: 1.2rem;
-    -webkit-line-clamp: 3;
+    -webkit-line-clamp: 2;
   }
 }
 .btnGroup {
@@ -73,14 +92,5 @@
 
   a {
     min-width: 11rem;
-  }
-}
-
-@media screen and (max-width: map-get($breakPoint, mobile)) {
-  .content {
-    .title,
-    .desc {
-      -webkit-line-clamp: 2;
-    }
   }
 }
