@@ -1,7 +1,7 @@
 import Header from '@/components/layouts/Header';
 import BtnTop from '@/components/feature/BtnTop';
 
-import styles from '../python/layout.module.scss';
+import styles from '../search/layout.module.scss';
 import searchStyles from '../search/search.module.scss';
 import Side from '@/components/layouts/Side';
 import classNames from 'classnames';
@@ -12,7 +12,7 @@ import classNames from 'classnames';
 // };
 
 export default function Layout({ children }) {
-  const pythonMenu = require('public/data/pythonMenu.json');
+  const pythonMenu = require('public/menu/python.json');
 
   return (
     <>
