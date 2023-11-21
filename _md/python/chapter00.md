@@ -9,7 +9,7 @@ date: 2023-10-31
 
 ### 1.1.1. 제목
 
-![이미지 캡션!](/img/main-banner-img1.png)
+![이미지 캡션!](/images/banner/main-banner-img1.png)
 
 ### 링크
 
@@ -103,5 +103,35 @@ function findSequence(goal) {
       );
   }
   return find(1, '1');
+}
+```
+
+```python
+import re
+dkdkdfdsf
+def solution(data):
+```
+
+```html
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+  </head>
+  <body></body>
+</html>
+```
+
+```css
+h1 {
+  color: royalblue;
+}
+.class {
+  background: none;
+}
+#id {
+  font-weight: bold;
 }
 ```

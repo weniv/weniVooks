@@ -7,7 +7,7 @@ import { useState } from 'react';
 export default function Banner() {
   const CONTROLL_ID = 'slide_ctrl';
   const [page, setPage] = useState(0);
-  const bannerData = require('/public/data/mainBannerData.json');
+  const bannerData = require('/public/data/mainBanner.json');
 
   const onClick = (e) => {
     setPage(Number(e.target.value));
@@ -20,7 +20,13 @@ export default function Banner() {
         id={CONTROLL_ID}
         className={styles.bannerList}
         aria-live="polite"
-        style={{ transform: `translateX(${-100 * page}vw)` }}
+        style={{
+          transform: `translateX(calc((100vw - (100vw - 100%)) * ${
+            -1 * page
+          }))`,
+        }}
+
+        // calc(100vw - (100vw - 100%));
       >
         {bannerData.map((banner, index) => (
           <BannerItem

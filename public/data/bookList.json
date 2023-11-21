@@ -1,0 +1,37 @@
+[
+  {
+    "thumbnail": "",
+    "publisher": "사도출판",
+    "title": "위니브와 함께하는 파이썬 완전 정복",
+    "type": "종이책",
+    "price": "24,000원",
+    "description": "이 아이에게 한글과 영어 단어를 가르치고 싶어 문에는 문, door라고 포스트잇을 붙여 놓았어요. 변수는 이 포스트잇과 비슷합니다. 담겨져 있는 실체는 변하지 않아요.",
+    "booklink": "/python",
+    "classlink": "#",
+    "date": "2024-01-01"
+  },
+  {
+    "thumbnail": "/images/wenivworld/cover-weniv-world-student.png",
+    "publisher": "사도출판",
+    "title": "위니브월드 탐험대(학생용)",
+    "subtitle": "게임으로 배우는 파이썬 교육 플랫폼 ",
+    "type": "전자책",
+    "price": "무료",
+    "description": "위니브월드(https://world.weniv.co.kr/)는 파이썬 환경을 더욱 쉽게 접할 수 있도록 제작된 교육용 소프트웨어입니다.",
+    "booklink": "/wenivworld",
+    "classlink": "#",
+    "date": "2023-11-07"
+  },
+  {
+    "thumbnail": "/images/wenivworld/cover-weniv-world-teacher.png",
+    "publisher": "사도출판",
+    "title": "위니브월드 탐험대(선생님용)",
+    "subtitle": "게임으로 배우는 파이썬 교육 플랫폼",
+    "type": "전자책",
+    "price": "무료",
+    "description": "위니브월드(https://world.weniv.co.kr/)는 파이썬 환경을 더욱 쉽게 접할 수 있도록 제작된 교육용 소프트웨어입니다.",
+    "booklink": "/wenivworld",
+    "classlink": "#",
+    "date": "2023-11-07"
+  }
+]

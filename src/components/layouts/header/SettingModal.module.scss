@@ -4,6 +4,7 @@
 .setting {
   & > div {
     width: 32rem;
+    padding: 2.8rem 3.2rem;
     background-color: var(--background);
     box-sizing: border-box;
     border: 1px solid var(--grayLv2);
@@ -40,15 +41,4 @@
       overflow-x: auto;
     }
   }
-}
-
-.themeSetting {
-  padding: 2.8rem 3.2rem;
-  border-bottom: 1px solid var(--grayLv2);
-  & > div {
-    margin-top: 1.2rem;
-  }
-}
-.fontSetting {
-  padding: 2.8rem 3.2rem;
 }

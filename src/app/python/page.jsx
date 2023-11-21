@@ -1,4 +1,7 @@
 'use client';
+import '@/styles/subpage.scss';
+import { DEFAULT_PATH, MENU_DATA } from './data';
+
 import Breadcrumb from '@/components/layouts/Breadcrumb';
 import useWindowSize from '@/context/useWindowSize';
 
@@ -18,15 +21,22 @@ const JavascriptCodeblock = dynamic(
 );
 
 export default function Home() {
-  const pythonMenu = require('public/data/pythonMenu.json');
   const windowSize = useWindowSize();
 
   return (
-    <div>
-      {windowSize > 1024 && <Breadcrumb data={pythonMenu} />}
-      <main>파이썬 부트캠프 메인</main>
-      <PythonCodeblock />
-      {/* <JavascriptCodeblock /> */}
+    <div className="subContent">
+      {windowSize > 1024 && (
+        <Breadcrumb data={MENU_DATA} DEFAULT_PATH={DEFAULT_PATH} />
+      )}
+      <div className="container">
+        <main className="bookContent">
+          <div className="inner">
+            <h3 className="title">파이썬 부트캠프</h3>
+            <PythonCodeblock />
+            {/* <JavascriptCodeblock /> */}
+          </div>
+        </main>
+      </div>
     </div>
   );
 }
