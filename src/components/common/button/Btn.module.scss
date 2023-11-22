@@ -24,12 +24,14 @@
   }
 
   // hover
-  &:not(:disabled):hover {
-    color: var(--primary);
-    background-color: var(--grayLv1);
+  @media (hover: hover) {
+    &:not(:disabled):hover {
+      color: var(--primary);
+      background-color: var(--grayLv1);
 
-    svg path {
-      fill: var(--primary);
+      svg path {
+        fill: var(--primary);
+      }
     }
   }
 }
