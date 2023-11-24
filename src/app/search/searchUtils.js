@@ -245,6 +245,7 @@ export const splitArray = (array, delimiter) => {
 
 // 책 종류 선택
 export const choiceBookKind = (bookkind) => {
+  console.log('bookkind', null?.toLowerCase());
   const kind = bookkind.toLowerCase();
   if (kind === 'python') {
     return '파이썬 부트캠프';
