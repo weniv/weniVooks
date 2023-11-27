@@ -6,6 +6,8 @@ import styles from './search.module.scss';
 import classNames from 'classnames';
 import { searchInMd } from './searchUtils';
 import SVGAlertCircle from '@/components/svg/SVGAlertCircle';
+import useWindowSize from '@/context/useWindowSize';
+import SearchForm from '@/components/layouts/header/SearchForm';
 
 // 검색키워드와 일치하는 문자열 하이라이팅
 function highlightKeyword(text, keyword) {
@@ -29,6 +31,7 @@ export default function Search() {
   const params = useSearchParams();
   const searchQuery = params.get('keyword');
   const [searchResults, setSearchResults] = useState([]);
+  const windowSize = useWindowSize();
 
   useEffect(() => {
     if (searchQuery) {
@@ -39,14 +42,22 @@ export default function Search() {
   return (
     <div className={classNames(styles.wrapper)}>
       <div className={classNames(styles.innerLayout)}>
+        {windowSize < 640 ? (
+          <div className={styles.searchForm}>
+            <SearchForm />
+          </div>
+        ) : null}
         <div className={classNames(styles.title)}>
           <strong>{searchQuery}</strong>
           <span>검색 결과: {searchResults?.length}건</span>
         </div>
         {searchResults.length === 0 ? (
           <div className={styles.notFound}>
-            <SVGAlertCircle />
-            <p>검색 결과가 없습니다. 다른 검색어를 입력해 주세요.</p>
+            <SVGAlertCircle size={windowSize < 640 ? 80 : 100} />
+            <p>
+              <span>검색 결과가 없습니다.</span>
+              <span>다른 검색어를 입력해 주세요.</span>
+            </p>
           </div>
         ) : (
           <ul>
@@ -59,7 +70,9 @@ export default function Search() {
                 </a>
                 <p className={classNames(styles.path)}>
                   {highlightKeyword(
-                    `${data.bookKind} > ${data.mainTitle} > ${data.title}`,
+                    `${windowSize > 640 ? data.bookKind : '...'} > ${
+                      data.mainTitle
+                    } > ${data.title}`,
                     searchQuery,
                   )}
                 </p>

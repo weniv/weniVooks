@@ -5,21 +5,18 @@ import styles from '../search/layout.module.scss';
 import searchStyles from '../search/search.module.scss';
 import classNames from 'classnames';
 import Footer from '@/components/layouts/Footer';
+import SearchForm from '@/components/layouts/header/SearchForm';
 
 export default function Layout({ children }) {
-  const pythonMenu = require('public/menu/python.json');
-
   return (
     <>
-      <Header />
-
       <div className={classNames('layout-grow', styles.wrapper)}>
+        <Header />
         <div className={styles.content}>
           <main className={searchStyles.main}>{children}</main>
         </div>
+        <Footer intro={true} />
       </div>
-
-      <Footer intro={true} />
 
       <BtnTop />
     </>

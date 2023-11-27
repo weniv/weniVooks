@@ -39,3 +39,9 @@
   height: 3.2rem;
   padding: 0;
 }
+
+@media screen and (max-width: 640px) {
+  .search {
+    width: 100%;
+  }
+}
