@@ -310,3 +310,9 @@ a.btn-solid {
   margin: auto;
   max-height: 80rem;
 }
+
+.max-width {
+  width: $maxWidth;
+  margin: auto;
+  max-width: calc(100% - 1.6rem * 2);
+}

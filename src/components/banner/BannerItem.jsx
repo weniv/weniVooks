@@ -1,13 +1,11 @@
-import styles from './BannerItem.module.scss';
-
 import Btn from '../common/button/Btn';
-
-export default function BannerItem({ data, ariaHidden }) {
+import styles from './Banner.module.scss';
+export default function BannerItem({ data }) {
   const { bgcolor, thumbnail, category, title, description, link } = data;
 
   return (
-    <li aria-hidden={ariaHidden} style={{ backgroundColor: bgcolor }}>
-      <article className={styles.bannerItem}>
+    <article className={styles.bannerItem} style={{ backgroundColor: bgcolor }}>
+      <div className="max-width">
         <div className={styles.content}>
           <p className={styles.category}>{category}</p>
           <h3 className={styles.title}>{title}</h3>
@@ -28,7 +26,7 @@ export default function BannerItem({ data, ariaHidden }) {
         {thumbnail && (
           <img className={styles.thumbnail} src={thumbnail} alt="" />
         )}
-      </article>
-    </li>
+      </div>
+    </article>
   );
 }
