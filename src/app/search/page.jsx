@@ -37,6 +37,10 @@ export default function Search() {
   useEffect(() => {
     if (searchQuery) {
       searchInMd(searchQuery, setSearchResults);
+    } else {
+      setTimeout(() => {
+        setSearchResults([]);
+      }, 1000);
     }
   }, [searchQuery]);
 
@@ -51,7 +55,7 @@ export default function Search() {
               </div>
             ) : null}
             <div className={classNames(styles.title)}>
-              <strong>{searchQuery}</strong>
+              <strong>{searchQuery ? searchQuery : '검색어 없음'}</strong>
               <span>검색 결과: {searchResults?.length}건</span>
             </div>
             {searchResults.length === 0 ? (

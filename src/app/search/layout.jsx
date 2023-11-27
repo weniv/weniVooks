@@ -5,7 +5,6 @@ import styles from '../search/layout.module.scss';
 import searchStyles from '../search/search.module.scss';
 import classNames from 'classnames';
 import Footer from '@/components/layouts/Footer';
-import SearchForm from '@/components/layouts/header/SearchForm';
 
 export default function Layout({ children }) {
   return (

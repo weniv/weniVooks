@@ -39,6 +39,7 @@ main.main {
   align-self: flex-start;
 
   strong {
+    max-width: 500px;
     font-size: fcSize(32, 40);
     font-weight: 700;
     line-height: fcSize(40, 56);
@@ -140,6 +141,10 @@ div.notFound {
   .title {
     flex-direction: column;
     align-items: flex-start;
+
+    strong {
+      width: 342px;
+    }
   }
 
   div.notFound {

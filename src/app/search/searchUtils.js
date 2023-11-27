@@ -199,6 +199,8 @@ export const searchInMd = async (query, setSearchResults) => {
   try {
     const markdown = await fetchMarkdown(query);
 
+    console.log('markdown', markdown);
+
     if (Array.isArray(markdown)) {
       await setSearchResults(markdown);
     }
