@@ -200,7 +200,7 @@ export const searchInMd = async (query, setSearchResults) => {
     const markdown = await fetchMarkdown(query);
 
     if (Array.isArray(markdown)) {
-      setSearchResults(markdown);
+      await setSearchResults(markdown);
     }
   } catch (error) {
     console.error(error);
