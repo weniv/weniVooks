@@ -4,6 +4,7 @@
   width: 100%;
   display: flex;
   align-items: flex-start;
+  overflow-y: scroll;
 
   .content {
     flex-grow: 1;
