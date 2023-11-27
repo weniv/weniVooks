@@ -10,7 +10,7 @@ export default function NotFound() {
       <Header onlyTitle />
 
       <main className={`layout-content ${styles.notFound}`}>
-        <img src="/img/404.png" alt="404" />
+        <img src="/images/commons/404.png" alt="404" />
         <h2>페이지를 찾을 수 없습니다.</h2>
         <p>
           페이지가 존재하지 않거나 사용할 수 없는 페이지입니다. 웹 주소가
