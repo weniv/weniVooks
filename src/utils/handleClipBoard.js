@@ -2,9 +2,9 @@ export const handleClipBoard = async (text) => {
   if (navigator.clipboard) {
     try {
       await navigator.clipboard.writeText(text);
-      alert('주소가 복사되었습니다.');
+      alert('복사되었습니다.');
     } catch (e) {
-      alert('주소 복사에 실패하였습니다. 다시 시도해주세요.');
+      alert('실패하였습니다. 다시 시도해주세요.');
     }
   } else {
     const textarea = document.createElement('textarea');
@@ -23,6 +23,6 @@ export const handleClipBoard = async (text) => {
     document.execCommand('copy');
     // 흐름 6.
     document.body.removeChild(textarea);
-    alert('클립보드에 복사되었습니다.');
+    alert('복사되었습니다.');
   }
 };
