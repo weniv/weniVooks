@@ -3,15 +3,15 @@
 import { DEFAULT_PATH, MENU_DATA } from '../data';
 
 import '@/styles/subpage.scss';
-import useWindowSize from '@/context/useWindowSize';
+import useWindowSize from '@/utils/useWindowSize';
 import Breadcrumb from '@/components/layouts/Breadcrumb';
 
 export default function Layout({ children, params }) {
-  const windowSize = useWindowSize();
+  const { windowWidth } = useWindowSize();
 
   return (
     <div className="subContent">
-      {windowSize > 1024 && (
+      {windowWidth > 1024 && (
         <Breadcrumb
           slug={params.slug}
           data={MENU_DATA}

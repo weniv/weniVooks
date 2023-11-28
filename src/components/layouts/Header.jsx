@@ -4,7 +4,7 @@ import classNames from 'classnames';
 
 import styles from './Header.module.scss';
 
-import useWindowSize from '@/context/useWindowSize';
+import useWindowSize from '@/utils/useWindowSize';
 
 import SVGSearch from '@/components/svg/SVGSearch';
 import Logo from '@/components/svg/Logo';
@@ -28,7 +28,7 @@ const TitleHeader = ({ children, className }) => {
 };
 
 export default function Header({ onlyTitle, scroll }) {
-  const windowSize = useWindowSize();
+  const { windowWidth } = useWindowSize();
 
   if (onlyTitle) {
     return <TitleHeader />;
@@ -38,7 +38,7 @@ export default function Header({ onlyTitle, scroll }) {
     <TitleHeader className={styles.default}>
       <div className={styles.right}>
         <SettingBtn />
-        {windowSize > 640 ? (
+        {windowWidth > 640 ? (
           <SearchForm />
         ) : (
           <BtnIcon
