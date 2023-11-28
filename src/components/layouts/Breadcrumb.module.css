@@ -1,0 +1,24 @@
+.breadcrumb {
+  display: flex;
+  gap: 0.4rem;
+  height: 2rem;
+  transform: translateX(-0.6rem);
+  margin-bottom: 2.4rem;
+}
+.breadcrumb li:not(:first-child)::before {
+  content: ">";
+  margin-right: 0.4rem;
+}
+.breadcrumb a {
+  font-size: 1.4rem;
+  padding: 0.4rem 0.6rem;
+  border-radius: 0.4rem;
+}
+@media (hover: hover) {
+  .breadcrumb a:hover {
+    background-color: var(--activation);
+  }
+}
+.breadcrumb li:last-child a {
+  font-weight: bold;
+}/*# sourceMappingURL=Breadcrumb.module.css.map */

@@ -1,0 +1,35 @@
+.wrap {
+  margin-top: -0.5rem;
+  max-height: 26rem;
+  overflow-y: auto;
+  -webkit-mask-image: linear-gradient(180deg, transparent 0%, rgb(255, 255, 255) 2rem, rgb(255, 255, 255) calc(100% - 3rem), transparent 100%);
+  mask-image: linear-gradient(180deg, transparent 0%, rgb(255, 255, 255) 2rem, rgb(255, 255, 255) calc(100% - 3rem), transparent 100%);
+}
+.wrap > ol {
+  padding: 1.5rem 0;
+}
+
+.toc a {
+  display: block;
+  padding: 0.9rem;
+  transition: background-color 0.3s;
+}
+.toc a.active {
+  font-weight: bold;
+  color: var(--primary);
+  background-color: var(--activation);
+}
+@media (hover: hover) {
+  .toc a:not(.active):hover {
+    background-color: var(--grayLv1);
+  }
+}
+.toc > li > a {
+  padding-left: 2rem;
+}
+.toc > li > ol > li > a {
+  padding-left: 4rem;
+}
+.toc > li > ol > li > ol > li > a {
+  padding-left: 6rem;
+}/*# sourceMappingURL=Toc.module.css.map */

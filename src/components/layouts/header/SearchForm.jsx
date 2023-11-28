@@ -4,13 +4,6 @@ import styles from './SearchForm.module.scss';
 import SVGSearch from '@/components/svg/SVGSearch';
 
 export default function SearchForm() {
-  // 현재 책 구분
-  // const [currentBook, setCurrentBook] = useState('');
-  // useEffect(() => {
-  //   const currentURl = window.location.href;
-  //   setCurrentBook(currentURl.split('http://localhost:3000/')[1]);
-  // }, []);
-
   return (
     <form className={styles.search} action="/search" method="GET">
       <label className="a11y-hidden" htmlFor="search">
@@ -24,7 +17,7 @@ export default function SearchForm() {
       />
 
       <BtnIcon
-        type="button"
+        type="submit"
         className={styles.btnSearch}
         children={<SVGSearch color="grayLv4" />}
         bordernone="true"
