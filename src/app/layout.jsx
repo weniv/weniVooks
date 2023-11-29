@@ -40,7 +40,7 @@ export default function RootLayout({ children }) {
     <html lang="ko-KR">
       <SettingProvider>
         <Body>
-          <div className={styles.layout}>{children}</div>{' '}
+          <div className={styles.layout}>{children}</div>
           <script
             dangerouslySetInnerHTML={{
               __html: `(${String(BeforeFn)})()`,
