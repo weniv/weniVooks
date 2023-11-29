@@ -1,3 +1,5 @@
+@import '@/styles/function.scss';
+
 main.main {
   width: 100%;
 }
@@ -13,40 +15,56 @@ main.main {
 .innerLayout {
   display: flex;
   flex-direction: column;
-  width: 990px;
-  height: 37vh;
-  justify-content: space-between;
+  width: fcSize(342, 990);
   margin-top: 10vh;
+  height: 100%;
+  overflow: hidden;
+
+  ul {
+    overflow-y: scroll;
+    -ms-overflow-style: none; /* 인터넷 익스플로러 */
+    scrollbar-width: none; /* 파이어폭스 */
+
+    &::-webkit-scrollbar {
+      display: none; /* 크롬, 사파리, 오페라, 엣지 */
+    }
+  }
 }
 
 .title {
   display: flex;
   gap: 12px;
   align-items: center;
-  padding-bottom: 20px;
+  margin-bottom: fcSize(16, 20);
+  align-self: flex-start;
 
   strong {
-    font-size: 40px;
+    max-width: 500px;
+    font-size: fcSize(32, 40);
     font-weight: 700;
-    line-height: 56px;
+    line-height: fcSize(40, 56);
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
   }
 
   span {
     color: var(--grayLv3);
-    font-size: 24px;
+    font-size: fcSize(18, 24);
     font-weight: 600;
-    line-height: 32px;
+    line-height: fcSize(24, 32);
+    white-space: nowrap;
   }
 }
 
 .resultSection {
-  padding: 40px 0;
+  padding: fcSize(24, 40) 0;
   border-bottom: 2px solid var(--grayLv2);
 
   p.subTitle {
-    font-size: 32px;
+    font-size: fcSize(24, 32);
     font-weight: 700;
-    margin-bottom: 14px;
+    margin-bottom: 12px;
     cursor: pointer;
 
     span.keyword {
@@ -68,7 +86,7 @@ main.main {
     font-size: 14px;
     font-weight: 400;
     line-height: 20px;
-    margin-bottom: 34px;
+    margin-bottom: fcSize(20, 32);
 
     span.keyword {
       font-weight: 700;
@@ -77,10 +95,9 @@ main.main {
   }
 
   div.contents {
-    font-size: 18px;
+    font-size: fcSize(16, 18);
     font-weight: 400;
-    line-height: 32px;
-    letter-spacing: -0.27px;
+    line-height: fcSize(28, 32);
     display: flex;
     flex-direction: column;
     gap: 16px;
@@ -100,9 +117,44 @@ div.notFound {
   flex-direction: column;
   align-items: center;
   gap: 20px;
+  margin-top: 200px;
 
   p {
-    font-size: 18px;
+    font-size: fcSize(16, 18);
     color: var(--grayLv4);
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .innerLayout {
+    margin-top: 24px;
+
+    div.searchForm {
+      height: 40px;
+      box-sizing: border-box;
+      padding: 2px;
+      margin-bottom: 40px;
+      box-sizing: border-box;
+    }
+  }
+
+  .title {
+    flex-direction: column;
+    align-items: flex-start;
+
+    strong {
+      width: 342px;
+    }
+  }
+
+  div.notFound {
+    gap: 16px;
+    margin-top: 112px;
+
+    span {
+      display: block;
+      line-height: 22px;
+      text-align: center;
+    }
   }
 }

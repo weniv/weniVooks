@@ -316,3 +316,6 @@ a.btn-solid {
   margin: auto;
   max-width: calc(100% - 1.6rem * 2);
 }
+[data-rehype-pretty-code-fragment] {
+  position: relative;
+}

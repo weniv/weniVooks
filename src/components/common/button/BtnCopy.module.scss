@@ -1,0 +1,13 @@
+.copyBtn {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+
+  width: 4rem;
+  height: 4rem;
+  border: 1px solid var(--grayLv2);
+  box-sizing: border-box;
+  border-radius: 1rem;
+  background: var(--background) url(/images/commons/icon-copy.svg) no-repeat 50%
+    50% /60%;
+}
