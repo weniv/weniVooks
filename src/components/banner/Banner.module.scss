@@ -1,52 +1,85 @@
 @import '@/styles/var.scss';
+@import '@/styles/function.scss';
+
+$bannerHeight: fcSize(240, 400);
 
 .banner {
+  [class*='swiper-pagination'] {
+    bottom: 1.6rem;
+    height: auto;
+  }
+  span[class*='swiper-pagination-bullet'] {
+    background-color: var(--background);
+    width: 1rem;
+    height: 1rem;
+    opacity: 0.5;
+  }
+  span[class*='swiper-pagination-bullet-active'] {
+    opacity: 1;
+  }
+}
+.bannerItem {
+  color: #121314;
   width: 100%;
-  height: $bannerHeight;
-  overflow: hidden;
+
   background-color: var(--grayLv2);
+
+  & > div {
+    height: $bannerHeight;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding-top: fcSize(24, 80);
+    box-sizing: border-box;
+    line-height: 1.4;
+  }
+}
+
+.content {
   position: relative;
+  z-index: 10;
 }
-.bannerList {
-  display: flex;
-  transition: transform 0.3s;
-  li {
-    width: 100%;
-    flex-shrink: 0;
-
-    img {
-      z-index: 0;
-    }
-  }
+.category {
+  display: inline-block;
+  background-color: #fff;
+  color: var(--primary);
+  font-weight: bold;
+  font-size: 1.4rem;
+  padding: 0.1em 0.3em;
 }
 
-.bannerPager {
-  display: flex;
+.title {
+  font-size: fcSize(18, 40);
+  margin: 1.2rem 0;
+}
+
+.description {
+  margin-bottom: fcSize(12, 32);
+}
+
+.thumbnail {
   position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
+  bottom: 0;
+  right: 0;
+  height: 100%;
+}
 
-  bottom: 1.2rem;
-  @media screen and (max-width: map-get($breakPoint, mobile)) {
-    bottom: 0.6rem;
+@media screen and (max-width: map-get($breakPoint, mobile)) {
+  .bannerItem {
+    & > div {
+      justify-content: flex-end;
+      padding-bottom: 4rem;
+    }
   }
 
-  button {
-    padding: 0.6rem;
-    &::before {
-      content: '';
-      display: block;
-      width: 1rem;
-      height: 1rem;
-      border-radius: 50%;
-      background-color: var(--background);
-    }
-    &.default {
-      opacity: 0.5;
-    }
+  .description {
+    display: none;
+  }
 
-    &.active {
-      opacity: 1;
-    }
+  .thumbnail {
+    width: 100vw;
+    height: 100%;
+    object-fit: cover;
+    right: -2.4rem;
   }
 }

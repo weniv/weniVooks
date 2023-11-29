@@ -27,6 +27,7 @@
     "remark-rehype": "^11.0.0",
     "sass": "^1.66.1",
     "supports-color": "^8.1.1",
+    "swiper": "^11.0.5",
     "unified": "^11.0.4"
   }
 }
