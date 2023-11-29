@@ -5,12 +5,12 @@ import { useContext, useEffect, useState } from 'react';
 
 import useWindowSize from '@/utils/useWindowSize';
 import { SettingContext } from '@/context/SettingContext';
-import Nav from './side/Nav';
-import BtnIcon from '../common/button/BtnIcon';
-import Footer from './Footer';
-import SVGList from '../svg/SVGList';
+import Nav from '../side/Nav';
+import BtnIcon from '../../common/button/BtnIcon';
+import Footer from '../Footer';
+import SVGList from '../../svg/SVGList';
 import classNames from 'classnames';
-import SVGListClose from '../svg/SVGListClose';
+import SVGListClose from '../../svg/SVGListClose';
 import { usePathname } from 'next/navigation';
 
 export default function Side(props) {
