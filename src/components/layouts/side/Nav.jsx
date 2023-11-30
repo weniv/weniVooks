@@ -15,7 +15,7 @@ const MenuItem = (props) => {
 
   // scroll 이동
   useEffect(() => {
-    const sideMenu = document.querySelector('nav');
+    const sideMenu = document.querySelector('#naviWrap');
     const currentSidebarItem = document.querySelector('#active');
     const scrollToTop = () => {
       sideMenu.scrollTo({
@@ -71,7 +71,7 @@ export default function Nav({ data }) {
         <Link href={link}>{title}</Link>
       </h2>
 
-      <ScrollWrap>
+      <ScrollWrap id="naviWrap">
         <nav className={styles.nav}>
           <ol className={styles.menu}>
             {sections.map((data, index) => (
