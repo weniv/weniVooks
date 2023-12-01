@@ -26,7 +26,10 @@ export default function SettingModal() {
           <FontSizeRange />
         </div>
       </section>
-      {windowWidth < 640 && <div data-dim="dim" className="dim"></div>}
+
+      {windowWidth && windowWidth < 640 && (
+        <div data-dim="dim" className="dim"></div>
+      )}
     </>
   );
 }
