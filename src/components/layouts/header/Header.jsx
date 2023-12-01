@@ -27,7 +27,7 @@ const TitleHeader = ({ children, className }) => {
   );
 };
 
-export default function Header({ onlyTitle, scroll }) {
+export default function Header({ onlyTitle, scroll, border }) {
   const { windowWidth } = useWindowSize();
 
   if (onlyTitle) {
@@ -35,7 +35,9 @@ export default function Header({ onlyTitle, scroll }) {
   }
 
   return (
-    <TitleHeader className={styles.default}>
+    <TitleHeader
+      className={classNames(styles.default, border && styles.border)}
+    >
       <div className={styles.right}>
         <SettingBtn />
         {windowWidth > 640 ? (

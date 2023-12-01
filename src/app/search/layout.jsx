@@ -10,7 +10,7 @@ export default function Layout({ children }) {
   return (
     <>
       <div className={classNames('layout-grow', styles.wrapper)}>
-        <Header />
+        <Header scroll="false" border="true" />
         <div className={styles.content}>
           <main className={searchStyles.main}>{children}</main>
         </div>
