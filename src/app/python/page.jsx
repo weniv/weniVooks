@@ -2,7 +2,7 @@
 import '@/styles/subpage.scss';
 import { DEFAULT_PATH, MENU_DATA } from './data';
 
-import Breadcrumb from '@/components/layouts/Breadcrumb';
+import Breadcrumb from '@/components/layouts/breadcrumb/Breadcrumb';
 import useWindowSize from '@/utils/useWindowSize';
 
 import dynamic from 'next/dynamic';

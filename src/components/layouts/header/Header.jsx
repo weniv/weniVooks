@@ -9,8 +9,8 @@ import useWindowSize from '@/utils/useWindowSize';
 import SVGSearch from '@/components/svg/SVGSearch';
 import Logo from '@/components/svg/Logo';
 import BtnIcon from '@/components/common/button/BtnIcon';
-import SettingBtn from '@/components/layouts/header/SettingBtn';
-import SearchForm from '@/components/layouts/header/SearchForm';
+import SettingBtn from '@/components/setting/SettingBtn';
+import SearchForm from '@/components/search/SearchForm';
 import ScrollBar from '@/components/layouts/header/ScrollBar';
 
 const TitleHeader = ({ children, className }) => {

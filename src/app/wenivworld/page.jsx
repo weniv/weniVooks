@@ -1,5 +1,5 @@
 'use client';
-import Breadcrumb from '@/components/layouts/Breadcrumb';
+import Breadcrumb from '@/components/layouts/breadcrumb/Breadcrumb';
 import useWindowSize from '@/utils/useWindowSize';
 
 import '@/styles/subpage.scss';

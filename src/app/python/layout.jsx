@@ -2,10 +2,10 @@ import classNames from 'classnames';
 
 import '@/styles/subpage.scss';
 
-import Header from '@/components/layouts/Header';
+import Header from '@/components/layouts/header/Header';
 import Side from '@/components/layouts/menu/Side';
-import Page from '@/components/layouts/Page';
-import BtnTop from '@/components/feature/BtnTop';
+import Page from '@/components/layouts/pagecontrol/PageControl';
+import BtnTop from '@/components/common/button/BtnTop';
 
 import { DEFAULT_PATH, MENU_DATA } from './data';
 

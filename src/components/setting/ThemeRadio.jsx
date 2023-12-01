@@ -1,6 +1,6 @@
 'use client';
 
-import RadioList from '@/components/common/RadioList';
+import RadioList from '@/components/common/radio/RadioList';
 import { SettingContext } from '@/context/SettingContext';
 import { useContext } from 'react';
 

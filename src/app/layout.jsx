@@ -2,7 +2,7 @@ import '@/styles/globals.scss';
 import styles from './layout.module.scss';
 
 import SettingProvider from '@/context/SettingContext';
-import Body from '@/components/layouts/Body';
+import Body from '@/components/layouts/body/Body';
 
 export const metadata = {
   title: '위니북스',

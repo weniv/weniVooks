@@ -2,9 +2,9 @@
 
 import styles from './SettingModal.module.scss';
 
-import ThemeRadio from '@/components/layouts/header/ThemeRadio';
-import FontStyleRadio from '@/components/layouts/header/FontStyleRadio';
-import FontSizeRange from '@/components/layouts/header/FontSizeRange';
+import ThemeRadio from '@/components/setting/ThemeRadio';
+import FontStyleRadio from '@/components/setting/FontStyleRadio';
+import FontSizeRange from '@/components/setting/FontSizeRange';
 import useWindowSize from '@/utils/useWindowSize';
 
 export default function SettingModal() {

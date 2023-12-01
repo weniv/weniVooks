@@ -1,8 +1,8 @@
 import styles from './not-found.module.scss';
 
-import Header from '@/components/layouts/Header';
+import Header from '@/components/layouts/header/Header';
 import Btn from '@/components/common/button/Btn';
-import BtnBack from '@/components/feature/BtnBack';
+import BtnBack from '@/components/common/button/BtnBack';
 
 export default function NotFound() {
   return (

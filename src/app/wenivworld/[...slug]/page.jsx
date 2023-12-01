@@ -1,6 +1,6 @@
 import '@/styles/subpage.scss';
 import { getPostDetail } from '@/utils/getPosts';
-import AsideWrap from '@/components/layouts/AsideWrap';
+import AsideWrap from '@/components/layouts/aside/AsideWrap';
 
 import { DEFAULT_PATH } from '../data';
 import BtnCopy from '@/components/common/button/BtnCopy';

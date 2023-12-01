@@ -2,13 +2,13 @@
 
 import { useState, useEffect } from 'react';
 
-import BtnIcon from '../common/button/BtnIcon';
-import SVGList from '../svg/SVGList';
-import SVGListClose from '../svg/SVGListClose';
+import BtnIcon from '../../common/button/BtnIcon';
+import SVGList from '../../svg/SVGList';
+import SVGListClose from '../../svg/SVGListClose';
 import styles from './Aside.module.scss';
-import SubBanner from './aside/SubBanner';
+import SubBanner from './SubBanner';
 
-import Toc from './aside/Toc';
+import Toc from './Toc';
 
 export default function Aside() {
   const [isMenuShow, setIsMenuShow] = useState(true);

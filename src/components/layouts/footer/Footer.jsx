@@ -1,9 +1,8 @@
-import styles from '@/components/layouts/Footer.module.scss';
+import styles from './Footer.module.scss';
+import Logo from '../../svg/Logo';
 
-import Logo from '../svg/Logo';
-
-import ListSNS from './footer/ListSNS';
-import WenivInfo from './footer/WenivInfo';
+import ListSNS from './ListSNS';
+import WenivInfo from './WenivInfo';
 
 export default function Footer({ intro }) {
   return (

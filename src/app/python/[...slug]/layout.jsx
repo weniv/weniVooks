@@ -4,7 +4,7 @@ import { DEFAULT_PATH, MENU_DATA } from '../data';
 
 import '@/styles/subpage.scss';
 import useWindowSize from '@/utils/useWindowSize';
-import Breadcrumb from '@/components/layouts/Breadcrumb';
+import Breadcrumb from '@/components/layouts/breadcrumb/Breadcrumb';
 
 export default function Layout({ children, params }) {
   const { windowWidth } = useWindowSize();

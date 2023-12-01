@@ -1,10 +1,10 @@
 'use client';
 import { useEffect, useState } from 'react';
-import BtnIcon from '../common/button/BtnIcon';
-import SubBanner from './aside/SubBanner';
-import Toc from './aside/Toc';
-import SVGUpArrow from '../svg/SVGUpArrow';
-import SVGDownArrow from '../svg/SVGDownArrow';
+import BtnIcon from '../../common/button/BtnIcon';
+import SubBanner from './SubBanner';
+import Toc from './Toc';
+import SVGUpArrow from '../../svg/SVGUpArrow';
+import SVGDownArrow from '../../svg/SVGDownArrow';
 
 import styles from './AsideMobile.module.scss';
 import classNames from 'classnames';
