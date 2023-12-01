@@ -2,11 +2,11 @@
 
 .aside {
   position: fixed;
-  width: calc(100% - 5.6rem);
+  width: 100%;
   top: $headerHeight;
 
-  left: 5.6rem;
-  padding: 0.5rem 2rem 0.5rem 0;
+  left: 0;
+  padding: 0.5rem 2rem 0.5rem 5.6rem;
   box-sizing: border-box;
   z-index: 9;
   background-color: var(--background);

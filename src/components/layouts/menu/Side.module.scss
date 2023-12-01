@@ -61,6 +61,8 @@
   border: none;
   position: fixed;
   transition: all 0.2s;
+  background-color: var(--background);
+  z-index: 100;
 }
 
 .openBtn-show {
