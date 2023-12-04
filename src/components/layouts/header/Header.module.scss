@@ -9,10 +9,7 @@
   justify-content: center;
 
   background-color: var(--background);
-
-  position: fixed;
-  top: 0;
-  left: 0;
+  position: relative;
   z-index: 2000;
 
   .h1 {
@@ -20,6 +17,21 @@
   }
   .right {
     margin-right: 2rem;
+  }
+
+  @media screen and (min-width: 640px) {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    div[class^='layout-grow'] {
+      padding-top: $headerHeight;
+    }
+  }
+  &.fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
   }
 }
 

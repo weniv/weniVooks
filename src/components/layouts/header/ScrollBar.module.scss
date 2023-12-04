@@ -1,13 +1,19 @@
 @import '@/styles/theme.scss';
+@import '@/styles/var.scss';
 
 .scroll {
   height: 0.4rem;
   width: 100%;
   background-color: var(--grayLv2);
 
-  position: absolute;
+  position: sticky;
   left: 0;
-  bottom: 0;
+  top: 0;
+  z-index: 2000;
+
+  @media screen and (min-width: 640px) {
+    top: $headerHeight;
+  }
 
   div {
     background-color: var(--primary);

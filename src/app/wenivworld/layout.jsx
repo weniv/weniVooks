@@ -8,6 +8,7 @@ import Page from '@/components/layouts/pagecontrol/PageControl';
 import BtnTop from '@/components/common/button/BtnTop';
 
 import { DEFAULT_PATH, MENU_DATA } from './data';
+import ScrollBar from '@/components/layouts/header/ScrollBar';
 
 export const metadata = {
   title: '위니브 월드 | 위니북스',
@@ -18,6 +19,7 @@ export default function Layout({ children }) {
   return (
     <>
       <Header />
+      <ScrollBar />
 
       <div className={classNames('layout-grow', 'wrapper')}>
         <Side data={MENU_DATA} />

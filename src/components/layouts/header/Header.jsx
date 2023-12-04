@@ -11,7 +11,6 @@ import Logo from '@/components/svg/Logo';
 import BtnIcon from '@/components/common/button/BtnIcon';
 import SettingBtn from '@/components/setting/SettingBtn';
 import SearchForm from '@/components/search/SearchForm';
-import ScrollBar from '@/components/layouts/header/ScrollBar';
 
 const TitleHeader = ({ children, className }) => {
   const headerClass = classNames(styles.header, className);
@@ -27,7 +26,7 @@ const TitleHeader = ({ children, className }) => {
   );
 };
 
-export default function Header({ onlyTitle, scroll, border }) {
+export default function Header({ onlyTitle, position, border }) {
   const { windowWidth } = useWindowSize();
 
   if (onlyTitle) {
@@ -36,7 +35,11 @@ export default function Header({ onlyTitle, scroll, border }) {
 
   return (
     <TitleHeader
-      className={classNames(styles.default, border && styles.border)}
+      className={classNames(
+        styles.default,
+        border && styles.border,
+        position === 'fixed' && styles.fixed,
+      )}
     >
       <div className={styles.right}>
         <SettingBtn />
@@ -52,7 +55,7 @@ export default function Header({ onlyTitle, scroll, border }) {
         )}
       </div>
 
-      {scroll !== 'false' && <ScrollBar />}
+      {/* {scroll !== 'false' && <ScrollBar />} */}
     </TitleHeader>
   );
 }

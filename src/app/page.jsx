@@ -6,7 +6,7 @@ import BookList from '@/components/book/BookList';
 export default function Home() {
   return (
     <>
-      <Header scroll="false" />
+      <Header position="fixed" />
       <div className="layout-grow">
         <Banner />
         <BookList />
