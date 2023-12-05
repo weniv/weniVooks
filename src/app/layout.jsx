@@ -1,5 +1,4 @@
 import '@/styles/globals.scss';
-import styles from './layout.module.scss';
 
 import SettingProvider from '@/context/SettingContext';
 import Body from '@/components/layouts/body/Body';
@@ -13,9 +12,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="ko-KR">
       <SettingProvider>
-        <Body>
-          <div className={styles.layout}>{children}</div>
-        </Body>
+        <Body>{children}</Body>
       </SettingProvider>
     </html>
   );

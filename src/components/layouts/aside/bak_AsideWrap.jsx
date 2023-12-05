@@ -3,8 +3,8 @@ import { useEffect, useState } from 'react';
 
 import useWindowSize from '@/utils/useWindowSize';
 
-import Aside from './Aside';
-import AsideMobile from './AsideMobile';
+import Aside from './AsidePC';
+import AsideMobile from './bak_AsideMobile';
 
 export default function AsideWrap() {
   const [headings, setHeadings] = useState([]);

@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 
-import '@/styles/subpage.scss';
+import '@/styles/sub.scss';
 
 import Header from '@/components/layouts/header/Header';
 import Side from '@/components/layouts/menu/Side';
@@ -8,7 +8,6 @@ import Page from '@/components/layouts/pagecontrol/PageControl';
 import BtnTop from '@/components/common/button/BtnTop';
 
 import { DEFAULT_PATH, MENU_DATA } from './data';
-import ScrollBar from '@/components/layouts/header/ScrollBar';
 
 export const metadata = {
   title: '위니브 월드 | 위니북스',
@@ -20,14 +19,21 @@ export default function Layout({ children }) {
     <>
       <Header />
 
-      <div className={classNames('layout-grow', 'wrapper')}>
+      <div className="sub__wrap">
+        <Side data={MENU_DATA} />
+        {children}
+      </div>
+      <Page data={MENU_DATA} DEFAULT_PATH={DEFAULT_PATH} />
+      <BtnTop />
+
+      {/* <div className={classNames('layout-grow', 'wrapper')}>
         <Side data={MENU_DATA} />
         <div className={classNames('layout-content', 'content')}>
           {children}
         </div>
       </div>
-      <Page data={MENU_DATA} DEFAULT_PATH={DEFAULT_PATH} />
-      <BtnTop />
+
+       */}
     </>
   );
 }

@@ -95,6 +95,11 @@ body {
   font-family: 'Pretendard', sans-serif;
   color: var(--surface);
   background-color: var(--background);
+
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 .serif {
