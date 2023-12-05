@@ -1,5 +1,7 @@
 import axios from 'axios';
 
+const PAGE = 1;
+
 // 개행문자 통일, 각 줄을 배열의 요소로 변환
 const normalize = (markdown) => {
   return markdown
@@ -188,7 +190,9 @@ export const parseMarkdown = (markdown) => {
 const fetchMarkdown = async (query) => {
   try {
     const searchQuery = query;
-    const response = await axios.get(`/api/search?keyword=${searchQuery}`);
+    const response = await axios.get(
+      `/api/search?keyword=${searchQuery}&page=${PAGE}`,
+    );
     return response.data;
   } catch (err) {
     console.log(err);

@@ -9,8 +9,8 @@ import {
 } from '@/app/search/searchUtils';
 
 const BASEURL = '_md';
+let startIndex = 0; // 페이징 처리 시작 인덱스
 
-// 재귀적으로 디렉토리를 순회하며 파일 목록을 가져오는 함수
 function getFiles(dir) {
   const files = fs.readdirSync(dir);
   let fileList = [];
@@ -31,15 +31,15 @@ function getFiles(dir) {
 
 export async function GET(req) {
   const data = [];
+  const pageSize = 10; // 한 번에 반환할 페이지 개수
 
   try {
     const searchParams = new URL(req.url).searchParams;
     const keyword = searchParams.get('keyword') || '';
+    const page = parseInt(searchParams.get('page')) || 1; // 현재 페이지
 
-    // data 디렉토리 내부의 .md 파일 및 하위 디렉토리의 .md 파일을 재귀적으로 읽어옴
     const mdFiles = getFiles(path.join(process.cwd(), BASEURL));
 
-    // 파일과 경로 합치기
     const filePath = mdFiles.map((file) => {
       const match = file.match(/_md\\([^\\]+)/);
 
@@ -51,7 +51,15 @@ export async function GET(req) {
       return data;
     });
 
-    for (const file of filePath) {
+    // 시작 인덱스 계산
+    startIndex = (page - 1) * pageSize;
+
+    for (
+      let i = startIndex; // 0
+      i <= startIndex + pageSize && i < filePath.length;
+      i++
+    ) {
+      const file = filePath[i];
       const wholeFiles = fs.readFileSync(file.fileName).toString();
       let filteredFiles;
 
@@ -69,22 +77,18 @@ export async function GET(req) {
       }
     }
 
-    // 코드블럭, 인용문, alt 태그 삭제
     data.map((doc) => (doc.file = textNormalize(doc.file)));
-
-    // HTML로 파싱
     data.map((doc) => {
       doc.file = parseMarkdown(doc.file);
     });
 
-    // obj 형태로 변환
     const convertData = (dataList) => {
       const result = [];
 
       for (const data of dataList) {
-        const url = choiceBookKind(data.url); // breadcrumb 첫 번째 요소, 책 종류
+        const url = choiceBookKind(data.url);
         const html = data.file;
-        let mainTitle = ''; // breadcrumb 두 번째 요소, 메인 제목
+        let mainTitle = '';
 
         html.map((line) => {
           if (line.includes('title:')) {
@@ -95,7 +99,6 @@ export async function GET(req) {
           }
         });
 
-        // title과 date 정보 삭제
         const filteredHtml = html.filter(
           (item) =>
             !item.includes('<p>---</p>') &&
@@ -104,8 +107,6 @@ export async function GET(req) {
         );
 
         const outputArray = splitArray(filteredHtml, '<h2>');
-
-        // 검색 키워드가 존재하는 챕터만 남기기
         const filteredChapter = outputArray.filter((subArray) =>
           subArray.some((item) => item.includes(keyword)),
         );
@@ -120,7 +121,6 @@ export async function GET(req) {
           }
 
           const content = [];
-          // 키워드가 포함된 문자열만 남기기
           chapter.map((row) => {
             const condition = row.includes(keyword) && content.length < 3;
             while (condition) {
