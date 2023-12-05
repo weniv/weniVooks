@@ -19,7 +19,6 @@ export default function Layout({ children }) {
   return (
     <>
       <Header />
-      <ScrollBar />
 
       <div className={classNames('layout-grow', 'wrapper')}>
         <Side data={MENU_DATA} />

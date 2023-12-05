@@ -1,61 +1,51 @@
 'use client';
+
 import Link from 'next/link';
-import classNames from 'classnames';
+
+import Logo from '@/components/svg/Logo';
 
 import styles from './Header.module.scss';
 
 import useWindowSize from '@/utils/useWindowSize';
-
-import SVGSearch from '@/components/svg/SVGSearch';
-import Logo from '@/components/svg/Logo';
-import BtnIcon from '@/components/common/button/BtnIcon';
+import classNames from 'classnames';
 import SettingBtn from '@/components/setting/SettingBtn';
+import BtnIcon from '@/components/common/button/BtnIcon';
+import SVGSearch from '@/components/svg/SVGSearch';
 import SearchForm from '@/components/search/SearchForm';
+import ScrollBar from './ScrollBar';
 
-const TitleHeader = ({ children, className }) => {
-  const headerClass = classNames(styles.header, className);
-  return (
-    <header className={headerClass}>
-      <h1 className={styles.h1}>
-        <Link href="/" scroll={false}>
-          <Logo />
-        </Link>
-      </h1>
-      {children}
-    </header>
-  );
-};
-
-export default function Header({ onlyTitle, position, border }) {
+export default function Header({ type = 'subpage' }) {
   const { windowWidth } = useWindowSize();
 
-  if (onlyTitle) {
-    return <TitleHeader />;
-  }
-
   return (
-    <TitleHeader
-      className={classNames(
-        styles.default,
-        border && styles.border,
-        position === 'fixed' && styles.fixed,
-      )}
-    >
-      <div className={styles.right}>
-        <SettingBtn />
-        {windowWidth > 640 ? (
-          <SearchForm />
-        ) : (
-          <BtnIcon
-            href="/search"
-            bordernone="true"
-            className={styles.searchBtn}
-            children={<SVGSearch color="grayLv4" />}
-          />
-        )}
-      </div>
+    <>
+      <header className={classNames(styles.header, styles[`header__${type}`])}>
+        <h1 className={styles.header__logo}>
+          <Link href="/" scroll={false}>
+            <Logo />
+            <span className="a11y-hidden">WeniVooks</span>
+          </Link>
+        </h1>
 
-      {/* {scroll !== 'false' && <ScrollBar />} */}
-    </TitleHeader>
+        {/* 설정 및 검색 */}
+        {type !== 'notfound' && (
+          <div className={styles.header__right}>
+            <SettingBtn />
+            {windowWidth > 640 ? (
+              <SearchForm />
+            ) : (
+              <BtnIcon
+                href="/search"
+                bordernone="true"
+                className={styles.searchBtn}
+                children={<SVGSearch color="grayLv4" />}
+              />
+            )}
+          </div>
+        )}
+      </header>
+
+      {type === 'subpage' && <ScrollBar />}
+    </>
   );
 }

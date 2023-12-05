@@ -8,17 +8,20 @@
 
   position: sticky;
   left: 0;
-  top: 0;
-  z-index: 2000;
 
-  @media screen and (min-width: 640px) {
-    top: $headerHeight;
-  }
+  z-index: 1000;
 
   div {
     background-color: var(--primary);
     height: 100%;
     width: 100%;
     transition: transform 0.3s;
+  }
+
+  @media screen and (min-width: 1025px) {
+    top: $headerHeight;
+  }
+  @media screen and (max-width: 1024px) {
+    top: 0;
   }
 }

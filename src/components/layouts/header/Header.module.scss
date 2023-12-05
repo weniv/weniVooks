@@ -1,76 +1,66 @@
 @import '@/styles/var.scss';
+
 .header {
   width: 100%;
   height: $headerHeight;
+
   display: flex;
   align-items: center;
-  border-bottom: 4px solid var(--grayLv2);
+  justify-content: space-between;
+
   box-sizing: border-box;
-  justify-content: center;
-
   background-color: var(--background);
-  position: relative;
-  z-index: 2000;
 
-  .h1 {
+  position: relative;
+  z-index: 1000;
+
+  &__logo {
     margin-left: 2rem;
+    a {
+      display: inline-flex;
+    }
+    svg {
+      width: auto;
+      height: fcSize(26, 34);
+    }
   }
-  .right {
+
+  &__right {
+    display: flex;
     margin-right: 2rem;
   }
 
-  @media screen and (min-width: 640px) {
-    position: fixed;
-    top: 0;
-    left: 0;
-
-    div[class^='layout-grow'] {
-      padding-top: $headerHeight;
-    }
-  }
-  &.fixed {
-    position: fixed;
+  &__intro,
+  &__search,
+  &__notfound {
+    position: sticky;
     top: 0;
     left: 0;
   }
-}
 
-.h1 {
-  a {
-    display: inline-flex;
+  &__notfound,
+  &__search {
+    box-sizing: content-box;
+    border-bottom: 4px solid var(--grayLv2);
   }
-  svg {
-    width: auto;
-    height: fcSize(26, 34);
-  }
-}
 
-.default {
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  border-bottom: 0;
+  // 404 페이지
+  &__notfound {
+    justify-content: center;
 
-  .right {
-    display: flex;
-    gap: 1.6rem;
-  }
-}
-.searchBtn {
-  width: 4rem;
-}
-@media screen and (max-width: map-get($breakPoint, mobile)) {
-  .header {
-    .h1 {
-      margin-left: 0.8rem;
-    }
-    .right {
-      margin-right: 0.8rem;
-      gap: 0.8rem;
+    .header__logo {
+      margin-left: 0rem;
     }
   }
-}
 
-.border {
-  border-bottom: 4px solid var(--grayLv2);
+  // 서브페이지
+  &__subpage {
+    @media screen and (min-width: 1025px) {
+      position: sticky;
+      top: 0;
+      left: 0;
+    }
+    @media screen and (max-width: 1024px) {
+    }
+  }
 }
