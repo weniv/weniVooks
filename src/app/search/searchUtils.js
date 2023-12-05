@@ -224,10 +224,12 @@ const removeAsideContent = (text) => {
   return result;
 };
 
-// 코드 블럭 삭제
+// 텍스트 정규화
 export const textNormalize = (text) => {
   const data = removeAsideContent(text);
-  const result = data.replace(/```[^]+?```/gs, '');
+  const result = data
+    .replace(/```[^]+?```/gs, '') // 코드블럭 삭제
+    .replace(/::a\[[^\]]+\]{[^}]+}/g, ''); // ::a로 시작하는 링크 요소들 삭제
   return result;
 };
 
