@@ -43,10 +43,6 @@ export async function GET(req) {
     // 파일과 경로 합치기
     const filePath = mdFiles.map((file) => {
       const match = file.match(/_md\\([^\\]+)/);
-      // const data = {
-      //   url: path.dirname(file).split(path.sep).pop(),
-      //   fileName: file,
-      // };
 
       const data = {
         url: match ? match[1] : null,
@@ -90,7 +86,6 @@ export async function GET(req) {
       for (const data of dataList) {
         const url = choiceBookKind(data.url); // breadcrumb 첫 번째 요소, 책 종류
         const html = data.file;
-        // const mainTitle = html.shift().replace(/<[^>]*>/g, '');
         let mainTitle = ''; // breadcrumb 두 번째 요소, 메인 제목
 
         html.map((line) => {
@@ -118,10 +113,14 @@ export async function GET(req) {
         );
 
         for (const chapter of filteredChapter) {
-          const title = chapter
-            .shift()
-            .replace(/<[^>]*>/g, '')
-            .replace(/[0-9.]/g, '');
+          let title;
+          const temp = chapter.shift();
+          if (temp.includes('<h2>')) {
+            title = temp.replace(/<[^>]*>/g, '').replace(/[0-9.]/g, '');
+          } else {
+            title = mainTitle;
+          }
+
           const content = [];
           // 키워드가 포함된 문자열만 남기기
           chapter.map((row) => {
