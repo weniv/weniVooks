@@ -19,10 +19,11 @@ export default function Layout({ children }) {
     <>
       <Header />
 
-      <div className="sub__wrap">
+      <div className="sub">
         <Side data={MENU_DATA} />
-        {children}
+        <div className="sub__content">{children}</div>
       </div>
+
       <Page data={MENU_DATA} DEFAULT_PATH={DEFAULT_PATH} />
       <BtnTop />
 

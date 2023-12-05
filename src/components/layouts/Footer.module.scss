@@ -1,0 +1,61 @@
+@use '@/styles/function.scss' as *;
+@use '@/styles/theme.scss' as *;
+
+.footer,
+.introFooter {
+  align-self: stretch;
+  color: var(--grayLv3);
+}
+
+.footer {
+  padding: 2rem 0;
+  text-align: center;
+  border-top: 1px solid var(--grayLv2);
+  background-color: var(--background);
+  font-size: 1.2rem;
+}
+
+.introFooter {
+  padding: fcSize(40, 60) 2rem;
+  background-color: var(--grayLv1);
+  font-size: fcSize(12, 14);
+
+  .maxWidth {
+    max-width: 119rem;
+    margin: 0 auto;
+
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  .flex {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    flex-wrap: wrap;
+
+    h2 svg {
+      width: auto;
+      height: fcSize(26, 34);
+    }
+
+    p {
+      margin-top: 0.3em;
+    }
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .introFooter {
+    .flex,
+    .maxWidth {
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    .info {
+      justify-content: center;
+    }
+  }
+}

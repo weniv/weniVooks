@@ -1,0 +1,100 @@
+@import '@/styles/var.scss';
+
+.side {
+  width: fcSize(280, 320);
+  height: calc(100vh - $headerHeight);
+
+  border-right: 1px solid var(--grayLv2);
+  box-sizing: border-box;
+  background-color: var(--background);
+  z-index: 1000;
+  position: sticky;
+  top: $headerHeight;
+
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+
+  nav {
+    flex-grow: 1;
+    padding-bottom: 1rem;
+  }
+
+  @media screen and (max-width: 1024px) {
+    position: fixed;
+  }
+}
+
+.btnClose {
+  position: absolute;
+  top: 0.4rem;
+  right: 0.4rem;
+  border: none;
+}
+
+.menuShow {
+  animation: slideIn 0.3s both;
+}
+
+.menuHide {
+  animation: slideOut 0.3s both;
+}
+
+@keyframes slideIn {
+  from {
+    margin-left: -32rem;
+  }
+  to {
+    margin-left: 0;
+  }
+}
+
+@keyframes slideOut {
+  from {
+    margin-left: 0;
+  }
+  to {
+    margin-left: -32rem;
+  }
+}
+
+//메뉴 열기 버튼
+.openBtn {
+  margin: 0.7rem 1rem;
+  border: none;
+  position: absolute;
+  transition: all 0.2s;
+
+  @media screen and (max-width: map-get($breakPoint,tablet)) {
+    position: fixed;
+  }
+}
+
+.openBtn-show {
+  // display: block;
+  animation: fadeIn 0.2s both;
+}
+.openBtn-hide {
+  // display: none;
+  animation: fadeOut 0.2s both;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}

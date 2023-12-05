@@ -14,8 +14,7 @@ export default function Layout({ children, params }) {
   const { windowWidth } = useWindowSize();
 
   return (
-    //  className="subContent"
-    <div>
+    <>
       {windowWidth > 1024 ? (
         <Breadcrumb
           slug={params.slug}
@@ -26,13 +25,16 @@ export default function Layout({ children, params }) {
         <AsideMobile />
       )}
 
-      <div className="container">
-        <main className="bookContent">
-          <div className="inner">{children}</div>
+      {/* <div className="container"> */}
+      {/* <main className="bookContent"> */}
+
+      <div className="content__wrap">
+        <main className="main">
+          <div className="main__inner">{children}</div>
         </main>
         {windowWidth > 1024 && <AsidePC />}
       </div>
       <BtnCopy />
-    </div>
+    </>
   );
 }
