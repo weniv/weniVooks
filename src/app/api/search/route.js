@@ -118,14 +118,16 @@ export async function GET(req) {
           if (temp.includes('<h2>')) {
             title = temp.replace(/<[^>]*>/g, '').replace(/[0-9.]/g, '');
           } else {
-            title = mainTitle;
+            title = null;
           }
 
           const content = [];
           // 키워드가 포함된 문자열만 남기기
           chapter.map((row) => {
-            if (row.includes(keyword)) {
+            const condition = row.includes(keyword) && content.length < 3;
+            while (condition) {
               content.push(row.replace(/<[^>]*>/g, ''));
+              break;
             }
           });
 
@@ -134,6 +136,7 @@ export async function GET(req) {
               bookKind: url,
               mainTitle,
               title,
+              // content: content.slice(0, 3),
               content,
               link: '/',
             });

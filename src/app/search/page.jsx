@@ -72,14 +72,17 @@ export default function Search() {
                   <li key={idx} className={classNames(styles.resultSection)}>
                     <a href={data.link}>
                       <p className={classNames(styles.subTitle)}>
-                        {highlightKeyword(data.title, searchQuery)}
+                        {highlightKeyword(
+                          data.title ? data.title : data.mainTitle,
+                          searchQuery,
+                        )}
                       </p>
                     </a>
                     <p className={classNames(styles.path)}>
                       {highlightKeyword(
                         `${windowSize > 640 ? data.bookKind : '...'} > ${
                           data.mainTitle
-                        } > ${data.title}`,
+                        }  ${data.title ? '> ' + data.title : ''}`,
                         searchQuery,
                       )}
                     </p>
