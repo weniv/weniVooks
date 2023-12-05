@@ -210,16 +210,24 @@ export const searchInMd = async (query, setSearchResults) => {
 };
 
 // Alt 텍스트 삭제
-export const removeImageAltTexts = (text) => {
+const removeImageAltTexts = (text) => {
   const altTextPattern = /\[.*\]\(.*\)|!\[.*\]\(.*\)/g;
   const result = text.replace(altTextPattern, '');
   return result;
 };
 
 // aside 태그 삭제
-export const removeAsideContent = (text) => {
+const removeAsideContent = (text) => {
+  const data = removeImageAltTexts(text);
   const asidePattern = /<aside>(.*?)<\/aside>|💡/gs;
-  const result = text.replace(asidePattern, '').trim();
+  const result = data.replace(asidePattern, '').trim();
+  return result;
+};
+
+// 코드 블럭 삭제
+export const textNormalize = (text) => {
+  const data = removeAsideContent(text);
+  const result = data.replace(/```[^]+?```/gs, '');
   return result;
 };
 

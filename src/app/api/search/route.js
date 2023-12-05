@@ -3,10 +3,9 @@ import fs from 'fs';
 import path from 'path';
 import {
   parseMarkdown,
-  removeImageAltTexts,
-  removeAsideContent,
   splitArray,
   choiceBookKind,
+  textNormalize,
 } from '@/app/search/searchUtils';
 
 const BASEURL = '_md';
@@ -70,9 +69,8 @@ export async function GET(req) {
       }
     }
 
-    data.map(
-      (doc) => (doc.file = removeAsideContent(removeImageAltTexts(doc.file))),
-    );
+    // 코드블럭, 인용문, alt 태그 삭제
+    data.map((doc) => (doc.file = textNormalize(doc.file)));
 
     // HTML로 파싱
     data.map((doc) => {
@@ -126,7 +124,7 @@ export async function GET(req) {
           chapter.map((row) => {
             const condition = row.includes(keyword) && content.length < 3;
             while (condition) {
-              content.push(row.replace(/<[^>]*>/g, ''));
+              content.push(row.replace(/<[^>]*>/g, '').replace(/&nbsp;/g, ' '));
               break;
             }
           });
@@ -136,7 +134,6 @@ export async function GET(req) {
               bookKind: url,
               mainTitle,
               title,
-              // content: content.slice(0, 3),
               content,
               link: '/',
             });
