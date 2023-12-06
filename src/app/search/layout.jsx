@@ -10,11 +10,11 @@ export default function Layout({ children }) {
   return (
     <>
       <div className={classNames('layout-grow', styles.wrapper)}>
-        <Header type="search" />
+        <Header type="border" />
         <div className={styles.content}>
           <main className={searchStyles.main}>{children}</main>
         </div>
-        <Footer intro={true} />
+        <Footer />
       </div>
 
       <BtnTop />

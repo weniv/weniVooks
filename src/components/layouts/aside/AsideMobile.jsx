@@ -9,9 +9,11 @@ import SVGDownArrow from '@/components/svg/SVGDownArrow';
 import classNames from 'classnames';
 
 export default function AsideMobile() {
+  const [clicked, setClicked] = useState(false);
   const [isMenuShow, setIsMenuShow] = useState(false);
 
   const toggleMenu = () => {
+    !clicked && setClicked(true);
     setIsMenuShow((prev) => !prev);
   };
 
@@ -47,7 +49,7 @@ export default function AsideMobile() {
       <div className={`toc ${styles.toc__wrap}`}>
         {!isMenuShow ? (
           <button
-            className={styles.toc__open}
+            className={classNames(clicked && styles.clicked, styles.toc__open)}
             type="button"
             onClick={toggleMenu}
           >

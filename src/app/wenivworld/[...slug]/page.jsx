@@ -1,5 +1,3 @@
-import '@/styles/subpage.scss';
-
 import { getPostDetail } from '@/utils/getPosts';
 import { DEFAULT_PATH } from '../data';
 

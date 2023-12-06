@@ -16,6 +16,7 @@
 
   &__logo {
     margin-left: 2rem;
+    line-height: 1;
     a {
       display: inline-flex;
     }
@@ -31,7 +32,7 @@
   }
 
   &__intro,
-  &__search,
+  &__border,
   &__notfound {
     position: sticky;
     top: 0;
@@ -39,7 +40,7 @@
   }
 
   &__notfound,
-  &__search {
+  &__border {
     box-sizing: content-box;
     border-bottom: 4px solid var(--grayLv2);
   }

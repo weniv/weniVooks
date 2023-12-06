@@ -61,7 +61,7 @@ export default function Side(props) {
 
   return (
     <>
-      {isDOM ? (
+      {isDOM && (
         <>
           <div
             className={classNames(
@@ -93,7 +93,9 @@ export default function Side(props) {
             ></div>
           )}
         </>
-      ) : (
+      )}
+
+      {!(menu === 'open' && windowWidth >= 1024) && (
         <BtnIcon
           className={classNames(
             styles.openBtn,
@@ -102,6 +104,7 @@ export default function Side(props) {
           children={<SVGList color="grayLv3" />}
           onClick={slideIn}
           bordernone="true"
+          disabled={menu === 'open' ? true : false}
         />
       )}
     </>
