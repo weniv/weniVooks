@@ -5,10 +5,10 @@ import styles from './SettingModal.module.scss';
 import ThemeRadio from '@/components/layouts/header/ThemeRadio';
 import FontStyleRadio from '@/components/layouts/header/FontStyleRadio';
 import FontSizeRange from '@/components/layouts/header/FontSizeRange';
-import useWindowSize from '@/context/useWindowSize';
+import useWindowSize from '@/utils/useWindowSize';
 
 export default function SettingModal() {
-  const windowSize = useWindowSize();
+  const { windowWidth } = useWindowSize();
 
   return (
     <>
@@ -26,7 +26,7 @@ export default function SettingModal() {
           <FontSizeRange />
         </div>
       </section>
-      {windowSize < 640 && <div data-dim="dim" className="dim"></div>}
+      {windowWidth < 640 && <div data-dim="dim" className="dim"></div>}
     </>
   );
 }

@@ -6,10 +6,10 @@ import styles from './Page.module.scss';
 import SVGNextArrow from '@/components/svg/SVGNextArrow';
 import SVGPrevArrow from '@/components/svg/SVGPrevArrow';
 import Btn from '../common/button/Btn';
-import useWindowSize from '@/context/useWindowSize';
+import useWindowSize from '@/utils/useWindowSize';
 
 export default function Page({ data, DEFAULT_PATH }) {
-  const windowSize = useWindowSize();
+  const { windowWidth } = useWindowSize();
   const pathname = usePathname();
 
   const findPage = (sections, path) => {
@@ -82,10 +82,10 @@ export default function Page({ data, DEFAULT_PATH }) {
     <div className={styles.page}>
       <Btn className={styles.btnPrev} href={prev && prev.link} disabled={!prev}>
         <SVGPrevArrow color="grayLv3" />
-        {windowSize > 1024 && <span>{prev && prev.title}</span>}
+        {windowWidth > 1024 && <span>{prev && prev.title}</span>}
       </Btn>
       <Btn className={styles.btnNext} href={next && next.link} disabled={!next}>
-        {windowSize > 1024 && <span>{next && next.title}</span>}
+        {windowWidth > 1024 && <span>{next && next.title}</span>}
         <SVGNextArrow color="grayLv3" />
       </Btn>
     </div>

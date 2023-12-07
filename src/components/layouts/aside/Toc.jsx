@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { useEffect, useState, useRef } from 'react';
 
 import styles from './Toc.module.scss';
+import ScrollWrap from '../menu/ScrollWrap';
 
 const getIntersectionObserver = (setState) => {
   let direction = '';
@@ -97,5 +98,7 @@ export default function Toc() {
     );
   };
 
-  return <div className={styles.wrap}>{renderToc(headingEls)}</div>;
+  return (
+    <ScrollWrap className={styles.wrap}>{renderToc(headingEls)}</ScrollWrap>
+  );
 }
