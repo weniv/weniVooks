@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from 'react';
 import useWindowSize from '@/utils/useWindowSize';
 import { throttle } from 'lodash';
 
-export default function ScrollWrap({ children, className }) {
+export default function ScrollWrap({ children, className, id }) {
   const wrapRef = useRef();
   const { windowHeight } = useWindowSize();
   const [scrollPosition, seScrollPosition] = useState(null);
@@ -57,7 +57,11 @@ export default function ScrollWrap({ children, className }) {
   }, [scrollPosition, windowHeight]);
 
   return (
-    <div className={classNames(styles.scrollWrap, className)} ref={wrapRef}>
+    <div
+      id={id}
+      className={classNames(styles.scrollWrap, className)}
+      ref={wrapRef}
+    >
       {children}
     </div>
   );
