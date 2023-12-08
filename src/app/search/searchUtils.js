@@ -187,11 +187,13 @@ export const parseMarkdown = (markdown) => {
 };
 
 // 로컬 md파일 가져오기
-const fetchMarkdown = async (query) => {
+const fetchMarkdown = async (query, page) => {
+  console.log('68515', page);
   try {
     const searchQuery = query;
     const response = await axios.get(
-      `/api/search?keyword=${searchQuery}&page=${PAGE}`,
+      `/api/search?keyword=${searchQuery}&page=${page}`,
+      // `/api/search?keyword=${searchQuery}`,
     );
     return response.data;
   } catch (err) {
@@ -199,14 +201,17 @@ const fetchMarkdown = async (query) => {
   }
 };
 
-export const searchInMd = async (query, setSearchResults) => {
+export const searchInMd = async (
+  query,
+  setSearchResults,
+  page,
+  setLastPage,
+) => {
   try {
-    const markdown = await fetchMarkdown(query);
-
-    console.log('markdown', markdown);
-
-    if (Array.isArray(markdown)) {
-      await setSearchResults(markdown);
+    const markdown = await fetchMarkdown(query, page);
+    if (Array.isArray(markdown.result)) {
+      await setSearchResults(markdown.result);
+      await setLastPage(markdown.totalPages);
     }
   } catch (error) {
     console.error(error);

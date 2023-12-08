@@ -151,3 +151,60 @@ div.notFound {
     }
   }
 }
+
+.btnWrap {
+  position: fixed;
+  bottom: 3.2rem;
+  right: 9.8rem;
+  display: flex;
+  gap: 0.8rem;
+
+  .btnPrev,
+  .btnNext {
+    width: 5rem;
+    height: 5rem;
+    padding: 0;
+    border-radius: 2.5rem;
+    background-color: var(--background);
+
+    span {
+      display: none;
+    }
+
+    &:not(:disabled):active {
+      background-color: var(--primary);
+      border-color: var(--primary);
+      svg path {
+        fill: #fff;
+      }
+    }
+
+    @media (hover: hover) {
+      &:not(:disabled):hover {
+        display: flex;
+        align-items: center;
+        width: auto;
+        min-width: 5rem;
+        padding: 0 1.2rem;
+        background-color: var(--primary);
+        border-color: var(--primary);
+        color: #fff;
+
+        svg path {
+          fill: #fff;
+        }
+
+        span {
+          display: flex;
+        }
+      }
+    }
+  }
+  .btnPrev span {
+    margin-right: 1rem;
+  }
+
+  .btnNext span {
+    margin-left: 1rem;
+  }
+}

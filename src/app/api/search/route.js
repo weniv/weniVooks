@@ -9,7 +9,6 @@ import {
 } from '@/app/search/searchUtils';
 
 const BASEURL = '_md';
-let startIndex = 0; // 페이징 처리 시작 인덱스
 
 function getFiles(dir) {
   const files = fs.readdirSync(dir);
@@ -36,7 +35,6 @@ export async function GET(req) {
   try {
     const searchParams = new URL(req.url).searchParams;
     const keyword = searchParams.get('keyword') || '';
-    const page = parseInt(searchParams.get('page')) || 1; // 현재 페이지
 
     const mdFiles = getFiles(path.join(process.cwd(), BASEURL));
 
@@ -51,15 +49,7 @@ export async function GET(req) {
       return data;
     });
 
-    // 시작 인덱스 계산
-    startIndex = (page - 1) * pageSize;
-
-    for (
-      let i = startIndex; // 0
-      i <= startIndex + pageSize && i < filePath.length;
-      i++
-    ) {
-      const file = filePath[i];
+    for (const file of filePath) {
       const wholeFiles = fs.readFileSync(file.fileName).toString();
       let filteredFiles;
 
@@ -84,6 +74,10 @@ export async function GET(req) {
 
     const convertData = (dataList) => {
       const result = [];
+      const page = searchParams.get('page') || 1;
+
+      const startIndex = (page - 1) * pageSize;
+      const endIndex = startIndex + pageSize;
 
       for (const data of dataList) {
         const url = choiceBookKind(data.url);
@@ -141,7 +135,13 @@ export async function GET(req) {
         }
       }
 
-      return result;
+      // 페이지에 해당하는 결과만 추출
+      const paginatedResult = result.slice(startIndex, endIndex);
+
+      return {
+        result: paginatedResult,
+        totalPages: Math.ceil(result.length / pageSize),
+      };
     };
 
     const output = convertData(data);
