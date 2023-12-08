@@ -291,7 +291,8 @@ body {
 div.callout {
   border: 1px solid var(--grayLv2);
   border-radius: 0.8em;
-  padding: 1em 2em;
+  padding: 2em 2em 2em 5.3em;
+  background: url(/images/commons/callout.svg) no-repeat 1.6em 1.8em / 4.2rem;
 }
 a.btn-solid {
   display: inline-flex;

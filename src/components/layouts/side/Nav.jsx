@@ -6,6 +6,7 @@ import { usePathname } from 'next/navigation';
 
 import styles from './Nav.module.scss';
 import SVGNavArrow from '@/components/svg/SVGNavArrow';
+import ScrollWrap from '../menu/ScrollWrap';
 
 const MenuItem = (props) => {
   const { title, link, sections } = props;
@@ -14,7 +15,7 @@ const MenuItem = (props) => {
 
   // scroll 이동
   useEffect(() => {
-    const sideMenu = document.querySelector('nav');
+    const sideMenu = document.querySelector('#naviWrap');
     const currentSidebarItem = document.querySelector('#active');
     const scrollToTop = () => {
       sideMenu.scrollTo({
@@ -70,13 +71,15 @@ export default function Nav({ data }) {
         <Link href={link}>{title}</Link>
       </h2>
 
-      <nav className={styles.nav}>
-        <ol className={styles.menu}>
-          {sections.map((data, index) => (
-            <MenuItem key={index} {...data} />
-          ))}
-        </ol>
-      </nav>
+      <ScrollWrap id="naviWrap">
+        <nav className={styles.nav}>
+          <ol className={styles.menu}>
+            {sections.map((data, index) => (
+              <MenuItem key={index} {...data} />
+            ))}
+          </ol>
+        </nav>
+      </ScrollWrap>
     </>
   );
 }

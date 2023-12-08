@@ -58,7 +58,7 @@ export default function AsideMobile() {
           <>
             <h3>목차</h3>
 
-            <Toc />
+            <Toc mobile toggleMenu={toggleMenu} />
 
             <SubBanner />
             <BtnIcon

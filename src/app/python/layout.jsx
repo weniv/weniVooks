@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import '@/styles/subpage.scss';
 
 import Header from '@/components/layouts/Header';
-import Side from '@/components/layouts/Side';
+import Side from '@/components/layouts/menu/Side';
 import Page from '@/components/layouts/Page';
 import BtnTop from '@/components/feature/BtnTop';
 

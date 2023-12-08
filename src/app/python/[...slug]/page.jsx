@@ -3,6 +3,7 @@ import { getPostDetail } from '@/utils/getPosts';
 import AsideWrap from '@/components/layouts/AsideWrap';
 
 import { DEFAULT_PATH } from '../data';
+import BtnCopy from '@/components/common/button/BtnCopy';
 
 export async function generateMetadata({ params }) {
   const post = await getPostDetail(DEFAULT_PATH, params.slug);
@@ -34,6 +35,7 @@ export default async function Page({ params }) {
             <>
               <h3 className="title">{post.title}</h3>
               <div dangerouslySetInnerHTML={{ __html: post.htmlContent }} />
+              <BtnCopy />
             </>
           )}
         </div>

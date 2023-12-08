@@ -1,9 +1,15 @@
 'use client';
 
 import Link from 'next/link';
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useState } from 'react';
 
 import styles from './Toc.module.scss';
+import ScrollWrap from '../menu/ScrollWrap';
+
+const observerOption = {
+  rootMargin: '-70px 0px -50% 0px',
+  threshold: 1,
+};
 
 const getIntersectionObserver = (setState) => {
   let direction = '';
@@ -19,31 +25,24 @@ const getIntersectionObserver = (setState) => {
   };
 
   // observer
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        checkScrollDirection(prevYposition);
-        if (
-          (direction === 'down' && !entry.isIntersecting) ||
-          (direction === 'up' && entry.isIntersecting)
-        ) {
-          const index = entry.target.id.split('-')[1] * 1;
-          setState(index);
-        }
-      });
-    },
-    {
-      threshold: 0.8,
-      rootMargin: '-30px 0px 0px 0px',
-    },
-  );
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      checkScrollDirection(prevYposition);
+      if (
+        (direction === 'down' && !entry.isIntersecting) ||
+        (direction === 'up' && entry.isIntersecting)
+      ) {
+        setState(entry.target.id);
+      }
+    });
+  }, observerOption);
   return observer;
 };
 
 // https://thisyujeong.dev/blog/toc-generator
 
-export default function Toc() {
-  const [currentId, setCurrentId] = useState(0);
+export default function Toc({ mobile, toggleMenu }) {
+  const [currentId, setCurrentId] = useState('');
   const [headingEls, setHeadingEls] = useState([]);
 
   useEffect(() => {
@@ -54,10 +53,11 @@ export default function Toc() {
     let h4Obj = null;
     let h5Obj = null;
 
-    headingElements.map((heading, index) => {
+    headingElements.map((heading) => {
+      observer.observe(heading);
       const title = heading.textContent;
       const tagName = heading.tagName.toLowerCase();
-      const href = `title-${index}`;
+      const href = title;
 
       heading.id = href;
       if (tagName === 'h4') {
@@ -69,15 +69,27 @@ export default function Toc() {
       } else if (tagName === 'h6') {
         h5Obj.section.push({ title, href, section: [] });
       }
-
-      observer.observe(heading);
     });
 
     setHeadingEls(result);
+
     return () => {
       observer.disconnect();
     };
   }, []);
+
+  useEffect(() => {
+    const menu = document.querySelector(`.${styles.wrap}`);
+    const currentItem = menu.querySelector(`.${styles.active}`);
+
+    const scrollToTop = () => {
+      menu.scrollTo({
+        top: currentItem && currentItem.offsetTop - menu.scrollHeight / 4,
+        behavior: 'smooth',
+      });
+    };
+    scrollToTop();
+  }, [currentId]);
 
   const renderToc = (sections) => {
     return (
@@ -85,8 +97,12 @@ export default function Toc() {
         {sections.map((section, index) => (
           <li key={index}>
             <Link
-              href={`#${section.href}`}
-              // className={currentId === index ? `active ${styles.active}` : ''}
+              href={`#${section.title}`}
+              className={currentId === section.title ? styles.active : ''}
+              onClick={() => {
+                mobile && toggleMenu();
+                setCurrentId(section.title);
+              }}
             >
               {section.title}
             </Link>
@@ -97,5 +113,7 @@ export default function Toc() {
     );
   };
 
-  return <div className={styles.wrap}>{renderToc(headingEls)}</div>;
+  return (
+    <ScrollWrap className={styles.wrap}>{renderToc(headingEls)}</ScrollWrap>
+  );
 }
