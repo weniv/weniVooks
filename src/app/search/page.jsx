@@ -6,7 +6,7 @@ import styles from './search.module.scss';
 import classNames from 'classnames';
 import { searchInMd } from './searchUtils';
 import SVGAlertCircle from '@/components/svg/SVGAlertCircle';
-import useWindowSize from '@/context/useWindowSize';
+import useWindowSize from '@/utils/useWindowSize';
 import SearchForm from '@/components/layouts/header/SearchForm';
 import Loading from '../loading';
 import Btn from '@/components/common/button/Btn';
@@ -37,7 +37,7 @@ export default function Search() {
   const [searchResults, setSearchResults] = useState(null);
   const [page, setPage] = useState(1);
   const [lastPage, setLastPage] = useState(1);
-  const windowSize = useWindowSize();
+  const { windowWidth } = useWindowSize();
 
   useEffect(() => {
     if (searchQuery) {
@@ -63,7 +63,7 @@ export default function Search() {
         <>
           <div className={classNames(styles.wrapper)}>
             <div className={classNames(styles.innerLayout)}>
-              {windowSize < 640 ? (
+              {windowWidth < 640 ? (
                 <div className={styles.searchForm}>
                   <SearchForm />
                 </div>
@@ -74,7 +74,7 @@ export default function Search() {
               </div>
               {searchResults.length === 0 ? (
                 <div className={styles.notFound}>
-                  <SVGAlertCircle size={windowSize < 640 ? 80 : 100} />
+                  <SVGAlertCircle size={windowWidth < 640 ? 80 : 100} />
                   <p>
                     <span>검색 결과가 없습니다.</span>
                     <span>다른 검색어를 입력해 주세요.</span>
@@ -94,7 +94,7 @@ export default function Search() {
                       </a>
                       <p className={classNames(styles.path)}>
                         {highlightKeyword(
-                          `${windowSize > 640 ? data.bookKind : '...'} > ${
+                          `${windowWidth > 640 ? data.bookKind : '...'} > ${
                             data.mainTitle
                           }  ${data.title ? '> ' + data.title : ''}`,
                           searchQuery,
@@ -129,14 +129,14 @@ export default function Search() {
               onClick={goPrev}
             >
               <SVGPrevArrow color="grayLv3" />
-              {windowSize > 1024 && <span>{'이전'}</span>}
+              {windowWidth > 1024 && <span>{'이전'}</span>}
             </Btn>
             <Btn
               className={styles.btnNext}
               disabled={!lastPage || page === lastPage}
               onClick={goNext}
             >
-              {windowSize > 1024 && <span>{'다음'}</span>}
+              {windowWidth > 1024 && <span>{'다음'}</span>}
               <SVGNextArrow color="grayLv3" />
             </Btn>
           </div>

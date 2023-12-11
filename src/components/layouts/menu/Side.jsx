@@ -3,19 +3,19 @@ import styles from './Side.module.scss';
 
 import { useContext, useEffect, useState } from 'react';
 
-import useWindowSize from '@/context/useWindowSize';
+import useWindowSize from '@/utils/useWindowSize';
 import { SettingContext } from '@/context/SettingContext';
-import Nav from './side/Nav';
-import BtnIcon from '../common/button/BtnIcon';
-import Footer from './Footer';
-import SVGList from '../svg/SVGList';
+import Nav from '../side/Nav';
+import BtnIcon from '../../common/button/BtnIcon';
+import Footer from '../Footer';
+import SVGList from '../../svg/SVGList';
 import classNames from 'classnames';
-import SVGListClose from '../svg/SVGListClose';
+import SVGListClose from '../../svg/SVGListClose';
 import { usePathname } from 'next/navigation';
 
 export default function Side(props) {
   const path = usePathname();
-  const windowSize = useWindowSize();
+  const { windowWidth } = useWindowSize();
   const { menu, setMenu } = useContext(SettingContext);
   const [slide, setSlide] = useState(null);
   const [isDOM, setIsDOM] = useState(menu === 'close' ? false : true);
@@ -38,15 +38,15 @@ export default function Side(props) {
   };
 
   useEffect(() => {
-    if (windowSize !== null && windowSize <= 1024) {
+    if (windowWidth !== null && windowWidth <= 1024) {
       setMenu('close');
       setIsDOM(false);
       localStorage.setItem('menu', 'close');
     }
-  }, [windowSize, path]);
+  }, [windowWidth, path]);
 
   useEffect(() => {
-    if (menu === 'open' && windowSize <= 1024) {
+    if (menu === 'open' && windowWidth <= 1024) {
       document.body.style.cssText = `
       overflow: hidden;
       position: relative;
@@ -57,7 +57,7 @@ export default function Side(props) {
     return () => {
       document.body.removeAttribute('style');
     };
-  }, [menu, windowSize]);
+  }, [menu, windowWidth]);
 
   return (
     <>
@@ -81,9 +81,9 @@ export default function Side(props) {
               onClick={slideOut}
               bordernone="true"
             />
-            {windowSize >= 1024 && <Footer />}
+            {windowWidth >= 1024 && <Footer />}
           </div>
-          {menu === 'open' && windowSize < 1024 && (
+          {menu === 'open' && windowWidth < 1024 && (
             <div
               className={classNames(
                 'dim',

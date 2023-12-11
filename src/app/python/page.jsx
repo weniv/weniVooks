@@ -3,7 +3,7 @@ import '@/styles/subpage.scss';
 import { DEFAULT_PATH, MENU_DATA } from './data';
 
 import Breadcrumb from '@/components/layouts/Breadcrumb';
-import useWindowSize from '@/context/useWindowSize';
+import useWindowSize from '@/utils/useWindowSize';
 
 import dynamic from 'next/dynamic';
 const PythonCodeblock = dynamic(
@@ -21,11 +21,11 @@ const JavascriptCodeblock = dynamic(
 );
 
 export default function Home() {
-  const windowSize = useWindowSize();
+  const { windowWidth } = useWindowSize();
 
   return (
     <div className="subContent">
-      {windowSize > 1024 && (
+      {windowWidth > 1024 && (
         <Breadcrumb data={MENU_DATA} DEFAULT_PATH={DEFAULT_PATH} />
       )}
       <div className="container">
