@@ -2,14 +2,10 @@
 
 .side {
   width: fcSize(280, 320);
-  height: calc(100vh - $headerHeight);
 
   border-right: 1px solid var(--grayLv2);
   box-sizing: border-box;
   background-color: var(--background);
-  z-index: 1000;
-  position: sticky;
-  top: $headerHeight;
 
   flex-shrink: 0;
 
@@ -17,8 +13,21 @@
   align-items: flex-start;
   flex-direction: column;
 
+  @media screen and (min-width: 1025px) {
+    position: sticky;
+    top: calc($headerHeight + 0.4rem);
+    height: calc(100vh - $headerHeight - 0.4rem);
+  }
   @media screen and (max-width: 1024px) {
     position: fixed;
+    top: 0;
+    height: 100vh;
+    z-index: 2000;
+
+    & + [class~='dim'] {
+      z-index: 1900;
+      height: 100%;
+    }
   }
 }
 
@@ -57,10 +66,24 @@
 
 //메뉴 열기 버튼
 .openBtn {
-  margin: 0.7rem 1rem;
+  width: auto;
+  flex-shrink: 0;
   border: none;
-  position: fixed;
+  margin: 0.7rem 1rem;
+  position: sticky;
+
+  background-color: var(--background);
+  z-index: 200;
   transition: all 0.2s;
+
+  @media screen and (min-width: 1025px) {
+    position: sticky;
+
+    top: calc($headerHeight + 0.7rem + 0.4rem);
+  }
+  @media screen and (max-width: 1024px) {
+    top: calc(0.7rem + 0.4rem);
+  }
 }
 
 .openBtn-show {

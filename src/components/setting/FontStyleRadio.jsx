@@ -2,7 +2,7 @@
 
 import { useContext } from 'react';
 import styles from './FontStyleRadio.module.scss';
-import RadioList from '@/components/common/RadioList';
+import RadioList from '@/components/common/radio/RadioList';
 import { SettingContext } from '@/context/SettingContext';
 
 export default function RadioFont() {

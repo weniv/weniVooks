@@ -7,7 +7,7 @@ import classNames from 'classnames';
 import { searchInMd } from './searchUtils';
 import SVGAlertCircle from '@/components/svg/SVGAlertCircle';
 import useWindowSize from '@/utils/useWindowSize';
-import SearchForm from '@/components/layouts/header/SearchForm';
+import SearchForm from '@/components/search/SearchForm';
 import Loading from '../loading';
 
 // 검색키워드와 일치하는 문자열 하이라이팅

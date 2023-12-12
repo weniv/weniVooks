@@ -1,14 +1,14 @@
 'use client';
 import { usePathname } from 'next/navigation';
 
-import styles from './Page.module.scss';
+import styles from './PageControl.module.scss';
 
 import SVGNextArrow from '@/components/svg/SVGNextArrow';
 import SVGPrevArrow from '@/components/svg/SVGPrevArrow';
-import Btn from '../common/button/Btn';
+import Btn from '../../common/button/Btn';
 import useWindowSize from '@/utils/useWindowSize';
 
-export default function Page({ data, DEFAULT_PATH }) {
+export default function PageControl({ data, DEFAULT_PATH }) {
   const { windowWidth } = useWindowSize();
   const pathname = usePathname();
 

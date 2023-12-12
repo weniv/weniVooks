@@ -6,7 +6,7 @@ import { usePathname } from 'next/navigation';
 
 import styles from './Nav.module.scss';
 import SVGNavArrow from '@/components/svg/SVGNavArrow';
-import ScrollWrap from '../menu/ScrollWrap';
+import ScrollWrap from './ScrollWrap';
 
 const MenuItem = (props) => {
   const { title, link, sections } = props;
