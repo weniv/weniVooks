@@ -31,11 +31,36 @@
   }
 }
 
+// 닫기 버튼
 .btnClose {
   position: absolute;
-  top: 0.4rem;
-  right: 0.4rem;
-  border: none;
+  top: 0.7rem;
+  right: 0.7rem;
+}
+
+//메뉴 열기 버튼
+.btnOpen {
+  // width: auto;
+  // flex-shrink: 0;
+
+  width: 4.2rem !important;
+  height: 4.2rem !important;
+  margin: 0.4rem 1rem !important;
+
+  position: sticky;
+
+  background-color: var(--background);
+  z-index: 200;
+  transition: all 0.2s;
+
+  @media screen and (min-width: 1025px) {
+    top: calc($headerHeight + 0.4rem + 0.4rem);
+  }
+  @media screen and (max-width: 1024px) {
+    top: calc(0.4rem + 0.4rem);
+    border: 1px solid var(--grayLv2) !important;
+    box-shadow: 0 0.4rem 2rem 0 rgba(0, 0, 0, 0.04);
+  }
 }
 
 .menuShow {
@@ -61,28 +86,6 @@
   }
   to {
     margin-left: -32rem;
-  }
-}
-
-//메뉴 열기 버튼
-.openBtn {
-  width: auto;
-  flex-shrink: 0;
-  border: none;
-  margin: 0.7rem 1rem;
-  position: sticky;
-
-  background-color: var(--background);
-  z-index: 200;
-  transition: all 0.2s;
-
-  @media screen and (min-width: 1025px) {
-    position: sticky;
-
-    top: calc($headerHeight + 0.7rem + 0.4rem);
-  }
-  @media screen and (max-width: 1024px) {
-    top: calc(0.7rem + 0.4rem);
   }
 }
 
