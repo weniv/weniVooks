@@ -1,6 +1,10 @@
 @import '@/styles/var.scss';
 
 .side {
+  [class~='side-close'] & {
+    display: none;
+  }
+
   width: fcSize(280, 320);
 
   border-right: 1px solid var(--grayLv2);
@@ -40,12 +44,12 @@
 
 //메뉴 열기 버튼
 .btnOpen {
-  // width: auto;
-  // flex-shrink: 0;
+  flex-shrink: 0;
 
   width: 4.2rem !important;
   height: 4.2rem !important;
   margin: 0.4rem 1rem !important;
+  border-radius: $borderRadius;
 
   position: sticky;
 
@@ -63,11 +67,11 @@
   }
 }
 
-.menuShow {
+.slideIn {
   animation: slideIn 0.3s both;
 }
 
-.menuHide {
+.slideOut {
   animation: slideOut 0.3s both;
 }
 

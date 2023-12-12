@@ -280,12 +280,6 @@ input:-webkit-autofill:active {
   z-index: 10;
 }
 
-@media screen and (min-width: map-get($breakPoint, tablet)) {
-  .side-open .layout-content {
-    margin: 0 fcSize(24, 64) 0 2rem !important;
-  }
-}
-
 // 스크롤
 .windows {
   ::-webkit-scrollbar {

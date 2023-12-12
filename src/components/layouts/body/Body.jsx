@@ -20,12 +20,12 @@ const BeforeFn = () => {
     document.body.classList.add('size' + savedFontSize);
   }
 
-  const savedOpen = localStorage.getItem('menu');
+  const savedClose = localStorage.getItem('menu');
 
-  if (savedOpen === 'close') {
+  if (savedClose === 'close') {
     document.body.classList.add('side-close');
-  } else if (savedOpen === 'open') {
-    document.body.classList.add('side-open');
+  } else {
+    document.body.classList.remove('side-close');
   }
 };
 
@@ -45,7 +45,7 @@ export default function Body({ children }) {
         theme !== 'auto' && theme,
         fontStyle,
         fontSize !== null && `size${fontSize}`,
-        menu === null ? `side-open` : `side-${menu}`,
+        menu ? 'side-close' : '',
         isWindows && 'windows',
       )}
       suppressHydrationWarning={true}

@@ -1,7 +1,7 @@
 'use client';
 import styles from './Side.module.scss';
 
-import { useContext, useEffect, useState } from 'react';
+import { useContext, useEffect, useRef, useState } from 'react';
 
 import useWindowSize from '@/utils/useWindowSize';
 import { SettingContext } from '@/context/SettingContext';
@@ -11,41 +11,74 @@ import Footer from '../footer/Footer';
 import SVGList from '../../svg/SVGList';
 import classNames from 'classnames';
 import SVGListClose from '../../svg/SVGListClose';
-import { usePathname } from 'next/navigation';
 
 export default function Side(props) {
-  const path = usePathname();
-
   const { windowWidth } = useWindowSize();
+  const { isSavedClose, setIsSavedClose } = useContext(SettingContext);
+  const [isShowMenu, setIsShowMenu] = useState(isSavedClose ? false : true);
+  const slideRef = useRef(null);
 
-  const [isMenuOpen, setIsMesuOpen] = useState(false);
-  const [isInDOM, setIsInDOM] = useState(false);
-
+  /*
+    모바일 : dimed 처리 / 외부 클릭시 닫힘
+  */
   const toggleMenu = () => {
-    if (isMenuOpen) {
-      // 열림 -> 닫힘
-      setIsMesuOpen(false);
-
-      windowWidth > 1024 && localStorage.setItem('menu', 'close');
+    if (isShowMenu) {
+      // SlideOut(닫힘)
+      slideRef.current.classList.add(styles.slideOut);
+      setTimeout(() => {
+        setIsShowMenu(false);
+        if (windowWidth > 1024) {
+          localStorage.setItem('menu', 'close');
+          setIsSavedClose(true);
+        }
+      }, 300);
     } else {
-      // 닫힘 -> 열림
-      setIsMesuOpen(true);
-
-      windowWidth > 1024 && localStorage.removeItem('menu');
+      // SlideIn(열림)
+      setIsShowMenu(true);
+      setTimeout(() => {
+        slideRef.current.classList.add(styles.slideIn);
+        if (windowWidth > 1024) {
+          localStorage.removeItem('menu');
+          setIsSavedClose(false);
+        }
+      }, 0);
     }
   };
+
+  useEffect(() => {
+    if (windowWidth !== null && windowWidth <= 1024) {
+      setIsShowMenu(false);
+    } else {
+      setIsShowMenu(isSavedClose ? false : true);
+    }
+  }, [windowWidth]);
+
   return (
     <>
-      {isMenuOpen ? (
-        <div className={classNames(styles.side)}>
-          <Nav {...props} />
-          <BtnIcon
-            className={styles.btnClose}
-            children={<SVGListClose color="grayLv3" />}
-            bordernone="true"
-            onClick={toggleMenu}
-          />
-        </div>
+      {isShowMenu ? (
+        <>
+          <div ref={slideRef} className={classNames(styles.side)}>
+            <Nav {...props} />
+            <BtnIcon
+              className={styles.btnClose}
+              children={<SVGListClose color="grayLv3" />}
+              bordernone="true"
+              onClick={toggleMenu}
+            />
+            <Footer />
+          </div>
+          {windowWidth < 1024 && (
+            <button
+              type="button"
+              className={styles.btnOpen}
+              onClick={toggleMenu}
+              disabled
+            >
+              <SVGList color="grayLv3" />
+              <span className="a11y-hidden">메뉴 열기</span>
+            </button>
+          )}
+        </>
       ) : (
         <button type="button" className={styles.btnOpen} onClick={toggleMenu}>
           <SVGList color="grayLv3" />
