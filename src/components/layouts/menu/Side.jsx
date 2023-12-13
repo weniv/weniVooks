@@ -11,8 +11,11 @@ import Footer from '../footer/Footer';
 import SVGList from '../../svg/SVGList';
 import classNames from 'classnames';
 import SVGListClose from '../../svg/SVGListClose';
+import { usePathname } from 'next/navigation';
 
 export default function Side(props) {
+  const path = usePathname();
+
   const { windowWidth } = useWindowSize();
   const { isSavedClose, setIsSavedClose } = useContext(SettingContext);
   const [isShowMenu, setIsShowMenu] = useState(isSavedClose ? false : true);
@@ -51,11 +54,36 @@ export default function Side(props) {
     } else {
       setIsShowMenu(isSavedClose ? false : true);
     }
-  }, [windowWidth]);
+  }, [windowWidth, path]);
+
+  useEffect(() => {
+    const handleOutsideClick = (e) => {
+      if (!slideRef.current.contains(e.target)) {
+        setIsShowMenu(false);
+      }
+    };
+    const handleESC = (e) => {
+      if (e.key === 'Escape') {
+        toggleMenu();
+      }
+    };
+
+    if (isShowMenu && windowWidth < 1024) {
+      setTimeout(() => {
+        window.addEventListener('click', handleOutsideClick);
+        window.addEventListener('keydown', handleESC);
+      });
+    }
+
+    return () => {
+      window.removeEventListener('click', handleOutsideClick);
+      window.removeEventListener('keydown', handleESC);
+    };
+  }, [isShowMenu]);
 
   return (
     <>
-      {isShowMenu ? (
+      {isShowMenu && (
         <>
           <div ref={slideRef} className={classNames(styles.side)}>
             <Nav {...props} />
@@ -67,24 +95,34 @@ export default function Side(props) {
             />
             <Footer />
           </div>
-          {windowWidth < 1024 && (
-            <button
-              type="button"
-              className={styles.btnOpen}
-              onClick={toggleMenu}
-              disabled
-            >
-              <SVGList color="grayLv3" />
-              <span className="a11y-hidden">메뉴 열기</span>
-            </button>
+          {windowWidth !== null && windowWidth < 1024 && (
+            <>
+              <div className="dim"></div>
+              {/* <button
+                type="button"
+                className={styles.btnOpen}
+                onClick={toggleMenu}
+                disabled
+              >
+                <SVGList color="grayLv3" />
+                <span className="a11y-hidden">메뉴 열기</span>
+              </button> */}
+            </>
           )}
         </>
-      ) : (
-        <button type="button" className={styles.btnOpen} onClick={toggleMenu}>
-          <SVGList color="grayLv3" />
-          <span className="a11y-hidden">메뉴 열기</span>
-        </button>
       )}
+      <button
+        type="button"
+        className={classNames(
+          styles.btnOpen,
+          isShowMenu ? styles.hide : styles.show,
+        )}
+        onClick={toggleMenu}
+        disabled={isShowMenu ? true : false}
+      >
+        <SVGList color="grayLv3" />
+        <span className="a11y-hidden">메뉴 열기</span>
+      </button>
     </>
   );
 }
