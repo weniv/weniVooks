@@ -1,6 +1,6 @@
 'use client';
 import { useRouter } from 'next/navigation';
-import Btn from '../common/button/Btn';
+import Btn from './Btn';
 
 export default function BtnBack(props) {
   const router = useRouter();

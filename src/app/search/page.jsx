@@ -7,7 +7,7 @@ import classNames from 'classnames';
 import { searchInMd } from './searchUtils';
 import SVGAlertCircle from '@/components/svg/SVGAlertCircle';
 import useWindowSize from '@/utils/useWindowSize';
-import SearchForm from '@/components/layouts/header/SearchForm';
+import SearchForm from '@/components/search/SearchForm';
 import Loading from '../loading';
 import Btn from '@/components/common/button/Btn';
 import SVGPrevArrow from '@/components/svg/SVGPrevArrow';

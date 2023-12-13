@@ -95,6 +95,11 @@ body {
   font-family: 'Pretendard', sans-serif;
   color: var(--surface);
   background-color: var(--background);
+
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 .serif {
@@ -226,11 +231,25 @@ input[type='search']::-webkit-search-cancel-button {
   }
 }
 
+/*
+브라우저별로 기본 사용자 스타일이 적용되어 있는데 이 경우 !important 로 적용되어 있기 때문에 아무리
+:autofill 을 이용해 제어하려고 해도 제어가 되지 않음.
+font color는 -webkit-text-fill-color(비표준)을 이용, 
+background-color는 box-shadow와 transition을 이용
+*/
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  transition: background-color 9999s ease-in-out 0s;
+  -webkit-transition: background-color 9999s ease-out;
+  -webkit-box-shadow: 0 0 0px 1000px transparent inset !important;
+}
+
 // layout
 .layout-grow {
   flex-grow: 1;
   width: 100%;
-  padding-top: $headerHeight;
 }
 
 .size0 main {
@@ -240,7 +259,7 @@ input[type='search']::-webkit-search-cancel-button {
   font-size: fcSize(13, 15);
 }
 .size2 main {
-  font-size: fcSize(14, 16);
+  font-size: fcSize(15, 16);
 }
 .size3 main {
   font-size: fcSize(16, 18);
@@ -271,7 +290,7 @@ input[type='search']::-webkit-search-cancel-button {
 }
 
 // 스크롤
-body {
+.windows {
   ::-webkit-scrollbar {
     width: 1.1rem; /* 스크롤바의 너비 */
   }

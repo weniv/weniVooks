@@ -5,9 +5,9 @@ import { useContext, useEffect, useState } from 'react';
 
 import useWindowSize from '@/utils/useWindowSize';
 import { SettingContext } from '@/context/SettingContext';
-import Nav from '../side/Nav';
+import Nav from './Nav';
 import BtnIcon from '../../common/button/BtnIcon';
-import Footer from '../Footer';
+import Footer from '../footer/Footer';
 import SVGList from '../../svg/SVGList';
 import classNames from 'classnames';
 import SVGListClose from '../../svg/SVGListClose';
@@ -61,7 +61,7 @@ export default function Side(props) {
 
   return (
     <>
-      {isDOM ? (
+      {isDOM && (
         <>
           <div
             className={classNames(
@@ -93,7 +93,9 @@ export default function Side(props) {
             ></div>
           )}
         </>
-      ) : (
+      )}
+
+      {!(menu === 'open' && windowWidth >= 1024) && (
         <BtnIcon
           className={classNames(
             styles.openBtn,
@@ -102,6 +104,7 @@ export default function Side(props) {
           children={<SVGList color="grayLv3" />}
           onClick={slideIn}
           bordernone="true"
+          disabled={menu === 'open' ? true : false}
         />
       )}
     </>
