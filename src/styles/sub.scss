@@ -169,10 +169,12 @@ $titleGap: 8rem;
   }
   // 코드
   pre {
-    background-color: var(--grayLv1);
     padding: 3.2rem 6rem 3.2rem 3.2rem;
+    box-sizing: border-box;
     border-radius: 1rem;
     overflow: scroll;
+    margin: 0;
+    overflow: auto;
 
     [data-line] {
       span {
@@ -351,20 +353,5 @@ $titleGap: 8rem;
 }
 
 [data-rehype-pretty-code-fragment] {
-  container-name: pre-container;
-  container-type: inline-size;
-}
-
-@container pre-container (width < 480px) {
-  .main pre {
-    margin-bottom: 0.5em;
-    padding: 3.2rem;
-  }
-  .main [class^='BtnCopy'] {
-    position: relative !important;
-    top: 0 !important;
-    right: 0 !important;
-    float: right;
-    margin-bottom: 0.5em;
-  }
+  margin: 1em 0;
 }
