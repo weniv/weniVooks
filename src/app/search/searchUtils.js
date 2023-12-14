@@ -188,13 +188,12 @@ export const parseMarkdown = (markdown) => {
 
 // 로컬 md파일 가져오기
 const fetchMarkdown = async (query, page) => {
-  console.log('68515', page);
   try {
     const searchQuery = query;
     const response = await axios.get(
       `/api/search?keyword=${searchQuery}&page=${page}`,
-      // `/api/search?keyword=${searchQuery}`,
     );
+
     return response.data;
   } catch (err) {
     console.log(err);

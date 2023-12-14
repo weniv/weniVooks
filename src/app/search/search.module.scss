@@ -102,6 +102,16 @@ main.main {
       font-weight: 600;
       background-color: var(--activation);
     }
+
+    span.contentLine {
+      overflow: hidden;
+      white-space: normal;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      word-break: keep-all;
+    }
   }
 }
 

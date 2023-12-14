@@ -102,15 +102,10 @@ export default function Search() {
                       </p>
                       <div className={classNames(styles.contents)}>
                         {data.content &&
-                          data.content.map((contentItem, contentIndex) => {
-                            const sentences = contentItem.split('.');
-                            const displayContent =
-                              sentences.length > 2
-                                ? sentences.slice(0, 2).join('.') + '...'
-                                : contentItem;
+                          data.content.map((content, idx) => {
                             return (
-                              <span key={contentIndex}>
-                                {highlightKeyword(displayContent, searchQuery)}
+                              <span key={idx} className={styles.contentLine}>
+                                {highlightKeyword(content, searchQuery)}
                               </span>
                             );
                           })}
