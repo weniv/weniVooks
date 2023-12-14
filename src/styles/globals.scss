@@ -270,7 +270,7 @@ input:-webkit-autofill:active {
 
 .dim {
   width: 100%;
-  height: calc(100% - $headerHeight);
+  height: 100vh;
   background-color: rgba(0, 0, 0, 0.3);
   backdrop-filter: blur(2px);
   -webkit-backdrop-filter: blur(2px);
@@ -278,14 +278,15 @@ input:-webkit-autofill:active {
   bottom: 0;
   left: 0;
   z-index: 10;
+  animation: fadeIn 0.2s;
 }
 
-.side-close .layout-side {
-  margin-left: -32rem;
-}
-@media screen and (min-width: map-get($breakPoint, tablet)) {
-  .side-open .layout-content {
-    margin: 0 fcSize(24, 64) 0 2rem !important;
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
   }
 }
 

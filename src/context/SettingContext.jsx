@@ -8,7 +8,7 @@ export default function SettingProvider({ children }) {
   const [codeTheme, setCodeTheme] = useState(null);
   const [fontStyle, setFontStyle] = useState(null);
   const [fontSize, setFontSize] = useState(null);
-  const [menu, setMenu] = useState(null);
+  const [isSavedClose, setIsSavedClose] = useState(null);
 
   useEffect(() => {
     // auto(default) / light / dark
@@ -26,9 +26,9 @@ export default function SettingProvider({ children }) {
     const savedFontSize = localStorage.getItem('fontSize');
     setFontSize(savedFontSize === null ? '2' : savedFontSize);
 
-    // open(default), close
-    const savedOpen = localStorage.getItem('menu');
-    setMenu(savedOpen === null ? 'open' : savedOpen);
+    // null, close
+    const savedClose = localStorage.getItem('menu');
+    setIsSavedClose(savedClose === null ? false : true);
   }, []);
 
   return (
@@ -42,8 +42,8 @@ export default function SettingProvider({ children }) {
         setFontStyle,
         fontSize,
         setFontSize,
-        menu,
-        setMenu,
+        isSavedClose,
+        setIsSavedClose,
       }}
     >
       {children}
