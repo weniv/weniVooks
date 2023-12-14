@@ -140,6 +140,7 @@ export async function GET(req) {
 
       return {
         result: paginatedResult,
+        resultLength: result.length,
         totalPages: Math.ceil(result.length / pageSize),
       };
     };

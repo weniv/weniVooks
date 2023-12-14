@@ -36,12 +36,11 @@ export default function Search() {
   const searchQuery = params.get('keyword');
   const [searchResults, setSearchResults] = useState(null);
   const [page, setPage] = useState(1);
-  const [lastPage, setLastPage] = useState(1);
   const { windowWidth } = useWindowSize();
 
   useEffect(() => {
     if (searchQuery) {
-      searchInMd(searchQuery, setSearchResults, page, setLastPage);
+      searchInMd(searchQuery, setSearchResults, page);
     } else {
       setTimeout(() => {
         setSearchResults([]);
@@ -70,7 +69,7 @@ export default function Search() {
               ) : null}
               <div className={classNames(styles.title)}>
                 <strong>{searchQuery ? searchQuery : '검색어 없음'}</strong>
-                <span>검색 결과: {searchResults?.length}건</span>
+                <span>검색 결과: {searchResults.length}건</span>
               </div>
               {searchResults.length === 0 ? (
                 <div className={styles.notFound}>
@@ -82,7 +81,7 @@ export default function Search() {
                 </div>
               ) : (
                 <ul>
-                  {searchResults.map((data, idx) => (
+                  {searchResults.result.map((data, idx) => (
                     <li key={idx} className={classNames(styles.resultSection)}>
                       <a href={data.link}>
                         <p className={classNames(styles.subTitle)}>
@@ -128,7 +127,7 @@ export default function Search() {
             </Btn>
             <Btn
               className={styles.btnNext}
-              disabled={!lastPage || page === lastPage}
+              disabled={!searchResults.page || page === searchResults.page}
               onClick={goNext}
             >
               {windowWidth > 1024 && <span>{'다음'}</span>}

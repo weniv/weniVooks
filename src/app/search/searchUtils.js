@@ -209,8 +209,12 @@ export const searchInMd = async (
   try {
     const markdown = await fetchMarkdown(query, page);
     if (Array.isArray(markdown.result)) {
-      await setSearchResults(markdown.result);
-      await setLastPage(markdown.totalPages);
+      const val = {
+        result: markdown.result,
+        length: markdown.resultLength,
+        page: markdown.totalPages,
+      };
+      await setSearchResults(val);
     }
   } catch (error) {
     console.error(error);
