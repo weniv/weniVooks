@@ -1,5 +1,7 @@
+'use client';
 import Header from '@/components/layouts/header/Header';
 import BtnTop from '@/components/common/button/BtnTop';
+
 
 import styles from '../search/layout.module.scss';
 import searchStyles from '../search/search.module.scss';
@@ -16,7 +18,6 @@ export default function Layout({ children }) {
         </div>
         <Footer />
       </div>
-
       <BtnTop />
     </>
   );

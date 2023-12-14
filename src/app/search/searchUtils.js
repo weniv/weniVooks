@@ -1,5 +1,7 @@
 import axios from 'axios';
 
+const PAGE = 1;
+
 // 개행문자 통일, 각 줄을 배열의 요소로 변환
 const normalize = (markdown) => {
   return markdown
@@ -185,24 +187,31 @@ export const parseMarkdown = (markdown) => {
 };
 
 // 로컬 md파일 가져오기
-const fetchMarkdown = async (query) => {
+const fetchMarkdown = async (query, page) => {
+  console.log('68515', page);
   try {
     const searchQuery = query;
-    const response = await axios.get(`/api/search?keyword=${searchQuery}`);
+    const response = await axios.get(
+      `/api/search?keyword=${searchQuery}&page=${page}`,
+      // `/api/search?keyword=${searchQuery}`,
+    );
     return response.data;
   } catch (err) {
     console.log(err);
   }
 };
 
-export const searchInMd = async (query, setSearchResults) => {
+export const searchInMd = async (
+  query,
+  setSearchResults,
+  page,
+  setLastPage,
+) => {
   try {
-    const markdown = await fetchMarkdown(query);
-
-    console.log('markdown', markdown);
-
-    if (Array.isArray(markdown)) {
-      await setSearchResults(markdown);
+    const markdown = await fetchMarkdown(query, page);
+    if (Array.isArray(markdown.result)) {
+      await setSearchResults(markdown.result);
+      await setLastPage(markdown.totalPages);
     }
   } catch (error) {
     console.error(error);
@@ -210,16 +219,26 @@ export const searchInMd = async (query, setSearchResults) => {
 };
 
 // Alt 텍스트 삭제
-export const removeImageAltTexts = (text) => {
+const removeImageAltTexts = (text) => {
   const altTextPattern = /\[.*\]\(.*\)|!\[.*\]\(.*\)/g;
   const result = text.replace(altTextPattern, '');
   return result;
 };
 
 // aside 태그 삭제
-export const removeAsideContent = (text) => {
+const removeAsideContent = (text) => {
+  const data = removeImageAltTexts(text);
   const asidePattern = /<aside>(.*?)<\/aside>|💡/gs;
-  const result = text.replace(asidePattern, '').trim();
+  const result = data.replace(asidePattern, '').trim();
+  return result;
+};
+
+// 텍스트 정규화
+export const textNormalize = (text) => {
+  const data = removeAsideContent(text);
+  const result = data
+    .replace(/```[^]+?```/gs, '') // 코드블럭 삭제
+    .replace(/::a\[[^\]]+\]{[^}]+}/g, ''); // ::a로 시작하는 링크 요소들 삭제
   return result;
 };
 

@@ -11,6 +11,7 @@ export default function Btn(props) {
     className,
     solid,
     bordernone,
+    onClick = null,
   } = props;
 
   const btnStyle = classNames(
@@ -28,7 +29,7 @@ export default function Btn(props) {
     );
   }
   return (
-    <button {...props} type={type} className={btnStyle}>
+    <button {...props} type={type} className={btnStyle} onClick={onClick}>
       {children}
     </button>
   );
