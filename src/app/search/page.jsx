@@ -1,7 +1,7 @@
 'use client';
 import { useState, useEffect } from 'react';
 import { useSearchParams } from 'next/navigation';
-
+import Link from 'next/link';
 import styles from './search.module.scss';
 import classNames from 'classnames';
 import { searchInMd } from './searchUtils';
@@ -82,34 +82,37 @@ export default function Search() {
               ) : (
                 <ul>
                   {searchResults.result.map((data, idx) => (
-                    <li key={idx} className={classNames(styles.resultSection)}>
-                      <a href={data.link}>
+                    <Link href={data.link}>
+                      <li
+                        key={idx}
+                        className={classNames(styles.resultSection)}
+                      >
                         <p className={classNames(styles.subTitle)}>
                           {highlightKeyword(
                             data.title ? data.title : data.mainTitle,
                             searchQuery,
                           )}
                         </p>
-                      </a>
-                      <p className={classNames(styles.path)}>
-                        {highlightKeyword(
-                          `${windowWidth > 640 ? data.bookKind : '...'} > ${
-                            data.mainTitle
-                          }  ${data.title ? '> ' + data.title : ''}`,
-                          searchQuery,
-                        )}
-                      </p>
-                      <div className={classNames(styles.contents)}>
-                        {data.content &&
-                          data.content.map((content, idx) => {
-                            return (
-                              <span key={idx} className={styles.contentLine}>
-                                {highlightKeyword(content, searchQuery)}
-                              </span>
-                            );
-                          })}
-                      </div>
-                    </li>
+                        <p className={classNames(styles.path)}>
+                          {highlightKeyword(
+                            `${windowWidth > 640 ? data.bookKind : '...'} > ${
+                              data.mainTitle
+                            }  ${data.title ? '> ' + data.title : ''}`,
+                            searchQuery,
+                          )}
+                        </p>
+                        <div className={classNames(styles.contents)}>
+                          {data.content &&
+                            data.content.map((content, idx) => {
+                              return (
+                                <span key={idx} className={styles.contentLine}>
+                                  {highlightKeyword(content, searchQuery)}
+                                </span>
+                              );
+                            })}
+                        </div>
+                      </li>
+                    </Link>
                   ))}
                 </ul>
               )}

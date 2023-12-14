@@ -278,3 +278,12 @@ export const choiceBookKind = (bookkind) => {
     return '위니브월드';
   }
 };
+
+// 파일의 상대경로를 반환하는 함수
+export const getRelativePath = (baseUrl, url) => {
+  const result = url
+    .replace(baseUrl, '')
+    .replace(/\\/g, '/')
+    .replace('.md', '');
+  return result;
+};

@@ -6,6 +6,7 @@ import {
   splitArray,
   choiceBookKind,
   textNormalize,
+  getRelativePath,
 } from '@/app/search/searchUtils';
 
 const BASEURL = '_md';
@@ -24,7 +25,6 @@ function getFiles(dir) {
       fileList.push(filePath);
     }
   });
-
   return fileList;
 }
 
@@ -57,8 +57,12 @@ export async function GET(req) {
         filteredFiles = wholeFiles;
       }
 
+      const absolutePath = `${process.cwd()}\\${BASEURL}`;
+      const relativePath = getRelativePath(absolutePath, file.fileName);
+
       let val = {
-        url: file.url,
+        kind: file.url,
+        link: relativePath,
         file: filteredFiles,
       };
 
@@ -80,7 +84,7 @@ export async function GET(req) {
       const endIndex = startIndex + pageSize;
 
       for (const data of dataList) {
-        const url = choiceBookKind(data.url);
+        const bookKind = choiceBookKind(data.kind);
         const html = data.file;
         let mainTitle = '';
 
@@ -125,11 +129,11 @@ export async function GET(req) {
 
           if (content.length !== 0) {
             result.push({
-              bookKind: url,
+              bookKind,
               mainTitle,
               title,
               content,
-              link: '/',
+              link: `${data.link}`,
             });
           }
         }
