@@ -21,9 +21,6 @@ export default function Side(props) {
   const [isShowMenu, setIsShowMenu] = useState(isSavedClose ? false : true);
   const slideRef = useRef(null);
 
-  /*
-    모바일 : dimed 처리 / 외부 클릭시 닫힘
-  */
   const toggleMenu = () => {
     if (isShowMenu) {
       // SlideOut(닫힘)
@@ -68,7 +65,7 @@ export default function Side(props) {
       }
     };
 
-    if (isShowMenu && windowWidth < 1024) {
+    if (isShowMenu && windowWidth !== null && windowWidth < 1024) {
       setTimeout(() => {
         window.addEventListener('click', handleOutsideClick);
         window.addEventListener('keydown', handleESC);
