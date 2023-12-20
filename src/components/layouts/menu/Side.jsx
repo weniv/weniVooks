@@ -95,15 +95,6 @@ export default function Side(props) {
           {windowWidth !== null && windowWidth < 1024 && (
             <>
               <div className="dim"></div>
-              {/* <button
-                type="button"
-                className={styles.btnOpen}
-                onClick={toggleMenu}
-                disabled
-              >
-                <SVGList color="grayLv3" />
-                <span className="a11y-hidden">메뉴 열기</span>
-              </button> */}
             </>
           )}
         </>
