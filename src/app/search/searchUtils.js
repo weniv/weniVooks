@@ -188,13 +188,12 @@ export const parseMarkdown = (markdown) => {
 
 // 로컬 md파일 가져오기
 const fetchMarkdown = async (query, page) => {
-  console.log('68515', page);
   try {
     const searchQuery = query;
     const response = await axios.get(
       `/api/search?keyword=${searchQuery}&page=${page}`,
-      // `/api/search?keyword=${searchQuery}`,
     );
+
     return response.data;
   } catch (err) {
     console.log(err);
@@ -210,8 +209,12 @@ export const searchInMd = async (
   try {
     const markdown = await fetchMarkdown(query, page);
     if (Array.isArray(markdown.result)) {
-      await setSearchResults(markdown.result);
-      await setLastPage(markdown.totalPages);
+      const val = {
+        result: markdown.result,
+        length: markdown.resultLength,
+        page: markdown.totalPages,
+      };
+      await setSearchResults(val);
     }
   } catch (error) {
     console.error(error);
@@ -274,4 +277,13 @@ export const choiceBookKind = (bookkind) => {
   } else {
     return '위니브월드';
   }
+};
+
+// 파일의 상대경로를 반환하는 함수
+export const getRelativePath = (baseUrl, url) => {
+  const result = url
+    .replace(baseUrl, '')
+    .replace(/\\/g, '/')
+    .replace('.md', '');
+  return result;
 };

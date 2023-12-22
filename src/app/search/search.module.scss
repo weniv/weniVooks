@@ -1,6 +1,9 @@
 @import '@/styles/function.scss';
 
 main.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   width: 100%;
 }
 
@@ -102,6 +105,16 @@ main.main {
       font-weight: 600;
       background-color: var(--activation);
     }
+
+    span.contentLine {
+      overflow: hidden;
+      white-space: normal;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      word-break: keep-all;
+    }
   }
 }
 
@@ -153,18 +166,16 @@ div.notFound {
 }
 
 .btnWrap {
-  position: fixed;
-  bottom: 3.2rem;
-  right: 9.8rem;
   display: flex;
   gap: 0.8rem;
+  margin: 10rem 0;
 
   .btnPrev,
   .btnNext {
     width: 5rem;
     height: 5rem;
     padding: 0;
-    border-radius: 2.5rem;
+    border: none;
     background-color: var(--background);
 
     span {
@@ -206,5 +217,47 @@ div.notFound {
 
   .btnNext span {
     margin-left: 1rem;
+  }
+
+  .pageNav {
+    display: flex;
+  }
+
+  .pageNav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    label {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 4.2rem;
+      height: 4.2rem;
+      color: var(--grayLv3);
+      border-bottom: 4px solid transparent;
+      cursor: pointer;
+    }
+
+    input:checked + label {
+      color: var(--primary);
+      background-color: var(--activation);
+      border-bottom: 4px solid var(--primary);
+      box-sizing: border-box;
+    }
+
+    .ellipsis {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      p {
+        display: flex;
+        justify-content: center;
+        width: 4.2rem;
+        font-size: 1.6rem;
+        color: var(--grayLv3);
+      }
+    }
   }
 }
