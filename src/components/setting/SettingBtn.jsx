@@ -37,6 +37,15 @@ export default function SettingBtn() {
 
       if (pathname === '/') {
         lastItem = modalRef.current.querySelector('[name="font"]:checked');
+        let lastItems = modalRef.current.querySelectorAll('[name="font"]');
+
+        lastItems.forEach((item) => {
+          item.addEventListener('change', (e) => {
+            console.log(e.target);
+            e.target.addEventListener('keydown', handleFirstFocus);
+            lastItem = e.target;
+          });
+        });
       }
 
       const handleOutsideClick = (e) => {
@@ -74,7 +83,6 @@ export default function SettingBtn() {
 
       // tab
       lastItem.addEventListener('keydown', handleFirstFocus);
-
       settingBtn.addEventListener('keydown', handleLastFocus);
 
       return () => {
