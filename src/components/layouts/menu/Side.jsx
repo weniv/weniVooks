@@ -21,6 +21,25 @@ export default function Side(props) {
   const [isShowMenu, setIsShowMenu] = useState(isSavedClose ? false : true);
   const slideRef = useRef(null);
 
+  const handleFocusFirst = (e) => {
+    if (windowWidth <= 1024 && !e.shiftKey && e.key === 'Tab') {
+      e.preventDefault();
+
+      const firstItem = slideRef.current.querySelector('a, button');
+      firstItem.focus();
+    }
+  };
+
+  const handleFocusLast = (e) => {
+    if (e.shiftKey && e.key === 'Tab') {
+      e.preventDefault();
+
+      const clickItems = slideRef.current.querySelectorAll('a, button');
+      const lastItem = clickItems[clickItems.length - 1];
+      lastItem.focus();
+    }
+  };
+
   const toggleMenu = () => {
     if (isShowMenu) {
       // SlideOut(닫힘)
@@ -37,6 +56,10 @@ export default function Side(props) {
       setIsShowMenu(true);
       setTimeout(() => {
         slideRef.current.classList.add(styles.slideIn);
+
+        const firstItem = slideRef.current.querySelector('a, button');
+        firstItem.focus();
+
         if (windowWidth > 1024) {
           localStorage.removeItem('menu');
           setIsSavedClose(false);
@@ -47,8 +70,10 @@ export default function Side(props) {
 
   useEffect(() => {
     if (windowWidth !== null && windowWidth <= 1024) {
+      // 모바일
       setIsShowMenu(false);
     } else {
+      // PC
       setIsShowMenu(isSavedClose ? false : true);
     }
   }, [windowWidth, path]);
@@ -69,6 +94,9 @@ export default function Side(props) {
       setTimeout(() => {
         window.addEventListener('click', handleOutsideClick);
         window.addEventListener('keydown', handleESC);
+
+        const firstItem = slideRef.current.querySelector('a, button');
+        firstItem.addEventListener('keydown', handleFocusLast);
       });
     }
 
@@ -84,13 +112,14 @@ export default function Side(props) {
         <>
           <div ref={slideRef} className={classNames(styles.side)}>
             <Nav {...props} />
+            <Footer />
             <BtnIcon
               className={styles.btnClose}
               children={<SVGListClose color="grayLv3" />}
               bordernone="true"
               onClick={toggleMenu}
+              onKeyDown={handleFocusFirst}
             />
-            <Footer />
           </div>
           {windowWidth !== null && windowWidth < 1024 && (
             <>
