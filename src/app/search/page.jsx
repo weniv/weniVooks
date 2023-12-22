@@ -133,54 +133,57 @@ export default function Search() {
             </div>
           </div>
 
-          <div className={styles.btnWrap}>
-            <Btn
-              className={styles.btnPrev}
-              disabled={page === 1}
-              onClick={goPrev}
-            >
-              <SVGPrevArrow color="grayLv3" />
-              {windowWidth > 1024 && <span>{'이전'}</span>}
-            </Btn>
-            <div className={styles.pageNav}>
-              {Array.from({ length: searchResults.page }, (_, idx) => {
-                const currentPage = idx + 1;
-                console.log('page', page);
+          {searchResults.length !== 0 ? (
+            <div className={styles.btnWrap}>
+              <Btn
+                className={styles.btnPrev}
+                disabled={page === 1}
+                onClick={goPrev}
+              >
+                <SVGPrevArrow color="grayLv3" />
+                {windowWidth > 1024 && <span>{'이전'}</span>}
+              </Btn>
+              <div className={styles.pageNav}>
+                {Array.from({ length: searchResults.page }, (_, idx) => {
+                  const currentPage = idx + 1;
 
-                if (searchResults.page > 5) {
-                  if (
-                    currentPage >= page &&
-                    currentPage < page + 3 &&
-                    currentPage < searchResults.page - 1
-                  ) {
+                  if (searchResults.page > 5) {
+                    if (
+                      currentPage >= page &&
+                      currentPage < page + 3 &&
+                      currentPage < searchResults.page - 1
+                    ) {
+                      return renderPageButton(currentPage, page, setPage);
+                    }
+
+                    if (idx === searchResults.page - 1) {
+                      return (
+                        <div className={styles.ellipsis}>
+                          {searchResults.page - 1 - page < 3 ? null : (
+                            <p>...</p>
+                          )}
+                          {renderPageButton(currentPage, page, setPage)}
+                        </div>
+                      );
+                    }
+                  } else {
+                    console.log(111);
                     return renderPageButton(currentPage, page, setPage);
                   }
 
-                  if (idx === searchResults.page - 1) {
-                    return (
-                      <div className={styles.ellipsis}>
-                        {searchResults.page - 1 - page < 3 ? null : <p>...</p>}
-                        {renderPageButton(currentPage, page, setPage)}
-                      </div>
-                    );
-                  }
-                } else {
-                  console.log(111);
-                  return renderPageButton(currentPage, page, setPage);
-                }
-
-                return null;
-              })}
+                  return null;
+                })}
+              </div>
+              <Btn
+                className={styles.btnNext}
+                disabled={!searchResults.page || page === searchResults.page}
+                onClick={goNext}
+              >
+                {windowWidth > 1024 && <span>{'다음'}</span>}
+                <SVGNextArrow color="grayLv3" />
+              </Btn>
             </div>
-            <Btn
-              className={styles.btnNext}
-              disabled={!searchResults.page || page === searchResults.page}
-              onClick={goNext}
-            >
-              {windowWidth > 1024 && <span>{'다음'}</span>}
-              <SVGNextArrow color="grayLv3" />
-            </Btn>
-          </div>
+          ) : null}
         </>
       ) : (
         <Loading />
