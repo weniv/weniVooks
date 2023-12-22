@@ -63,6 +63,7 @@ export default function Search() {
         setSearchResults([]);
       }, 1000);
     }
+    window.scrollTo(0, 0);
   }, [searchQuery, page]);
 
   const goPrev = () => {
@@ -167,7 +168,6 @@ export default function Search() {
                       );
                     }
                   } else {
-                    console.log(111);
                     return renderPageButton(currentPage, page, setPage);
                   }
 

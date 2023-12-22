@@ -188,26 +188,21 @@ export const parseMarkdown = (markdown) => {
 
 // 로컬 md파일 가져오기
 const fetchMarkdown = async (query, page) => {
-  try {
-    const searchQuery = query;
-    const response = await axios.get(
-      `/api/search?keyword=${searchQuery}&page=${page}`,
-    );
+  const url = `/api/search?keyword=${encodeURIComponent(query)}&page=${page}`;
 
+  try {
+    const response = await axios.get(url);
     return response.data;
   } catch (err) {
-    console.log(err);
+    console.error(err);
+    return { result: Array(0), resultLength: 0, totalPages: 0 };
   }
 };
 
-export const searchInMd = async (
-  query,
-  setSearchResults,
-  page,
-  setLastPage,
-) => {
+export const searchInMd = async (query, setSearchResults, page) => {
   try {
     const markdown = await fetchMarkdown(query, page);
+
     if (Array.isArray(markdown.result)) {
       const val = {
         result: markdown.result,
@@ -217,6 +212,7 @@ export const searchInMd = async (
       await setSearchResults(val);
     }
   } catch (error) {
+    console.log('md에서 에러났다!');
     console.error(error);
   }
 };

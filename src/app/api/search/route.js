@@ -30,7 +30,7 @@ function getFiles(dir) {
 
 export async function GET(req) {
   const data = [];
-  const pageSize = 10; // 한 번에 반환할 페이지 개수
+  const pageSize = 10;
 
   try {
     const searchParams = new URL(req.url).searchParams;
@@ -39,7 +39,7 @@ export async function GET(req) {
     const mdFiles = getFiles(path.join(process.cwd(), BASEURL));
 
     const filePath = mdFiles.map((file) => {
-      const match = file.match(/_md\\([^\\]+)/);
+      const match = file.match(/_md\/([^/]+)/);
 
       const data = {
         url: match ? match[1] : null,
@@ -53,11 +53,11 @@ export async function GET(req) {
       const wholeFiles = fs.readFileSync(file.fileName).toString();
       let filteredFiles;
 
-      if (wholeFiles.toLowerCase().includes(keyword.toLowerCase())) {
+      if (wholeFiles.includes(keyword)) {
         filteredFiles = wholeFiles;
       }
 
-      const absolutePath = `${process.cwd()}\\${BASEURL}`;
+      const absolutePath = `${process.cwd()}/${BASEURL}`;
       const relativePath = getRelativePath(absolutePath, file.fileName);
 
       let val = {
@@ -78,7 +78,7 @@ export async function GET(req) {
 
     const convertData = (dataList) => {
       const result = [];
-      const page = searchParams.get('page') || 1;
+      const page = parseInt(searchParams.get('page'), 10) || 1;
 
       const startIndex = (page - 1) * pageSize;
       const endIndex = startIndex + pageSize;
@@ -146,7 +146,6 @@ export async function GET(req) {
         result: paginatedResult,
         resultLength: result.length,
         totalPages: Math.ceil(result.length / pageSize),
-        // totalPages: 10,
       };
     };
 
@@ -154,7 +153,7 @@ export async function GET(req) {
 
     return NextResponse.json(output);
   } catch (err) {
-    console.log(err);
+    console.err(err);
     return NextResponse.json('정보를 가져오는데 실패하였습니다');
   }
 }
