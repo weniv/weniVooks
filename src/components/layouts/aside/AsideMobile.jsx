@@ -1,5 +1,5 @@
 import BtnIcon from '@/components/common/button/BtnIcon';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Toc from './Toc';
 import SubBanner from './SubBanner';
 import SVGUpArrow from '@/components/svg/SVGUpArrow';
@@ -12,16 +12,40 @@ export default function AsideMobile() {
   const [clicked, setClicked] = useState(false);
   const [isMenuShow, setIsMenuShow] = useState(false);
 
+  const menuRef = useRef(null);
+  const lastBtn = useRef(null);
+
+  const handleFocusFirst = (e) => {
+    if (!e.shiftKey && e.key === 'Tab') {
+      e.preventDefault();
+
+      const firstItem = menuRef.current.querySelector('a');
+      firstItem.focus();
+    }
+  };
+
+  const handleFocusLast = (e) => {
+    if (e.shiftKey && e.key === 'Tab') {
+      e.preventDefault();
+
+      lastBtn.current.focus();
+    }
+  };
+
   const toggleMenu = () => {
     !clicked && setClicked(true);
     setIsMenuShow((prev) => !prev);
+    if (!isMenuShow) {
+      setTimeout(() => {
+        lastBtn.current.focus();
+      }, 100);
+    }
   };
 
   useEffect(() => {
     const handleOutsideClick = (e) => {
       const isToc = e.target.closest('.toc');
 
-      console.log(isToc);
       if (isMenuShow && !isToc) {
         toggleMenu(false);
       }
@@ -36,6 +60,9 @@ export default function AsideMobile() {
       setTimeout(() => {
         window.addEventListener('click', handleOutsideClick);
         window.addEventListener('keydown', handleESC);
+
+        const firstItem = menuRef.current.querySelector('a');
+        firstItem.addEventListener('keydown', handleFocusLast);
       }, 100);
     }
     return () => {
@@ -45,7 +72,10 @@ export default function AsideMobile() {
   }, [isMenuShow]);
 
   return (
-    <div className={classNames(isMenuShow ? styles.active : '', styles.toc)}>
+    <div
+      className={classNames(isMenuShow ? styles.active : '', styles.toc)}
+      ref={menuRef}
+    >
       <div className={`toc ${styles.toc__wrap}`}>
         {!isMenuShow ? (
           <button
@@ -59,12 +89,16 @@ export default function AsideMobile() {
         ) : (
           <>
             <h3 className={styles.toc__title}>목차</h3>
-            <Toc toggleMenu={toggleMenu} />
-            <SubBanner />
+            <div className={styles.positionWrap}>
+              <Toc toggleMenu={toggleMenu} />
+              <SubBanner />
+            </div>
             <button
               type="button"
               className={styles.toc__close}
               onClick={toggleMenu}
+              onKeyDown={handleFocusFirst}
+              ref={lastBtn}
             >
               <SVGUpArrow color="grayLv3" />
               <span className="a11y-hidden">목차 닫기</span>
