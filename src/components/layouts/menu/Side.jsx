@@ -1,13 +1,13 @@
 'use client';
 import styles from './Side.module.scss';
 
-import { useContext, useEffect, useState } from 'react';
+import { useContext, useEffect, useRef, useState } from 'react';
 
 import useWindowSize from '@/utils/useWindowSize';
 import { SettingContext } from '@/context/SettingContext';
-import Nav from '../side/Nav';
+import Nav from './Nav';
 import BtnIcon from '../../common/button/BtnIcon';
-import Footer from '../Footer';
+import Footer from '../footer/Footer';
 import SVGList from '../../svg/SVGList';
 import classNames from 'classnames';
 import SVGListClose from '../../svg/SVGListClose';
@@ -15,95 +15,111 @@ import { usePathname } from 'next/navigation';
 
 export default function Side(props) {
   const path = usePathname();
+
   const { windowWidth } = useWindowSize();
-  const { menu, setMenu } = useContext(SettingContext);
-  const [slide, setSlide] = useState(null);
-  const [isDOM, setIsDOM] = useState(menu === 'close' ? false : true);
+  const { isSavedClose, setIsSavedClose } = useContext(SettingContext);
+  const [isShowMenu, setIsShowMenu] = useState(isSavedClose ? false : true);
+  const slideRef = useRef(null);
 
-  const slideIn = () => {
-    setIsDOM(true);
-    setMenu('open');
-    setSlide('slideIn');
-
-    localStorage.removeItem('menu');
-  };
-
-  const slideOut = () => {
-    setMenu('close');
-    setSlide('slideOut');
-    setTimeout(() => {
-      setIsDOM(false);
-    }, 300);
-    localStorage.setItem('menu', 'close');
+  const toggleMenu = () => {
+    if (isShowMenu) {
+      // SlideOut(닫힘)
+      slideRef.current.classList.add(styles.slideOut);
+      setTimeout(() => {
+        setIsShowMenu(false);
+        if (windowWidth > 1024) {
+          localStorage.setItem('menu', 'close');
+          setIsSavedClose(true);
+        }
+      }, 300);
+    } else {
+      // SlideIn(열림)
+      setIsShowMenu(true);
+      setTimeout(() => {
+        slideRef.current.classList.add(styles.slideIn);
+        if (windowWidth > 1024) {
+          localStorage.removeItem('menu');
+          setIsSavedClose(false);
+        }
+      }, 0);
+    }
   };
 
   useEffect(() => {
     if (windowWidth !== null && windowWidth <= 1024) {
-      setMenu('close');
-      setIsDOM(false);
-      localStorage.setItem('menu', 'close');
+      setIsShowMenu(false);
+    } else {
+      setIsShowMenu(isSavedClose ? false : true);
     }
   }, [windowWidth, path]);
 
   useEffect(() => {
-    if (menu === 'open' && windowWidth <= 1024) {
-      document.body.style.cssText = `
-      overflow: hidden;
-      position: relative;
-      height: 100%;`;
-    } else {
-      document.body.removeAttribute('style');
-    }
-    return () => {
-      document.body.removeAttribute('style');
+    const handleOutsideClick = (e) => {
+      if (!slideRef.current.contains(e.target)) {
+        setIsShowMenu(false);
+      }
     };
-  }, [menu, windowWidth]);
+    const handleESC = (e) => {
+      if (e.key === 'Escape') {
+        toggleMenu();
+      }
+    };
+
+    if (isShowMenu && windowWidth !== null && windowWidth < 1024) {
+      setTimeout(() => {
+        window.addEventListener('click', handleOutsideClick);
+        window.addEventListener('keydown', handleESC);
+      });
+    }
+
+    return () => {
+      window.removeEventListener('click', handleOutsideClick);
+      window.removeEventListener('keydown', handleESC);
+    };
+  }, [isShowMenu]);
 
   return (
     <>
-      {isDOM ? (
+      {isShowMenu && (
         <>
-          <div
-            className={classNames(
-              'layout-side',
-              styles.side,
-              slide === null
-                ? ''
-                : slide === 'slideIn'
-                ? styles.menuShow
-                : styles.menuHide,
-            )}
-          >
+          <div ref={slideRef} className={classNames(styles.side)}>
             <Nav {...props} />
             <BtnIcon
               className={styles.btnClose}
               children={<SVGListClose color="grayLv3" />}
-              onClick={slideOut}
               bordernone="true"
+              onClick={toggleMenu}
             />
-            {windowWidth >= 1024 && <Footer />}
+            <Footer />
           </div>
-          {menu === 'open' && windowWidth < 1024 && (
-            <div
-              className={classNames(
-                'dim',
-                slide === 'slideIn' ? styles.dimShow : styles.dimHide,
-              )}
-              onClick={slideOut}
-            ></div>
+          {windowWidth !== null && windowWidth < 1024 && (
+            <>
+              <div className="dim"></div>
+              {/* <button
+                type="button"
+                className={styles.btnOpen}
+                onClick={toggleMenu}
+                disabled
+              >
+                <SVGList color="grayLv3" />
+                <span className="a11y-hidden">메뉴 열기</span>
+              </button> */}
+            </>
           )}
         </>
-      ) : (
-        <BtnIcon
-          className={classNames(
-            styles.openBtn,
-            menu == 'close' ? styles['openBtn-show'] : styles['openBtn-hide'],
-          )}
-          children={<SVGList color="grayLv3" />}
-          onClick={slideIn}
-          bordernone="true"
-        />
       )}
+      <button
+        type="button"
+        className={classNames(
+          styles.btnOpen,
+          isShowMenu ? styles.hide : styles.show,
+        )}
+        onClick={toggleMenu}
+        disabled={isShowMenu ? true : false}
+      >
+        <SVGList color="grayLv3" />
+        <span className="a11y-hidden">메뉴 열기</span>
+      </button>
     </>
   );
 }

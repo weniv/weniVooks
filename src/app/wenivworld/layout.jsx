@@ -1,11 +1,9 @@
-import classNames from 'classnames';
+import '@/styles/sub.scss';
 
-import '@/styles/subpage.scss';
-
-import Header from '@/components/layouts/Header';
+import Header from '@/components/layouts/header/Header';
 import Side from '@/components/layouts/menu/Side';
-import Page from '@/components/layouts/Page';
-import BtnTop from '@/components/feature/BtnTop';
+import Page from '@/components/layouts/pagecontrol/PageControl';
+import BtnTop from '@/components/common/button/BtnTop';
 
 import { DEFAULT_PATH, MENU_DATA } from './data';
 
@@ -34,12 +32,11 @@ export default function Layout({ children }) {
     <>
       <Header />
 
-      <div className={classNames('layout-grow', 'wrapper')}>
+      <div className="sub">
         <Side data={MENU_DATA} />
-        <div className={classNames('layout-content', 'content')}>
-          {children}
-        </div>
+        <div className="sub__content">{children}</div>
       </div>
+
       <Page data={MENU_DATA} DEFAULT_PATH={DEFAULT_PATH} />
       <BtnTop />
     </>

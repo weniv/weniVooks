@@ -1,0 +1,77 @@
+@import '@/styles/var.scss';
+
+.header {
+  width: 100%;
+  height: $headerHeight;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  box-sizing: border-box;
+  background-color: var(--background);
+
+  position: relative;
+  z-index: 1000;
+
+  &__logo {
+    margin-left: 2rem;
+    line-height: 1;
+    a {
+      display: inline-flex;
+    }
+    svg {
+      width: auto;
+      height: fcSize(26, 34);
+    }
+  }
+
+  &__right {
+    display: flex;
+    margin-right: 2rem;
+    gap: 1.6rem;
+
+    @media screen and (max-width: 1024px) {
+      gap: 0.4rem;
+    }
+
+    button,
+    a {
+      width: 4rem;
+    }
+  }
+
+  &__intro,
+  &__border,
+  &__notfound {
+    position: sticky;
+    top: 0;
+    left: 0;
+  }
+
+  &__notfound,
+  &__border {
+    box-sizing: content-box;
+    border-bottom: 4px solid var(--grayLv2);
+  }
+
+  // 404 페이지
+  &__notfound {
+    justify-content: center;
+
+    .header__logo {
+      margin-left: 0rem;
+    }
+  }
+
+  // 서브페이지
+  &__subpage {
+    @media screen and (min-width: 1025px) {
+      position: sticky;
+      top: 0;
+      left: 0;
+    }
+    @media screen and (max-width: 1024px) {
+    }
+  }
+}

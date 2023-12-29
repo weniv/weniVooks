@@ -1,10 +1,9 @@
 import Script from 'next/script';
 
 import '@/styles/globals.scss';
-import styles from './layout.module.scss';
 
 import SettingProvider from '@/context/SettingContext';
-import Body from '@/components/layouts/Body';
+import Body from '@/components/layouts/body/Body';
 
 export const metadata = {
   title: '위니북스',
@@ -18,32 +17,6 @@ export const metadata = {
     url: 'https://books.weniv.co.kr',
     siteName: '위니북스',
   },
-};
-
-const BeforeFn = () => {
-  const savedTheme = localStorage.getItem('theme');
-  if (savedTheme !== 'auto' && savedTheme !== null) {
-    document.body.classList.add(savedTheme);
-  }
-
-  const savedFontStyle = localStorage.getItem('fontStyle');
-  if (savedFontStyle !== null) {
-    document.body.classList.add(savedFontStyle);
-  }
-
-  const savedFontSize = localStorage.getItem('fontSize');
-
-  if (savedFontSize !== null) {
-    document.body.classList.add('size' + savedFontSize);
-  }
-
-  const savedOpen = localStorage.getItem('menu');
-
-  if (savedOpen === 'close') {
-    document.body.classList.add('side-close');
-  } else if (savedOpen === 'open') {
-    document.body.classList.add('side-open');
-  }
 };
 
 export default function RootLayout({ children }) {
@@ -61,14 +34,7 @@ export default function RootLayout({ children }) {
             gtag('config', '${process.env.GA_ID}');`}
       </Script>
       <SettingProvider>
-        <Body>
-          <div className={styles.layout}>{children}</div>
-          <script
-            dangerouslySetInnerHTML={{
-              __html: `(${String(BeforeFn)})()`,
-            }}
-          ></script>
-        </Body>
+        <Body>{children}</Body>
       </SettingProvider>
     </html>
   );

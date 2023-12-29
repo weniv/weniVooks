@@ -4,7 +4,7 @@ import { throttle } from 'lodash';
 
 import styles from './BtnTop.module.scss';
 
-import SVGTop from '../svg/SVGTop';
+import SVGTop from '../../svg/SVGTop';
 
 export default function BtnTop() {
   const [show, setShow] = useState(false);

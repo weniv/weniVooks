@@ -3,15 +3,13 @@ import fs from 'fs';
 import path from 'path';
 import {
   parseMarkdown,
-  removeImageAltTexts,
-  removeAsideContent,
   splitArray,
   choiceBookKind,
+  textNormalize,
 } from '@/app/search/searchUtils';
 
 const BASEURL = '_md';
 
-// 재귀적으로 디렉토리를 순회하며 파일 목록을 가져오는 함수
 function getFiles(dir) {
   const files = fs.readdirSync(dir);
   let fileList = [];
@@ -32,21 +30,16 @@ function getFiles(dir) {
 
 export async function GET(req) {
   const data = [];
+  const pageSize = 10; // 한 번에 반환할 페이지 개수
 
   try {
     const searchParams = new URL(req.url).searchParams;
     const keyword = searchParams.get('keyword') || '';
 
-    // data 디렉토리 내부의 .md 파일 및 하위 디렉토리의 .md 파일을 재귀적으로 읽어옴
     const mdFiles = getFiles(path.join(process.cwd(), BASEURL));
 
-    // 파일과 경로 합치기
     const filePath = mdFiles.map((file) => {
       const match = file.match(/_md\\([^\\]+)/);
-      // const data = {
-      //   url: path.dirname(file).split(path.sep).pop(),
-      //   fileName: file,
-      // };
 
       const data = {
         url: match ? match[1] : null,
@@ -74,24 +67,22 @@ export async function GET(req) {
       }
     }
 
-    data.map(
-      (doc) => (doc.file = removeAsideContent(removeImageAltTexts(doc.file))),
-    );
-
-    // HTML로 파싱
+    data.map((doc) => (doc.file = textNormalize(doc.file)));
     data.map((doc) => {
       doc.file = parseMarkdown(doc.file);
     });
 
-    // obj 형태로 변환
     const convertData = (dataList) => {
       const result = [];
+      const page = searchParams.get('page') || 1;
+
+      const startIndex = (page - 1) * pageSize;
+      const endIndex = startIndex + pageSize;
 
       for (const data of dataList) {
-        const url = choiceBookKind(data.url); // breadcrumb 첫 번째 요소, 책 종류
+        const url = choiceBookKind(data.url);
         const html = data.file;
-        // const mainTitle = html.shift().replace(/<[^>]*>/g, '');
-        let mainTitle = ''; // breadcrumb 두 번째 요소, 메인 제목
+        let mainTitle = '';
 
         html.map((line) => {
           if (line.includes('title:')) {
@@ -102,7 +93,6 @@ export async function GET(req) {
           }
         });
 
-        // title과 date 정보 삭제
         const filteredHtml = html.filter(
           (item) =>
             !item.includes('<p>---</p>') &&
@@ -111,22 +101,25 @@ export async function GET(req) {
         );
 
         const outputArray = splitArray(filteredHtml, '<h2>');
-
-        // 검색 키워드가 존재하는 챕터만 남기기
         const filteredChapter = outputArray.filter((subArray) =>
           subArray.some((item) => item.includes(keyword)),
         );
 
         for (const chapter of filteredChapter) {
-          const title = chapter
-            .shift()
-            .replace(/<[^>]*>/g, '')
-            .replace(/[0-9.]/g, '');
+          let title;
+          const temp = chapter.shift();
+          if (temp.includes('<h2>')) {
+            title = temp.replace(/<[^>]*>/g, '').replace(/[0-9.]/g, '');
+          } else {
+            title = null;
+          }
+
           const content = [];
-          // 키워드가 포함된 문자열만 남기기
           chapter.map((row) => {
-            if (row.includes(keyword)) {
-              content.push(row.replace(/<[^>]*>/g, ''));
+            const condition = row.includes(keyword) && content.length < 3;
+            while (condition) {
+              content.push(row.replace(/<[^>]*>/g, '').replace(/&nbsp;/g, ' '));
+              break;
             }
           });
 
@@ -142,7 +135,13 @@ export async function GET(req) {
         }
       }
 
-      return result;
+      // 페이지에 해당하는 결과만 추출
+      const paginatedResult = result.slice(startIndex, endIndex);
+
+      return {
+        result: paginatedResult,
+        totalPages: Math.ceil(result.length / pageSize),
+      };
     };
 
     const output = convertData(data);

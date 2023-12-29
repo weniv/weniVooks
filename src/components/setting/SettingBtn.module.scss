@@ -3,6 +3,8 @@
 }
 .btnSetting {
   border: none;
+  z-index: 100;
+  position: relative;
   &.active {
     background-color: var(--activation);
   }

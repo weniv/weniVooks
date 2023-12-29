@@ -41,7 +41,7 @@ const getIntersectionObserver = (setState) => {
 
 // https://thisyujeong.dev/blog/toc-generator
 
-export default function Toc({ mobile, toggleMenu }) {
+export default function Toc({ toggleMenu }) {
   const [currentId, setCurrentId] = useState('');
   const [headingEls, setHeadingEls] = useState([]);
 
@@ -100,7 +100,7 @@ export default function Toc({ mobile, toggleMenu }) {
               href={`#${section.title}`}
               className={currentId === section.title ? styles.active : ''}
               onClick={() => {
-                mobile && toggleMenu();
+                toggleMenu && toggleMenu();
                 setCurrentId(section.title);
               }}
             >

@@ -1,42 +1,30 @@
 'use client';
-import '@/styles/subpage.scss';
+
 import { DEFAULT_PATH, MENU_DATA } from './data';
 
-import Breadcrumb from '@/components/layouts/Breadcrumb';
 import useWindowSize from '@/utils/useWindowSize';
 
-import dynamic from 'next/dynamic';
-const PythonCodeblock = dynamic(
-  () => import('../../components/codeblock/PythonCodeblock'),
-  {
-    ssr: false,
-  },
-);
-
-const JavascriptCodeblock = dynamic(
-  () => import('../../components/codeblock/JavascriptCodeblock'),
-  {
-    ssr: false,
-  },
-);
+import Breadcrumb from '@/components/layouts/breadcrumb/Breadcrumb';
+import PythonCodeblock from '@/components/codeblock/PythonCodeblock';
 
 export default function Home() {
   const { windowWidth } = useWindowSize();
 
   return (
-    <div className="subContent">
+    <>
       {windowWidth > 1024 && (
         <Breadcrumb data={MENU_DATA} DEFAULT_PATH={DEFAULT_PATH} />
       )}
-      <div className="container">
-        <main className="bookContent">
-          <div className="inner">
+      <div className="content__wrap">
+        <main className="main">
+          <div className="main__inner">
+            {/* contents */}
             <h3 className="title">파이썬 부트캠프</h3>
-            <PythonCodeblock />
-            {/* <JavascriptCodeblock /> */}
+            <p>표지 준비중....</p>
+            {/* contents */}
           </div>
         </main>
       </div>
-    </div>
+    </>
   );
 }

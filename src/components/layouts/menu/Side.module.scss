@@ -1,91 +1,108 @@
 @import '@/styles/var.scss';
 
 .side {
+  [class~='side-close'] & {
+    display: none;
+  }
+
   width: fcSize(280, 320);
-  height: calc(100vh - $headerHeight);
+  margin-right: -4.2rem;
 
   border-right: 1px solid var(--grayLv2);
   box-sizing: border-box;
   background-color: var(--background);
-  z-index: 1000;
-  position: sticky;
-  top: $headerHeight;
 
   flex-shrink: 0;
 
   display: flex;
   align-items: flex-start;
   flex-direction: column;
+  z-index: 300;
+
+  @media screen and (min-width: 1025px) {
+    position: sticky;
+    top: calc($headerHeight + 0.4rem);
+    height: calc(100vh - $headerHeight - 0.4rem);
+  }
 
   @media screen and (max-width: 1024px) {
     position: fixed;
+    top: 0;
+    margin-left: -32rem;
+    height: 100vh;
+    z-index: 2000;
+
+    & + [class~='dim'] {
+      z-index: 1900;
+    }
   }
 }
 
+// 닫기 버튼
 .btnClose {
   position: absolute;
-  top: 0.4rem;
-  right: 0.4rem;
-  border: none;
+  top: 0.7rem;
+  right: 0.7rem;
 }
 
-.menuShow {
+//메뉴 열기 버튼
+.btnOpen {
+  flex-shrink: 0;
+  width: 4.2rem;
+  height: 4.2rem;
+
+  border-radius: $borderRadius;
+
+  position: sticky;
+
+  background-color: var(--background);
+  z-index: 200;
+  margin: 0.4rem 0 0.4rem 1rem;
+  transition: all 0.3s;
+
+  @media screen and (min-width: 1025px) {
+    top: calc($headerHeight + 0.4rem + 0.4rem);
+
+    &.hide {
+      opacity: 0;
+    }
+    &.show {
+      opacity: 1;
+    }
+  }
+  @media screen and (max-width: 1024px) {
+    top: calc(0.4rem + 0.4rem);
+    border: 1px solid var(--grayLv2) !important;
+    box-shadow: 0 0.4rem 2rem 0 rgba(0, 0, 0, 0.04);
+  }
+}
+
+.slideIn {
   animation: slideIn 0.3s both;
 }
 
-.menuHide {
+.slideOut {
   animation: slideOut 0.3s both;
 }
 
 @keyframes slideIn {
   from {
     margin-left: -32rem;
+    margin-right: 0;
   }
   to {
     margin-left: 0;
+    margin-right: -4.2rem;
   }
 }
 
 @keyframes slideOut {
   from {
     margin-left: 0;
+    margin-right: -4.2rem;
   }
   to {
     margin-left: -32rem;
-  }
-}
-
-//메뉴 열기 버튼
-.openBtn {
-  margin: 0.7rem 1rem;
-  border: none;
-  position: fixed;
-  transition: all 0.2s;
-}
-
-.openBtn-show {
-  // display: block;
-  animation: fadeIn 0.2s both;
-}
-.openBtn-hide {
-  // display: none;
-  animation: fadeOut 0.2s both;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes fadeOut {
-  from {
-    opacity: 1;
-  }
-  to {
-    opacity: 0;
+    margin-right: 0;
   }
 }
