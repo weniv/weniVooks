@@ -8,8 +8,6 @@ import Body from '@/components/layouts/body/Body';
 export const metadata = {
   title: '위니북스',
   description: '위니브의 다양한 교안을 웹에서 확인해보세요!',
-  keywords:
-    '위니북스, 위니브, 제주코딩베이스캠프, wenivooks, weniv, jejucodingbasecamp',
   openGraph: {
     type: 'website',
     title: '위니북스',
