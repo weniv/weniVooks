@@ -5,27 +5,9 @@ import Side from '@/components/layouts/menu/Side';
 import Page from '@/components/layouts/pagecontrol/PageControl';
 import BtnTop from '@/components/common/button/BtnTop';
 
-import { DEFAULT_PATH, MENU_DATA } from './data';
+import { DEFAULT_PATH, MENU_DATA, META_DATA } from './data';
 
-export const metadata = {
-  title: '위니브 월드 | 위니북스',
-  description: '위니브월드로 떠나는 파이썬 코딩 여행',
-  openGraph: {
-    type: 'website',
-    title: '위니브 월드',
-    description: '위니브월드로 떠나는 파이썬 코딩 여행',
-    url: `https://books.weniv.co.kr${DEFAULT_PATH}`,
-    siteName: '위니북스',
-    images: ['/images/wenivworld/cover-weniv-world-student.png'],
-    // images: [
-    //   {
-    //     url: '/images/wenivworld/cover-weniv-world-student.png',
-    //     width: 800,
-    //     height: 600,
-    //   },
-    // ],
-  },
-};
+export const metadata = META_DATA;
 
 export default function Layout({ children }) {
   return (
