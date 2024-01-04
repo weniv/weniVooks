@@ -188,7 +188,11 @@ export const parseMarkdown = (markdown) => {
 
 // 로컬 md파일 가져오기
 const fetchMarkdown = async (query, page) => {
-  const url = `/api/search?keyword=${encodeURIComponent(query)}&page=${page}`;
+  const normalizedQuery = query.trim().replaceAll(' ', '');
+
+  const url = `/api/search?keyword=${encodeURIComponent(
+    normalizedQuery,
+  )}&page=${page}`;
 
   try {
     const response = await axios.get(url);
