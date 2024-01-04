@@ -1,5 +1,6 @@
 import useWindowSize from '@/utils/useWindowSize';
 import styles from './Banner.module.scss';
+import Image from 'next/image';
 
 const Content = ({
   categoryColor,
@@ -31,7 +32,7 @@ const Content = ({
       </div>
 
       {thumbnail && (
-        <img
+        <Image
           className={styles.thumbnail}
           src={
             windowWidth !== null && windowWidth < 640 && thumbnailMobile
@@ -39,6 +40,14 @@ const Content = ({
               : thumbnail
           }
           alt=""
+          sizes="100vw"
+          style={{
+            width: 'auto',
+            height: '100%',
+          }}
+          width={0}
+          height={0}
+          priority
         />
       )}
     </div>

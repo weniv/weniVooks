@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Btn from '../common/button/Btn';
 import styles from './BookItem.module.scss';
 
@@ -17,7 +18,9 @@ export default function BookItem({ data }) {
   return (
     <article className={styles.bookItem}>
       <div className={styles.thumbnail}>
-        {thumbnail && <img src={thumbnail} alt="" />}
+        {thumbnail && (
+          <Image src={thumbnail} alt="" fill sizes="100%" priority />
+        )}
       </div>
       <div className={styles.content}>
         <p className={styles.info}>

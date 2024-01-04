@@ -3,6 +3,7 @@ import styles from './not-found.module.scss';
 import Btn from '@/components/common/button/Btn';
 import BtnBack from '@/components/common/button/BtnBack';
 import Header from '@/components/layouts/header/Header';
+import Image from 'next/image';
 
 export default function NotFound() {
   return (
@@ -10,7 +11,17 @@ export default function NotFound() {
       <Header type="notfound" />
 
       <main className={`layout-content ${styles.notFound}`}>
-        <img src="/images/commons/404.png" alt="404" />
+        <Image
+          src="/images/commons/404.png"
+          alt="404"
+          sizes="100vw"
+          style={{
+            width: '300',
+            height: 'auto',
+          }}
+          width={0}
+          height={0}
+        />
         <h2>페이지를 찾을 수 없습니다.</h2>
         <p>
           페이지가 존재하지 않거나 사용할 수 없는 페이지입니다. 웹 주소가

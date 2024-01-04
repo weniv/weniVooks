@@ -18,6 +18,7 @@
   }
 }
 .thumbnail {
+  position: relative;
   grid-area: thumbnail;
   width: fcSize(110, 160);
   aspect-ratio: 16/24;
