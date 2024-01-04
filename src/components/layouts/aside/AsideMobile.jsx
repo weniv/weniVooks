@@ -1,12 +1,15 @@
-import BtnIcon from '@/components/common/button/BtnIcon';
 import { useEffect, useRef, useState } from 'react';
+
+import classNames from 'classnames';
+
+import styles from './AsideMobile.module.scss';
+
+import { handleAllowScroll, handlePreventScroll } from '@/utils/handleScroll';
+
 import Toc from './Toc';
 import SubBanner from './SubBanner';
 import SVGUpArrow from '@/components/svg/SVGUpArrow';
-
-import styles from './AsideMobile.module.scss';
 import SVGDownArrow from '@/components/svg/SVGDownArrow';
-import classNames from 'classnames';
 
 export default function AsideMobile() {
   const [clicked, setClicked] = useState(false);
@@ -36,9 +39,12 @@ export default function AsideMobile() {
     !clicked && setClicked(true);
     setIsMenuShow((prev) => !prev);
     if (!isMenuShow) {
+      handlePreventScroll();
       setTimeout(() => {
         lastBtn.current.focus();
       }, 100);
+    } else {
+      handleAllowScroll();
     }
   };
 

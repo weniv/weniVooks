@@ -7,6 +7,7 @@ import styles from './SettingBtn.module.scss';
 import SettingModal from './SettingModal';
 import classNames from 'classnames';
 import { usePathname } from 'next/navigation';
+import { handleAllowScroll, handlePreventScroll } from '@/utils/handleScroll';
 
 export default function SettingBtn() {
   const [isOpen, setIsOpen] = useState(false);
@@ -14,20 +15,14 @@ export default function SettingBtn() {
   const pathname = usePathname();
 
   const handleToggle = () => {
-    setIsOpen(!isOpen);
-  };
-
-  useEffect(() => {
     if (isOpen) {
-      document.body.style.cssText = `
-      overflow: hidden;
-      position: relative;
-      height: 100%;`;
+      setIsOpen(false);
+      handleAllowScroll();
+    } else {
+      setIsOpen(true);
+      handlePreventScroll();
     }
-    return () => {
-      document.body.removeAttribute('style');
-    };
-  }, [isOpen]);
+  };
 
   useEffect(() => {
     if (isOpen) {
@@ -53,7 +48,7 @@ export default function SettingBtn() {
           !modalRef.current.contains(e.target) ||
           e.target.dataset.dim === 'dim'
         ) {
-          setIsOpen(false);
+          handleToggle();
         }
       };
       const handleESC = (e) => {
