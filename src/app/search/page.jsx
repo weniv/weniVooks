@@ -1,7 +1,7 @@
 'use client';
 import { useState, useEffect } from 'react';
 import { useSearchParams } from 'next/navigation';
-
+import Link from 'next/link';
 import styles from './search.module.scss';
 import classNames from 'classnames';
 import { searchInMd } from './searchUtils';
@@ -9,9 +9,7 @@ import SVGAlertCircle from '@/components/svg/SVGAlertCircle';
 import useWindowSize from '@/utils/useWindowSize';
 import SearchForm from '@/components/search/SearchForm';
 import Loading from '../loading';
-import Btn from '@/components/common/button/Btn';
-import SVGPrevArrow from '@/components/svg/SVGPrevArrow';
-import SVGNextArrow from '@/components/svg/SVGNextArrow';
+import Pagination from '@/components/search/Pagination';
 
 // 검색키워드와 일치하는 문자열 하이라이팅
 function highlightKeyword(text, keyword) {
@@ -36,17 +34,17 @@ export default function Search() {
   const searchQuery = params.get('keyword');
   const [searchResults, setSearchResults] = useState(null);
   const [page, setPage] = useState(1);
-  const [lastPage, setLastPage] = useState(1);
   const { windowWidth } = useWindowSize();
 
   useEffect(() => {
     if (searchQuery) {
-      searchInMd(searchQuery, setSearchResults, page, setLastPage);
+      searchInMd(searchQuery, setSearchResults, page);
     } else {
       setTimeout(() => {
         setSearchResults([]);
       }, 1000);
     }
+    window.scrollTo(0, 0);
   }, [searchQuery, page]);
 
   const goPrev = () => {
@@ -70,7 +68,7 @@ export default function Search() {
               ) : null}
               <div className={classNames(styles.title)}>
                 <strong>{searchQuery ? searchQuery : '검색어 없음'}</strong>
-                <span>검색 결과: {searchResults?.length}건</span>
+                <span>검색 결과: {searchResults.length}건</span>
               </div>
               {searchResults.length === 0 ? (
                 <div className={styles.notFound}>
@@ -82,64 +80,47 @@ export default function Search() {
                 </div>
               ) : (
                 <ul>
-                  {searchResults.map((data, idx) => (
-                    <li key={idx} className={classNames(styles.resultSection)}>
-                      <a href={data.link}>
+                  {searchResults.result.map((data, idx) => (
+                    <Link key={idx} href={data.link}>
+                      <li className={classNames(styles.resultSection)}>
                         <p className={classNames(styles.subTitle)}>
                           {highlightKeyword(
                             data.title ? data.title : data.mainTitle,
                             searchQuery,
                           )}
                         </p>
-                      </a>
-                      <p className={classNames(styles.path)}>
-                        {highlightKeyword(
-                          `${windowWidth > 640 ? data.bookKind : '...'} > ${
-                            data.mainTitle
-                          }  ${data.title ? '> ' + data.title : ''}`,
-                          searchQuery,
-                        )}
-                      </p>
-                      <div className={classNames(styles.contents)}>
-                        {data.content &&
-                          data.content.map((contentItem, contentIndex) => {
-                            const sentences = contentItem.split('.');
-                            const displayContent =
-                              sentences.length > 2
-                                ? sentences.slice(0, 2).join('.') + '...'
-                                : contentItem;
-                            return (
-                              <span key={contentIndex}>
-                                {highlightKeyword(displayContent, searchQuery)}
-                              </span>
-                            );
-                          })}
-                      </div>
-                    </li>
+                        <p className={classNames(styles.path)}>
+                          {highlightKeyword(
+                            `${windowWidth > 640 ? data.bookKind : '...'} > ${
+                              data.mainTitle
+                            }  ${data.title ? '> ' + data.title : ''}`,
+                            searchQuery,
+                          )}
+                        </p>
+                        <div className={classNames(styles.contents)}>
+                          {data.content &&
+                            data.content.map((content, idx) => {
+                              return (
+                                <span key={idx} className={styles.contentLine}>
+                                  {highlightKeyword(content, searchQuery)}
+                                </span>
+                              );
+                            })}
+                        </div>
+                      </li>
+                    </Link>
                   ))}
                 </ul>
               )}
             </div>
           </div>
-
-          <div className={styles.btnWrap}>
-            <Btn
-              className={styles.btnPrev}
-              disabled={page === 1}
-              onClick={goPrev}
-            >
-              <SVGPrevArrow color="grayLv3" />
-              {windowWidth > 1024 && <span>{'이전'}</span>}
-            </Btn>
-            <Btn
-              className={styles.btnNext}
-              disabled={!lastPage || page === lastPage}
-              onClick={goNext}
-            >
-              {windowWidth > 1024 && <span>{'다음'}</span>}
-              <SVGNextArrow color="grayLv3" />
-            </Btn>
-          </div>
+          {searchResults.length !== 0 ? (
+            <Pagination
+              page={page}
+              setPage={setPage}
+              searchResults={searchResults}
+            />
+          ) : null}
         </>
       ) : (
         <Loading />

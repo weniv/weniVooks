@@ -30,6 +30,7 @@
     top: 0;
     margin-left: -32rem;
     height: 100vh;
+    height: -webkit-fill-available;
     z-index: 2000;
 
     & + [class~='dim'] {

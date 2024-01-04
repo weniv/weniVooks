@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import styles from './AsidePC.module.scss';
 
@@ -14,8 +14,21 @@ export default function AsidePC() {
   const { windowHeight } = useWindowSize();
   const [isMenuShow, setIsMenuShow] = useState(true);
 
+  useEffect(() => {
+    const savedTocOpen = localStorage.getItem('toc') === 'false' ? false : true;
+    setIsMenuShow(savedTocOpen);
+  }, []);
+
   const toggleMenu = () => {
-    setIsMenuShow(!isMenuShow);
+    if (isMenuShow) {
+      // 닫힘
+      setIsMenuShow(false);
+      localStorage.setItem('toc', false);
+    } else {
+      // 열림
+      setIsMenuShow(true);
+      localStorage.removeItem('toc', false);
+    }
   };
 
   if (windowHeight > 640) {
@@ -28,19 +41,20 @@ export default function AsidePC() {
           <BtnIcon
             className={`${styles.btnClose}`}
             onClick={toggleMenu}
-            children={<SVGListClose alt="접기" color="grayLv3" />}
             bordernone="true"
-          />
+          >
+            <SVGListClose color="grayLv3" />
+            <span className="a11y-hidden">목차 메뉴 접기</span>
+          </BtnIcon>
         </div>
         <SubBanner />
       </aside>
     ) : (
       <aside className={`${styles.aside} ${styles.hide}`}>
-        <BtnIcon
-          className={`${styles.btnOpen}`}
-          onClick={toggleMenu}
-          children={<SVGList alt="열기" color="grayLv4" />}
-        />
+        <BtnIcon className={`${styles.btnOpen}`} onClick={toggleMenu}>
+          <SVGList color="grayLv4" />
+          <span className="a11y-hidden">목차 메뉴 열기</span>
+        </BtnIcon>
       </aside>
     );
   }

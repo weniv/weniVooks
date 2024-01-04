@@ -188,32 +188,31 @@ export const parseMarkdown = (markdown) => {
 
 // 로컬 md파일 가져오기
 const fetchMarkdown = async (query, page) => {
-  console.log('68515', page);
+  const url = `/api/search?keyword=${encodeURIComponent(query)}&page=${page}`;
+
   try {
-    const searchQuery = query;
-    const response = await axios.get(
-      `/api/search?keyword=${searchQuery}&page=${page}`,
-      // `/api/search?keyword=${searchQuery}`,
-    );
+    const response = await axios.get(url);
     return response.data;
   } catch (err) {
-    console.log(err);
+    console.error(err);
+    return { result: Array(0), resultLength: 0, totalPages: 0 };
   }
 };
 
-export const searchInMd = async (
-  query,
-  setSearchResults,
-  page,
-  setLastPage,
-) => {
+export const searchInMd = async (query, setSearchResults, page) => {
   try {
     const markdown = await fetchMarkdown(query, page);
+
     if (Array.isArray(markdown.result)) {
-      await setSearchResults(markdown.result);
-      await setLastPage(markdown.totalPages);
+      const val = {
+        result: markdown.result,
+        length: markdown.resultLength,
+        page: markdown.totalPages,
+      };
+      await setSearchResults(val);
     }
   } catch (error) {
+    console.log('md에서 에러났다!');
     console.error(error);
   }
 };
@@ -274,4 +273,13 @@ export const choiceBookKind = (bookkind) => {
   } else {
     return '위니브월드';
   }
+};
+
+// 파일의 상대경로를 반환하는 함수
+export const getRelativePath = (baseUrl, url) => {
+  const result = url
+    .replace(baseUrl, '')
+    .replace(/\\/g, '/')
+    .replace('.md', '');
+  return result;
 };

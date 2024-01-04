@@ -6,6 +6,7 @@ import {
   splitArray,
   choiceBookKind,
   textNormalize,
+  getRelativePath,
 } from '@/app/search/searchUtils';
 
 const BASEURL = '_md';
@@ -24,13 +25,12 @@ function getFiles(dir) {
       fileList.push(filePath);
     }
   });
-
   return fileList;
 }
 
 export async function GET(req) {
   const data = [];
-  const pageSize = 10; // 한 번에 반환할 페이지 개수
+  const pageSize = 10;
 
   try {
     const searchParams = new URL(req.url).searchParams;
@@ -39,7 +39,7 @@ export async function GET(req) {
     const mdFiles = getFiles(path.join(process.cwd(), BASEURL));
 
     const filePath = mdFiles.map((file) => {
-      const match = file.match(/_md\\([^\\]+)/);
+      const match = file.match(/_md\/([^/]+)/);
 
       const data = {
         url: match ? match[1] : null,
@@ -53,12 +53,16 @@ export async function GET(req) {
       const wholeFiles = fs.readFileSync(file.fileName).toString();
       let filteredFiles;
 
-      if (wholeFiles.toLowerCase().includes(keyword.toLowerCase())) {
+      if (wholeFiles.includes(keyword)) {
         filteredFiles = wholeFiles;
       }
 
+      const absolutePath = `${process.cwd()}/${BASEURL}`;
+      const relativePath = getRelativePath(absolutePath, file.fileName);
+
       let val = {
-        url: file.url,
+        kind: file.url,
+        link: relativePath,
         file: filteredFiles,
       };
 
@@ -74,13 +78,13 @@ export async function GET(req) {
 
     const convertData = (dataList) => {
       const result = [];
-      const page = searchParams.get('page') || 1;
+      const page = parseInt(searchParams.get('page'), 10) || 1;
 
       const startIndex = (page - 1) * pageSize;
       const endIndex = startIndex + pageSize;
 
       for (const data of dataList) {
-        const url = choiceBookKind(data.url);
+        const bookKind = choiceBookKind(data.kind);
         const html = data.file;
         let mainTitle = '';
 
@@ -125,11 +129,11 @@ export async function GET(req) {
 
           if (content.length !== 0) {
             result.push({
-              bookKind: url,
+              bookKind,
               mainTitle,
               title,
               content,
-              link: '/',
+              link: `${data.link}`,
             });
           }
         }
@@ -140,6 +144,7 @@ export async function GET(req) {
 
       return {
         result: paginatedResult,
+        resultLength: result.length,
         totalPages: Math.ceil(result.length / pageSize),
       };
     };
@@ -148,7 +153,7 @@ export async function GET(req) {
 
     return NextResponse.json(output);
   } catch (err) {
-    console.log(err);
+    console.error(err);
     return NextResponse.json('정보를 가져오는데 실패하였습니다');
   }
 }

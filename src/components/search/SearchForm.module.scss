@@ -18,6 +18,7 @@
   transition: all 0.1s;
 
   input[type='search'] {
+    max-width: 24rem;
     flex-grow: 1;
     border: none;
     background: none;
@@ -36,6 +37,7 @@
 .btnSearch {
   background: none;
   border: none;
+  width: 3.2rem;
   height: 3.2rem;
   padding: 0;
 }

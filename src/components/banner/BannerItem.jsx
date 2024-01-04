@@ -18,8 +18,8 @@ const Content = ({
           {category}
         </p>
         <h3 className={styles.title}>
-          {title.map((tit) => (
-            <span>{tit}</span>
+          {title.map((tit, index) => (
+            <span key={index}>{tit}</span>
           ))}
         </h3>
 
