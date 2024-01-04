@@ -57,7 +57,7 @@ export async function GET(req) {
         filteredFiles = wholeFiles;
       }
 
-      const absolutePath = `${process.cwd()}/${BASEURL}`;
+      const absolutePath = `${process.cwd()}\\${BASEURL}`;
       const relativePath = getRelativePath(absolutePath, file.fileName);
 
       let val = {
@@ -153,7 +153,7 @@ export async function GET(req) {
 
     return NextResponse.json(output);
   } catch (err) {
-    console.err(err);
+    console.error(err);
     return NextResponse.json('정보를 가져오는데 실패하였습니다');
   }
 }
