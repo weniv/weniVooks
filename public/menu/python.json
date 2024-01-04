@@ -1,0 +1,69 @@
+{
+  "title": "파이썬 부트캠프",
+  "link": "/python",
+  "sections": [
+    {
+      "title": "들어가기 전",
+      "link": "/python/chapter00",
+      "sections": [
+        {
+          "title": "머리말",
+          "link": "/python/chapter00/hello"
+        },
+        {
+          "title": "알아야 할 내용이 담겨 있습니다",
+          "link": "/python/chapter00/content"
+        },
+        {
+          "title": "이 책을 읽는 방법",
+          "link": "/python/chapter00/how-to-read"
+        }
+      ]
+    },
+
+    {
+      "title": "01장 파이썬과 인사하기",
+      "link": "/python/chapter01",
+      "sections": [
+        {
+          "title": "01.1 파이썬과 파이썬을 만든 사람들",
+          "link": "/python/chapter01/01-1"
+        },
+        {
+          "title": "01.2 파이썬으로 할 수 있는 것",
+          "link": "/python/chapter01/01-2"
+        },
+        {
+          "title": "01.3 파이썬 학습 방법",
+          "link": "/python/chapter01/01-3"
+        }
+      ]
+    },
+    {
+      "title": "08장 반복문",
+      "link": "/python/chapter08",
+      "sections": [
+        {
+          "title": "08.1 for 문",
+          "link": "/python/chapter08/08-1"
+        },
+        {
+          "title": "08.2 while 문",
+          "link": "/python/chapter08/08-2"
+        },
+        {
+          "title": "08.3 break, continue, pass 비교",
+          "link": "/python/chapter08/08-3"
+        },
+        {
+          "title": "08.4 반복문 else",
+          "link": "/python/chapter08/08-4"
+        },
+        {
+          "title": "08.5 연습문제",
+          "link": "/python/chapter08/08-5"
+        }
+      ]
+    }
+  ]
+}
