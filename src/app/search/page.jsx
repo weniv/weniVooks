@@ -9,26 +9,7 @@ import SVGAlertCircle from '@/components/svg/SVGAlertCircle';
 import useWindowSize from '@/utils/useWindowSize';
 import SearchForm from '@/components/search/SearchForm';
 import Loading from '../loading';
-import Btn from '@/components/common/button/Btn';
-import SVGPrevArrow from '@/components/svg/SVGPrevArrow';
-import SVGNextArrow from '@/components/svg/SVGNextArrow';
-
-// 페이지 버튼 렌더링
-const renderPageButton = (currentPage, page, setPage) => (
-  <>
-    <input
-      type="radio"
-      className={styles.pageBtn}
-      name="page"
-      value={currentPage}
-      id={`page${currentPage}`}
-      hidden
-      checked={page === currentPage}
-      onClick={() => setPage(currentPage)}
-    />
-    <label htmlFor={`page${currentPage}`}>{currentPage}</label>
-  </>
-);
+import Pagination from '@/components/search/Pagination';
 
 // 검색키워드와 일치하는 문자열 하이라이팅
 function highlightKeyword(text, keyword) {
@@ -133,56 +114,12 @@ export default function Search() {
               )}
             </div>
           </div>
-
           {searchResults.length !== 0 ? (
-            <div className={styles.btnWrap}>
-              <Btn
-                className={styles.btnPrev}
-                disabled={page === 1}
-                onClick={goPrev}
-              >
-                <SVGPrevArrow color="grayLv3" />
-                {windowWidth > 1024 && <span>{'이전'}</span>}
-              </Btn>
-              <div className={styles.pageNav}>
-                {Array.from({ length: searchResults.page }, (_, idx) => {
-                  const currentPage = idx + 1;
-
-                  if (searchResults.page > 5) {
-                    if (
-                      currentPage >= page &&
-                      currentPage < page + 3 &&
-                      currentPage < searchResults.page - 1
-                    ) {
-                      return renderPageButton(currentPage, page, setPage);
-                    }
-
-                    if (idx === searchResults.page - 1) {
-                      return (
-                        <div className={styles.ellipsis}>
-                          {searchResults.page - 1 - page < 3 ? null : (
-                            <p>...</p>
-                          )}
-                          {renderPageButton(currentPage, page, setPage)}
-                        </div>
-                      );
-                    }
-                  } else {
-                    return renderPageButton(currentPage, page, setPage);
-                  }
-
-                  return null;
-                })}
-              </div>
-              <Btn
-                className={styles.btnNext}
-                disabled={!searchResults.page || page === searchResults.page}
-                onClick={goNext}
-              >
-                {windowWidth > 1024 && <span>{'다음'}</span>}
-                <SVGNextArrow color="grayLv3" />
-              </Btn>
-            </div>
+            <Pagination
+              page={page}
+              setPage={setPage}
+              searchResults={searchResults}
+            />
           ) : null}
         </>
       ) : (
