@@ -110,11 +110,13 @@ body {
 body,
 body.light {
   --primary: #{$W-primary};
+  --primaryA11y: #{$W-primaryA11y};
   --background: #{$W-background};
   --surface: #{$W-surface};
   --grayLv1: #{$W-grayLv1};
   --grayLv2: #{$W-grayLv2};
   --grayLv3: #{$W-grayLv3};
+  --grayLv3A11y: #{$W-grayLv3A11y};
   --grayLv4: #{$W-grayLv4};
   --error: #{$W-error};
   --warn: #{$W-warn};
@@ -137,11 +139,13 @@ body.light {
 
 body.dark {
   --primary: #{$D-primary};
+  --primaryA11y: #{$D-primaryA11y};
   --background: #{$D-background};
   --surface: #{$D-surface};
   --grayLv1: #{$D-grayLv1};
   --grayLv2: #{$D-grayLv2};
   --grayLv3: #{$D-grayLv3};
+  --grayLv3A11y: #{$D-grayLv3A11y};
   --grayLv4: #{$D-grayLv4};
   --error: #{$D-error};
   --warn: #{$D-warn};
@@ -164,11 +168,13 @@ body.dark {
 @media (prefers-color-scheme: dark) {
   body {
     --primary: #{$D-primary};
+    --primaryA11y: #{$D-primaryA11y};
     --background: #{$D-background};
     --surface: #{$D-surface};
     --grayLv1: #{$D-grayLv1};
     --grayLv2: #{$D-grayLv2};
     --grayLv3: #{$D-grayLv3};
+    --grayLv3A11y: #{$D-grayLv3A11y};
     --grayLv4: #{$D-grayLv4};
     --error: #{$D-error};
     --warn: #{$D-warn};
