@@ -100,8 +100,8 @@ export default function Search() {
               ) : (
                 <ul>
                   {searchResults.result.map((data, idx) => (
-                    <Link key={idx} href={data.link}>
-                      <li className={classNames(styles.resultSection)}>
+                    <li className={classNames(styles.resultSection)}>
+                      <Link key={idx} href={data.link}>
                         <p className={classNames(styles.subTitle)}>
                           {highlightKeyword(
                             data.title ? data.title : data.mainTitle,
@@ -126,8 +126,8 @@ export default function Search() {
                               );
                             })}
                         </div>
-                      </li>
-                    </Link>
+                      </Link>
+                    </li>
                   ))}
                 </ul>
               )}
