@@ -57,7 +57,7 @@ export async function GET(req) {
         filteredFiles = wholeFiles;
       }
 
-      const absolutePath = `${process.cwd()}/${BASEURL}`;
+      const absolutePath = `${process.cwd()}\\${BASEURL}`;
       const relativePath = getRelativePath(absolutePath, file.fileName);
 
       let val = {
