@@ -1,11 +1,10 @@
 ---
 title: 위니브 월드 탐험대
-date: 2023-11-10
+date: 2024-01-02
 ---
 
-# 목차
-
 :::div{.box .list}
+**목차**
 
 1. [캣의 결심](/wenivworld/expedition/01)
 2. [라이캣의 탄생](/wenivworld/expedition/01)
