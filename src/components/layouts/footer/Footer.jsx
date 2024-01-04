@@ -15,6 +15,7 @@ export default function Footer({ intro }) {
           <div className={styles.flex}>
             <h2>
               <Logo color="grayLv3" />
+              <span className="a11y-hidden">wenivooks</span>
             </h2>
             <p>Copyright © 2023 WENIV All Rights Reserved</p>
           </div>

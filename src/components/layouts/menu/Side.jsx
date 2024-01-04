@@ -130,11 +130,13 @@ export default function Side(props) {
             {windowWidth !== null && windowWidth >= 1024 && <Footer />}
             <BtnIcon
               className={styles.btnClose}
-              children={<SVGListClose color="grayLv3" />}
               bordernone="true"
               onClick={toggleMenu}
               onKeyDown={handleFocusFirst}
-            />
+            >
+              <SVGListClose color="grayLv3" />
+              <span className="a11y-hidden">메뉴 닫기</span>
+            </BtnIcon>
           </div>
           {windowWidth !== null && windowWidth < 1024 && (
             <>

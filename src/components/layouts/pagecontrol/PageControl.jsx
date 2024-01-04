@@ -82,10 +82,24 @@ export default function PageControl({ data, DEFAULT_PATH }) {
     <div className={styles.page}>
       <Btn className={styles.btnPrev} href={prev && prev.link} disabled={!prev}>
         <SVGPrevArrow color="grayLv3" />
-        {windowWidth > 1024 && <span>{prev && prev.title}</span>}
+        {windowWidth > 1024 ? (
+          <>
+            <span className="a11y-hidden">이전</span>{' '}
+            {prev && <span className={styles.text}>{prev.title}</span>}
+          </>
+        ) : (
+          <span className="a11y-hidden">{prev ? prev.title : '이전'}</span>
+        )}
       </Btn>
       <Btn className={styles.btnNext} href={next && next.link} disabled={!next}>
-        {windowWidth > 1024 && <span>{next && next.title}</span>}
+        {windowWidth > 1024 ? (
+          <>
+            <span className="a11y-hidden">다음</span>{' '}
+            {next && <span className={styles.text}>{next.title}</span>}
+          </>
+        ) : (
+          <span className="a11y-hidden">{next ? next.title : '다음'}</span>
+        )}
         <SVGNextArrow color="grayLv3" />
       </Btn>
     </div>
