@@ -14,6 +14,7 @@ export const metadata = {
     description: '위니브의 다양한 교안을 웹에서 확인해보세요!',
     url: 'https://books.weniv.co.kr',
     siteName: '위니북스',
+    images: [`/images/opengraph-image.png`],
   },
 };
 
