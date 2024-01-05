@@ -10,7 +10,7 @@ import { getData } from '@/utils/getData';
 import Breadcrumb from '@/components/layouts/breadcrumb/Breadcrumb';
 
 export const metadata = {
-  title: '위니브 월드 | 위니북스',
+  title: '위니브 월드(학생용) | 위니북스',
 };
 
 export default async function Layout({ children }) {
