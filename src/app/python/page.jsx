@@ -1,20 +1,6 @@
-'use client';
-
-import { DEFAULT_PATH, MENU_DATA } from './data';
-
-import useWindowSize from '@/utils/useWindowSize';
-
-import Breadcrumb from '@/components/layouts/breadcrumb/Breadcrumb';
-import PythonCodeblock from '@/components/codeblock/PythonCodeblock';
-
-export default function Home() {
-  const { windowWidth } = useWindowSize();
-
+export default async function Home() {
   return (
     <>
-      {windowWidth > 1024 && (
-        <Breadcrumb data={MENU_DATA} DEFAULT_PATH={DEFAULT_PATH} />
-      )}
       <div className="content__wrap">
         <main className="main">
           <div className="main__inner">

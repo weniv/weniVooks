@@ -5,24 +5,31 @@ import Side from '@/components/layouts/menu/Side';
 import Page from '@/components/layouts/pagecontrol/PageControl';
 import BtnTop from '@/components/common/button/BtnTop';
 
-import { DEFAULT_PATH, MENU_DATA, TITLE } from './data';
+import { DEFAULT_PATH, TITLE } from './data';
+import { getData } from '@/utils/getData';
+import Breadcrumb from '@/components/layouts/breadcrumb/Breadcrumb';
 
 export const metadata = {
   title: '위니브 월드 | 위니북스',
 };
 
-export default function Layout({ children }) {
+export default async function Layout({ children }) {
+  const menuDdata = await getData(DEFAULT_PATH);
+
   return (
     <>
       <Header />
 
       <div className="sub">
         <h2 className="a11y-hidden">{TITLE}</h2>
-        <Side data={MENU_DATA} />
-        <div className="sub__content">{children}</div>
+        <Side data={menuDdata} />
+        <div className="sub__content">
+          <Breadcrumb data={menuDdata} DEFAULT_PATH={DEFAULT_PATH} />
+          {children}
+        </div>
       </div>
 
-      <Page data={MENU_DATA} DEFAULT_PATH={DEFAULT_PATH} />
+      <Page data={menuDdata} DEFAULT_PATH={DEFAULT_PATH} />
       <BtnTop />
     </>
   );
