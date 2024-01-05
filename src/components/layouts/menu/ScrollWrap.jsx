@@ -24,7 +24,7 @@ export default function ScrollWrap({ children, className, id }) {
   }, 300);
 
   useEffect(() => {
-    const scrollWrap = wrapRef.current;
+    const scrollWrap = wrapRef?.current;
 
     scrollWrap.addEventListener('scroll', scrollHandler);
     return () => {
@@ -33,10 +33,10 @@ export default function ScrollWrap({ children, className, id }) {
   }, []);
 
   useEffect(() => {
-    const scrollWrap = wrapRef.current;
+    const scrollWrap = wrapRef?.current;
 
-    const scrollHeight = scrollWrap.scrollHeight;
-    const clientHeight = scrollWrap.clientHeight;
+    const scrollHeight = scrollWrap?.scrollHeight;
+    const clientHeight = scrollWrap?.clientHeight;
 
     if (clientHeight < scrollHeight) {
       if (scrollPosition > 0) {
