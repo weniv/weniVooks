@@ -186,7 +186,7 @@ $titleGap: 8rem;
 
   pre,
   code {
-    font-family: 'Source Code Pro', monospace;
+    font-family: var(--code), monospace;
   }
 
   // 리스트
