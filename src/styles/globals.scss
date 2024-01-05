@@ -329,7 +329,10 @@ a.btn-solid {
 .cover {
   display: block;
   margin: auto;
+  width: 100%;
   max-height: 80rem;
+  object-fit: contain;
+  aspect-ratio: 152 / 226;
 }
 
 .max-width {
