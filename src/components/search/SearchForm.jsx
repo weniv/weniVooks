@@ -16,12 +16,10 @@ export default function SearchForm() {
         name="keyword"
       />
 
-      <BtnIcon
-        type="submit"
-        className={styles.btnSearch}
-        children={<SVGSearch color="grayLv4" />}
-        bordernone="true"
-      ></BtnIcon>
+      <BtnIcon type="submit" className={styles.btnSearch} bordernone="true">
+        <SVGSearch color="grayLv4" />
+        <span className="a11y-hidden">검색</span>
+      </BtnIcon>
     </form>
   );
 }

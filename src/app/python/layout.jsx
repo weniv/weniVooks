@@ -5,9 +5,7 @@ import Side from '@/components/layouts/menu/Side';
 import Page from '@/components/layouts/pagecontrol/PageControl';
 import BtnTop from '@/components/common/button/BtnTop';
 
-import { DEFAULT_PATH, MENU_DATA, META_DATA } from './data';
-
-export const metadata = META_DATA;
+import { DEFAULT_PATH, MENU_DATA, TITLE } from './data';
 
 export default function Layout({ children }) {
   return (
@@ -15,6 +13,7 @@ export default function Layout({ children }) {
       <Header />
 
       <div className="sub">
+        <h2 className="a11y-hidden">{TITLE}</h2>
         <Side data={MENU_DATA} />
         <div className="sub__content">{children}</div>
       </div>

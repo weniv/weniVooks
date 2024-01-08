@@ -128,7 +128,7 @@ $titleGap: 8rem;
     }
     figcaption {
       text-align: center;
-      color: var(--grayLv3);
+      color: var(--grayLv3A11y);
       font-size: fcSize(12, 14);
     }
   }
@@ -162,7 +162,7 @@ $titleGap: 8rem;
   :not(pre) > code {
     font: inherit;
     background-color: var(--activation);
-    color: var(--primary);
+    color: var(--primaryA11y);
     padding: 0 0.3em;
     border-radius: 0.2em;
     margin: 2px;

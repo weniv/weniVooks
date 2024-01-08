@@ -67,9 +67,10 @@ export default function Nav({ data }) {
   const { title, link, sections } = data;
   return (
     <>
-      <h2 className={styles.title}>
+      <h3 className={styles.title}>
+        <span className="a11y-hidden">목차:</span>
         <Link href={link}>{title}</Link>
-      </h2>
+      </h3>
 
       <ScrollWrap id="naviWrap">
         <nav className={styles.nav}>
