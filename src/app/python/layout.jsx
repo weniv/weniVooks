@@ -9,9 +9,6 @@ import { DEFAULT_PATH, TITLE } from './data';
 import { getData } from '@/utils/getData';
 import Breadcrumb from '@/components/layouts/breadcrumb/Breadcrumb';
 
-export const metadata = {
-  title: '파이썬 | 위니북스',
-};
 
 export default async function Layout({ children }) {
   const menuDdata = await getData(DEFAULT_PATH);
