@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import useWindowSize from '@/utils/useWindowSize';
 import styles from './Banner.module.scss';
 
@@ -31,13 +32,15 @@ const Content = ({
       </div>
 
       {thumbnail && (
-        <img
+        <Image
           className={styles.thumbnail}
           src={
             windowWidth !== null && windowWidth < 640 && thumbnailMobile
               ? thumbnailMobile
               : thumbnail
           }
+          width={644}
+          height={400}
           alt=""
         />
       )}
