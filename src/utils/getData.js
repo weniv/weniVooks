@@ -1,6 +1,6 @@
 export async function getData(DEFAULT_PATH) {
   const res = await fetch(
-    `${process.env.NEXT_PUBLIC_API_URL}/menu/${DEFAULT_PATH}.json`,
+    `${process.env.NEXT_PUBLIC_API_URL}/menu${DEFAULT_PATH}.json`,
     {
       cache: 'force-cache',
     },
