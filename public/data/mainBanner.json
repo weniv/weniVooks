@@ -1,19 +1,5 @@
 [
   {
-    "bgColor": "#B6F187",
-    "textColor": null,
-    "categoryColor": null,
-    "thumbnail": "/images/banner/main-banner-img0.png",
-    "thumbnailMobile": null,
-    "category": "위니북스 새/소/식",
-    "title": ["신규 온라인 강의 출시!"],
-    "description": [
-      "위니브와 함께하는 파이썬 완전 정복 온라인 강의가 출시되었습니다.",
-      "얼리버드 20% 할인 혜택을 놓치지 마세요!"
-    ],
-    "link": null
-  },
-  {
     "bgColor": "#1555E5",
     "textColor": "#fff",
     "categoryColor": "#1555E5",

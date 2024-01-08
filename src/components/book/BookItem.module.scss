@@ -47,7 +47,7 @@
 
   .info {
     font-size: fcSize(13, 16);
-    color: var(--grayLv3);
+    color: var(--grayLv3A11y);
     margin-top: 0.4em;
   }
 
@@ -76,7 +76,7 @@
     -webkit-line-clamp: 1;
   }
   .price strong {
-    color: var(--primary);
+    color: var(--primaryA11y);
     margin-left: 0.5rem;
   }
 

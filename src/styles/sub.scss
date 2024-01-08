@@ -92,6 +92,7 @@ $titleGap: 8rem;
   blockquote,
   div,
   table {
+    // table-layout: fixed;
     & + h4,
     & + h5 {
       margin-top: calc(2em - $titleGap);
@@ -127,7 +128,7 @@ $titleGap: 8rem;
     }
     figcaption {
       text-align: center;
-      color: var(--grayLv3);
+      color: var(--grayLv3A11y);
       font-size: fcSize(12, 14);
     }
   }
@@ -161,7 +162,7 @@ $titleGap: 8rem;
   :not(pre) > code {
     font: inherit;
     background-color: var(--activation);
-    color: var(--primary);
+    color: var(--primaryA11y);
     padding: 0 0.3em;
     border-radius: 0.2em;
     margin: 2px;
@@ -185,7 +186,7 @@ $titleGap: 8rem;
 
   pre,
   code {
-    font-family: 'Source Code Pro', monospace;
+    font-family: var(--code), monospace;
   }
 
   // 리스트
@@ -337,6 +338,12 @@ $titleGap: 8rem;
 
   // 목차
   .list {
+    & > p:first-child {
+      font-size: 1.2em;
+    }
+    ol {
+      padding-left: 2.2em;
+    }
     ol li {
       list-style-type: decimal-leading-zero;
       &::marker {
@@ -348,6 +355,12 @@ $titleGap: 8rem;
       color: var(--surface);
       text-decoration: underline var(--activation);
       margin-left: 0.3em;
+    }
+  }
+
+  .beforeAfter {
+    table tr th {
+      width: 50%;
     }
   }
 }

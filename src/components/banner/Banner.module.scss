@@ -68,7 +68,9 @@ $bannerHeight: fcSize(240, 400);
   position: absolute;
   bottom: 0;
   right: 0;
+  width: auto;
   height: 100%;
+  aspect-ratio: 644/400;
 }
 
 @media screen and (max-width: map-get($breakPoint, mobile)) {

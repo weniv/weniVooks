@@ -38,8 +38,10 @@ export default function Header({ type = 'subpage' }) {
                 href="/search"
                 bordernone="true"
                 className={styles.searchBtn}
-                children={<SVGSearch color="grayLv4" />}
-              />
+              >
+                <SVGSearch color="grayLv4" />
+                <span className="a11y-hidden">검색</span>
+              </BtnIcon>
             )}
           </div>
         )}

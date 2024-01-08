@@ -45,8 +45,8 @@ a.btn {
 // solid
 .solid,
 .solid:not(:disabled):hover {
-  border-color: var(--primary);
-  background-color: var(--primary);
+  border-color: $primaryA11y;
+  background-color: $primaryA11y;
   color: #fff;
 
   svg path {
