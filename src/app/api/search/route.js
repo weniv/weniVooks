@@ -11,6 +11,8 @@ import {
 
 const BASEURL = '_md';
 
+export const dynamic = 'force-dynamic';
+
 function getFiles(dir) {
   const files = fs.readdirSync(dir);
   let fileList = [];
@@ -33,7 +35,8 @@ export async function GET(req) {
   const pageSize = 10;
 
   try {
-    const searchParams = new URL(req.url).searchParams;
+    const searchParams = req.nextUrl.searchParams;
+
     const keyword = searchParams.get('keyword') || '';
 
     const mdFiles = getFiles(path.join(process.cwd(), BASEURL));
@@ -154,6 +157,8 @@ export async function GET(req) {
     return NextResponse.json(output);
   } catch (err) {
     console.error(err);
-    return NextResponse.json('정보를 가져오는데 실패하였습니다');
+    return NextResponse.json('정보를 가져오는데 실패하였습니다', {
+      status: 500,
+    });
   }
 }
