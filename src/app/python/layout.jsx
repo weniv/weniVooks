@@ -7,10 +7,6 @@ import BtnTop from '@/components/common/button/BtnTop';
 
 import { DEFAULT_PATH, MENU_DATA, TITLE } from './data';
 
-export const metadata = {
-  title: '파이썬 | 위니북스',
-};
-
 export default function Layout({ children }) {
   return (
     <>
