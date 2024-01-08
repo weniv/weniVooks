@@ -47,14 +47,6 @@ export default function Search() {
     window.scrollTo(0, 0);
   }, [searchQuery, page]);
 
-  const goPrev = () => {
-    setPage((page) => page - 1);
-  };
-
-  const goNext = () => {
-    setPage((page) => page + 1);
-  };
-
   return (
     <>
       {searchResults ? (
