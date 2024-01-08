@@ -10,7 +10,7 @@ import BtnCopy from '@/components/common/button/BtnCopy';
 import AsidePC from '@/components/layouts/aside/AsidePC';
 import AsideMobile from '@/components/layouts/aside/AsideMobile';
 
-export default function Layout({ children, params }) {
+export default function Layout({ children }) {
   const { windowWidth } = useWindowSize();
   const [isHeading, setIsHeading] = useState(0);
 
