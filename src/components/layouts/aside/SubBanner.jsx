@@ -1,9 +1,9 @@
 import Image from 'next/image';
 import styles from './SubBanner.module.scss';
 
-export default function SubBanner() {
-  const banner = require('public/data/subBanner.json');
+import banner from '@/data/subBanner.json';
 
+export default function SubBanner() {
   return (
     <div className={styles.banner}>
       <ol>
