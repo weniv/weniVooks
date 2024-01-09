@@ -5,15 +5,11 @@ import Side from '@/components/layouts/menu/Side';
 import Page from '@/components/layouts/pagecontrol/PageControl';
 import BtnTop from '@/components/common/button/BtnTop';
 
-
-import { DEFAULT_PATH, TITLE } from './data';
+import { DEFAULT_PATH, META_DATA, TITLE } from './data';
 import { getData } from '@/utils/getData';
 import Breadcrumb from '@/components/layouts/breadcrumb/Breadcrumb';
 
-
-export const metadata = {
-  title: '위니브 월드(선생님용) | 위니북스',
-};
+export const metadata = META_DATA;
 
 export default async function Layout({ children }) {
   const menuDdata = await getData(DEFAULT_PATH);
