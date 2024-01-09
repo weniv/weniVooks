@@ -6,7 +6,7 @@ import Page from '@/components/layouts/pagecontrol/PageControl';
 import BtnTop from '@/components/common/button/BtnTop';
 
 import { DEFAULT_PATH, TITLE } from './data';
-import { getData } from '@/utils/getData';
+
 import Breadcrumb from '@/components/layouts/breadcrumb/Breadcrumb';
 
 export const metadata = {
@@ -14,8 +14,7 @@ export const metadata = {
 };
 
 export default async function Layout({ children }) {
-  const menuDdata = await getData(DEFAULT_PATH);
-
+  const menuDdata = require(`public/menu${DEFAULT_PATH}.json`);
 
   return (
     <>
