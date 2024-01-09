@@ -11,9 +11,9 @@ import 'swiper/css/effect-fade';
 
 import BannerItem from './BannerItem';
 
-export default function Banner() {
-  const bannerData = require('/public/data/mainBanner.json');
+import bannerData from '@/data/mainBanner.json';
 
+export default function Banner() {
   return (
     <section className={styles.banner}>
       <h2 className="a11y-hidden">배너 모음</h2>

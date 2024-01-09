@@ -13,10 +13,9 @@ export const metadata = {
   title: '위니브 월드(학생용) | 위니북스',
 };
 
+import menuDdata from '@/data/menu/wenivworld.json';
+
 export default async function Layout({ children }) {
-  const menuDdata = await getData(DEFAULT_PATH);
-
-
   return (
     <>
       <Header />
