@@ -31,9 +31,7 @@ export default function Header({ type = 'subpage' }) {
         {type !== 'notfound' && (
           <div className={styles.header__right}>
             <SettingBtn />
-            {windowWidth > 640 ? (
-              <SearchForm />
-            ) : (
+            {windowWidth !== null && windowWidth <= 640 ? (
               <BtnIcon
                 href="/search"
                 bordernone="true"
@@ -42,6 +40,8 @@ export default function Header({ type = 'subpage' }) {
                 <SVGSearch color="grayLv4" />
                 <span className="a11y-hidden">검색</span>
               </BtnIcon>
+            ) : (
+              <SearchForm />
             )}
           </div>
         )}
