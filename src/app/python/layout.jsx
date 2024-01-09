@@ -1,5 +1,7 @@
 import '@/styles/sub.scss';
 
+import menuDdata from '@/data/menu/python.json';
+
 import Header from '@/components/layouts/header/Header';
 import Side from '@/components/layouts/menu/Side';
 import Page from '@/components/layouts/pagecontrol/PageControl';
@@ -9,8 +11,6 @@ import { DEFAULT_PATH, TITLE } from './data';
 import Breadcrumb from '@/components/layouts/breadcrumb/Breadcrumb';
 
 export default async function Layout({ children }) {
-  const menuDdata = require(`public/menu${DEFAULT_PATH}.json`);
-
   return (
     <>
       <Header />

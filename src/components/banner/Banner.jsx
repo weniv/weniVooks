@@ -1,5 +1,7 @@
 'use client';
 
+import bannerData from '@/data/mainBanner.json';
+
 import styles from './Banner.module.scss';
 
 // swiper
@@ -12,8 +14,6 @@ import 'swiper/css/effect-fade';
 import BannerItem from './BannerItem';
 
 export default function Banner() {
-  const bannerData = require('/public/data/mainBanner.json');
-
   return (
     <section className={styles.banner}>
       <h2 className="a11y-hidden">배너 모음</h2>

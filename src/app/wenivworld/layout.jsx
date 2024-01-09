@@ -1,4 +1,5 @@
 import '@/styles/sub.scss';
+import menuDdata from '@/data/menu/wenivworld.json';
 
 import Header from '@/components/layouts/header/Header';
 import Side from '@/components/layouts/menu/Side';
@@ -14,8 +15,6 @@ export const metadata = {
 };
 
 export default async function Layout({ children }) {
-  const menuDdata = require(`public/menu${DEFAULT_PATH}.json`);
-
   return (
     <>
       <Header />
