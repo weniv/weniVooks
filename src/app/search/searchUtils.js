@@ -283,3 +283,106 @@ export const getRelativePath = (baseUrl, url) => {
     .replace('.md', '');
   return result;
 };
+
+/**
+ * 파일 제목 가져오는 함수
+ * @param {string} html 파일 내부 문자열
+ *
+ * @returns {string} 파일의 제목
+ */
+export const getTitle = (html) => {
+  for (const el of html) {
+    if (el.includes('title:')) {
+      return el
+        .replace(/<[^>]*>/g, '')
+        .replace(/title:\s*([\d.]+\s*)?/g, '')
+        .trim();
+    }
+  }
+};
+
+/**
+ * 키워드가 포함된 챕터만 출력하는 함수
+ * @param {string} html 파일 내부 문자열
+ * @param {string} keyword 검색 키워드
+ *
+ * @returns {string} 파일의 제목
+ */
+export const filteredChapter = (html, keyword) => {
+  const nomalizedHtml = html.filter(
+    (item) =>
+      !item.includes('<p>---</p>') &&
+      !item.includes('title:') &&
+      !item.includes('date:'),
+  );
+
+  const outputArray = splitArray(nomalizedHtml, '<h2>');
+  const result = outputArray.filter((subArray) =>
+    subArray.some((item) => item.includes(keyword)),
+  );
+
+  return result;
+};
+
+/**
+ * 키워드가 포함된 챕터의 제목을 출력하는 함수
+ * @param {string[]} chapter 키워드가 포함된 챕터 배열
+ *
+ * @returns {string|null} 챕터 제목
+ */
+export const getChapterTitle = (chapter) => {
+  for (const el of chapter) {
+    if (el.includes('<h2>')) {
+      return el
+        .replace(/<[^>]*>/g, '')
+        .replace(/[0-9.]/g, '')
+        .trim();
+    }
+  }
+
+  return null;
+};
+
+/**
+ * 키워드가 포함된 챕터의 문장 리스트, 최대 3개
+ * @param {string[]} chapter 키워드가 포함된 챕터 배열
+ *
+ * @returns {string[]} 키워드가 포함된 문장, 최대 3줄 이내
+ */
+export const getChapterContent = (chapter, keyword) => {
+  const result = [];
+  for (const el of chapter) {
+    const condition = el.includes(keyword) && result.length < 3;
+    while (condition) {
+      result.push(el.replace(/<[^>]*>/g, '').replace(/&nbsp;/g, ' '));
+      break;
+    }
+  }
+
+  return result;
+};
+
+/**
+ * 키워드가 포함된 챕터의 문장 리스트, 최대 3개
+ * @param {string[]} chapter 키워드가 포함된 챕터 배열
+ *
+ * @returns {string[]} 키워드가 포함된 문장, 최대 3줄 이내
+ */
+
+import jsonData from '../../../public/menu/python.json';
+
+export const getBreadcrumb = (link) => {
+  let result = {};
+  for (const section of jsonData.sections) {
+    for (const el of section.sections) {
+      if (el.link === link) {
+        result = {
+          booktitle: jsonData.title,
+          bookChapter: section.title,
+        };
+      }
+    }
+  }
+
+  return result;
+};

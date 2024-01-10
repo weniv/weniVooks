@@ -47,13 +47,8 @@ export default function Search() {
     window.scrollTo(0, 0);
   }, [searchQuery, page]);
 
-  const goPrev = () => {
-    setPage((page) => page - 1);
-  };
-
-  const goNext = () => {
-    setPage((page) => page + 1);
-  };
+  console.log('searchResults');
+  console.log(searchResults);
 
   return (
     <>
@@ -84,16 +79,14 @@ export default function Search() {
                     <Link key={idx} href={data.link}>
                       <li className={classNames(styles.resultSection)}>
                         <p className={classNames(styles.subTitle)}>
-                          {highlightKeyword(
-                            data.title ? data.title : data.mainTitle,
-                            searchQuery,
-                          )}
+                          {highlightKeyword(data.chapterTitle, searchQuery)}
                         </p>
                         <p className={classNames(styles.path)}>
                           {highlightKeyword(
-                            `${windowWidth > 640 ? data.bookKind : '...'} > ${
-                              data.mainTitle
-                            }  ${data.title ? '> ' + data.title : ''}`,
+                            data.breadcrumb,
+                            // `${windowWidth > 640 ? data.bookKind : '...'} > ${
+                            //   data.mainTitle
+                            // }  ${data.title ? '> ' + data.title : ''}`,
                             searchQuery,
                           )}
                         </p>

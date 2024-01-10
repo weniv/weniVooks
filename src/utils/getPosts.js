@@ -12,6 +12,7 @@ export async function getPostDetail(defaultPath, id) {
     try {
       return fs.readFileSync(path, 'utf-8');
     } catch (error) {
+      console.log(error);
       console.log('🚨 파일 경로 확인하기');
       return '';
     }
