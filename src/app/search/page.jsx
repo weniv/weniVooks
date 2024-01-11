@@ -74,17 +74,13 @@ export default function Search() {
                 <ul>
                   {searchResults.result.map(
                     (data, idx) => (
-                      console.log(
-                        `${process.env.NEXT_PUBLIC_API_URL}${data.link}`,
-                      ),
+                      console.log(`${data.link}`),
                       (
                         <li
                           key={idx}
                           className={classNames(styles.resultSection)}
                         >
-                          <Link
-                            href={`${process.env.NEXT_PUBLIC_API_URL}${data.link}`}
-                          >
+                          <Link href={data.link}>
                             <p className={classNames(styles.subTitle)}>
                               {highlightKeyword(
                                 data.title ? data.title : data.mainTitle,

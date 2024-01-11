@@ -136,7 +136,7 @@ export async function GET(req) {
               mainTitle,
               title,
               content,
-              link: `${data.link}`,
+              link: `${data.link?.split('_md').pop()}`,
             });
           }
         }
