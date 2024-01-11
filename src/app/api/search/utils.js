@@ -6,6 +6,8 @@ import {
   getChapterTitle,
   getChapterContent,
   getBreadcrumb,
+  getSubTitle,
+  getBookTitle,
 } from '@/app/search/searchUtils';
 import fs from 'fs';
 import path from 'path';
@@ -68,12 +70,8 @@ export const fileteredFiles = (files, keyword) => {
  *
  * @returns {{path: string, file:string}|null} 키워드가 포함된 파일의 경로 및 파일 내용
  */
-export const customizedData = (dataList, searchParams, keyword) => {
+export const customizedData = (dataList, keyword) => {
   const fileDataList = [];
-  const pageSize = 10;
-  const page = parseInt(searchParams.get('page'), 10) || 1;
-  const startIndex = (page - 1) * pageSize;
-  const endIndex = startIndex + pageSize;
 
   for (const data of dataList) {
     const html = data.file;
@@ -82,22 +80,30 @@ export const customizedData = (dataList, searchParams, keyword) => {
       .replace(/\.md$/, '')
       .replaceAll('\\', '/');
 
-    const title = getTitle(html); // .md 파일 제목
-    let chapterTitle; // 키워드가 포함된 챕터 제목
+    const getTitleData = getTitle(html);
+    const title = getTitleData.title; // .md 파일 제목
+    const chapterTitle = getTitleData.chapterTitle; // 챕터 분류 제목
+
+    let subTitle; // 키워드가 포함된 챕터의 소제목
     const chapterList = filteredChapter(html, keyword); // 키워드를 포함하는 챕터
 
     for (const chapter of chapterList) {
-      chapterTitle = getChapterTitle(chapter);
+      subTitle = getSubTitle(chapter);
       const content = getChapterContent(chapter, keyword); // 키워드가 포함된 챕터 문장, 최대 3줄
 
-      //   const breadcrumbdata = getBreadcrumb(link);
+      // const breadcrumbdata = getBreadcrumb(link);
+      const bookTitle = getBookTitle(link);
+      // const chapterTitle = getChapterTitle(chapter);
 
-      if (content.length !== 0) {
+      if (subTitle && content.length !== 0) {
         fileDataList.push({
-          //   breadcrumb: `${breadcrumbdata.booktitle} > ${breadcrumbdata.bookChapter} > ${title}`, // 브레드크럼으로 변경하기
+          bookTitle,
+          title,
           chapterTitle,
+          subTitle,
           content,
           link,
+          // breadcrumb: `${'책제목'} > ${'챕터명'} > ${title}`,
         });
       }
     }

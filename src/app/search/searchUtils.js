@@ -291,14 +291,26 @@ export const getRelativePath = (baseUrl, url) => {
  * @returns {string} 파일의 제목
  */
 export const getTitle = (html) => {
+  let title;
+  let chapterTitle;
+
   for (const el of html) {
+    const target = el.replace(/<[^>]*>/g, '').trim();
+
     if (el.includes('title:')) {
-      return el
-        .replace(/<[^>]*>/g, '')
-        .replace(/title:\s*([\d.]+\s*)?/g, '')
-        .trim();
+      const result = target.replace(/title:\s*([\d.]+\s*)?/g, '');
+      title = result ? result : undefined;
+    } else if (el.includes('chapter:')) {
+      const result = target.replace(/chapter:\s*/g, '');
+      chapterTitle = result ? result : undefined;
     }
   }
+  const val = {
+    title,
+    chapterTitle,
+  };
+
+  return val;
 };
 
 /**
@@ -330,7 +342,7 @@ export const filteredChapter = (html, keyword) => {
  *
  * @returns {string|null} 챕터 제목
  */
-export const getChapterTitle = (chapter) => {
+export const getSubTitle = (chapter) => {
   for (const el of chapter) {
     if (el.includes('<h2>')) {
       return el
@@ -362,15 +374,14 @@ export const getChapterContent = (chapter, keyword) => {
   return result;
 };
 
+// import jsonData from '../../../public/menu/python.json';
 /**
- * 키워드가 포함된 챕터의 문장 리스트, 최대 3개
+ * 브레드크럼 출력 - public/menu 폴더에 의존
+ * @deprecated
  * @param {string[]} chapter 키워드가 포함된 챕터 배열
  *
  * @returns {string[]} 키워드가 포함된 문장, 최대 3줄 이내
  */
-
-// import jsonData from '../../../public/menu/python.json';
-
 // export const getBreadcrumb = (link) => {
 //   let result = {};
 //   for (const section of jsonData.sections) {
@@ -386,3 +397,13 @@ export const getChapterContent = (chapter, keyword) => {
 
 //   return result;
 // };
+
+export const getBookTitle = (link) => {
+  const result = link.split('/').filter((part) => part !== '')[0];
+  return choiceBookKind(result);
+};
+
+export const getChapterTitle = (link) => {
+  // console.log('====link====');
+  // console.log(link.split('/').filter((part) => part !== ''));
+};

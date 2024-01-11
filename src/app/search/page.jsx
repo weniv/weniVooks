@@ -47,8 +47,8 @@ export default function Search() {
     window.scrollTo(0, 0);
   }, [searchQuery, page]);
 
-  console.log('searchResults');
-  console.log(searchResults);
+  // console.log('searchResults');
+  // console.log(searchResults);
 
   return (
     <>
