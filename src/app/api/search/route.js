@@ -17,12 +17,15 @@ import {
   handlePagination,
 } from './utils';
 
+export const dynamic = 'force-dynamic';
+
 export async function GET(req) {
   const data = [];
   const pageSize = 10;
 
   try {
     const searchParams = req.nextUrl.searchParams;
+
     const keyword = searchParams.get('keyword') || '';
     const mdFiles = getFiles(ABSOLUTE_PATH); // .md 파일 리스트
 
@@ -106,6 +109,8 @@ export async function GET(req) {
     return NextResponse.json(output);
   } catch (err) {
     console.error(err);
-    return NextResponse.json('정보를 가져오는데 실패하였습니다');
+    return NextResponse.json('정보를 가져오는데 실패하였습니다', {
+      status: 500,
+    });
   }
 }

@@ -90,11 +90,11 @@ export const customizedData = (dataList, searchParams, keyword) => {
       chapterTitle = getChapterTitle(chapter);
       const content = getChapterContent(chapter, keyword); // 키워드가 포함된 챕터 문장, 최대 3줄
 
-      const breadcrumbdata = getBreadcrumb(link);
+      //   const breadcrumbdata = getBreadcrumb(link);
 
       if (content.length !== 0) {
         fileDataList.push({
-          breadcrumb: `${breadcrumbdata.booktitle} > ${breadcrumbdata.bookChapter} > ${title}`, // 브레드크럼으로 변경하기
+          //   breadcrumb: `${breadcrumbdata.booktitle} > ${breadcrumbdata.bookChapter} > ${title}`, // 브레드크럼으로 변경하기
           chapterTitle,
           content,
           link,

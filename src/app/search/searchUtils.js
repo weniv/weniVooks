@@ -369,20 +369,20 @@ export const getChapterContent = (chapter, keyword) => {
  * @returns {string[]} 키워드가 포함된 문장, 최대 3줄 이내
  */
 
-import jsonData from '../../../public/menu/python.json';
+// import jsonData from '../../../public/menu/python.json';
 
-export const getBreadcrumb = (link) => {
-  let result = {};
-  for (const section of jsonData.sections) {
-    for (const el of section.sections) {
-      if (el.link === link) {
-        result = {
-          booktitle: jsonData.title,
-          bookChapter: section.title,
-        };
-      }
-    }
-  }
+// export const getBreadcrumb = (link) => {
+//   let result = {};
+//   for (const section of jsonData.sections) {
+//     for (const el of section.sections) {
+//       if (el.link === link) {
+//         result = {
+//           booktitle: jsonData.title,
+//           bookChapter: section.title,
+//         };
+//       }
+//     }
+//   }
 
-  return result;
-};
+//   return result;
+// };

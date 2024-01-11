@@ -31,7 +31,7 @@ function highlightKeyword(text, keyword) {
 export default function Search() {
   // 검색 키워드
   const params = useSearchParams();
-  const searchQuery = params.get('keyword');
+  const searchQuery = params.get('keyword').trim().replaceAll(' ', '');
   const [searchResults, setSearchResults] = useState(null);
   const [page, setPage] = useState(1);
   const { windowWidth } = useWindowSize();
@@ -76,8 +76,8 @@ export default function Search() {
               ) : (
                 <ul>
                   {searchResults.result.map((data, idx) => (
-                    <Link key={idx} href={data.link}>
-                      <li className={classNames(styles.resultSection)}>
+                    <li key={idx} className={classNames(styles.resultSection)}>
+                      <Link href={data.link}>
                         <p className={classNames(styles.subTitle)}>
                           {highlightKeyword(data.chapterTitle, searchQuery)}
                         </p>
@@ -100,8 +100,8 @@ export default function Search() {
                               );
                             })}
                         </div>
-                      </li>
-                    </Link>
+                      </Link>
+                    </li>
                   ))}
                 </ul>
               )}
