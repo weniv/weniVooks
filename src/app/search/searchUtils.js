@@ -285,12 +285,12 @@ export const getRelativePath = (baseUrl, url) => {
 };
 
 /**
- * 파일 제목 가져오는 함수
+ * 파일 제목과 챕터 제목 가져오는 함수
  * @param {string} html 파일 내부 문자열
  *
  * @returns {string} 파일의 제목
  */
-export const getTitle = (html) => {
+export const getMetaData = (html) => {
   let title;
   let chapterTitle;
 

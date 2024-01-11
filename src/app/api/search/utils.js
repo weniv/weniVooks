@@ -1,13 +1,11 @@
 import {
   parseMarkdown,
   textNormalize,
-  getTitle,
   filteredChapter,
-  getChapterTitle,
   getChapterContent,
-  getBreadcrumb,
   getSubTitle,
   getBookTitle,
+  getMetaData,
 } from '@/app/search/searchUtils';
 import fs from 'fs';
 import path from 'path';
@@ -80,7 +78,7 @@ export const customizedData = (dataList, keyword) => {
       .replace(/\.md$/, '')
       .replaceAll('\\', '/');
 
-    const getTitleData = getTitle(html);
+    const getTitleData = getMetaData(html);
     const title = getTitleData.title; // .md 파일 제목
     const chapterTitle = getTitleData.chapterTitle; // 챕터 분류 제목
 
@@ -93,7 +91,6 @@ export const customizedData = (dataList, keyword) => {
 
       // const breadcrumbdata = getBreadcrumb(link);
       const bookTitle = getBookTitle(link);
-      // const chapterTitle = getChapterTitle(chapter);
 
       if (subTitle && content.length !== 0) {
         fileDataList.push({
