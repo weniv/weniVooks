@@ -72,36 +72,53 @@ export default function Search() {
                 </div>
               ) : (
                 <ul>
-                  {searchResults.result.map((data, idx) => (
-                    <li key={idx} className={classNames(styles.resultSection)}>
-                      <Link href={data.link}>
-                        <p className={classNames(styles.subTitle)}>
-                          {highlightKeyword(
-                            data.title ? data.title : data.mainTitle,
-                            searchQuery,
-                          )}
-                        </p>
-                        <p className={classNames(styles.path)}>
-                          {highlightKeyword(
-                            `${windowWidth > 640 ? data.bookKind : '...'} > ${
-                              data.mainTitle
-                            }  ${data.title ? '> ' + data.title : ''}`,
-                            searchQuery,
-                          )}
-                        </p>
-                        <div className={classNames(styles.contents)}>
-                          {data.content &&
-                            data.content.map((content, idx) => {
-                              return (
-                                <span key={idx} className={styles.contentLine}>
-                                  {highlightKeyword(content, searchQuery)}
-                                </span>
-                              );
-                            })}
-                        </div>
-                      </Link>
-                    </li>
-                  ))}
+                  {searchResults.result.map(
+                    (data, idx) => (
+                      console.log(
+                        `${process.env.NEXT_PUBLIC_API_URL}${data.link}`,
+                      ),
+                      (
+                        <li
+                          key={idx}
+                          className={classNames(styles.resultSection)}
+                        >
+                          <Link
+                            href={`${process.env.NEXT_PUBLIC_API_URL}${data.link}`}
+                          >
+                            <p className={classNames(styles.subTitle)}>
+                              {highlightKeyword(
+                                data.title ? data.title : data.mainTitle,
+                                searchQuery,
+                              )}
+                            </p>
+                            <p className={classNames(styles.path)}>
+                              {highlightKeyword(
+                                `${
+                                  windowWidth > 640 ? data.bookKind : '...'
+                                } > ${data.mainTitle}  ${
+                                  data.title ? '> ' + data.title : ''
+                                }`,
+                                searchQuery,
+                              )}
+                            </p>
+                            <div className={classNames(styles.contents)}>
+                              {data.content &&
+                                data.content.map((content, idx) => {
+                                  return (
+                                    <span
+                                      key={idx}
+                                      className={styles.contentLine}
+                                    >
+                                      {highlightKeyword(content, searchQuery)}
+                                    </span>
+                                  );
+                                })}
+                            </div>
+                          </Link>
+                        </li>
+                      )
+                    ),
+                  )}
                 </ul>
               )}
             </div>
