@@ -88,7 +88,7 @@ export default function Pagination({ page, setPage, searchResults }) {
     <div className={styles.btnWrap}>
       <Btn className={styles.btnPrev} disabled={page === 1} onClick={goPrev}>
         <SVGPrevArrow color="grayLv3" />
-        {windowWidth > 1024 && <span>{'이전'}</span>}
+        <span className="a11y-hidden">이전</span>
       </Btn>
       <div className={styles.pageNav}>
         {displayPages.map((currentPage, idx) =>
@@ -106,8 +106,8 @@ export default function Pagination({ page, setPage, searchResults }) {
         disabled={!searchResults.page || page === searchResults.page}
         onClick={goNext}
       >
-        {windowWidth > 1024 && <span>{'다음'}</span>}
         <SVGNextArrow color="grayLv3" />
+        <span className="a11y-hidden">다음</span>
       </Btn>
     </div>
   );
