@@ -31,7 +31,7 @@ function highlightKeyword(text, keyword) {
 export default function Search() {
   // 검색 키워드
   const params = useSearchParams();
-  const searchQuery = params.get('keyword');
+  const searchQuery = params.get('keyword').trim().replaceAll(' ', '');
   const [searchResults, setSearchResults] = useState(null);
   const [page, setPage] = useState(1);
   const { windowWidth } = useWindowSize();
@@ -46,14 +46,6 @@ export default function Search() {
     }
     window.scrollTo(0, 0);
   }, [searchQuery, page]);
-
-  const goPrev = () => {
-    setPage((page) => page - 1);
-  };
-
-  const goNext = () => {
-    setPage((page) => page + 1);
-  };
 
   return (
     <>
@@ -80,36 +72,49 @@ export default function Search() {
                 </div>
               ) : (
                 <ul>
-                  {searchResults.result.map((data, idx) => (
-                    <Link key={idx} href={data.link}>
-                      <li className={classNames(styles.resultSection)}>
-                        <p className={classNames(styles.subTitle)}>
-                          {highlightKeyword(
-                            data.title ? data.title : data.mainTitle,
-                            searchQuery,
-                          )}
-                        </p>
-                        <p className={classNames(styles.path)}>
-                          {highlightKeyword(
-                            `${windowWidth > 640 ? data.bookKind : '...'} > ${
-                              data.mainTitle
-                            }  ${data.title ? '> ' + data.title : ''}`,
-                            searchQuery,
-                          )}
-                        </p>
-                        <div className={classNames(styles.contents)}>
-                          {data.content &&
-                            data.content.map((content, idx) => {
-                              return (
-                                <span key={idx} className={styles.contentLine}>
-                                  {highlightKeyword(content, searchQuery)}
-                                </span>
-                              );
-                            })}
-                        </div>
-                      </li>
-                    </Link>
-                  ))}
+                  {searchResults.result.map(
+                    (data, idx) => (
+                      console.log(`${data.link}`),
+                      (
+                        <li
+                          key={idx}
+                          className={classNames(styles.resultSection)}
+                        >
+                          <Link href={data.link}>
+                            <p className={classNames(styles.subTitle)}>
+                              {highlightKeyword(
+                                data.title ? data.title : data.mainTitle,
+                                searchQuery,
+                              )}
+                            </p>
+                            <p className={classNames(styles.path)}>
+                              {highlightKeyword(
+                                `${
+                                  windowWidth > 640 ? data.bookKind : '...'
+                                } > ${data.mainTitle}  ${
+                                  data.title ? '> ' + data.title : ''
+                                }`,
+                                searchQuery,
+                              )}
+                            </p>
+                            <div className={classNames(styles.contents)}>
+                              {data.content &&
+                                data.content.map((content, idx) => {
+                                  return (
+                                    <span
+                                      key={idx}
+                                      className={styles.contentLine}
+                                    >
+                                      {highlightKeyword(content, searchQuery)}
+                                    </span>
+                                  );
+                                })}
+                            </div>
+                          </Link>
+                        </li>
+                      )
+                    ),
+                  )}
                 </ul>
               )}
             </div>

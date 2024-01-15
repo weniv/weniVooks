@@ -1,9 +1,9 @@
 import BookItem from './BookItem';
 import styles from './BookList.module.scss';
 
-export default function BookList() {
-  const bookFile = require('/public/data/bookList.json');
+import bookFile from '@/data/bookList.json';
 
+export default function BookList() {
   // 출시일 최신순 정렬
   const bookData = bookFile.sort((a, b) => new Date(b.date) - new Date(a.date));
 

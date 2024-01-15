@@ -1,7 +1,7 @@
 import '@/styles/sub.scss';
 
 import { DEFAULT_PATH, META_DATA, TITLE } from './data';
-import menuDdata from '@/data/menu/python.json';
+import menuDdata from '@/data/menu/{파일 경로}.json'; // 파일경로 삽입
 
 import Header from '@/components/layouts/header/Header';
 import Side from '@/components/layouts/menu/Side';
