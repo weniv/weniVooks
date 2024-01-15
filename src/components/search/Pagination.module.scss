@@ -6,13 +6,35 @@
   gap: 0.8rem;
   margin: 10rem 0;
 
+  .btnNext,
   .btnPrev,
-  .btnNext {
+  .pageBtn,
+  .ellipsis {
     width: 4.2rem;
     height: 4.2rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 1rem;
+
+    @media screen and (max-width: 640px) {
+      width: 3.2rem;
+      height: 3.2rem;
+      border-radius: 0.8rem;
+
+      svg {
+        max-width: 70%;
+        height: auto;
+      }
+    }
+  }
+
+  .btnPrev,
+  .btnNext {
     padding: 0;
     border: none;
-    border-radius: 1rem;
+
     background-color: var(--grayLv1);
     svg path {
       fill: var(--grayLv3);
@@ -37,22 +59,18 @@
 
   .pageNav {
     display: flex;
-  }
-
-  .pageNav {
-    display: flex;
     align-items: center;
     justify-content: center;
+    flex-wrap: wrap;
 
-    label {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 4.2rem;
-      height: 4.2rem;
+    .pageBtn {
       color: var(--grayLv3);
-      cursor: pointer;
       box-sizing: border-box;
+      &.currentPage {
+        color: var(--primary);
+        font-weight: bold;
+      }
+
       @media (hover: hover) {
         &:not(:disabled):hover {
           text-decoration: underline;
@@ -60,23 +78,8 @@
       }
     }
 
-    input:checked + label {
-      color: var(--primary);
-      font-weight: bold;
-    }
-
     .ellipsis {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      p {
-        display: flex;
-        justify-content: center;
-        width: 4.2rem;
-        font-size: 1.6rem;
-        color: var(--grayLv3);
-      }
+      color: var(--grayLv3);
     }
   }
 }

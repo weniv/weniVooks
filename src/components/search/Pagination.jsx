@@ -1,33 +1,28 @@
 'use client';
 import React, { useEffect, useState } from 'react';
+import Link from 'next/link';
+
 import styles from '@/components/search/Pagination.module.scss';
 import Btn from '../common/button/Btn';
 import SVGPrevArrow from '../svg/SVGPrevArrow';
 import SVGNextArrow from '../svg/SVGNextArrow';
 import useWindowSize from '@/utils/useWindowSize';
+import classNames from 'classnames';
 
 // 페이지 버튼 렌더링
 const renderPageButton = (currentPage, page, setPage) => {
   const isCurrentPage = page === currentPage;
   return (
-    <>
-      <input
-        type="radio"
-        className={styles.pageBtn}
-        name="page"
-        value={currentPage}
-        id={`page${currentPage}`}
-        hidden
-        checked={isCurrentPage}
-        onClick={() => setPage(currentPage)}
-      />
-      <label
-        htmlFor={`page${currentPage}`}
-        className={isCurrentPage ? styles.currentPage : ''}
-      >
-        {currentPage}
-      </label>
-    </>
+    <button
+      type="button"
+      onClick={() => setPage(currentPage)}
+      className={classNames(
+        styles.pageBtn,
+        isCurrentPage ? styles.currentPage : '',
+      )}
+    >
+      {currentPage}
+    </button>
   );
 };
 
@@ -39,27 +34,26 @@ const addPageRange = (start, end, updatePages) => {
 
 // 선택된 페이지 주변에 표시할 페이지 계산
 const getDisplayedPages = (currentPage, totalPages, setDisplayPages) => {
-  const middlePage = parseInt(totalPages / 2);
   const updatePages = [];
 
-  if (totalPages < 10) {
-    // 페이지가 10개 이하인 경우 모든 페이지 표시
+  if (totalPages < 8) {
+    // 페이지가 8개 미만인 경우 모든 페이지 표시
     for (let i = 1; i <= totalPages; i++) {
       updatePages.push(i);
     }
     setDisplayPages(updatePages);
   } else {
-    // 페이지가 10개 이상인 경우 조건에 따라 페이지 표시
-    if (currentPage === 1 || currentPage < middlePage) {
-      addPageRange(1, middlePage, updatePages);
+    // 페이지가 7개 이상인 경우 조건에 따라 페이지 표시
+    if (currentPage < 5) {
+      addPageRange(1, 5, updatePages);
       updatePages.push(null, totalPages);
-    } else if (currentPage === middlePage || currentPage === middlePage + 1) {
+    } else if (currentPage >= totalPages - 4) {
+      updatePages.push(1, null);
+      addPageRange(totalPages - 4, totalPages, updatePages);
+    } else {
       updatePages.push(1, null);
       addPageRange(currentPage - 1, currentPage + 1, updatePages);
       updatePages.push(null, totalPages);
-    } else if (currentPage === totalPages || currentPage > middlePage + 1) {
-      updatePages.push(1, null);
-      addPageRange(middlePage + 1, totalPages, updatePages);
     }
 
     setDisplayPages(updatePages);
