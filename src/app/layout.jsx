@@ -1,4 +1,3 @@
-
 import { Source_Code_Pro } from 'next/font/google';
 
 import Script from 'next/script';
@@ -23,13 +22,18 @@ export const metadata = {
     description: '위니브의 다양한 교안을 웹에서 확인해보세요!',
     url: 'https://books.weniv.co.kr',
     siteName: '위니북스',
-    images: [`/images/opengraph-image.png`],
+    images: [`https://books.weniv.co.kr/images/opengraph-image.png`],
+  },
+  twitter: {
+    card: 'summary',
+    title: '위니북스',
+    description: '위니브의 다양한 교안을 웹에서 확인해보세요!',
+    images: ['https://books.weniv.co.kr/images/opengraph-image.png'],
   },
 };
 
 export default function RootLayout({ children }) {
   return (
-
     <html lang="ko-KR" className={source_code_pro.variable}>
       <Script
         async
