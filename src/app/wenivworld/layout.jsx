@@ -12,8 +12,6 @@ import Breadcrumb from '@/components/layouts/breadcrumb/Breadcrumb';
 export const metadata = META_DATA;
 
 export default async function Layout({ children }) {
-  const menuDdata = await getData(DEFAULT_PATH);
-
   return (
     <>
       <Header />
