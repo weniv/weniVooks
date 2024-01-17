@@ -12,7 +12,7 @@ import path from 'path';
 
 export const CWD = process.cwd();
 export const BASEURL = '_md';
-export const ABSOLUTE_PATH = `${CWD}\\${BASEURL}`;
+export const ABSOLUTE_PATH = path.join(CWD, BASEURL);
 const EXCEPTBOOKLIST = ['python']; // 검색대상에서 제외할 책 리스트
 
 /**
@@ -21,10 +21,11 @@ const EXCEPTBOOKLIST = ['python']; // 검색대상에서 제외할 책 리스트
  * @param {string[]} exceptBookList 검색에서 제외할 책 리스트
  * @returns {string} 필터링된 파일의 주소
  */
+
 const exceptBook = (filePath, exceptBookList) => {
   const kind = filePath
     .replace(ABSOLUTE_PATH, '')
-    .split('\\')
+    .split(path.sep)
     .filter((part) => part !== '')[0];
 
   if (!exceptBookList.includes(kind)) {
@@ -95,10 +96,8 @@ export const customizedData = (dataList, keyword) => {
 
   for (const data of dataList) {
     const html = data.file;
-    const link = data.path
-      .replace(ABSOLUTE_PATH, '')
-      .replace(/\.md$/, '')
-      .replaceAll('\\', '/');
+    const link = data.path.replace(ABSOLUTE_PATH, '').replace(/\.md$/, '');
+    // .replaceAll('\\', '/');
 
     const getTitleData = getMetaData(html);
     const title = getTitleData.title; // .md 파일 제목
