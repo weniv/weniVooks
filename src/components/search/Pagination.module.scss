@@ -6,94 +6,80 @@
   gap: 0.8rem;
   margin: 10rem 0;
 
+  .btnNext,
+  .btnPrev,
+  .pageBtn,
+  .ellipsis {
+    width: 4.2rem;
+    height: 4.2rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 1rem;
+
+    @media screen and (max-width: 640px) {
+      width: 3.2rem;
+      height: 3.2rem;
+      border-radius: 0.8rem;
+
+      svg {
+        max-width: 70%;
+        height: auto;
+      }
+    }
+  }
+
   .btnPrev,
   .btnNext {
-    width: 5rem;
-    height: 5rem;
     padding: 0;
     border: none;
-    background-color: var(--background);
 
-    span {
-      display: none;
+    background-color: var(--grayLv1);
+    svg path {
+      fill: var(--grayLv3);
     }
-
-    &:not(:disabled):active {
-      background-color: var(--primary);
-      border-color: var(--primary);
+    &:disabled {
+      opacity: 1;
       svg path {
-        fill: #fff;
+        fill: var(--grayLv2);
       }
     }
 
     @media (hover: hover) {
       &:not(:disabled):hover {
-        display: flex;
-        align-items: center;
-        width: auto;
-        min-width: 5rem;
-        padding: 0 1.2rem;
-        background-color: var(--primary);
-        border-color: var(--primary);
-        color: #fff;
+        background-color: var(--activation);
 
         svg path {
-          fill: #fff;
-        }
-
-        span {
-          display: flex;
+          fill: var(--primary);
         }
       }
     }
-  }
-  .btnPrev span {
-    margin-right: 1rem;
-  }
-
-  .btnNext span {
-    margin-left: 1rem;
-  }
-
-  .pageNav {
-    display: flex;
   }
 
   .pageNav {
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-wrap: wrap;
 
-    label {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 4.2rem;
-      height: 4.2rem;
+    .pageBtn {
       color: var(--grayLv3);
-      border-bottom: 4px solid transparent;
-      cursor: pointer;
-    }
-
-    input:checked + label {
-      color: var(--primary);
-      background-color: var(--activation);
-      border-bottom: 4px solid var(--primary);
       box-sizing: border-box;
+      &.currentPage {
+        color: var(--primary);
+        font-weight: bold;
+      }
+
+      @media (hover: hover) {
+        &:not(:disabled):hover {
+          text-decoration: underline;
+        }
+      }
     }
 
     .ellipsis {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      p {
-        display: flex;
-        justify-content: center;
-        width: 4.2rem;
-        font-size: 1.6rem;
-        color: var(--grayLv3);
-      }
+      color: var(--grayLv3);
     }
   }
 }
