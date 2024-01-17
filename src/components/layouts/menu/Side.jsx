@@ -31,7 +31,7 @@ export default function Side(props) {
     if (windowWidth <= 1024 && !e.shiftKey && e.key === 'Tab') {
       e.preventDefault();
 
-      const firstItem = slideRef.current.querySelector('a, button');
+      const firstItem = slideRef?.current.querySelector('a, button');
       firstItem.focus();
     }
   };
@@ -40,7 +40,7 @@ export default function Side(props) {
     if (e.shiftKey && e.key === 'Tab') {
       e.preventDefault();
 
-      const clickItems = slideRef.current.querySelectorAll('a, button');
+      const clickItems = slideRef?.current.querySelectorAll('a, button');
       const lastItem = clickItems[clickItems.length - 1];
       lastItem.focus();
     }
@@ -49,7 +49,7 @@ export default function Side(props) {
   const toggleMenu = () => {
     if (isMenuShow) {
       // SlideOut(닫힘)
-      slideRef.current.classList.add(styles.slideOut);
+      slideRef?.current.classList.add(styles.slideOut);
       handleAllowScroll();
       setTimeout(() => {
         setIsMenuShow(false);
@@ -63,9 +63,9 @@ export default function Side(props) {
       setIsMenuShow(true);
       handlePreventScroll();
       setTimeout(() => {
-        slideRef.current.classList.add(styles.slideIn);
+        slideRef?.current.classList.add(styles.slideIn);
 
-        const firstItem = slideRef.current.querySelector('a, button');
+        const firstItem = slideRef?.current.querySelector('a, button');
         if (firstItem) {
           firstItem.focus();
         }
@@ -95,7 +95,7 @@ export default function Side(props) {
 
   useEffect(() => {
     const handleOutsideClick = (e) => {
-      if (!slideRef.current.contains(e.target)) {
+      if (!slideRef?.current.contains(e.target)) {
         toggleMenu();
       }
     };
@@ -110,7 +110,7 @@ export default function Side(props) {
         window.addEventListener('click', handleOutsideClick);
         window.addEventListener('keydown', handleESC);
 
-        const firstItem = slideRef.current.querySelector('a, button');
+        const firstItem = slideRef?.current.querySelector('a, button');
         firstItem.addEventListener('keydown', handleFocusLast);
       });
     }
