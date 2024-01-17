@@ -81,7 +81,9 @@ export default function Side(props) {
   useEffect(() => {
     if (windowWidth !== null && windowWidth <= 1024) {
       // 모바일
-      setIsMenuShow(false);
+      if (isMenuShow) {
+        setIsMenuShow(false);
+      }
     } else {
       // PC
       setIsMenuShow(isSavedClose ? false : true);
