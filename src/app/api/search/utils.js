@@ -13,6 +13,26 @@ import path from 'path';
 export const CWD = process.cwd();
 export const BASEURL = '_md';
 export const ABSOLUTE_PATH = `${CWD}\\${BASEURL}`;
+const EXCEPTBOOKLIST = ['python']; // 검색대상에서 제외할 책 리스트
+
+/**
+ * 검색 대상에서 특정책 제외
+ * @param {string} filePath 파일의 디렉토리 경로
+ * @param {string[]} exceptBookList 검색에서 제외할 책 리스트
+ * @returns {string} 필터링된 파일의 주소
+ */
+const exceptBook = (filePath, exceptBookList) => {
+  const kind = filePath
+    .replace(ABSOLUTE_PATH, '')
+    .split('\\')
+    .filter((part) => part !== '')[0];
+
+  if (!exceptBookList.includes(kind)) {
+    return filePath;
+  }
+
+  return null;
+};
 
 /**
  * 절대경로를 받아 모든 md파일의 주소를 배열로 출력하는 함수
@@ -27,9 +47,11 @@ export const getFiles = (absolutePath) => {
     const filePath = path.join(absolutePath, file);
     const stat = fs.statSync(filePath);
 
-    if (stat.isDirectory()) {
-      fileList = fileList.concat(getFiles(filePath));
-    } else if (file.endsWith('.md')) {
+    const filteredPath = exceptBook(filePath, EXCEPTBOOKLIST);
+
+    if (stat.isDirectory() && filteredPath !== null) {
+      fileList = fileList.concat(getFiles(filteredPath));
+    } else if (file.endsWith('.md') && filteredPath !== null) {
       fileList.push(filePath);
     }
   });
