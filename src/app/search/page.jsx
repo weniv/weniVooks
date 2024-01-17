@@ -47,6 +47,9 @@ export default function Search() {
     window.scrollTo(0, 0);
   }, [searchQuery, page]);
 
+  // console.log('searchResults');
+  // console.log(searchResults);
+
   return (
     <>
       {searchResults ? (
@@ -72,49 +75,33 @@ export default function Search() {
                 </div>
               ) : (
                 <ul>
-                  {searchResults.result.map(
-                    (data, idx) => (
-                      console.log(`${data.link}`),
-                      (
-                        <li
-                          key={idx}
-                          className={classNames(styles.resultSection)}
-                        >
-                          <Link href={data.link}>
-                            <p className={classNames(styles.subTitle)}>
-                              {highlightKeyword(
-                                data.title ? data.title : data.mainTitle,
-                                searchQuery,
-                              )}
-                            </p>
-                            <p className={classNames(styles.path)}>
-                              {highlightKeyword(
-                                `${
-                                  windowWidth > 640 ? data.bookKind : '...'
-                                } > ${data.mainTitle}  ${
-                                  data.title ? '> ' + data.title : ''
-                                }`,
-                                searchQuery,
-                              )}
-                            </p>
-                            <div className={classNames(styles.contents)}>
-                              {data.content &&
-                                data.content.map((content, idx) => {
-                                  return (
-                                    <span
-                                      key={idx}
-                                      className={styles.contentLine}
-                                    >
-                                      {highlightKeyword(content, searchQuery)}
-                                    </span>
-                                  );
-                                })}
-                            </div>
-                          </Link>
-                        </li>
-                      )
-                    ),
-                  )}
+                  {searchResults.result.map((data, idx) => (
+                    <li key={idx} className={classNames(styles.resultSection)}>
+                      <Link href={data.link}>
+                        <p className={classNames(styles.subTitle)}>
+                          {highlightKeyword(data.subTitle, searchQuery)}
+                        </p>
+                        <p className={classNames(styles.path)}>
+                          {highlightKeyword(
+                            `${windowWidth > 640 ? data.bookTitle : '...'} ${
+                              data.chapterTitle ? '> ' + data.chapterTitle : ''
+                            }  ${data.title ? '> ' + data.title : ''}`,
+                            searchQuery,
+                          )}
+                        </p>
+                        <div className={classNames(styles.contents)}>
+                          {data.content &&
+                            data.content.map((content, idx) => {
+                              return (
+                                <span key={idx} className={styles.contentLine}>
+                                  {highlightKeyword(content, searchQuery)}
+                                </span>
+                              );
+                            })}
+                        </div>
+                      </Link>
+                    </li>
+                  ))}
                 </ul>
               )}
             </div>
