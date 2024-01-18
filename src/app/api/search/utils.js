@@ -3,11 +3,10 @@ import {
   textNormalize,
   filteredChapter,
   getChapterContent,
-  getSubTitle,
   getBookTitle,
   getMetaData,
 } from '@/app/search/searchUtils';
-import fs, { readdirSync, statSync } from 'fs';
+import fs, { readdirSync, statSync, readFileSync } from 'fs';
 import path, { join } from 'path';
 
 export const CWD = process.cwd();
@@ -72,7 +71,7 @@ export const getFiles = (absolutePath) => {
 export const fileteredFiles = (files, keyword) => {
   const result = [];
   for (const file of files) {
-    const wholefiles = textNormalize(fs.readFileSync(file).toString());
+    const wholefiles = textNormalize(readFileSync(file).toString());
 
     if (wholefiles.includes(keyword)) {
       let val = {
@@ -95,10 +94,8 @@ export const fileteredFiles = (files, keyword) => {
  */
 export const customizedData = (dataList, keyword) => {
   const fileDataList = [];
-  const test = [];
 
   // 책 별로 한 번만 출력하도록 수정
-  console.log('=============================================');
   for (const data of dataList) {
     const html = data.file;
     const link = data.path.replace(ABSOLUTE_PATH, '').replace(/\.md$/, '');
@@ -107,67 +104,20 @@ export const customizedData = (dataList, keyword) => {
     const chapter = getTitleData.chapterTitle; // .md 파일 챕터명
     const bookTitle = getBookTitle(link); // ,md 파일 책 제목
     let content;
-    // let val;
 
     const chapterList = filteredChapter(html, keyword); // 키워드를 포함하는 챕터
-
     for (const data of chapterList) {
       content = getChapterContent(data, keyword);
     }
-    // console.log(data, {
-    //   bookTitle,
-    //   title,
-    //   chapter,
-    //   content,
-    //   link,
-    // });
 
-    // if (!!content && content.length !== 0) {
-    // val = {
-    //   bookTitle,
-    //   title,
-    //   chapter,
-    //   content,
-    //   link,
-    // };
-    // }
+    fileDataList.push({
+      bookTitle,
+      chapter,
+      title,
+      link,
+      content,
+    });
   }
-
-  // console.log('=========');
-  // console.log(test);
-
-  // for (const data of dataList) {
-  //   const html = data.file;
-  //   const link = data.path.replace(ABSOLUTE_PATH, '').replace(/\.md$/, '');
-  //   // .replaceAll('\\', '/');
-
-  //   const getTitleData = getMetaData(html);
-  //   const title = getTitleData.title; // .md 파일 제목
-  //   const chapterTitle = getTitleData.chapterTitle; // 챕터 분류 제목
-
-  //   let subTitle; // 키워드가 포함된 챕터의 소제목
-  //   const chapterList = filteredChapter(html, keyword); // 키워드를 포함하는 챕터
-
-  //   for (const chapter of chapterList) {
-  //     subTitle = getSubTitle(chapter);
-  //     const content = getChapterContent(chapter, keyword); // 키워드가 포함된 챕터 문장, 최대 3줄
-
-  //     // const breadcrumbdata = getBreadcrumb(link);
-  //     const bookTitle = getBookTitle(link);
-
-  //     if (subTitle && content.length !== 0) {
-  //       fileDataList.push({
-  //         bookTitle,
-  //         title,
-  //         chapterTitle,
-  //         subTitle,
-  //         content,
-  //         link,
-  //         // breadcrumb: `${'책제목'} > ${'챕터명'} > ${title}`,
-  //       });
-  //     }
-  //   }
-  // }
 
   return fileDataList;
 };
@@ -178,9 +128,9 @@ export const handlePagination = (searchParams, result) => {
   const startIndex = (page - 1) * pageSize;
   const endIndex = startIndex + pageSize;
 
-  // return {
-  //   result: result.slice(startIndex, endIndex),
-  //   resultLength: result.length,
-  //   totalPages: Math.ceil(result.length / pageSize),
-  // };
+  return {
+    result: result.slice(startIndex, endIndex),
+    resultLength: result.length,
+    totalPages: Math.ceil(result.length / pageSize),
+  };
 };

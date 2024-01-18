@@ -15,17 +15,12 @@ export async function GET(req) {
 
     const keyword = searchParams.get('keyword') || '';
     const mdFiles = getFiles(ABSOLUTE_PATH); // .md 파일 리스트
-
-    console.log('mdFiles', mdFiles);
-
     const data = fileteredFiles(mdFiles, keyword);
-
     const result = customizedData(data, keyword);
 
-    // const output = handlePagination(searchParams, result);
+    const output = handlePagination(searchParams, result);
 
-    // return NextResponse.json(output);
-    return 111;
+    return NextResponse.json(output);
   } catch (err) {
     console.error(err);
     return NextResponse.json('정보를 가져오는데 실패하였습니다', {
