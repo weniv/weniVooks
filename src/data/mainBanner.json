@@ -9,15 +9,5 @@
     "title": ["파이썬 부트캠프 1기", ": 기본 문법부터 코테까지"],
     "description": ["파이썬 기초부터 코딩테스트까지 속성으로 함께해요!"],
     "link": "https://bootcamp.weniv.co.kr/python"
-  },
-  {
-    "bgColor": "#282A2C",
-    "textColor": "#fff",
-    "categoryColor": "#121314",
-    "thumbnail": "/images/banner/main-banner-img1.png",
-    "category": "모두의 연구소 X 제주코딩베이스캠프",
-    "title": ["Python&Django ", "백엔드 개발 부트캠프"],
-    "description": ["탄탄한 백엔드 기본기에 AI 활용 능력까지 한 번에!"],
-    "link": "https://camp.orm.im/backend-ai?utm_source=modulabs&utm_medium=on_banner_all&utm_campaign=kdt_23_10&utm_content=m_bran_bk_home-main-bn-seminar_1206"
   }
 ]
