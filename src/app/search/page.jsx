@@ -79,12 +79,12 @@ export default function Search() {
                     <li key={idx} className={classNames(styles.resultSection)}>
                       <Link href={data.link}>
                         <p className={classNames(styles.subTitle)}>
-                          {highlightKeyword(data.subTitle, searchQuery)}
+                          {highlightKeyword(data.title, searchQuery)}
                         </p>
                         <p className={classNames(styles.path)}>
                           {highlightKeyword(
                             `${windowWidth > 640 ? data.bookTitle : '...'} ${
-                              data.chapterTitle ? '> ' + data.chapterTitle : ''
+                              data.chapter ? '> ' + data.chapter : ''
                             }  ${data.title ? '> ' + data.title : ''}`,
                             searchQuery,
                           )}
