@@ -31,7 +31,7 @@ function highlightKeyword(text, keyword) {
 export default function Search() {
   // 검색 키워드
   const params = useSearchParams();
-  const searchQuery = params.get('keyword')?.trim().replaceAll(' ', '');
+  const searchQuery = params.get('keyword')?.trim();
   const [searchResults, setSearchResults] = useState(null);
   const [page, setPage] = useState(1);
   const { windowWidth } = useWindowSize();
