@@ -4,6 +4,7 @@
     "subText": "지금 이 책의 저자와 함께 공부해요!",
     "src": "/images/banner/banner1.png",
     "bgColor": "#FFE76F",
+    "textColor": "#000",
     "url": "https://bootcamp.weniv.co.kr/"
   },
   {
