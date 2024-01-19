@@ -21,7 +21,9 @@ const EXCEPTBOOKLIST = ['python']; // 검색대상에서 제외할 책 리스트
  * @returns {string[]} 필터링 된 책 리스트
  */
 const exceptBook = (bookList, exceptBookList) => {
-  const result = bookList.filter((book) => !exceptBookList.includes(book));
+  const result = bookList
+    .filter((book) => !exceptBookList.includes(book.toLowerCase()))
+    .filter((book) => book.toLowerCase() !== '.ds_store');
   return result;
 };
 
