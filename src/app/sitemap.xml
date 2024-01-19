@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<url>
+  <loc>https://www.books.weniv.co.kr/</loc>
+  <lastmod>2024-01-18T01:39:50+00:00</lastmod>
+  <priority>1.00</priority>
+</url>
+
+<!-- 책 메인 -->
+<url>
+  <loc>https://www.books.weniv.co.kr/wenivworld</loc>
+  <lastmod>2024-01-18T01:39:50+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://www.books.weniv.co.kr/wenivworld-teacher</loc>
+  <lastmod>2024-01-18T01:39:50+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+
+<!-- 검색 -->
+<url>
+  <loc>https://www.books.weniv.co.kr/search</loc>
+  <lastmod>2024-01-18T01:39:50+00:00</lastmod>
+  <priority>0.50</priority>
+</url>
+
+<!-- 위니브 월드(학생용) -->
+<url>
+  <loc>https://www.books.weniv.co.kr/wenivworld/intro</loc>
+  <lastmod>2024-01-18T01:39:50+00:00</lastmod>
+  <priority>0.30</priority>
+</url>
+<url>
+  <loc>https://www.books.weniv.co.kr/wenivworld/intro/author</loc>
+  <lastmod>2024-01-18T01:39:50+00:00</lastmod>
+  <priority>0.30</priority>
+</url>
+<url>
+  <loc>https://www.books.weniv.co.kr/wenivworld/intro/platform</loc>
+  <lastmod>2024-01-18T01:39:50+00:00</lastmod>
+  <priority>0.30</priority>
+</url>
+<url>
+  <loc>https://www.books.weniv.co.kr/wenivworld/expedition</loc>
+  <lastmod>2024-01-18T01:39:50+00:00</lastmod>
+  <priority>0.30</priority>
+</url>
+<url>
+  <loc>https://www.books.weniv.co.kr/wenivworld/expedition/01</loc>
+  <lastmod>2024-01-18T01:39:50+00:00</lastmod>
+  <priority>0.30</priority>
+</url>
+<url>
+  <loc>https://www.books.weniv.co.kr/wenivworld/expedition/02</loc>
+  <lastmod>2024-01-18T01:39:50+00:00</lastmod>
+  <priority>0.30</priority>
+</url>
+<url>
+  <loc>https://www.books.weniv.co.kr/wenivworld/expedition/03</loc>
+  <lastmod>2024-01-18T01:39:50+00:00</lastmod>
+  <priority>0.30</priority>
+</url>
+<url>
+  <loc>https://www.books.weniv.co.kr/wenivworld/expedition/04</loc>
+  <lastmod>2024-01-18T01:39:50+00:00</lastmod>
+  <priority>0.30</priority>
+</url>
+<url>
+  <loc>https://www.books.weniv.co.kr/wenivworld/expedition/05</loc>
+  <lastmod>2024-01-18T01:39:50+00:00</lastmod>
+  <priority>0.30</priority>
+</url>
+<url>
+  <loc>https://www.books.weniv.co.kr/wenivworld/expedition/06</loc>
+  <lastmod>2024-01-18T01:39:50+00:00</lastmod>
+  <priority>0.30</priority>
+</url>
+<url>
+  <loc>https://www.books.weniv.co.kr/wenivworld/expedition/07</loc>
+  <lastmod>2024-01-18T01:39:50+00:00</lastmod>
+  <priority>0.30</priority>
+</url>
+<url>
+  <loc>https://www.books.weniv.co.kr/wenivworld/expedition/08</loc>
+  <lastmod>2024-01-18T01:39:50+00:00</lastmod>
+  <priority>0.30</priority>
+</url>
+<url>
+  <loc>https://www.books.weniv.co.kr/wenivworld/expedition/09</loc>
+  <lastmod>2024-01-18T01:39:50+00:00</lastmod>
+  <priority>0.30</priority>
+</url>
+<url>
+  <loc>https://www.books.weniv.co.kr/wenivworld/expedition/10</loc>
+  <lastmod>2024-01-18T01:39:50+00:00</lastmod>
+  <priority>0.30</priority>
+</url>
+<url>
+  <loc>https://www.books.weniv.co.kr/wenivworld/command-dictionary</loc>
+  <lastmod>2024-01-18T01:39:50+00:00</lastmod>
+  <priority>0.30</priority>
+</url>
+
+<!-- 위니브 월드(선생님용) -->
+<url>
+  <loc>https://www.books.weniv.co.kr/wenivworld-teacher/intro</loc>
+  <lastmod>2024-01-18T01:39:50+00:00</lastmod>
+  <priority>0.30</priority>
+</url>
+<url>
+  <loc>https://www.books.weniv.co.kr/wenivworld-teacher/intro/author</loc>
+  <lastmod>2024-01-18T01:39:50+00:00</lastmod>
+  <priority>0.30</priority>
+</url>
+<url>
+  <loc>https://www.books.weniv.co.kr/wenivworld-teacher/intro/platform</loc>
+  <lastmod>2024-01-18T01:39:50+00:00</lastmod>
+  <priority>0.30</priority>
+</url>
+<url>
+  <loc>https://www.books.weniv.co.kr/wenivworld-teacher/expedition</loc>
+  <lastmod>2024-01-18T01:39:50+00:00</lastmod>
+  <priority>0.30</priority>
+</url>
+<url>
+  <loc>https://www.books.weniv.co.kr/wenivworld-teacher/expedition/01</loc>
+  <lastmod>2024-01-18T01:39:50+00:00</lastmod>
+  <priority>0.30</priority>
+</url>
+<url>
+  <loc>https://www.books.weniv.co.kr/wenivworld-teacher/expedition/02</loc>
+  <lastmod>2024-01-18T01:39:50+00:00</lastmod>
+  <priority>0.30</priority>
+</url>
+<url>
+  <loc>https://www.books.weniv.co.kr/wenivworld-teacher/expedition/03</loc>
+  <lastmod>2024-01-18T01:39:50+00:00</lastmod>
+  <priority>0.30</priority>
+</url>
+<url>
+  <loc>https://www.books.weniv.co.kr/wenivworld-teacher/expedition/04</loc>
+  <lastmod>2024-01-18T01:39:50+00:00</lastmod>
+  <priority>0.30</priority>
+</url>
+<url>
+  <loc>https://www.books.weniv.co.kr/wenivworld-teacher/expedition/05</loc>
+  <lastmod>2024-01-18T01:39:50+00:00</lastmod>
+  <priority>0.30</priority>
+</url>
+<url>
+  <loc>https://www.books.weniv.co.kr/wenivworld-teacher/expedition/06</loc>
+  <lastmod>2024-01-18T01:39:50+00:00</lastmod>
+  <priority>0.30</priority>
+</url>
+<url>
+  <loc>https://www.books.weniv.co.kr/wenivworld-teacher/expedition/07</loc>
+  <lastmod>2024-01-18T01:39:50+00:00</lastmod>
+  <priority>0.30</priority>
+</url>
+<url>
+  <loc>https://www.books.weniv.co.kr/wenivworld-teacher/expedition/08</loc>
+  <lastmod>2024-01-18T01:39:50+00:00</lastmod>
+  <priority>0.30</priority>
+</url>
+<url>
+  <loc>https://www.books.weniv.co.kr/wenivworld-teacher/expedition/09</loc>
+  <lastmod>2024-01-18T01:39:50+00:00</lastmod>
+  <priority>0.30</priority>
+</url>
+<url>
+  <loc>https://www.books.weniv.co.kr/wenivworld-teacher/expedition/10</loc>
+  <lastmod>2024-01-18T01:39:50+00:00</lastmod>
+  <priority>0.30</priority>
+</url>
+<url>
+  <loc>https://www.books.weniv.co.kr/wenivworld-teacher/command-dictionary</loc>
+  <lastmod>2024-01-18T01:39:50+00:00</lastmod>
+  <priority>0.30</priority>
+</url>
+
+</urlset>

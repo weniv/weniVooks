@@ -1,0 +1,8 @@
+user-agent : *
+Disallow: /api
+Disallow: /pyscript
+Disallow: /codeblock
+Disallow: /_sample
+
+Disallow: /python
+

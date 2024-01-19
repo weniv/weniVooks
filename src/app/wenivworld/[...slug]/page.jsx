@@ -12,9 +12,17 @@ export async function generateMetadata({ params }, parent) {
       type: 'website',
       title: `${title ? title + ' | ' : ''} ${TITLE}`,
       description: DESC,
-      // url: `${url}`,
       siteName: TITLE,
-      images: [`/images${DEFAULT_PATH}/og.png`, ...previousImages],
+      images: [
+        `https://books.weniv.co.kr/images${DEFAULT_PATH}/og.png`,
+        ...previousImages,
+      ],
+    },
+    twitter: {
+      card: 'summary',
+      title: `${title ? title + ' | ' : ''} ${TITLE}`,
+      description: DESC,
+      images: OGIMG,
     },
   };
 }
