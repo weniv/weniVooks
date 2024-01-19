@@ -14,6 +14,7 @@ const source_code_pro = Source_Code_Pro({
 });
 
 export const metadata = {
+  metadataBase: new URL('https://books.weniv.co.kr'),
   title: '위니북스',
   description: '위니브의 다양한 교안을 웹에서 확인해보세요!',
   openGraph: {

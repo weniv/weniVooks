@@ -3,8 +3,8 @@ export const TITLE = '파이썬 부트캠프';
 export const DESC = '위니브의 다양한 교안을 웹에서 확인해보세요!';
 
 export const OGIMG = [
-  `https://books.weniv.co.kr/images${DEFAULT_PATH}/og.png`,
-  `https://books.weniv.co.kr/images/opengraph-image.png`,
+  `/images${DEFAULT_PATH}/og.png`,
+  `/images/opengraph-image.png`,
 ];
 export const META_DATA = {
   title: `${TITLE} | 위니북스`,
