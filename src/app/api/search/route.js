@@ -15,7 +15,6 @@ export async function GET(req) {
 
     const keyword = searchParams.get('keyword') || '';
     const mdFiles = getFiles(ABSOLUTE_PATH); // .md 파일 리스트
-
     const data = fileteredFiles(mdFiles, keyword);
     const result = customizedData(data, keyword);
 

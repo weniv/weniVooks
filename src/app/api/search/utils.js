@@ -3,12 +3,11 @@ import {
   textNormalize,
   filteredChapter,
   getChapterContent,
-  getSubTitle,
   getBookTitle,
   getMetaData,
 } from '@/app/search/searchUtils';
-import fs from 'fs';
-import path from 'path';
+import fs, { readdirSync, statSync, readFileSync } from 'fs';
+import path, { join } from 'path';
 
 export const CWD = process.cwd();
 export const BASEURL = '_md';
@@ -17,22 +16,15 @@ const EXCEPTBOOKLIST = ['python']; // 검색대상에서 제외할 책 리스트
 
 /**
  * 검색 대상에서 특정책 제외
- * @param {string} filePath 파일의 디렉토리 경로
+ * @param {string[]} filePath 책 리스트
  * @param {string[]} exceptBookList 검색에서 제외할 책 리스트
- * @returns {string} 필터링된 파일의 주소
+ * @returns {string[]} 필터링 된 책 리스트
  */
-
-const exceptBook = (filePath, exceptBookList) => {
-  const kind = filePath
-    .replace(ABSOLUTE_PATH, '')
-    .split(path.sep)
-    .filter((part) => part !== '')[0];
-
-  if (!exceptBookList.includes(kind)) {
-    return filePath;
-  }
-
-  return null;
+const exceptBook = (bookList, exceptBookList) => {
+  const result = bookList
+    .filter((book) => !exceptBookList.includes(book.toLowerCase()))
+    .filter((book) => book.toLowerCase() !== '.ds_store');
+  return result;
 };
 
 /**
@@ -44,18 +36,29 @@ export const getFiles = (absolutePath) => {
   const files = fs.readdirSync(absolutePath);
   let fileList = [];
 
-  files.forEach((file) => {
-    const filePath = path.join(absolutePath, file);
-    const stat = fs.statSync(filePath);
+  // 검색에서 제외할 책을 필터링
+  const filteredBookList = exceptBook(files, EXCEPTBOOKLIST);
 
-    const filteredPath = exceptBook(filePath, EXCEPTBOOKLIST);
+  const readDir = (dirPath) => {
+    const mdFiles = readdirSync(dirPath);
 
-    if (stat.isDirectory() && filteredPath !== null) {
-      fileList = fileList.concat(getFiles(filteredPath));
-    } else if (file.endsWith('.md') && filteredPath !== null) {
-      fileList.push(filePath);
-    }
+    mdFiles.forEach((md) => {
+      const mdFilePath = join(dirPath, md);
+      const isDir = statSync(mdFilePath).isDirectory();
+
+      if (isDir) {
+        readdirSync(mdFilePath).forEach((md) => {
+          fileList.push(join(mdFilePath, md));
+        });
+      }
+    });
+  };
+
+  filteredBookList.forEach((file) => {
+    const filePath = join(absolutePath, file);
+    readDir(filePath);
   });
+
   return fileList;
 };
 
@@ -70,7 +73,7 @@ export const getFiles = (absolutePath) => {
 export const fileteredFiles = (files, keyword) => {
   const result = [];
   for (const file of files) {
-    const wholefiles = textNormalize(fs.readFileSync(file).toString());
+    const wholefiles = textNormalize(readFileSync(file).toString());
 
     if (wholefiles.includes(keyword)) {
       let val = {
@@ -94,37 +97,28 @@ export const fileteredFiles = (files, keyword) => {
 export const customizedData = (dataList, keyword) => {
   const fileDataList = [];
 
+  // 책 별로 한 번만 출력하도록 수정
   for (const data of dataList) {
     const html = data.file;
     const link = data.path.replace(ABSOLUTE_PATH, '').replace(/\.md$/, '');
-    // .replaceAll('\\', '/');
-
     const getTitleData = getMetaData(html);
     const title = getTitleData.title; // .md 파일 제목
-    const chapterTitle = getTitleData.chapterTitle; // 챕터 분류 제목
+    const chapter = getTitleData.chapterTitle; // .md 파일 챕터명
+    const bookTitle = getBookTitle(link); // ,md 파일 책 제목
+    let content;
 
-    let subTitle; // 키워드가 포함된 챕터의 소제목
     const chapterList = filteredChapter(html, keyword); // 키워드를 포함하는 챕터
-
-    for (const chapter of chapterList) {
-      subTitle = getSubTitle(chapter);
-      const content = getChapterContent(chapter, keyword); // 키워드가 포함된 챕터 문장, 최대 3줄
-
-      // const breadcrumbdata = getBreadcrumb(link);
-      const bookTitle = getBookTitle(link);
-
-      if (subTitle && content.length !== 0) {
-        fileDataList.push({
-          bookTitle,
-          title,
-          chapterTitle,
-          subTitle,
-          content,
-          link,
-          // breadcrumb: `${'책제목'} > ${'챕터명'} > ${title}`,
-        });
-      }
+    for (const data of chapterList) {
+      content = getChapterContent(data, keyword);
     }
+
+    fileDataList.push({
+      bookTitle,
+      chapter,
+      title,
+      link,
+      content,
+    });
   }
 
   return fileDataList;

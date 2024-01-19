@@ -398,6 +398,11 @@ export const getChapterContent = (chapter, keyword) => {
 //   return result;
 // };
 
+/**
+ * md 파일 책 이름 출력하는 함수
+ * @param {string} link .md 파일 링크
+ * @returns {string} 책 이름
+ */
 export const getBookTitle = (link) => {
   const result = link.split('/').filter((part) => part !== '')[0];
   return choiceBookKind(result);
