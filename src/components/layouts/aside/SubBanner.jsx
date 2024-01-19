@@ -10,11 +10,13 @@ export default function SubBanner() {
     return (
       <div className={styles.banner}>
         <a
-          href="#"
+          href={banner[randomNum].url}
+          target="_blank"
           style={{
             backgroundColor:
               banner[randomNum].bgColor && banner[randomNum].bgColor,
             color: banner[randomNum].textColor && banner[randomNum].textColor,
+            border: banner[randomNum].bgColor && 'none',
           }}
         >
           <h3>{banner[randomNum].title}</h3>

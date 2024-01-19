@@ -27,7 +27,7 @@
     "remark-parse": "^11.0.0",
     "remark-rehype": "^11.0.0",
     "sass": "^1.66.1",
-    "sharp": "^0.33.1",
+    "sharp": "^0.33.2",
     "supports-color": "^8.1.1",
     "swiper": "^11.0.5",
     "unified": "^11.0.4"

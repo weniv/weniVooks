@@ -1,14 +1,17 @@
 [
   {
-    "title": "앙증 폭발! 위니브 프렌즈 인형",
-    "subText": "2023 위니브 창립 3주년 기념",
-    "src": "/images/banner/banner1.png"
+    "title": "위니브 부트캠프",
+    "subText": "지금 이 책의 저자와 함께 공부해요!",
+    "src": "/images/banner/banner1.png",
+    "bgColor": "#FFE76F",
+    "url": "https://bootcamp.weniv.co.kr/"
   },
   {
-    "title": "스터디인",
-    "subText": "같이 공부할 사람을 모아봐요",
+    "title": "지역기반 개발 스터디! 스터디인",
+    "subText": "지금 이 책! 같이 공부할 사람을 모아봐요",
     "src": "/images/banner/banner2.png",
-    "bgColor": "#5C8EF2",
-    "textColor": "#fff"
+    "bgColor": "rgb(46, 111, 242)",
+    "textColor": "#fff",
+    "url": "https://www.studyin.co.kr/"
   }
 ]
