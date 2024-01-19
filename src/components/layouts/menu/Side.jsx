@@ -79,13 +79,9 @@ export default function Side(props) {
   };
 
   useEffect(() => {
-    if (windowWidth !== null && windowWidth <= 1024) {
-      // 모바일
-      if (isMenuShow) {
-        setIsMenuShow(false);
-      }
-    } else {
-      // PC
+    if (windowWidth <= 1024 && isMenuShow) {
+      setIsMenuShow(false);
+    } else if (windowWidth > 1024) {
       setIsMenuShow(isSavedClose ? false : true);
     }
   }, [windowWidth, path]);
@@ -112,8 +108,8 @@ export default function Side(props) {
         window.addEventListener('click', handleOutsideClick);
         window.addEventListener('keydown', handleESC);
 
-        const firstItem = slideRef?.current.querySelector('a, button');
-        firstItem.addEventListener('keydown', handleFocusLast);
+        const firstItem = slideRef.current?.querySelector('a, button');
+        firstItem?.addEventListener('keydown', handleFocusLast);
       });
     }
 
@@ -121,7 +117,7 @@ export default function Side(props) {
       window.removeEventListener('click', handleOutsideClick);
       window.removeEventListener('keydown', handleESC);
     };
-  }, [isMenuShow]);
+  }, [isMenuShow, slideRef]);
 
   return (
     <>
