@@ -41,6 +41,10 @@ jobs:
     - name: Build
       run: npm run build
 
+    # 빌드 파일이 생성되었는지 체그
+    - name: Check Build Directory
+      run: ls -al
+
     # AWS 인증
     - name: AWS Auth
       uses: aws-actions/configure-aws-credentials@v1
