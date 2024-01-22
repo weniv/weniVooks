@@ -39,9 +39,9 @@ jobs:
       if: steps.cache.outputs.cache-hit != 'true'
       run: npm install
 
-    # 빌드 및 대체 페이지 생성
+    # 프로젝트 빌드
     - name: Build
-      run: CI='false' npm run build && cp ./build/index.html ./build/404.html
+      run: npm run build
 
     # AWS 인증
     - name: AWS Auth
