@@ -1,4 +1,4 @@
-import { Source_Code_Pro } from 'next/font/google';
+import { Source_Code_Pro, Nanum_Myeongjo } from 'next/font/google';
 
 import Script from 'next/script';
 
@@ -6,11 +6,18 @@ import '@/styles/globals.scss';
 
 import SettingProvider from '@/context/SettingContext';
 import Body from '@/components/layouts/body/Body';
+import classNames from 'classnames';
 
 const source_code_pro = Source_Code_Pro({
   subsets: ['latin'],
   weight: ['500'],
   variable: '--code',
+});
+
+const nanum_myeongjo = Nanum_Myeongjo({
+  subsets: ['latin'],
+  weight: ['400', '700', '800'],
+  variable: '--myeongjo',
 });
 
 export const metadata = {
@@ -35,7 +42,10 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="ko-KR" className={source_code_pro.variable}>
+    <html
+      lang="ko-KR"
+      className={classNames(source_code_pro.variable, nanum_myeongjo.variable)}
+    >
       <Script
         async
         src={`https://www.googletagmanager.com/gtag/js?id=${process.env.GA_ID}`}

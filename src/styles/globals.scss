@@ -1,5 +1,4 @@
 @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css');
-@import url(//fonts.googleapis.com/earlyaccess/nanummyeongjo.css);
 
 @import '@/styles/var.scss';
 @import '@/styles/function.scss';
@@ -81,7 +80,7 @@ body {
 }
 
 .serif {
-  font-family: 'Nanum Myeongjo', serif;
+  font-family: var(--myeongjo), serif;
 }
 
 /* 테마 ------------------------------------------------------- */

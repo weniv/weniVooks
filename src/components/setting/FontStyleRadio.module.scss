@@ -17,6 +17,7 @@
 .sansSerif {
   font-family: 'Pretendard', sans-serif;
 }
+
 .serif span {
-  font-family: 'Nanum Myeongjo', serif;
+  font-family: var(--myeongjo), serif;
 }
