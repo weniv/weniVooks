@@ -10,7 +10,7 @@ export default function Home() {
       <Header type="intro" />
       <div className="layout-grow">
         <Banner />
-        <h1>힘이 센 대왕 고릴라</h1>
+        <h1>힘이 짱짱 센 대왕 고릴라</h1>
         <BookList />
       </div>
       <Footer intro={true} />
