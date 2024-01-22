@@ -10,17 +10,6 @@
     "description": [
       "React 기초부터 실무까지, 5일이면 ‘큰 그림’을 그리기에 충분합니다!"
     ],
-    "link": "/react"
-  },
-  {
-    "bgColor": "#FFE76F",
-    "categoryColor": "#fff",
-    "categoryBg": "#121314",
-    "thumbnail": "/images/banner/main-banner-img3.webp",
-    "thumbnailMobile": "/images/banner/main-banner-img3-m.webp",
-    "category": "신규 부트캠프 오픈",
-    "title": ["JS 부트캠프 1기", ": 기본 문법부터 코테까지"],
-    "description": ["JavaScript 기초부터 코딩테스트까지 속성으로 함께해요!"],
-    "link": "/javascript"
+    "link": "http://bootcamp.weniv.co.kr/react"
   }
 ]
