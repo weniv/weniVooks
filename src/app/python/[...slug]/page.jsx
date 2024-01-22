@@ -3,7 +3,6 @@ import { DEFAULT_PATH, TITLE, DESC, OGIMG } from '../data';
 
 export async function generateMetadata({ params }, parent) {
   const { title } = await getPostDetail(DEFAULT_PATH, params.slug);
-  const previousImages = (await parent).openGraph?.images || [];
 
   return {
     title: `${title ? title + ' | ' : ''} ${TITLE}`,
@@ -12,7 +11,7 @@ export async function generateMetadata({ params }, parent) {
       title: `${title ? title + ' | ' : ''} ${TITLE}`,
       description: DESC,
       siteName: TITLE,
-      images: [`/images${DEFAULT_PATH}/og.png`, ...previousImages],
+      images: [`/images${DEFAULT_PATH}/og.png`],
     },
     twitter: {
       card: 'summary',
