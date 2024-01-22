@@ -3,8 +3,6 @@ name: wenivooks-lightsail-depeloy
 on:
   push:
     branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
 
 env:
   LIGHTSAIL_SSH_KEY: ${{ secrets.LIGHTSAIL_SSH_KEY }}
@@ -56,15 +54,15 @@ jobs:
       run: aws configure list
 
     # 배포
-    # - name: deploy
-    #   uses: appleboy/scp-action@master
-    #   with:
-    #     host: ${{ secrets.LIGHTSAIL_HOST }}
-    #     username: ${{env.LIGHTSAIL_USERNAME}}
-    #     key: ${{ secrets.LIGHTSAIL_SSH_KEY }}
-    #     source: '.next/**/*'
-    #     strip_components: 1
-    #     target: '/home/bitnami/htdocs/weniVooks'
+    - name: deploy
+      uses: appleboy/scp-action@master
+      with:
+        host: ${{ secrets.LIGHTSAIL_HOST }}
+        username: ${{env.LIGHTSAIL_USERNAME}}
+        key: ${{ secrets.LIGHTSAIL_SSH_KEY }}
+        source: '.next/**/*'
+        strip_components: 1
+        target: '/home/bitnami/htdocs/weniVooks'
 
     - name: Restart PM2 process
       uses: appleboy/ssh-action@master
