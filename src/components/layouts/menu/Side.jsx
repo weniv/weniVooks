@@ -87,6 +87,7 @@ export default function Side(props) {
       setIsMenuShow(false);
     } else if (windowWidth > 1024) {
       setIsMenuShow(isSavedClose ? false : true);
+      handleAllowScroll();
     }
   }, [windowWidth, path]);
 
