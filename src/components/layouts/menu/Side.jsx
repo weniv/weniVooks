@@ -23,7 +23,7 @@ export default function Side(props) {
   const { windowWidth } = useWindowSize();
   const { isSavedClose, setIsSavedClose } = useContext(SettingContext);
   const [isMenuShow, setIsMenuShow] = useState(
-    isSavedClose ? false : windowWidth < 1024 ? false : true,
+    isSavedClose ? false : windowWidth <= 1024 ? false : true,
   );
   const slideRef = useRef(null);
 
@@ -61,7 +61,11 @@ export default function Side(props) {
     } else {
       // SlideIn(열림)
       setIsMenuShow(true);
-      handlePreventScroll();
+
+      if (windowWidth <= 1024) {
+        handlePreventScroll();
+      }
+
       setTimeout(() => {
         slideRef?.current.classList.add(styles.slideIn);
 
@@ -103,7 +107,7 @@ export default function Side(props) {
       }
     };
 
-    if (isMenuShow && windowWidth !== null && windowWidth < 1024) {
+    if (isMenuShow && windowWidth !== null && windowWidth <= 1024) {
       setTimeout(() => {
         window.addEventListener('click', handleOutsideClick);
         window.addEventListener('keydown', handleESC);
@@ -125,7 +129,7 @@ export default function Side(props) {
         <>
           <div ref={slideRef} className={classNames(styles.side)}>
             <Nav {...props} />
-            {windowWidth !== null && windowWidth >= 1024 && <Footer />}
+            {windowWidth !== null && windowWidth > 1024 && <Footer />}
             <BtnIcon
               className={styles.btnClose}
               bordernone="true"
@@ -136,7 +140,7 @@ export default function Side(props) {
               <span className="a11y-hidden">메뉴 닫기</span>
             </BtnIcon>
           </div>
-          {windowWidth !== null && windowWidth < 1024 && (
+          {windowWidth !== null && windowWidth <= 1024 && (
             <>
               <div className="dim"></div>
             </>
