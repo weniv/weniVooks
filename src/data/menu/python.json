@@ -1,5 +1,5 @@
 {
-  "title": "파이썬 부트캠프",
+  "title": "견고한 파이썬",
   "link": "/python",
   "sections": [
     {
@@ -20,7 +20,6 @@
         }
       ]
     },
-
     {
       "title": "01장 파이썬과 인사하기",
       "link": "/python/chapter01",
@@ -36,6 +35,190 @@
         {
           "title": "01.3 파이썬 학습 방법",
           "link": "/python/chapter01/01-3"
+        }
+      ]
+    },
+    {
+      "title": "02장 파이썬 시작하기",
+      "link": "/python/chapter02",
+      "sections": [
+        {
+          "title": "02.1 구글 코랩(Google Colaboratory) 사용법",
+          "link": "/python/chapter02/02-1"
+        },
+        {
+          "title": "02.2 주석",
+          "link": "/python/chapter02/02-2"
+        },
+        {
+          "title": "02.3 입력(input)과 출력(print)",
+          "link": "/python/chapter02/02-3"
+        }
+      ]
+    },
+    {
+      "title": "03장 타입",
+      "link": "/python/chapter03",
+      "sections": [
+        {
+          "title": "03.1 변수",
+          "link": "/python/chapter03/03-1"
+        },
+        {
+          "title": "03.2 정수(int) 자료형",
+          "link": "/python/chapter03/03-2"
+        },
+        {
+          "title": "03.3 실수(float) 자료형",
+          "link": "/python/chapter03/03-3"
+        },
+        {
+          "title": "03.4 복소수(complex) 자료형",
+          "link": "/python/chapter03/03-4"
+        },
+        {
+          "title": "03.5 문자열(str) 자료형",
+          "link": "/python/chapter03/03-5"
+        },
+        {
+          "title": "03.6 논리(bool) 자료형",
+          "link": "/python/chapter03/03-6"
+        },
+        {
+          "title": "03.7 None 자료형",
+          "link": "/python/chapter03/03-7"
+        },
+        {
+          "title": "03.8 메서드 채이닝",
+          "link": "/python/chapter03/03-8"
+        },
+        {
+          "title": "03.9 형변환",
+          "link": "/python/chapter03/03-9"
+        },
+        {
+          "title": "03.10 연습문제",
+          "link": "/python/chapter03/03-10"
+        }
+      ]
+    },
+    {
+      "title": "04장 연산과 구문",
+      "link": "/python/chapter04",
+      "sections": [
+        {
+          "title": "04.1 연산자",
+          "link": "/python/chapter04/04-1"
+        },
+        {
+          "title": "04.2 산술연산",
+          "link": "/python/chapter04/04-2"
+        },
+        {
+          "title": "04.3 비교연산",
+          "link": "/python/chapter04/04-3"
+        },
+        {
+          "title": "04.4 논리연산",
+          "link": "/python/chapter04/04-4"
+        },
+        {
+          "title": "04.5 할당 연산",
+          "link": "/python/chapter04/04-5"
+        },
+        {
+          "title": "04.6 식별연산(is 구문, id)",
+          "link": "/python/chapter04/04-6"
+        },
+        {
+          "title": "04.7 멤버연산(in 구문)",
+          "link": "/python/chapter04/04-7"
+        },
+        {
+          "title": "04.8 연산과 연산자 우선순위",
+          "link": "/python/chapter04/04-8"
+        },
+        {
+          "title": "04.9 연습문제",
+          "link": "/python/chapter04/04-9"
+        }
+      ]
+    },
+    {
+      "title": "05장 리스트, 튜플, 딕셔너리, 셋",
+      "link": "/python/chapter05",
+      "sections": [
+        {
+          "title": "05.1 시퀀스 자료형",
+          "link": "/python/chapter05/05-1"
+        },
+        {
+          "title": "05.2 리스트(list)",
+          "link": "/python/chapter05/05-2"
+        },
+        {
+          "title": "05.3 튜플(tuple)",
+          "link": "/python/chapter05/05-3"
+        },
+        {
+          "title": "05.4 딕셔너리(dict)",
+          "link": "/python/chapter05/05-4"
+        },
+        {
+          "title": "05.5 셋(set)",
+          "link": "/python/chapter05/05-5"
+        },
+        {
+          "title": "05.6 연습문제",
+          "link": "/python/chapter05/05-6"
+        }
+      ]
+    },
+    {
+      "title": "06장 함수",
+      "link": "/python/chapter06",
+      "sections": [
+        {
+          "title": "06.1 함수와 인사하기",
+          "link": "/python/chapter06/06-1"
+        },
+        {
+          "title": "06.2 간단한 함수 만들어보기",
+          "link": "/python/chapter06/06-2"
+        },
+        {
+          "title": "06.3 함수의 아규먼트와 파라미터",
+          "link": "/python/chapter06/06-3"
+        },
+        {
+          "title": "06.4 지역 변수와 전역 변수",
+          "link": "/python/chapter06/06-4"
+        },
+        {
+          "title": "06.5 함수에서 pass 사용하기",
+          "link": "/python/chapter06/06-5"
+        },
+        {
+          "title": "06.6 연습문제",
+          "link": "/python/chapter06/06-6"
+        }
+      ]
+    },
+    {
+      "title": "07장 조건문",
+      "link": "/python/chapter07",
+      "sections": [
+        {
+          "title": "07.1 if",
+          "link": "/python/chapter07/07-1"
+        },
+        {
+          "title": "07.2 if, elif, else와 중첩 조건문",
+          "link": "/python/chapter07/07-2"
+        },
+        {
+          "title": "07.3 match",
+          "link": "/python/chapter07/07-3"
         }
       ]
     },
@@ -62,6 +245,212 @@
         {
           "title": "08.5 연습문제",
           "link": "/python/chapter08/08-5"
+        }
+      ]
+    },
+    {
+      "title": "09장 클래스",
+      "link": "/python/chapter09",
+      "sections": [
+        {
+          "title": "09.1 클래스란",
+          "link": "/python/chapter09/09-1"
+        },
+        {
+          "title": "09.2 클래스 변수와 인스턴스 변수",
+          "link": "/python/chapter09/09-2"
+        },
+        {
+          "title": "09.3 클래스를 왜 써야 하는가?",
+          "link": "/python/chapter09/09-3"
+        },
+        {
+          "title": "09.4 매직 메서드(magic method)",
+          "link": "/python/chapter09/09-4"
+        },
+        {
+          "title": "09.5 상속",
+          "link": "/python/chapter09/09-5"
+        },
+        {
+          "title": "09.6 다중 상속",
+          "link": "/python/chapter09/09-6"
+        },
+        {
+          "title": "09.7 클래스 심화",
+          "link": "/python/chapter09/09-7"
+        },
+        {
+          "title": "09.8 메서드 오버라이딩",
+          "link": "/python/chapter09/09-8"
+        },
+        {
+          "title": "09.9 추상 클래스와 인터페이스",
+          "link": "/python/chapter09/09-9"
+        },
+        {
+          "title": "09.10 비공개 속성",
+          "link": "/python/chapter09/09-10"
+        },
+        {
+          "title": "09.11 연습문제",
+          "link": "/python/chapter09/09-11"
+        }
+      ]
+    },
+    {
+      "title": "10장 모듈과 패키지",
+      "link": "/python/chapter10",
+      "sections": [
+        {
+          "title": "10.1 모듈과 패키지",
+          "link": "/python/chapter10/10-1"
+        },
+        {
+          "title": "10.2 모듈과 패키지 관리",
+          "link": "/python/chapter10/10-2"
+        }
+      ]
+    },
+    {
+      "title": "11장 예외처리",
+      "link": "/python/chapter11",
+      "sections": [
+        {
+          "title": "11.1 예외 처리와 오류 관리",
+          "link": "/python/chapter11/11-1"
+        },
+        {
+          "title": "11.2 연습문제",
+          "link": "/python/chapter11/11-2"
+        }
+      ]
+    },
+    {
+      "title": "12장 함수 심화",
+      "link": "/python/chapter12",
+      "sections": [
+        {
+          "title": "12.1 메서드 체이닝",
+          "link": "/python/chapter12/12-1"
+        },
+        {
+          "title": "12.2 일급함수와 고차함수",
+          "link": "/python/chapter12/12-2"
+        },
+        {
+          "title": "12.3 여러개의 값 반환",
+          "link": "/python/chapter12/12-3"
+        },
+        {
+          "title": "12.4 재귀함수",
+          "link": "/python/chapter12/12-4"
+        },
+        {
+          "title": "12.5 클로저",
+          "link": "/python/chapter12/12-5"
+        },
+        {
+          "title": "12.6 데코레이터",
+          "link": "/python/chapter12/12-6"
+        },
+        {
+          "title": "12.7 함수의 다른 형태 lambda",
+          "link": "/python/chapter12/12-7"
+        },
+        {
+          "title": "12.8 args, kwargs",
+          "link": "/python/chapter12/12-8"
+        },
+        {
+          "title": "12.9 이터레이터와 제너레이터",
+          "link": "/python/chapter12/12-9"
+        },
+        {
+          "title": "12.10 nonlocal",
+          "link": "/python/chapter12/12-10"
+        },
+        {
+          "title": "12.11 연습문제",
+          "link": "/python/chapter12/12-11"
+        }
+      ]
+    },
+    {
+      "title": "13장 부록",
+      "link": "/python/chapter13",
+      "sections": [
+        {
+          "title": "13.1 파이썬 버전별 변경 사항",
+          "link": "/python/chapter13/13-1"
+        },
+        {
+          "title": "13.2 파일 다루기 | 파일 입출력",
+          "link": "/python/chapter13/13-2"
+        },
+        {
+          "title": "13.3 파일 입출력 연습문제",
+          "link": "/python/chapter13/13-3"
+        },
+        {
+          "title": "13.4 비트연산",
+          "link": "/python/chapter13/13-4"
+        },
+        {
+          "title": "13.5 f-string 문법과 서식 지정자",
+          "link": "/python/chapter13/13-5"
+        },
+        {
+          "title": "13.6 컴프리헨션",
+          "link": "/python/chapter13/13-6"
+        },
+        {
+          "title": "13.7 다차원 리스트와 Built-in functions",
+          "link": "/python/chapter13/13-7"
+        },
+        {
+          "title": "13.8 비동기와 코루틴",
+          "link": "/python/chapter13/13-8"
+        },
+        {
+          "title": "13.9 테스팅과 디버깅",
+          "link": "/python/chapter13/13-9"
+        },
+        {
+          "title": "13.10 정규표현식",
+          "link": "/python/chapter13/13-10"
+        },
+        {
+          "title": "13.11 collections 모듈",
+          "link": "/python/chapter13/13-11"
+        },
+        {
+          "title": "13.12 바이트와 바이트배열",
+          "link": "/python/chapter13/13-12"
+        },
+        {
+          "title": "13.13 Random",
+          "link": "/python/chapter13/13-13"
+        }
+      ]
+    },
+    {
+      "title": "14장 파이널 프로젝트",
+      "link": "/python/chapter14",
+      "sections": [
+        {
+          "title": "14.1 파이널 프로젝트",
+          "link": "/python/chapter14/14-1"
+        }
+      ]
+    },
+    {
+      "title": "15장 python 컨벤션",
+      "link": "/python/chapter15",
+      "sections": [
+        {
+          "title": "15.1 자주사용하는 파이썬 컨벤션",
+          "link": "/python/chapter15/15-1"
         }
       ]
     }

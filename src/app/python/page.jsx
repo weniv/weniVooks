@@ -5,7 +5,7 @@ export default async function Home() {
         <main className="main">
           <div className="main__inner">
             {/* contents */}
-            <h3 className="title">파이썬 부트캠프</h3>
+            <h3 className="title">견고한 파이썬</h3>
             <p>표지 준비중....</p>
             {/* contents */}
           </div>
