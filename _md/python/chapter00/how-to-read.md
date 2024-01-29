@@ -4,54 +4,36 @@ title: 이 책을 읽는 방법
 date: 2023-10-31
 ---
 
-# 이 책을 읽는 방법
+# 환경구축 없이 실행하며 학습하세요.
 
-## 요일별로 학습하세요.
+초급자에게 가장 큰 허들은 환경 설정입니다. [google colab](https://colab.research.google.com/?hl=ko)을 통해 설치없이 바로 학습하세요. 다만 google colab 서비스가 휴대폰이나 성인 인증이 된 google id가 있어야 하기 때문에 [위니브 노트북](https://notebook.weniv.co.kr/)을 제공합니다. 좀 더 재미있는 환경에서 학습할 수 있는 [위니브 월드](https://world.weniv.co.kr/)도 있으니 참고해주세요. 어떤 것으로 시작하셔도 좋으나 시작할 때부터 에너지를 빼앗기지 않도록 해주세요.
 
-일별 첼린지 사이트 제공? 해당 서비스는 저희 서비스입니다.
+![google colab](/images/python/chapter00-1.png)
 
-![](https://paullabworkspace.notion.site/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F25c88669-0194-4e9c-8ade-5d1567f7f4e3%2FUntitled.png?table=block&id=5927ad86-3133-4778-8fb1-dc911657a85f&spaceId=579fe283-28aa-489d-ae65-d683304becfc&width=580&userId=&cache=v2)
+![비로그인 서비스 위니브 노트북](/images/python/chapter00-2.png)
 
-[Day Habit Challenge](http://habitmaker.co.kr/)
+![파이썬을 실행시킬 수 있는 위니브 월드](/images/python/chapter00-3.png)
 
-## 환경구축 없이 실행하며 학습하세요.
+# 실행해보며 학습하세요.
 
-이 책은 python.weniv.co.kr에서 실습해보며 학습할 수 있습니다.
+해당 교안은 wenivooks 서비스에서 바로 실행해보며 학습할 수 있습니다.
 
-이미지 2장
+::a[위니북스]{class='btn-link' href="https://www.books.weniv.co.kr/" target="\_blank"}
 
-## 모바일에도 학습하세요.
+# 모바일에도 학습하세요.
 
 지하철에서, 버스에서도 실행시켜 보면서 학습할 수 있습니다. 바로 run을 시키며 학습하세요.
 
-이미지 3장
+# 연습문제로 도약하세요.
 
-## 연습문제로 도약하세요.
+알고리즘 서비스를 2개 제공합니다. Basic 100과 Best 20입니다. 공부한 것을 적용하여 문제를 풀이할 수 있는지 수업을 다 들은 후 Basic을 꼭 풀어보세요. 가장 기본적인 문제 100문제와 가장 자주 나오는 코딩테스트 문제 20문제를 출제하였습니다.
 
-사이트 만들까요?ㅎㅎ 아래 서비스처럼 챕터별 연습문제 풀이 서비스 제공이 가능합니다.
+::a[Python Algorithm 100 | WENIV]{class='btn-link' href="https://100.pyalgo.co.kr/" target="\_blank"}
 
-[Python Algorithm Best20 | WENIV](https://pyalgo.co.kr/)
+::a[Python Algorithm Best20 | WENIV]{class='btn-link' href="https://pyalgo.co.kr/" target="\_blank"}
 
-## 강의자료를 제공합니다.
+# 강의 요약 노트를 제공합니다.
 
-ppt, pdf 강의자료를 웹 서비스에서 제공합니다.
+해당 강의자료로 강의한 [강의 요약 노트](https://github.com/weniv/weniv_python_bootcamp)를 제공합니다. 해당 노트는 모든 강의자료를 담고 있지는 않습니다.
 
-## 심화학습을 제공합니다.
-
-여기서 다 다루지 못한 내용들이 있습니다. 이 내용들은 심화학습으로 묶어 divepython.weniv.co.kr에서 제공합니다.
-
-사진 2장
-
-## 강의 노트를 제공합니다.
-
-강의의 모든 코드가 담겨진 ipynb 코드를 제공합니다. 이 노트는 google Colaboratry에 노트 열기를 통해 열 수 있습니다.
-
-[초보자를*위한\_Python*톺아보기.ipynb](https://file.notion.so/f/s/16902be7-19dd-45fc-b5fd-0244ee26a4e8/%EC%B4%88%EB%B3%B4%EC%9E%90%EB%A5%BC_%EC%9C%84%ED%95%9C_Python_%ED%86%BA%EC%95%84%EB%B3%B4%EA%B8%B0.ipynb?id=0d4522ba-04fc-4ffd-980a-f4dfb1b48712&table=block&spaceId=579fe283-28aa-489d-ae65-d683304becfc&expirationTimestamp=1698832800000&signature=jQ12oO48h_wV70nKX77RA3UGIgEL-eUbOlTOZkp7bag&downloadName=%EC%B4%88%EB%B3%B4%EC%9E%90%EB%A5%BC_%EC%9C%84%ED%95%9C_Python_%ED%86%BA%EC%95%84%EB%B3%B4%EA%B8%B0.ipynb)
-
-![](https://paullabworkspace.notion.site/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F980ef525-1cdd-4d45-a6aa-96daffc9467c%2FUntitled.png?table=block&id=5c37134c-023e-458e-8626-596fb8d9f5a1&spaceId=579fe283-28aa-489d-ae65-d683304becfc&width=770&userId=&cache=v2)
-
-## 노트북 환경을 제공합니다.
-
-pynote.weniv.co.kr에서 로그인없이 바로 여러 코드를 테스트해보세요. 간단한 문법을 배우기 위해, 간단한 테스트를 하기 위해 사용할 수 있습니다. 타인의 컴퓨터이거나 colab에 가입하기 위한 나이가 안되거나, 구글에 로그인할 환경이 아니라면 해당 서비스를 통해 학습할 수 있습니다.
-
-![](https://paullabworkspace.notion.site/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F78909ce0-26db-4154-a9de-c8148830929c%2FUntitled.png?table=block&id=75754b4d-20f2-4c20-9979-555be106e8ee&spaceId=579fe283-28aa-489d-ae65-d683304becfc&width=2000&userId=&cache=v2)
+::a[GitHub: 위니브 파이썬 방학 부트캠프 4일]{class='btn-link' href="https://github.com/weniv/weniv_python_bootcamp" target="\_blank"}
