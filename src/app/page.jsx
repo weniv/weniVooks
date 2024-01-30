@@ -9,6 +9,7 @@ export default function Home() {
     <>
       <Header type="intro" />
       <div className="layout-grow">
+        <h1>배가 고프다 왜지</h1>
         <Banner />
         <BookList />
       </div>
