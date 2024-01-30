@@ -47,11 +47,17 @@ export default function PageControl({ data, DEFAULT_PATH }) {
         if (currentSection) {
           const sectionLength = section.sections.length - 1;
           const index = section.sections.indexOf(currentSection);
+          const prevSection = sections.find(
+            (item) => item.link === section.link,
+          );
+          const prevSectionIndex = sections.indexOf(prevSection);
 
           if (index === 0) {
             return {
               prev: section,
-              next: section.sections[index + 1],
+              next: section.sections[index + 1]
+                ? section.sections[index + 1]
+                : sections[prevSectionIndex + 1],
             };
           } else if (index === sectionLength) {
             const parentIndex = sections.indexOf(section) + 1;
