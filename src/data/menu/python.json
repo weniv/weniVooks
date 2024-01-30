@@ -401,36 +401,28 @@
           "link": "/python/chapter13/13-5"
         },
         {
-          "title": "13.6 컴프리헨션",
+          "title": "13.6 비동기와 코루틴",
           "link": "/python/chapter13/13-6"
         },
         {
-          "title": "13.7 다차원 리스트와 Built-in functions",
+          "title": "13.7 테스팅과 디버깅",
           "link": "/python/chapter13/13-7"
         },
         {
-          "title": "13.8 비동기와 코루틴",
+          "title": "13.8 정규표현식",
           "link": "/python/chapter13/13-8"
         },
         {
-          "title": "13.9 테스팅과 디버깅",
+          "title": "13.9 collections 모듈",
           "link": "/python/chapter13/13-9"
         },
         {
-          "title": "13.10 정규표현식",
+          "title": "13.10 Random 모듈",
           "link": "/python/chapter13/13-10"
         },
         {
-          "title": "13.11 collections 모듈",
+          "title": "13.11 바이트와 바이트배열",
           "link": "/python/chapter13/13-11"
-        },
-        {
-          "title": "13.12 바이트와 바이트배열",
-          "link": "/python/chapter13/13-12"
-        },
-        {
-          "title": "13.13 Random",
-          "link": "/python/chapter13/13-13"
         }
       ]
     },
