@@ -9,7 +9,6 @@ export default function Home() {
     <>
       <Header type="intro" />
       <div className="layout-grow">
-        <h1>아따맘마</h1>
         <Banner />
         <BookList />
       </div>
