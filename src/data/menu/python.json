@@ -199,8 +199,12 @@
           "link": "/python/chapter06/06-5"
         },
         {
-          "title": "06.6 연습문제",
+          "title": "06.6 built-in function",
           "link": "/python/chapter06/06-6"
+        },
+        {
+          "title": "06.7 연습문제",
+          "link": "/python/chapter06/06-7"
         }
       ]
     },
