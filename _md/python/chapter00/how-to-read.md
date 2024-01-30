@@ -8,11 +8,11 @@ date: 2023-10-31
 
 초급자에게 가장 큰 허들은 환경 설정입니다. [google colab](https://colab.research.google.com/?hl=ko)을 통해 설치없이 바로 학습하세요. 다만 google colab 서비스가 휴대폰이나 성인 인증이 된 google id가 있어야 하기 때문에 [위니브 노트북](https://notebook.weniv.co.kr/)을 제공합니다. 좀 더 재미있는 환경에서 학습할 수 있는 [위니브 월드](https://world.weniv.co.kr/)도 있으니 참고해주세요. 어떤 것으로 시작하셔도 좋으나 시작할 때부터 에너지를 빼앗기지 않도록 해주세요.
 
-![google colab](/images/python/chapter00-1.png)
+![](/images/python/chapter00-1.png 'google colab')
 
-![비로그인 서비스 위니브 노트북](/images/python/chapter00-2.png)
+![](/images/python/chapter00-2.png '비로그인 서비스 위니브 노트북')
 
-![파이썬을 실행시킬 수 있는 위니브 월드](/images/python/chapter00-3.png)
+![](/images/python/chapter00-3.png '파이썬을 실행시킬 수 있는 위니브 월드')
 
 # 실행해보며 학습하세요.
 
