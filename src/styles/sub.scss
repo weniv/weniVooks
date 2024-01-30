@@ -178,13 +178,11 @@ $titleGap: 8rem;
     margin: 0;
     overflow: auto;
 
-    /*    
     [data-line] {
       span {
-        white-space: normal;
+        white-space: pre-wrap;
       }
     }
-    */
   }
 
   pre,
