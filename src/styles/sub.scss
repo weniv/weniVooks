@@ -61,6 +61,7 @@ $titleGap: 8rem;
     margin-bottom: 0.8em;
     line-height: 1.4;
     letter-spacing: -0.02em;
+    word-break: break-all;
 
     @media screen and (max-width: 640px) {
       font-size: 1.8em;
@@ -251,6 +252,11 @@ $titleGap: 8rem;
     margin-top: fcSize(4, 10);
   }
 
+  ol + p,
+  ul + p {
+    margin-top: 1em;
+  }
+
   // 커스텀 CSS
   .box {
     background-color: var(--grayLv1);
@@ -259,6 +265,9 @@ $titleGap: 8rem;
 
     & + * {
       margin-top: 1em;
+    }
+    & + h4 {
+      margin-top: 0;
     }
     .btn-link {
       background-color: var(--background);
@@ -287,6 +296,9 @@ $titleGap: 8rem;
     position: relative;
     & + * {
       margin-top: 1em;
+    }
+    & + h4 {
+      margin-top: 0;
     }
     &::before {
       content: '';
