@@ -15,6 +15,6 @@ date: 2024-01-29
 7. [None 자료형](/python/chapter03/03-7)
 8. [메서드 체이닝](/python/chapter03/03-8)
 9. [형변환](/python/chapter03/03-9)
-10. [연습문제](/python/chapter03/3-10)
+10. [연습문제](/python/chapter03/03-10)
 
 :::
