@@ -119,6 +119,12 @@ $titleGap: 8rem;
     display: inline-flex;
   }
 
+  img {
+    display: block;
+    max-height: 50rem;
+    margin: 1em auto;
+    border: 5px solid var(--grayLv1);
+  }
   // 이미지
   figure {
     margin: 1em 0 2em;
@@ -202,6 +208,9 @@ $titleGap: 8rem;
         font-weight: bold;
         letter-spacing: -0.05em;
         font-size: 0.95em;
+      }
+      p + p {
+        margin-top: 1em;
       }
     }
   }
@@ -374,6 +383,23 @@ $titleGap: 8rem;
   .beforeAfter {
     table tr th {
       width: 50%;
+    }
+  }
+  .cols2 p {
+    border: 5px solid var(--grayLv1);
+    img {
+      border: 0;
+      margin: 0;
+    }
+    @media screen and (min-width: 1024px) {
+      display: flex;
+      align-items: start;
+      justify-content: space-between;
+
+      img {
+        width: 48%;
+        display: inline;
+      }
     }
   }
 }
