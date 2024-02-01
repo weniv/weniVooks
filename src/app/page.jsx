@@ -9,7 +9,6 @@ export default function Home() {
     <>
       <Header type="intro" />
       <div className="layout-grow">
-        <h1>CI/CD 테스트</h1>
         <Banner />
         <BookList />
       </div>
