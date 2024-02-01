@@ -1,5 +1,17 @@
 [
   {
+    "thumbnail": "/images/python/cover-python.png",
+    "publisher": "사도출판",
+    "title": "견고한 파이썬",
+    "subtitle": null,
+    "type": "전자책",
+    "price": "무료",
+    "description": "웹/앱, 인공지능, 게임 개발, 데이터 분석, 업무 자동화 등 다양한 분야에서 활용되는 프로그래밍 언어 파이썬을 견고하게 배워보자!",
+    "booklink": "/python",
+    "classlink": null,
+    "date": "2024-02-03"
+  },
+  {
     "thumbnail": "/images/wenivworld/cover-weniv-world-student.png",
     "publisher": "사도출판",
     "title": "위니브월드 탐험대(학생용)",
