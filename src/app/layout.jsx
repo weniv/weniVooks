@@ -21,25 +21,23 @@ const nanum_myeongjo = Nanum_Myeongjo({
 });
 
 export const metadata = {
-  metadataBase: new URL('https://books.weniv.co.kr'),
+  metadataBase: new URL('https://www.books.weniv.co.kr'),
   title: '위니북스',
   description: '위니브의 다양한 교안을 웹에서 확인해보세요!',
-  alternates: {
-    canonical: `https://books.weniv.co.kr`,
-  },
+
   openGraph: {
     type: 'website',
     title: '위니북스',
     description: '위니브의 다양한 교안을 웹에서 확인해보세요!',
-    url: 'https://books.weniv.co.kr',
+    url: 'https://www.books.weniv.co.kr',
     siteName: '위니북스',
-    images: [`https://books.weniv.co.kr/images/opengraph-image.png`],
+    images: [`https://www.books.weniv.co.kr/images/opengraph-image.png`],
   },
   twitter: {
     card: 'summary',
     title: '위니북스',
     description: '위니브의 다양한 교안을 웹에서 확인해보세요!',
-    images: ['https://books.weniv.co.kr/images/opengraph-image.png'],
+    images: ['https://www.books.weniv.co.kr/images/opengraph-image.png'],
   },
 };
 

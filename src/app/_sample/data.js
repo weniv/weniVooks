@@ -10,7 +10,7 @@ export const META_DATA = {
     type: 'website',
     title: `${TITLE} | 위니북스`,
     description: DESC,
-    url: `https://books.weniv.co.kr${DEFAULT_PATH}`,
+    url: `https://www.books.weniv.co.kr${DEFAULT_PATH}`,
     siteName: TITLE,
     images: OGIMG,
   },
