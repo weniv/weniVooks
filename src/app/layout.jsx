@@ -47,6 +47,11 @@ export default function RootLayout({ children }) {
       lang="ko-KR"
       className={classNames(source_code_pro.variable, nanum_myeongjo.variable)}
     >
+      <meta
+        name="naver-site-verification"
+        content="41cf482a18407bafc8016d991cbf008f55c7a733"
+      />
+
       <Script
         async
         src={`https://www.googletagmanager.com/gtag/js?id=${process.env.GA_ID}`}
