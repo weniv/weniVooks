@@ -4,5 +4,3 @@ Disallow: /pyscript
 Disallow: /codeblock
 Disallow: /_sample
 
-Disallow: /python
-

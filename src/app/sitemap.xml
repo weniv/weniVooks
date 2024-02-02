@@ -1,180 +1,737 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
-  <loc>https://www.books.weniv.co.kr/</loc>
+  <loc>https://books.weniv.co.kr/</loc>
   <lastmod>2024-01-18T01:39:50+00:00</lastmod>
   <priority>1.00</priority>
 </url>
 
 <!-- 책 메인 -->
 <url>
-  <loc>https://www.books.weniv.co.kr/wenivworld</loc>
+  <loc>https://books.weniv.co.kr/python</loc>
   <lastmod>2024-01-18T01:39:50+00:00</lastmod>
   <priority>0.90</priority>
 </url>
 <url>
-  <loc>https://www.books.weniv.co.kr/wenivworld-teacher</loc>
+  <loc>https://books.weniv.co.kr/wenivworld</loc>
+  <lastmod>2024-01-18T01:39:50+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://books.weniv.co.kr/wenivworld-teacher</loc>
   <lastmod>2024-01-18T01:39:50+00:00</lastmod>
   <priority>0.90</priority>
 </url>
 
 <!-- 검색 -->
 <url>
-  <loc>https://www.books.weniv.co.kr/search</loc>
+  <loc>https://books.weniv.co.kr/search</loc>
   <lastmod>2024-01-18T01:39:50+00:00</lastmod>
   <priority>0.50</priority>
 </url>
 
+<!-- 견고한 파이썬 -->
+<!-- 00 -->
+<url>
+  <loc>https://books.weniv.co.kr/python/chapter00</loc>
+  <lastmod>2024-01-18T01:39:50+00:00</lastmod>
+  <priority>0.30</priority>
+</url>
+<url>
+  <loc>https://books.weniv.co.kr/python/chapter00/hello</loc>
+  <lastmod>2024-01-18T01:39:50+00:00</lastmod>
+  <priority>0.30</priority>
+</url>
+<url>
+  <loc>https://books.weniv.co.kr/python/chapter00/content</loc>
+  <lastmod>2024-01-18T01:39:50+00:00</lastmod>
+  <priority>0.30</priority>
+</url>
+<url>
+  <loc>https://books.weniv.co.kr/python/chapter00/how-to-read</loc>
+  <lastmod>2024-01-18T01:39:50+00:00</lastmod>
+  <priority>0.30</priority>
+</url>
+
+<!-- 01 -->
+<url>
+  <loc>https://books.weniv.co.kr/python/chapter01</loc>
+  <lastmod>2024-01-18T01:39:50+00:00</lastmod>
+  <priority>0.30</priority>
+</url>
+<url>
+  <loc>https://books.weniv.co.kr/python/chapter01/01-1</loc>
+  <lastmod>2024-01-18T01:39:50+00:00</lastmod>
+  <priority>0.30</priority>
+</url>
+<url>
+  <loc>https://books.weniv.co.kr/python/chapter01/01-2</loc>
+  <lastmod>2024-01-18T01:39:50+00:00</lastmod>
+  <priority>0.30</priority>
+</url>
+<url>
+  <loc>https://books.weniv.co.kr/python/chapter01/01-3</loc>
+  <lastmod>2024-01-18T01:39:50+00:00</lastmod>
+  <priority>0.30</priority>
+</url>
+
+<!-- 02 -->
+<url>
+  <loc>https://books.weniv.co.kr/python/chapter02</loc>
+  <lastmod>2024-01-18T01:39:50+00:00</lastmod>
+  <priority>0.30</priority>
+</url>
+<url>
+  <loc>https://books.weniv.co.kr/python/chapter02/02-1</loc>
+  <lastmod>2024-01-18T01:39:50+00:00</lastmod>
+  <priority>0.30</priority>
+</url>
+<url>
+  <loc>https://books.weniv.co.kr/python/chapter02/02-2</loc>
+  <lastmod>2024-01-18T01:39:50+00:00</lastmod>
+  <priority>0.30</priority>
+</url>
+<url>
+  <loc>https://books.weniv.co.kr/python/chapter02/02-3</loc>
+  <lastmod>2024-01-18T01:39:50+00:00</lastmod>
+  <priority>0.30</priority>
+</url>
+
+<!-- 03 -->
+<url>
+  <loc>https://books.weniv.co.kr/python/chapter03</loc>
+  <lastmod>2024-01-18T01:39:50+00:00</lastmod>
+  <priority>0.30</priority>
+</url>
+<url>
+  <loc>https://books.weniv.co.kr/python/chapter03/03-1</loc>
+  <lastmod>2024-01-18T01:39:50+00:00</lastmod>
+  <priority>0.30</priority>
+</url>
+<url>
+  <loc>https://books.weniv.co.kr/python/chapter03/03-2</loc>
+  <lastmod>2024-01-18T01:39:50+00:00</lastmod>
+  <priority>0.30</priority>
+</url>
+<url>
+  <loc>https://books.weniv.co.kr/python/chapter03/03-3</loc>
+  <lastmod>2024-01-18T01:39:50+00:00</lastmod>
+  <priority>0.30</priority>
+</url>
+<url>
+  <loc>https://books.weniv.co.kr/python/chapter03/03-4</loc>
+  <lastmod>2024-01-18T01:39:50+00:00</lastmod>
+  <priority>0.30</priority>
+</url>
+<url>
+  <loc>https://books.weniv.co.kr/python/chapter03/03-5</loc>
+  <lastmod>2024-01-18T01:39:50+00:00</lastmod>
+  <priority>0.30</priority>
+</url>
+<url>
+  <loc>https://books.weniv.co.kr/python/chapter03/03-6</loc>
+  <lastmod>2024-01-18T01:39:50+00:00</lastmod>
+  <priority>0.30</priority>
+</url>
+<url>
+  <loc>https://books.weniv.co.kr/python/chapter03/03-7</loc>
+  <lastmod>2024-01-18T01:39:50+00:00</lastmod>
+  <priority>0.30</priority>
+</url>
+<url>
+  <loc>https://books.weniv.co.kr/python/chapter03/03-8</loc>
+  <lastmod>2024-01-18T01:39:50+00:00</lastmod>
+  <priority>0.30</priority>
+</url>
+<url>
+  <loc>https://books.weniv.co.kr/python/chapter03/03-9</loc>
+  <lastmod>2024-01-18T01:39:50+00:00</lastmod>
+  <priority>0.30</priority>
+</url>
+<url>
+  <loc>https://books.weniv.co.kr/python/chapter03/03-10</loc>
+  <lastmod>2024-01-18T01:39:50+00:00</lastmod>
+  <priority>0.30</priority>
+</url>
+
+<!-- 04 -->
+<url>
+  <loc>https://books.weniv.co.kr/python/chapter04</loc>
+  <lastmod>2024-01-18T01:39:50+00:00</lastmod>
+  <priority>0.30</priority>
+</url>
+<url>
+  <loc>https://books.weniv.co.kr/python/chapter04/04-1</loc>
+  <lastmod>2024-01-18T01:39:50+00:00</lastmod>
+  <priority>0.30</priority>
+</url>
+<url>
+  <loc>https://books.weniv.co.kr/python/chapter04/04-2</loc>
+  <lastmod>2024-01-18T01:39:50+00:00</lastmod>
+  <priority>0.30</priority>
+</url>
+<url>
+  <loc>https://books.weniv.co.kr/python/chapter04/04-3</loc>
+  <lastmod>2024-01-18T01:39:50+00:00</lastmod>
+  <priority>0.30</priority>
+</url>
+<url>
+  <loc>https://books.weniv.co.kr/python/chapter04/04-4</loc>
+  <lastmod>2024-01-18T01:39:50+00:00</lastmod>
+  <priority>0.30</priority>
+</url>
+<url>
+  <loc>https://books.weniv.co.kr/python/chapter04/04-5</loc>
+  <lastmod>2024-01-18T01:39:50+00:00</lastmod>
+  <priority>0.30</priority>
+</url>
+<url>
+  <loc>https://books.weniv.co.kr/python/chapter04/04-6</loc>
+  <lastmod>2024-01-18T01:39:50+00:00</lastmod>
+  <priority>0.30</priority>
+</url>
+<url>
+  <loc>https://books.weniv.co.kr/python/chapter04/04-7</loc>
+  <lastmod>2024-01-18T01:39:50+00:00</lastmod>
+  <priority>0.30</priority>
+</url>
+<url>
+  <loc>https://books.weniv.co.kr/python/chapter04/04-8</loc>
+  <lastmod>2024-01-18T01:39:50+00:00</lastmod>
+  <priority>0.30</priority>
+</url>
+<url>
+  <loc>https://books.weniv.co.kr/python/chapter04/04-9</loc>
+  <lastmod>2024-01-18T01:39:50+00:00</lastmod>
+  <priority>0.30</priority>
+</url>
+
+<!-- 05 -->
+<url>
+  <loc>https://books.weniv.co.kr/python/chapter05</loc>
+  <lastmod>2024-01-18T01:39:50+00:00</lastmod>
+  <priority>0.30</priority>
+</url>
+<url>
+  <loc>https://books.weniv.co.kr/python/chapter05/05-1</loc>
+  <lastmod>2024-01-18T01:39:50+00:00</lastmod>
+  <priority>0.30</priority>
+</url>
+<url>
+  <loc>https://books.weniv.co.kr/python/chapter05/05-2</loc>
+  <lastmod>2024-01-18T01:39:50+00:00</lastmod>
+  <priority>0.30</priority>
+</url>
+<url>
+  <loc>https://books.weniv.co.kr/python/chapter05/05-3</loc>
+  <lastmod>2024-01-18T01:39:50+00:00</lastmod>
+  <priority>0.30</priority>
+</url>
+<url>
+  <loc>https://books.weniv.co.kr/python/chapter05/05-4</loc>
+  <lastmod>2024-01-18T01:39:50+00:00</lastmod>
+  <priority>0.30</priority>
+</url>
+<url>
+  <loc>https://books.weniv.co.kr/python/chapter05/05-5</loc>
+  <lastmod>2024-01-18T01:39:50+00:00</lastmod>
+  <priority>0.30</priority>
+</url>
+<url>
+  <loc>https://books.weniv.co.kr/python/chapter05/05-6</loc>
+  <lastmod>2024-01-18T01:39:50+00:00</lastmod>
+  <priority>0.30</priority>
+</url>
+
+<!-- 06 -->
+<url>
+  <loc>https://books.weniv.co.kr/python/chapter06</loc>
+  <lastmod>2024-01-18T01:39:50+00:00</lastmod>
+  <priority>0.30</priority>
+</url>
+<url>
+  <loc>https://books.weniv.co.kr/python/chapter06/06-1</loc>
+  <lastmod>2024-01-18T01:39:50+00:00</lastmod>
+  <priority>0.30</priority>
+</url>
+<url>
+  <loc>https://books.weniv.co.kr/python/chapter06/06-2</loc>
+  <lastmod>2024-01-18T01:39:50+00:00</lastmod>
+  <priority>0.30</priority>
+</url>
+<url>
+  <loc>https://books.weniv.co.kr/python/chapter06/06-3</loc>
+  <lastmod>2024-01-18T01:39:50+00:00</lastmod>
+  <priority>0.30</priority>
+</url>
+<url>
+  <loc>https://books.weniv.co.kr/python/chapter06/06-4</loc>
+  <lastmod>2024-01-18T01:39:50+00:00</lastmod>
+  <priority>0.30</priority>
+</url>
+<url>
+  <loc>https://books.weniv.co.kr/python/chapter06/06-5</loc>
+  <lastmod>2024-01-18T01:39:50+00:00</lastmod>
+  <priority>0.30</priority>
+</url>
+<url>
+  <loc>https://books.weniv.co.kr/python/chapter06/06-6</loc>
+  <lastmod>2024-01-18T01:39:50+00:00</lastmod>
+  <priority>0.30</priority>
+</url>
+<url>
+  <loc>https://books.weniv.co.kr/python/chapter06/06-7</loc>
+  <lastmod>2024-01-18T01:39:50+00:00</lastmod>
+  <priority>0.30</priority>
+</url>
+
+<!-- 07 -->
+<url>
+  <loc>https://books.weniv.co.kr/python/chapter07</loc>
+  <lastmod>2024-01-18T01:39:50+00:00</lastmod>
+  <priority>0.30</priority>
+</url>
+<url>
+  <loc>https://books.weniv.co.kr/python/chapter07/07-1</loc>
+  <lastmod>2024-01-18T01:39:50+00:00</lastmod>
+  <priority>0.30</priority>
+</url>
+<url>
+  <loc>https://books.weniv.co.kr/python/chapter07/07-2</loc>
+  <lastmod>2024-01-18T01:39:50+00:00</lastmod>
+  <priority>0.30</priority>
+</url>
+<url>
+  <loc>https://books.weniv.co.kr/python/chapter07/07-3</loc>
+  <lastmod>2024-01-18T01:39:50+00:00</lastmod>
+  <priority>0.30</priority>
+</url>
+
+<!-- 08 -->
+<url>
+  <loc>https://books.weniv.co.kr/python/chapter08</loc>
+  <lastmod>2024-01-18T01:39:50+00:00</lastmod>
+  <priority>0.30</priority>
+</url>
+<url>
+  <loc>https://books.weniv.co.kr/python/chapter08/08-1</loc>
+  <lastmod>2024-01-18T01:39:50+00:00</lastmod>
+  <priority>0.30</priority>
+</url>
+<url>
+  <loc>https://books.weniv.co.kr/python/chapter08/08-2</loc>
+  <lastmod>2024-01-18T01:39:50+00:00</lastmod>
+  <priority>0.30</priority>
+</url>
+<url>
+  <loc>https://books.weniv.co.kr/python/chapter08/08-3</loc>
+  <lastmod>2024-01-18T01:39:50+00:00</lastmod>
+  <priority>0.30</priority>
+</url>
+<url>
+  <loc>https://books.weniv.co.kr/python/chapter08/08-4</loc>
+  <lastmod>2024-01-18T01:39:50+00:00</lastmod>
+  <priority>0.30</priority>
+</url>
+<url>
+  <loc>https://books.weniv.co.kr/python/chapter08/08-5</loc>
+  <lastmod>2024-01-18T01:39:50+00:00</lastmod>
+  <priority>0.30</priority>
+</url>
+
+<!-- 09 -->
+<url>
+  <loc>https://books.weniv.co.kr/python/chapter09</loc>
+  <lastmod>2024-01-18T01:39:50+00:00</lastmod>
+  <priority>0.30</priority>
+</url>
+<url>
+  <loc>https://books.weniv.co.kr/python/chapter09/09-1</loc>
+  <lastmod>2024-01-18T01:39:50+00:00</lastmod>
+  <priority>0.30</priority>
+</url>
+<url>
+  <loc>https://books.weniv.co.kr/python/chapter09/09-2</loc>
+  <lastmod>2024-01-18T01:39:50+00:00</lastmod>
+  <priority>0.30</priority>
+</url>
+<url>
+  <loc>https://books.weniv.co.kr/python/chapter09/09-3</loc>
+  <lastmod>2024-01-18T01:39:50+00:00</lastmod>
+  <priority>0.30</priority>
+</url>
+<url>
+  <loc>https://books.weniv.co.kr/python/chapter09/09-4</loc>
+  <lastmod>2024-01-18T01:39:50+00:00</lastmod>
+  <priority>0.30</priority>
+</url>
+<url>
+  <loc>https://books.weniv.co.kr/python/chapter09/09-5</loc>
+  <lastmod>2024-01-18T01:39:50+00:00</lastmod>
+  <priority>0.30</priority>
+</url>
+<url>
+  <loc>https://books.weniv.co.kr/python/chapter09/09-6</loc>
+  <lastmod>2024-01-18T01:39:50+00:00</lastmod>
+  <priority>0.30</priority>
+</url>
+<url>
+  <loc>https://books.weniv.co.kr/python/chapter09/09-7</loc>
+  <lastmod>2024-01-18T01:39:50+00:00</lastmod>
+  <priority>0.30</priority>
+</url>
+<url>
+  <loc>https://books.weniv.co.kr/python/chapter09/09-8</loc>
+  <lastmod>2024-01-18T01:39:50+00:00</lastmod>
+  <priority>0.30</priority>
+</url>
+<url>
+  <loc>https://books.weniv.co.kr/python/chapter09/09-9</loc>
+  <lastmod>2024-01-18T01:39:50+00:00</lastmod>
+  <priority>0.30</priority>
+</url>
+<url>
+  <loc>https://books.weniv.co.kr/python/chapter09/09-10</loc>
+  <lastmod>2024-01-18T01:39:50+00:00</lastmod>
+  <priority>0.30</priority>
+</url>
+<url>
+  <loc>https://books.weniv.co.kr/python/chapter09/09-11</loc>
+  <lastmod>2024-01-18T01:39:50+00:00</lastmod>
+  <priority>0.30</priority>
+</url>
+
+<!-- 10 -->
+<url>
+  <loc>https://books.weniv.co.kr/python/chapter10</loc>
+  <lastmod>2024-01-18T01:39:50+00:00</lastmod>
+  <priority>0.30</priority>
+</url>
+<url>
+  <loc>https://books.weniv.co.kr/python/chapter10/10-1</loc>
+  <lastmod>2024-01-18T01:39:50+00:00</lastmod>
+  <priority>0.30</priority>
+</url>
+<url>
+  <loc>https://books.weniv.co.kr/python/chapter10/10-2</loc>
+  <lastmod>2024-01-18T01:39:50+00:00</lastmod>
+  <priority>0.30</priority>
+</url>
+
+<!-- 11 -->
+<url>
+  <loc>https://books.weniv.co.kr/python/chapter11</loc>
+  <lastmod>2024-01-18T01:39:50+00:00</lastmod>
+  <priority>0.30</priority>
+</url>
+<url>
+  <loc>https://books.weniv.co.kr/python/chapter11/11-1</loc>
+  <lastmod>2024-01-18T01:39:50+00:00</lastmod>
+  <priority>0.30</priority>
+</url>
+<url>
+  <loc>https://books.weniv.co.kr/python/chapter11/11-2</loc>
+  <lastmod>2024-01-18T01:39:50+00:00</lastmod>
+  <priority>0.30</priority>
+</url>
+
+<!-- 12 -->
+<url>
+  <loc>https://books.weniv.co.kr/python/chapter12</loc>
+  <lastmod>2024-01-18T01:39:50+00:00</lastmod>
+  <priority>0.30</priority>
+</url>
+<url>
+  <loc>https://books.weniv.co.kr/python/chapter12/12-1</loc>
+  <lastmod>2024-01-18T01:39:50+00:00</lastmod>
+  <priority>0.30</priority>
+</url>
+<url>
+  <loc>https://books.weniv.co.kr/python/chapter12/12-2</loc>
+  <lastmod>2024-01-18T01:39:50+00:00</lastmod>
+  <priority>0.30</priority>
+</url>
+<url>
+  <loc>https://books.weniv.co.kr/python/chapter12/12-3</loc>
+  <lastmod>2024-01-18T01:39:50+00:00</lastmod>
+  <priority>0.30</priority>
+</url>
+<url>
+  <loc>https://books.weniv.co.kr/python/chapter12/12-4</loc>
+  <lastmod>2024-01-18T01:39:50+00:00</lastmod>
+  <priority>0.30</priority>
+</url>
+<url>
+  <loc>https://books.weniv.co.kr/python/chapter12/12-5</loc>
+  <lastmod>2024-01-18T01:39:50+00:00</lastmod>
+  <priority>0.30</priority>
+</url>
+<url>
+  <loc>https://books.weniv.co.kr/python/chapter12/12-6</loc>
+  <lastmod>2024-01-18T01:39:50+00:00</lastmod>
+  <priority>0.30</priority>
+</url>
+<url>
+  <loc>https://books.weniv.co.kr/python/chapter12/12-7</loc>
+  <lastmod>2024-01-18T01:39:50+00:00</lastmod>
+  <priority>0.30</priority>
+</url>
+<url>
+  <loc>https://books.weniv.co.kr/python/chapter12/12-8</loc>
+  <lastmod>2024-01-18T01:39:50+00:00</lastmod>
+  <priority>0.30</priority>
+</url>
+<url>
+  <loc>https://books.weniv.co.kr/python/chapter12/12-9</loc>
+  <lastmod>2024-01-18T01:39:50+00:00</lastmod>
+  <priority>0.30</priority>
+</url>
+<url>
+  <loc>https://books.weniv.co.kr/python/chapter12/12-10</loc>
+  <lastmod>2024-01-18T01:39:50+00:00</lastmod>
+  <priority>0.30</priority>
+</url>
+<url>
+  <loc>https://books.weniv.co.kr/python/chapter12/12-11</loc>
+  <lastmod>2024-01-18T01:39:50+00:00</lastmod>
+  <priority>0.30</priority>
+</url>
+
+<!-- 13 -->
+<url>
+  <loc>https://books.weniv.co.kr/python/chapter13</loc>
+  <lastmod>2024-01-18T01:39:50+00:00</lastmod>
+  <priority>0.30</priority>
+</url>
+<url>
+  <loc>https://books.weniv.co.kr/python/chapter13/13-1</loc>
+  <lastmod>2024-01-18T01:39:50+00:00</lastmod>
+  <priority>0.30</priority>
+</url>
+<url>
+  <loc>https://books.weniv.co.kr/python/chapter13/13-2</loc>
+  <lastmod>2024-01-18T01:39:50+00:00</lastmod>
+  <priority>0.30</priority>
+</url>
+<url>
+  <loc>https://books.weniv.co.kr/python/chapter13/13-3</loc>
+  <lastmod>2024-01-18T01:39:50+00:00</lastmod>
+  <priority>0.30</priority>
+</url>
+<url>
+  <loc>https://books.weniv.co.kr/python/chapter13/13-4</loc>
+  <lastmod>2024-01-18T01:39:50+00:00</lastmod>
+  <priority>0.30</priority>
+</url>
+<url>
+  <loc>https://books.weniv.co.kr/python/chapter13/13-5</loc>
+  <lastmod>2024-01-18T01:39:50+00:00</lastmod>
+  <priority>0.30</priority>
+</url>
+<url>
+  <loc>https://books.weniv.co.kr/python/chapter13/13-6</loc>
+  <lastmod>2024-01-18T01:39:50+00:00</lastmod>
+  <priority>0.30</priority>
+</url>
+<url>
+  <loc>https://books.weniv.co.kr/python/chapter13/13-7</loc>
+  <lastmod>2024-01-18T01:39:50+00:00</lastmod>
+  <priority>0.30</priority>
+</url>
+<url>
+  <loc>https://books.weniv.co.kr/python/chapter13/13-8</loc>
+  <lastmod>2024-01-18T01:39:50+00:00</lastmod>
+  <priority>0.30</priority>
+</url>
+<url>
+  <loc>https://books.weniv.co.kr/python/chapter13/13-9</loc>
+  <lastmod>2024-01-18T01:39:50+00:00</lastmod>
+  <priority>0.30</priority>
+</url>
+<url>
+  <loc>https://books.weniv.co.kr/python/chapter13/13-10</loc>
+  <lastmod>2024-01-18T01:39:50+00:00</lastmod>
+  <priority>0.30</priority>
+</url>
+<url>
+  <loc>https://books.weniv.co.kr/python/chapter13/13-11</loc>
+  <lastmod>2024-01-18T01:39:50+00:00</lastmod>
+  <priority>0.30</priority>
+</url>
+<!-- 14 -->
+<url>
+  <loc>https://books.weniv.co.kr/python/chapter14</loc>
+  <lastmod>2024-01-18T01:39:50+00:00</lastmod>
+  <priority>0.30</priority>
+</url>
+<url>
+  <loc>https://books.weniv.co.kr/python/chapter14/14-1</loc>
+  <lastmod>2024-01-18T01:39:50+00:00</lastmod>
+  <priority>0.30</priority>
+</url>
+
+<!-- 15 -->
+<url>
+  <loc>https://books.weniv.co.kr/python/chapter15</loc>
+  <lastmod>2024-01-18T01:39:50+00:00</lastmod>
+  <priority>0.30</priority>
+</url>
+<url>
+  <loc>https://books.weniv.co.kr/python/chapter15/15-1</loc>
+  <lastmod>2024-01-18T01:39:50+00:00</lastmod>
+  <priority>0.30</priority>
+</url>
+
 <!-- 위니브 월드(학생용) -->
 <url>
-  <loc>https://www.books.weniv.co.kr/wenivworld/intro</loc>
+  <loc>https://books.weniv.co.kr/wenivworld/intro</loc>
   <lastmod>2024-01-18T01:39:50+00:00</lastmod>
   <priority>0.30</priority>
 </url>
 <url>
-  <loc>https://www.books.weniv.co.kr/wenivworld/intro/author</loc>
+  <loc>https://books.weniv.co.kr/wenivworld/intro/author</loc>
   <lastmod>2024-01-18T01:39:50+00:00</lastmod>
   <priority>0.30</priority>
 </url>
 <url>
-  <loc>https://www.books.weniv.co.kr/wenivworld/intro/platform</loc>
+  <loc>https://books.weniv.co.kr/wenivworld/intro/platform</loc>
   <lastmod>2024-01-18T01:39:50+00:00</lastmod>
   <priority>0.30</priority>
 </url>
 <url>
-  <loc>https://www.books.weniv.co.kr/wenivworld/expedition</loc>
+  <loc>https://books.weniv.co.kr/wenivworld/expedition</loc>
   <lastmod>2024-01-18T01:39:50+00:00</lastmod>
   <priority>0.30</priority>
 </url>
 <url>
-  <loc>https://www.books.weniv.co.kr/wenivworld/expedition/01</loc>
+  <loc>https://books.weniv.co.kr/wenivworld/expedition/01</loc>
   <lastmod>2024-01-18T01:39:50+00:00</lastmod>
   <priority>0.30</priority>
 </url>
 <url>
-  <loc>https://www.books.weniv.co.kr/wenivworld/expedition/02</loc>
+  <loc>https://books.weniv.co.kr/wenivworld/expedition/02</loc>
   <lastmod>2024-01-18T01:39:50+00:00</lastmod>
   <priority>0.30</priority>
 </url>
 <url>
-  <loc>https://www.books.weniv.co.kr/wenivworld/expedition/03</loc>
+  <loc>https://books.weniv.co.kr/wenivworld/expedition/03</loc>
   <lastmod>2024-01-18T01:39:50+00:00</lastmod>
   <priority>0.30</priority>
 </url>
 <url>
-  <loc>https://www.books.weniv.co.kr/wenivworld/expedition/04</loc>
+  <loc>https://books.weniv.co.kr/wenivworld/expedition/04</loc>
   <lastmod>2024-01-18T01:39:50+00:00</lastmod>
   <priority>0.30</priority>
 </url>
 <url>
-  <loc>https://www.books.weniv.co.kr/wenivworld/expedition/05</loc>
+  <loc>https://books.weniv.co.kr/wenivworld/expedition/05</loc>
   <lastmod>2024-01-18T01:39:50+00:00</lastmod>
   <priority>0.30</priority>
 </url>
 <url>
-  <loc>https://www.books.weniv.co.kr/wenivworld/expedition/06</loc>
+  <loc>https://books.weniv.co.kr/wenivworld/expedition/06</loc>
   <lastmod>2024-01-18T01:39:50+00:00</lastmod>
   <priority>0.30</priority>
 </url>
 <url>
-  <loc>https://www.books.weniv.co.kr/wenivworld/expedition/07</loc>
+  <loc>https://books.weniv.co.kr/wenivworld/expedition/07</loc>
   <lastmod>2024-01-18T01:39:50+00:00</lastmod>
   <priority>0.30</priority>
 </url>
 <url>
-  <loc>https://www.books.weniv.co.kr/wenivworld/expedition/08</loc>
+  <loc>https://books.weniv.co.kr/wenivworld/expedition/08</loc>
   <lastmod>2024-01-18T01:39:50+00:00</lastmod>
   <priority>0.30</priority>
 </url>
 <url>
-  <loc>https://www.books.weniv.co.kr/wenivworld/expedition/09</loc>
+  <loc>https://books.weniv.co.kr/wenivworld/expedition/09</loc>
   <lastmod>2024-01-18T01:39:50+00:00</lastmod>
   <priority>0.30</priority>
 </url>
 <url>
-  <loc>https://www.books.weniv.co.kr/wenivworld/expedition/10</loc>
+  <loc>https://books.weniv.co.kr/wenivworld/expedition/10</loc>
   <lastmod>2024-01-18T01:39:50+00:00</lastmod>
   <priority>0.30</priority>
 </url>
 <url>
-  <loc>https://www.books.weniv.co.kr/wenivworld/command-dictionary</loc>
+  <loc>https://books.weniv.co.kr/wenivworld/command-dictionary</loc>
   <lastmod>2024-01-18T01:39:50+00:00</lastmod>
   <priority>0.30</priority>
 </url>
 
 <!-- 위니브 월드(선생님용) -->
 <url>
-  <loc>https://www.books.weniv.co.kr/wenivworld-teacher/intro</loc>
+  <loc>https://books.weniv.co.kr/wenivworld-teacher/intro</loc>
   <lastmod>2024-01-18T01:39:50+00:00</lastmod>
   <priority>0.30</priority>
 </url>
 <url>
-  <loc>https://www.books.weniv.co.kr/wenivworld-teacher/intro/author</loc>
+  <loc>https://books.weniv.co.kr/wenivworld-teacher/intro/author</loc>
   <lastmod>2024-01-18T01:39:50+00:00</lastmod>
   <priority>0.30</priority>
 </url>
 <url>
-  <loc>https://www.books.weniv.co.kr/wenivworld-teacher/intro/platform</loc>
+  <loc>https://books.weniv.co.kr/wenivworld-teacher/intro/platform</loc>
   <lastmod>2024-01-18T01:39:50+00:00</lastmod>
   <priority>0.30</priority>
 </url>
 <url>
-  <loc>https://www.books.weniv.co.kr/wenivworld-teacher/expedition</loc>
+  <loc>https://books.weniv.co.kr/wenivworld-teacher/expedition</loc>
   <lastmod>2024-01-18T01:39:50+00:00</lastmod>
   <priority>0.30</priority>
 </url>
 <url>
-  <loc>https://www.books.weniv.co.kr/wenivworld-teacher/expedition/01</loc>
+  <loc>https://books.weniv.co.kr/wenivworld-teacher/expedition/01</loc>
   <lastmod>2024-01-18T01:39:50+00:00</lastmod>
   <priority>0.30</priority>
 </url>
 <url>
-  <loc>https://www.books.weniv.co.kr/wenivworld-teacher/expedition/02</loc>
+  <loc>https://books.weniv.co.kr/wenivworld-teacher/expedition/02</loc>
   <lastmod>2024-01-18T01:39:50+00:00</lastmod>
   <priority>0.30</priority>
 </url>
 <url>
-  <loc>https://www.books.weniv.co.kr/wenivworld-teacher/expedition/03</loc>
+  <loc>https://books.weniv.co.kr/wenivworld-teacher/expedition/03</loc>
   <lastmod>2024-01-18T01:39:50+00:00</lastmod>
   <priority>0.30</priority>
 </url>
 <url>
-  <loc>https://www.books.weniv.co.kr/wenivworld-teacher/expedition/04</loc>
+  <loc>https://books.weniv.co.kr/wenivworld-teacher/expedition/04</loc>
   <lastmod>2024-01-18T01:39:50+00:00</lastmod>
   <priority>0.30</priority>
 </url>
 <url>
-  <loc>https://www.books.weniv.co.kr/wenivworld-teacher/expedition/05</loc>
+  <loc>https://books.weniv.co.kr/wenivworld-teacher/expedition/05</loc>
   <lastmod>2024-01-18T01:39:50+00:00</lastmod>
   <priority>0.30</priority>
 </url>
 <url>
-  <loc>https://www.books.weniv.co.kr/wenivworld-teacher/expedition/06</loc>
+  <loc>https://books.weniv.co.kr/wenivworld-teacher/expedition/06</loc>
   <lastmod>2024-01-18T01:39:50+00:00</lastmod>
   <priority>0.30</priority>
 </url>
 <url>
-  <loc>https://www.books.weniv.co.kr/wenivworld-teacher/expedition/07</loc>
+  <loc>https://books.weniv.co.kr/wenivworld-teacher/expedition/07</loc>
   <lastmod>2024-01-18T01:39:50+00:00</lastmod>
   <priority>0.30</priority>
 </url>
 <url>
-  <loc>https://www.books.weniv.co.kr/wenivworld-teacher/expedition/08</loc>
+  <loc>https://books.weniv.co.kr/wenivworld-teacher/expedition/08</loc>
   <lastmod>2024-01-18T01:39:50+00:00</lastmod>
   <priority>0.30</priority>
 </url>
 <url>
-  <loc>https://www.books.weniv.co.kr/wenivworld-teacher/expedition/09</loc>
+  <loc>https://books.weniv.co.kr/wenivworld-teacher/expedition/09</loc>
   <lastmod>2024-01-18T01:39:50+00:00</lastmod>
   <priority>0.30</priority>
 </url>
 <url>
-  <loc>https://www.books.weniv.co.kr/wenivworld-teacher/expedition/10</loc>
+  <loc>https://books.weniv.co.kr/wenivworld-teacher/expedition/10</loc>
   <lastmod>2024-01-18T01:39:50+00:00</lastmod>
   <priority>0.30</priority>
 </url>
 <url>
-  <loc>https://www.books.weniv.co.kr/wenivworld-teacher/command-dictionary</loc>
+  <loc>https://books.weniv.co.kr/wenivworld-teacher/command-dictionary</loc>
   <lastmod>2024-01-18T01:39:50+00:00</lastmod>
   <priority>0.30</priority>
 </url>
