@@ -267,12 +267,15 @@ export const splitArray = (array, delimiter) => {
 export const choiceBookKind = (bookkind) => {
   const kind = bookkind?.toLowerCase();
   if (kind === 'python') {
-    return '파이썬 부트캠프';
-  } else if (bookkind === 'react') {
-    return '리액트 부트캠프';
-  } else {
-    return '위니브월드';
+    return '견고한 파이썬';
+  } else if (kind === 'wenivworld') {
+    return '위니브 월드(학생용)';
+  } else if (kind === 'wenivworld-teacher') {
+    return '위니브 월드(선생님용)';
   }
+  // else if (bookkind === 'react') {
+  //   return '리액트 부트캠프';
+  // }
 };
 
 // 파일의 상대경로를 반환하는 함수
