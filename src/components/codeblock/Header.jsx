@@ -7,7 +7,12 @@ import HelpCircleIcon from '../svg/HelpCircleIcon';
 function Header({ event, copyCode }) {
   return (
     <div className={styles.taskbar}>
-      <button id="btn-run" onClick={event}> 
+      <button
+        id="btn-run"
+        onClick={() => {
+          event();
+        }}
+      >
         <ExecutionIcon alt="코드 실행 버튼" />
       </button>
       <div>

@@ -4,30 +4,29 @@ import {
   getInitPythonCode,
   getPythonCode,
   copyCode,
-  simulateShiftEnter,
 } from './event';
 import PythonREPL from './PythonREPL';
 import Header from './Header';
 import ResultBar from './ResultBar';
 import Layout from './Layout';
 
-function PythonCodeblock({ id, code, setPython }) {
-  // const [code, setCode] = useState(getInitPythonCode);
-  // const [result, setResult] = useState('결과값');
+function PythonCodeblock() {
+  const [code, setCode] = useState(getInitPythonCode);
+  const [result, setResult] = useState('결과값');
 
-  // const event = useCallback((id) => {
-  //   getResultPython(id, setPython);
-  //   getPythonCode(id);
-  // }, []);
+  const event = useCallback(() => {
+    getResultPython(setResult);
+    getPythonCode();
+  }, []);
 
   const copy = () => {
-    const content = code;
+    const content = getPythonCode();
     copyCode(content && content);
   };
 
   return (
-    <Layout>
-      <Header copyCode={copy} event={simulateShiftEnter} />
+    <Layout event={event}>
+      <Header event={event} copyCode={copy} />
       <PythonREPL>{code}</PythonREPL>
     </Layout>
   );

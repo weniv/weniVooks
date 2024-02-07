@@ -31683,6 +31683,7 @@ var pyscript = (function (exports) {
         const outDiv = document.createElement('div');
         outDiv.className = 'py-repl-output';
         outDiv.id = this.id + '-' + this.getAttribute('exec-id');
+        outDiv.innerText = '결과값';
         return outDiv;
       }
       //  ********************* execution logic *********************
