@@ -5,7 +5,7 @@ export default function PythonREPL({ children }) {
   return (
     <div>
       <link rel="stylesheet" href="./pyscript/pyscript.css" />
-      <Script defer src="./pyscript/pyscript.js" />
+      <Script defer src="./pyscript/pyscript_init.js" />
       <py-repl>{children}</py-repl>
     </div>
   );
