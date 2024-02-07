@@ -31649,14 +31649,17 @@ var pyscript = (function (exports) {
       makeBoxDiv() {
         const boxDiv = document.createElement('div');
         boxDiv.className = 'py-repl-box';
-        const editorDiv = this.makeEditorDiv();
+        const buttonWrap = document.createElement('div');
+        buttonWrap.className = 'py-repl-button-wrap';
         const runButton = this.makeRunButton();
         const copyButton = this.makeCopyButton();
+        buttonWrap.append(runButton);
+        buttonWrap.append(copyButton);
+        const editorDiv = this.makeEditorDiv();
         const editorLabel = this.makeLabel('Python Script Area', editorDiv);
         this.outDiv = this.makeOutDiv();
         boxDiv.append(editorLabel);
-        boxDiv.append(runButton);
-        boxDiv.append(copyButton);
+        boxDiv.append(buttonWrap);
         boxDiv.appendChild(editorDiv);
         boxDiv.appendChild(this.outDiv);
         return boxDiv;
@@ -31694,7 +31697,6 @@ var pyscript = (function (exports) {
           alert('코드가 클립보드에 복사되었습니다.');
           navigator.clipboard.writeText(content);
         });
-
         return copyButton;
       }
       makeOutDiv() {
@@ -31712,11 +31714,12 @@ var pyscript = (function (exports) {
         const pySrc = this.getPySrc();
         // determine the output element
         const outEl = this.getOutputElement();
+
         if (outEl === undefined) {
           // this happens if we specified output="..." but we couldn't
           // find the ID. We already displayed an error message inside
           // getOutputElement, stop the execution.
-          return;
+          return '';
         }
         // clear the old output before executing the new code
         outEl.innerHTML = '';
@@ -31725,6 +31728,8 @@ var pyscript = (function (exports) {
         // display the value of the last evaluated expression (REPL-style)
         if (pyResult !== undefined) {
           pyDisplay(runtime, pyResult, { target: outEl.id });
+        } else {
+          pyDisplay(runtime, 'None', { target: outEl.id });
         }
         this.autogenerateMaybe();
       }
