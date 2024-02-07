@@ -164,6 +164,8 @@ html {
 
 .py-repl-box {
   flex-direction: column;
+  border: 1px solid var(--grayLv2);
+  border-radius: 10px;
 }
 
 .py-repl-editor {
