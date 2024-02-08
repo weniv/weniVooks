@@ -2586,7 +2586,7 @@ var pyscript = (function (exports) {
       // err.message contains the python-level traceback (i.e. a string
       // starting with: "Traceback (most recent call last) ..."
       logger$b.error('Python exception:\n' + err.message);
-      pre.innerText = err.message;
+      pre.innerText = err.message.trim().split('\n').pop();
     } else {
       // this is very likely a normal JS exception. The best we can do is to
       // display it as is.
@@ -31725,11 +31725,12 @@ var pyscript = (function (exports) {
         outEl.innerHTML = '';
         // execute the python code
         const pyResult = pyExec(runtime, pySrc, outEl);
+
         // display the value of the last evaluated expression (REPL-style)
         if (pyResult !== undefined) {
           pyDisplay(runtime, pyResult, { target: outEl.id });
         } else {
-          pyDisplay(runtime, 'None', { target: outEl.id });
+          console.log('outEl.id', outEl);
         }
         this.autogenerateMaybe();
       }
@@ -31742,6 +31743,7 @@ var pyscript = (function (exports) {
           const el = document.getElementById(outputID);
           if (el === null) {
             const err = `py-repl ERROR: cannot find the output element #${outputID} in the DOM`;
+
             this.outDiv.innerText = err;
             return undefined;
           }
