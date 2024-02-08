@@ -31704,10 +31704,15 @@ var pyscript = (function (exports) {
       makeCopyButton() {
         const copyButton = document.createElement('button');
         copyButton.innerHTML = COPYBUTTON;
-        copyButton.addEventListener('click', () => {
-          const content = this.querySelector('.cm-content').innerText;
-          alert('코드가 클립보드에 복사되었습니다.');
-          navigator.clipboard.writeText(content);
+        copyButton.addEventListener('click', async () => {
+          try {
+            const content = this.querySelector('.cm-content').innerText;
+            await navigator.clipboard.writeText(content);
+            alert('코드가 클립보드에 복사되었습니다.');
+            console.log('content', content);
+          } catch (err) {
+            console.error('클립보드 복사 오류:', err);
+          }
         });
         return copyButton;
       }
