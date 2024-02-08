@@ -123,6 +123,7 @@ html {
 
 .py-error {
   color: #c93864;
+  margin: 0;
 }
 
 .py-warning {

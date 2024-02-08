@@ -3,21 +3,16 @@ import { DEFAULT_PATH, TITLE, DESC, OGIMG } from '../data';
 import { JSDOM } from 'jsdom';
 import Script from 'next/script';
 
-function replacePreWithPyRepl(htmlString) {
+function replaceCodeWithPyRepl(htmlString) {
   const dom = new JSDOM(htmlString);
-  const preElements = dom.window.document.querySelectorAll(
+  const codeElements = dom.window.document.querySelectorAll(
     'div[data-rehype-pretty-code-fragment=""]',
   );
 
-  preElements.forEach((el) => {
+  codeElements.forEach((el) => {
     const content = el.textContent;
     const pyReplElement = dom.window.document.createElement('py-repl');
     pyReplElement.textContent = content;
-    const editorDiv = pyReplElement.querySelector('.cm-content');
-    if (editorDiv) {
-      editorDiv.setAttribute('data-language', 'python');
-    }
-
     el.replaceWith(pyReplElement);
   });
 
@@ -47,7 +42,7 @@ export async function generateMetadata({ params }, parent) {
 
 export default async function Page({ params }) {
   const { title, htmlContent } = await getPostDetail(DEFAULT_PATH, params.slug);
-  const replacedHtmlContent = replacePreWithPyRepl(htmlContent);
+  const replacedHtmlContent = replaceCodeWithPyRepl(htmlContent);
 
   return (
     <>
