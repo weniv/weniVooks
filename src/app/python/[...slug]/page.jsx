@@ -13,6 +13,11 @@ function replacePreWithPyRepl(htmlString) {
     const content = el.textContent;
     const pyReplElement = dom.window.document.createElement('py-repl');
     pyReplElement.textContent = content;
+    const editorDiv = pyReplElement.querySelector('.cm-content');
+    if (editorDiv) {
+      editorDiv.setAttribute('data-language', 'python');
+    }
+
     el.replaceWith(pyReplElement);
   });
 
