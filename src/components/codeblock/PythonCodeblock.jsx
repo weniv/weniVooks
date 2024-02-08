@@ -7,7 +7,6 @@ import {
 } from './event';
 import PythonREPL from './PythonREPL';
 import Header from './Header';
-import ResultBar from './ResultBar';
 import Layout from './Layout';
 
 function PythonCodeblock() {

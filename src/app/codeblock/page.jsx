@@ -18,7 +18,7 @@ const JavascriptCodeblock = dynamic(
 
 export default function page() {
   return (
-    <div style={{ overflowX: 'hidden' }}>
+    <div>
       <div>
         <h2>Python</h2>
         <PythonCodeblock />

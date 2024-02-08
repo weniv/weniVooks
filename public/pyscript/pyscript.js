@@ -14198,7 +14198,7 @@ var pyscript = (function (exports) {
           // are, for some reason, drawn behind the element content, which
           // will cause things like the active line background to cover
           // the outline (#297).
-          outline: '1px dotted #212121',
+          // outline: '1px dotted #212121',
         },
         display: 'flex !important',
         flexDirection: 'column',
@@ -16666,8 +16666,8 @@ var pyscript = (function (exports) {
   );
   const themeSpec = {
     '.cm-line': {
-      '& ::selection': { backgroundColor: 'transparent !important' },
-      '&::selection': { backgroundColor: 'transparent !important' },
+      '& ::selection': { backgroundColor: '#2E6FF2 !important', color: '#fff' },
+      '&::selection': { backgroundColor: '#2E6FF2 !important', color: '#fff' },
     },
   };
   if (CanHidePrimary)
@@ -23068,8 +23068,8 @@ var pyscript = (function (exports) {
   ]);
 
   const baseTheme$3 = /*@__PURE__*/ EditorView.baseTheme({
-    '&.cm-focused .cm-matchingBracket': { backgroundColor: '#328c8252' },
-    '&.cm-focused .cm-nonmatchingBracket': { backgroundColor: '#bb555544' },
+    // '&.cm-focused .cm-matchingBracket': { backgroundColor: '#328c8252' },
+    // '&.cm-focused .cm-nonmatchingBracket': { backgroundColor: '#bb555544' },
   });
   const DefaultScanDist = 10000,
     DefaultBrackets = '()[]{}';
@@ -25721,7 +25721,7 @@ var pyscript = (function (exports) {
     },
   );
   const defaultTheme = /*@__PURE__*/ EditorView.baseTheme({
-    '.cm-selectionMatch': { backgroundColor: '#99ff7780' },
+    // '.cm-selectionMatch': { backgroundColor: '#99ff7780' },
     '.cm-searchMatch .cm-selectionMatch': { backgroundColor: 'transparent' },
   });
   // Select the words around the cursors.
@@ -31729,8 +31729,8 @@ var pyscript = (function (exports) {
         // display the value of the last evaluated expression (REPL-style)
         if (pyResult !== undefined) {
           pyDisplay(runtime, pyResult, { target: outEl.id });
-        } else {
-          console.log('outEl.id', outEl);
+        } else if (pySrc === 'None') {
+          pyDisplay(runtime, 'None', { target: outEl.id });
         }
         this.autogenerateMaybe();
       }

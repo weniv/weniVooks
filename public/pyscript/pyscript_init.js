@@ -2586,7 +2586,7 @@ var pyscript = (function (exports) {
       // err.message contains the python-level traceback (i.e. a string
       // starting with: "Traceback (most recent call last) ..."
       logger$b.error('Python exception:\n' + err.message);
-      pre.innerText = err.message;
+      pre.innerText = err.message.trim().split('\n').pop();
     } else {
       // this is very likely a normal JS exception. The best we can do is to
       // display it as is.
@@ -14198,7 +14198,7 @@ var pyscript = (function (exports) {
           // are, for some reason, drawn behind the element content, which
           // will cause things like the active line background to cover
           // the outline (#297).
-          outline: '1px dotted #212121',
+          // outline: '1px dotted #212121',
         },
         display: 'flex !important',
         flexDirection: 'column',
@@ -16666,8 +16666,8 @@ var pyscript = (function (exports) {
   );
   const themeSpec = {
     '.cm-line': {
-      '& ::selection': { backgroundColor: 'transparent !important' },
-      '&::selection': { backgroundColor: 'transparent !important' },
+      '& ::selection': { backgroundColor: '#2E6FF2 !important', color: '#fff' },
+      '&::selection': { backgroundColor: '#2E6FF2 !important', color: '#fff' },
     },
   };
   if (CanHidePrimary)
