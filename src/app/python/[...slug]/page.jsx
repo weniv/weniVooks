@@ -6,7 +6,7 @@ import Script from 'next/script';
 function replaceCodeWithPyRepl(htmlString) {
   const dom = new JSDOM(htmlString);
   const codeElements = dom.window.document.querySelectorAll(
-    'div[data-rehype-pretty-code-fragment=""]',
+    'pre[class="weniv-light"]',
   );
 
   codeElements.forEach((el) => {
