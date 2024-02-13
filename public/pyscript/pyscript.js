@@ -14291,7 +14291,7 @@ var pyscript = (function (exports) {
         display: 'block',
       },
       '&light .cm-activeLine': {
-        backgroundColor: '#dee8ff',
+        backgroundColor: 'var(--activation)',
         padding: '5px 0 5px 20px',
       },
       '&dark .cm-activeLine': { backgroundColor: '#99eeff33' },
@@ -14306,8 +14306,8 @@ var pyscript = (function (exports) {
         zIndex: 200,
       },
       '&light .cm-gutters': {
-        backgroundColor: '#F3F5FA',
-        color: '#8D9299',
+        // backgroundColor: '#F3F5FA',
+        // color: '#8D9299',
       },
       '&dark .cm-gutters': {
         backgroundColor: '#333338',
@@ -14323,6 +14323,7 @@ var pyscript = (function (exports) {
       },
       '.cm-gutterElement': {
         boxSizing: 'border-box',
+        color: 'var(--grayLv3)',
       },
       '.cm-lineNumbers .cm-gutterElement': {
         display: 'flex',
@@ -14333,9 +14334,9 @@ var pyscript = (function (exports) {
         whiteSpace: 'nowrap',
       },
       '&light .cm-activeLineGutter': {
-        color: '#121314',
-        backgroundColor: '#dee8ff',
-        borderLeft: '4px solid #2E6FF2',
+        color: 'var(--surface)',
+        backgroundColor: 'var(--activation)',
+        borderLeft: '4px solid var(--primary)',
         padding: '0 3px 0 31px !important',
       },
       '&dark .cm-activeLineGutter': {

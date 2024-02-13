@@ -9,6 +9,14 @@ function replaceCodeWithPyRepl(htmlString) {
     'pre[class="weniv-light"]',
   );
 
+  let deleteElements = dom.window.document.querySelectorAll(
+    'pre[class="weniv-dark"]',
+  );
+
+  deleteElements.forEach((el) => {
+    el.remove();
+  });
+
   codeElements.forEach((el) => {
     const content = el.textContent;
     const pyReplElement = dom.window.document.createElement('py-repl');
