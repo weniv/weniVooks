@@ -31709,7 +31709,7 @@ var pyscript = (function (exports) {
           try {
             const content = this.querySelector('.cm-content').innerText;
             await navigator.clipboard.writeText(content);
-            alert('코드가 클립보드에 복사되었습니다.');
+            alert('복사되었습니다.');
           } catch (err) {
             console.error('클립보드 복사 오류:', err);
           }
