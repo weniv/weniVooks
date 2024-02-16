@@ -14206,7 +14206,7 @@ var pyscript = (function (exports) {
       '.cm-scroller': {
         display: 'flex !important',
         alignItems: 'flex-start !important',
-        fontFamily: 'Source Code Pro',
+        fontFamily: 'var(--code), monospace',
         fontSize: '16px',
         lineHeight: 1.4,
         height: '100%',
@@ -27963,7 +27963,7 @@ var pyscript = (function (exports) {
   const baseTheme$1 = /*@__PURE__*/ EditorView.baseTheme({
     '.cm-tooltip.cm-tooltip-autocomplete': {
       '& > ul': {
-        fontFamily: 'Source Code Pro',
+        fontFamily: 'var(--code), monospace',
         whiteSpace: 'nowrap',
         overflow: 'hidden auto',
         maxWidth_fallback: '700px',
