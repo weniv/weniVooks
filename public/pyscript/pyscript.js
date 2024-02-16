@@ -31717,7 +31717,7 @@ var pyscript = (function (exports) {
         return copyButton;
       }
       makeOutDiv() {
-        const outDiv = document.createElement('div');
+        const outDiv = document.createElement('pre');
         outDiv.className = 'py-repl-output';
         outDiv.id = this.id + '-' + this.getAttribute('exec-id');
         outDiv.innerText = '결과값';
@@ -31731,6 +31731,9 @@ var pyscript = (function (exports) {
         const pySrc = this.getPySrc();
         // determine the output element
         const outEl = this.getOutputElement();
+        const terminal = document.querySelector(
+          'py-terminal > pre.py-terminal',
+        );
         if (outEl === undefined) {
           // this happens if we specified output="..." but we couldn't
           // find the ID. We already displayed an error message inside
@@ -31739,11 +31742,18 @@ var pyscript = (function (exports) {
         }
         // clear the old output before executing the new code
         outEl.innerHTML = '';
+        terminal.innerHTML = '';
+
         // execute the python code
         const pyResult = pyExec(runtime, pySrc, outEl);
         // display the value of the last evaluated expression (REPL-style)
         if (pyResult !== undefined) {
           pyDisplay(runtime, pyResult, { target: outEl.id });
+        } else if (pyResult === undefined && terminal.innerHTML) {
+          terminal.innerHTML.replaceAll('<br>', '\n');
+          pyDisplay(runtime, terminal.innerHTML.replaceAll('<br>', '\n'), {
+            target: outEl.id,
+          });
         }
         this.autogenerateMaybe();
       }
@@ -32625,4 +32635,4 @@ modules must contain a "plugin" attribute. For more information check the plugin
 
   return exports;
 })({});
-//# sourceMappingURL=pyscript.js.map
+//# sourceMappingURL=pyscript.js.map(),;
