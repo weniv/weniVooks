@@ -31593,7 +31593,7 @@ var pyscript = (function (exports) {
            boxDiv               <div class='py-repl-box'>
            editorLabel              <label>...</label>
            editorDiv                <div class="py-repl-editor"></div>
-           outDiv                   <div class="py-repl-output"></div>
+           outDiv                   <pre class="py-repl-output"></pre>
                                 </div>
                             </py-repl>
     */
@@ -31734,6 +31734,7 @@ var pyscript = (function (exports) {
         const terminal = document.querySelector(
           'py-terminal > pre.py-terminal',
         );
+
         if (outEl === undefined) {
           // this happens if we specified output="..." but we couldn't
           // find the ID. We already displayed an error message inside
@@ -31750,10 +31751,7 @@ var pyscript = (function (exports) {
         if (pyResult !== undefined) {
           pyDisplay(runtime, pyResult, { target: outEl.id });
         } else if (pyResult === undefined && terminal.innerHTML) {
-          terminal.innerHTML.replaceAll('<br>', '\n');
-          pyDisplay(runtime, terminal.innerHTML.replaceAll('<br>', '\n'), {
-            target: outEl.id,
-          });
+          outEl.innerText = terminal.innerHTML.replaceAll('<br>', '\n');
         }
         this.autogenerateMaybe();
       }
@@ -31762,6 +31760,7 @@ var pyscript = (function (exports) {
       }
       getOutputElement() {
         const outputID = getAttribute(this, 'output');
+
         if (outputID !== null) {
           const el = document.getElementById(outputID);
           if (el === null) {

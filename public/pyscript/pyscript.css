@@ -319,12 +319,13 @@ textarea {
  bundled together at build time (by rollup?) */
 
 .py-terminal {
-  display: none;
+  position: absolute;
   min-height: 10em;
   background-color: black;
   color: white;
   padding: 0.5rem;
   overflow: auto;
+  left: -9999px;
 }
 
 .py-terminal-hidden {
