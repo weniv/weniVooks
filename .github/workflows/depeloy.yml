@@ -37,17 +37,6 @@ jobs:
         if: steps.cache.outputs.cache-hit != 'true'
         run: npm install
 
-      # 변경된 파일 확인
-      - name: Check Changed Files
-        run: |
-          echo "Changed files:"
-          if [ -n "${{ github.event.before }}" ]; then
-            git diff --name-only "${{ github.event.before }}" "${{ github.sha }}"
-          else
-            echo "Cannot find 'github.event.before'. Assuming all files are changed."
-            git ls-files
-          fi
-
       # 프로젝트 빌드
       - name: Build
         run: npm run build
