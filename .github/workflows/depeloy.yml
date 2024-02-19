@@ -41,7 +41,12 @@ jobs:
       - name: Check Changed Files
         run: |
           echo "Changed files:"
-          git diff --name-only ${{ github.event.before }} ${{ github.sha }}
+          if [ -n "${{ github.event.before }}" ]; then
+            git diff --name-only "${{ github.event.before }}" "${{ github.sha }}"
+          else
+            echo "Cannot find 'github.event.before'. Assuming all files are changed."
+            git ls-files
+          fi
 
       # 프로젝트 빌드
       - name: Build
