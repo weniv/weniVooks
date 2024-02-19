@@ -10,8 +10,8 @@ export default function Home() {
       <Header type="intro" />
       <div className="layout-grow">
         <Banner />
-        <BookList />
         <h1>짜잔!</h1>
+        <BookList />
       </div>
       <Footer intro={true} />
       <BtnTop />
