@@ -21,6 +21,16 @@ jobs:
         with:
           fetch-depth: 0
 
+      # _md 디렉토리 변경 확인
+      - name: Check _md Directory Changes
+        id: check_md_changes
+        run: |
+          git diff --name-only ${{ github.event.before }} ${{ github.sha }} | grep "_md/" || echo "No changes in _md directory"
+
+      # _md 디렉토리 내 파일 목록 출력
+      - name: Check _md Directory
+        run: ls -al _md
+
       - name: Use Node.js 18
         uses: actions/setup-node@v3
         with:
