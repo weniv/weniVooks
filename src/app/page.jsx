@@ -11,6 +11,7 @@ export default function Home() {
       <div className="layout-grow">
         <Banner />
         <BookList />
+        <h1>짜잔!</h1>
       </div>
       <Footer intro={true} />
       <BtnTop />
