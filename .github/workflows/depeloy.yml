@@ -2,7 +2,7 @@ name: wenivooks-lightsail-depeloy
 
 on:
   push:
-    branches: [ "main" ]
+    branches: ['main']
 
 env:
   LIGHTSAIL_SSH_KEY: ${{ secrets.LIGHTSAIL_SSH_KEY }}
@@ -15,63 +15,65 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    # 해당 branch로 체크아웃
-    - name: Use repository source code
-      uses: actions/checkout@v3
-    
-    - name: Use Node.js 18
-      uses: actions/setup-node@v3
-      with:
-        node-version: 18
+      # 해당 branch로 체크아웃
+      - name: Use repository source code
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
 
-    # node modules의 변화가 있을때만 npm install 실행
-    - name: Cache node modules
-      uses: actions/cache@v3
-      id: cache # 해당 step을 대표하는 id
-      with:
-        path: node_modules # node_modules 폴더를 검사
-        key: npm-packages-${{ hashFiles('**/package-lock.json') }} # package-lock.json 파일에 대한 해시값을 생성하여 package-lock.json 파일이 변경될때마다 의존성 업데이트
+      - name: Use Node.js 18
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
 
-    # 위 step에서 변한게 있다면 npm i 을 실행, 없다면 해당 step을 건너뜀
-    - name: Install Dependencies
-      if: steps.cache.outputs.cache-hit != 'true'
-      run: npm install
+      # node modules의 변화가 있을때만 npm install 실행
+      - name: Cache node modules
+        uses: actions/cache@v3
+        id: cache # 해당 step을 대표하는 id
+        with:
+          path: node_modules # node_modules 폴더를 검사
+          key: npm-packages-${{ hashFiles('**/package-lock.json') }} # package-lock.json 파일에 대한 해시값을 생성하여 package-lock.json 파일이 변경될때마다 의존성 업데이트
 
-    # 프로젝트 빌드
-    - name: Build
-      run: npm run build
+      # 위 step에서 변한게 있다면 npm i 을 실행, 없다면 해당 step을 건너뜀
+      - name: Install Dependencies
+        if: steps.cache.outputs.cache-hit != 'true'
+        run: npm install
 
-    # 빌드 파일이 생성되었는지 체그
-    - name: Check Build Directory
-      run: ls -al
+      # 프로젝트 빌드
+      - name: Build
+        run: npm run build
 
-    # AWS 인증
-    - name: AWS Auth
-      uses: aws-actions/configure-aws-credentials@v1
-      with:
-        aws-region: ${{ env.AWS_REGION }}
-        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      # 빌드 파일이 생성되었는지 체크
+      - name: Check Build Directory
+        run: ls -al
 
-    # AWS 인증 완료 여부 확인
-    - name: AWS Lightsail Connection Check
-      run: aws configure list
+      # AWS 인증
+      - name: AWS Auth
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-region: ${{ env.AWS_REGION }}
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
 
-    # 배포
-    - name: deploy
-      uses: appleboy/scp-action@master
-      with:
-        host: ${{ secrets.LIGHTSAIL_HOST }}
-        username: ${{env.LIGHTSAIL_USERNAME}}
-        key: ${{ secrets.LIGHTSAIL_SSH_KEY }}
-        source: '.next/**/*'
-        strip_components: 1
-        target: '/home/bitnami/htdocs/weniVooks/.next'
+      # AWS 인증 완료 여부 확인
+      - name: AWS Lightsail Connection Check
+        run: aws configure list
 
-    - name: Restart PM2 process
-      uses: appleboy/ssh-action@master
-      with:
-        host: ${{ secrets.LIGHTSAIL_HOST }}
-        username: ${{env.LIGHTSAIL_USERNAME}}
-        key: ${{ secrets.LIGHTSAIL_SSH_KEY }}
-        script: pm2 restart weniVooks
+      # 배포
+      - name: deploy
+        uses: appleboy/scp-action@master
+        with:
+          host: ${{ secrets.LIGHTSAIL_HOST }}
+          username: ${{env.LIGHTSAIL_USERNAME}}
+          key: ${{ secrets.LIGHTSAIL_SSH_KEY }}
+          source: '.next/**/*'
+          strip_components: 1
+          target: '/home/bitnami/htdocs/weniVooks/.next'
+
+      - name: Restart PM2 process
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.LIGHTSAIL_HOST }}
+          username: ${{env.LIGHTSAIL_USERNAME}}
+          key: ${{ secrets.LIGHTSAIL_SSH_KEY }}
+          script: pm2 restart weniVooks
