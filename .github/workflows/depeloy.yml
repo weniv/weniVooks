@@ -19,17 +19,6 @@ jobs:
       - name: Use repository source code
         uses: actions/checkout@v3
 
-      # _md 디렉토리 변경 확인
-      - name: Check _md Directory Changes
-        id: check_md_changes
-        run: |
-          git diff --name-only ${{ github.event.before }} ${{ github.sha }} | grep "_md/" || echo "No changes in _md directory"
-          git diff --name-only ${{ github.event.before }} ${{ github.sha }} "_md/" | xargs -I {} echo "Changed file: {}"
-
-      # _md 디렉토리 내 파일 목록 출력
-      - name: Check _md Directory
-        run: ls -al _md
-
       - name: Use Node.js 18
         uses: actions/setup-node@v3
         with:
@@ -47,6 +36,12 @@ jobs:
       - name: Install Dependencies
         if: steps.cache.outputs.cache-hit != 'true'
         run: npm install
+
+      # 변경된 파일 확인
+      - name: Check Changed Files
+        run: |
+          echo "Changed files:"
+          git diff --name-only ${{ github.event.before }} ${{ github.sha }}
 
       # 프로젝트 빌드
       - name: Build
@@ -71,7 +66,7 @@ jobs:
           host: ${{ secrets.LIGHTSAIL_HOST }}
           username: ${{env.LIGHTSAIL_USERNAME}}
           key: ${{ secrets.LIGHTSAIL_SSH_KEY }}
-          source: '_md/**/* .next/**/*'
+          source: '.next/**/*'
           strip_components: 1
           target: '/home/bitnami/htdocs/weniVooks/.next'
 
