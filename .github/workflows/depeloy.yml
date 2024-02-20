@@ -43,7 +43,7 @@ jobs:
 
       # 빌드된 디렉토리 확인
       - name: Check Build Directory
-        run: ls -al .next
+        run: ls -al
 
       # AWS 인증
       - name: AWS Auth
@@ -64,9 +64,11 @@ jobs:
           host: ${{ secrets.LIGHTSAIL_HOST }}
           username: ${{env.LIGHTSAIL_USERNAME}}
           key: ${{ secrets.LIGHTSAIL_SSH_KEY }}
-          source: '.next/'
-          strip_components: 0
-          target: '/home/bitnami/htdocs/weniVooks/'
+          source: '.next/**/*'
+          strip_components: 1
+          target: '/home/bitnami/htdocs/weniVooks/.next'
+
+          # /home/bitnami/htdocs/weniVooks 가 변경이 안되는듯
 
       - name: Restart PM2 process
         uses: appleboy/ssh-action@master
@@ -74,4 +76,4 @@ jobs:
           host: ${{ secrets.LIGHTSAIL_HOST }}
           username: ${{env.LIGHTSAIL_USERNAME}}
           key: ${{ secrets.LIGHTSAIL_SSH_KEY }}
-          script: pm2 restart /home/bitnami/htdocs/weniVooks/ecosystem.config.js
+          script: pm2 restart weniVooks
