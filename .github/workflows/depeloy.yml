@@ -43,7 +43,7 @@ jobs:
 
       # 빌드된 디렉토리 확인
       - name: Check Build Directory
-        run: ls -al
+        run: ls -al .next
 
       # AWS 인증
       - name: AWS Auth
