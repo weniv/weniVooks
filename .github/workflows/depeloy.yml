@@ -64,8 +64,6 @@ jobs:
           strip_components: 1
           target: '/home/bitnami/htdocs/weniVooks/.next'
 
-          # /home/bitnami/htdocs/weniVooks 가 변경이 안되는듯
-
       - name: Restart PM2 process
         uses: appleboy/ssh-action@master
         with:
