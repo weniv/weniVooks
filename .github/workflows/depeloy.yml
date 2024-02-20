@@ -41,6 +41,10 @@ jobs:
       - name: Build
         run: npm run build
 
+      # 빌드된 디렉토리 확인
+      - name: Check Build Directory
+        run: ls -al
+
       # AWS 인증
       - name: AWS Auth
         uses: aws-actions/configure-aws-credentials@v1
@@ -62,7 +66,9 @@ jobs:
           key: ${{ secrets.LIGHTSAIL_SSH_KEY }}
           source: '.next/**/*'
           strip_components: 1
-          target: '/home/bitnami/htdocs/weniVooks/.next'
+          target: '/home/bitnami/htdocs/.next'
+
+          # /home/bitnami/htdocs/weniVooks 가 변경이 안되는듯
 
       - name: Restart PM2 process
         uses: appleboy/ssh-action@master
