@@ -44,7 +44,7 @@ jobs:
           username: ${{ env.LIGHTSAIL_USERNAME }}
           key: ${{ secrets.LIGHTSAIL_SSH_KEY }}
           source: '_md/**/*'
-          target: '/home/bitnami/htdocs/weniVooks/_md'
+          target: '/home/bitnami/htdocs/weniVooks'
 
       - name: AWS Auth
         uses: aws-actions/configure-aws-credentials@v1
