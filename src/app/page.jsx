@@ -10,6 +10,7 @@ export default function Home() {
       <Header type="intro" />
       <div className="layout-grow">
         <Banner />
+        <h1>고릴고릴라</h1>
         <BookList />
       </div>
       <Footer intro={true} />
