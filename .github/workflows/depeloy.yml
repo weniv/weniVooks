@@ -2,7 +2,7 @@ name: wenivooks-lightsail-deploy
 
 on:
   push:
-    branches: ['cicd']
+    branches: ['main']
 
 env:
   LIGHTSAIL_SSH_KEY: ${{ secrets.LIGHTSAIL_SSH_KEY }}
