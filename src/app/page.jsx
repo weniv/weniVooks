@@ -10,7 +10,7 @@ export default function Home() {
       <Header type="intro" />
       <div className="layout-grow">
         <Banner />
-        <h1>dsfdsd</h1>
+        <h1>_md cicd test</h1>
         <BookList />
       </div>
       <Footer intro={true} />
