@@ -5,7 +5,7 @@
   "homepage": "https://weniv.github.io/weniVooks/",
   "scripts": {
     "dev": "next dev",
-    "build": "next build && cp -r _md/.next/* .next",
+    "build": "next build && cp -r _md .next",
     "start": "next start",
     "lint": "next lint"
   },
