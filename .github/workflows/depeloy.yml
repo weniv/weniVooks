@@ -41,6 +41,12 @@ jobs:
       - name: Build
         run: npm run build
 
+      - name: Check Build Directory
+        run: ls -al .next
+
+      - name: Display Changed Files
+        run: echo "${{ steps.changes.outputs.files }}"
+
       # AWS 인증
       - name: AWS Auth
         uses: aws-actions/configure-aws-credentials@v1
