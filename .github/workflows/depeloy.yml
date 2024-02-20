@@ -15,6 +15,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      # 해당 branch로 체크아웃
       - name: Checkout Repository
         uses: actions/checkout@v2
 
@@ -23,20 +24,24 @@ jobs:
         with:
           node-version: 18
 
+      # node modules의 변화가 있을때만 npm install 실행
       - name: Cache node modules
         uses: actions/cache@v2
-        id: cache
+        id: cache # 해당 step을 대표하는 id
         with:
-          path: node_modules
+          path: node_modules # node_modules 폴더를 검사
           key: npm-packages-${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
 
+      # 위 step에서 변한게 있다면 npm i 을 실행, 없다면 해당 step을 건너뜀
       - name: Install Dependencies
         if: steps.cache.outputs.cache-hit != 'true'
         run: npm install
 
+        # 프로젝트 빌드
       - name: Build Project
         run: npm run build
 
+      # _md 디렉토리 복사
       - name: Copy _md to Deploy
         uses: appleboy/scp-action@master
         with:
@@ -46,6 +51,7 @@ jobs:
           source: '_md/**/*'
           target: '/home/bitnami/htdocs/weniVooks'
 
+      # AWS 인증
       - name: AWS Auth
         uses: aws-actions/configure-aws-credentials@v1
         with:
@@ -53,9 +59,11 @@ jobs:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
 
+      # AWS 인증 완료 여부 확인
       - name: AWS Lightsail Connection Check
         run: aws configure list
 
+      # 배포
       - name: Deploy
         uses: appleboy/scp-action@master
         with:
