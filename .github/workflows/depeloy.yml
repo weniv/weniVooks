@@ -65,8 +65,8 @@ jobs:
           username: ${{env.LIGHTSAIL_USERNAME}}
           key: ${{ secrets.LIGHTSAIL_SSH_KEY }}
           source: '.next/'
-          strip_components: 1
-          target: '/home/bitnami/htdocs/weniVooks/.'
+          strip_components: 0
+          target: '/home/bitnami/htdocs/weniVooks/'
 
       - name: Restart PM2 process
         uses: appleboy/ssh-action@master
