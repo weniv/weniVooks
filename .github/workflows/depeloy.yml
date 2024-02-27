@@ -42,13 +42,23 @@ jobs:
         run: npm run build
 
       # _md 디렉토리 복사
-      - name: Copy _md to Deploy
+      # - name: Copy _md to Deploy
+      #   uses: appleboy/scp-action@master
+      #   with:
+      #     host: ${{ secrets.LIGHTSAIL_HOST }}
+      #     username: ${{ env.LIGHTSAIL_USERNAME }}
+      #     key: ${{ secrets.LIGHTSAIL_SSH_KEY }}
+      #     source: '_md/**/*'
+      #     target: '/home/bitnami/htdocs/weniVooks'
+
+      # _md, public, docs 폴더를 동시에 복사
+      - name: Copy _md, Public, and Docs to Deploy
         uses: appleboy/scp-action@master
         with:
           host: ${{ secrets.LIGHTSAIL_HOST }}
           username: ${{ env.LIGHTSAIL_USERNAME }}
           key: ${{ secrets.LIGHTSAIL_SSH_KEY }}
-          source: '_md/**/*'
+          source: '_md/**/* public/**/* docs/**/*'
           target: '/home/bitnami/htdocs/weniVooks'
 
       # AWS 인증
