@@ -51,14 +51,14 @@ jobs:
       #     source: '_md/**/*'
       #     target: '/home/bitnami/htdocs/weniVooks'
 
-      # _md, public, docs 폴더를 동시에 복사
-      - name: Copy _md, Public, and Docs to Deploy
+      # _md, public 폴더를 동시에 복사
+      - name: Copy _md and Public to Deploy
         uses: appleboy/scp-action@master
         with:
           host: ${{ secrets.LIGHTSAIL_HOST }}
           username: ${{ env.LIGHTSAIL_USERNAME }}
           key: ${{ secrets.LIGHTSAIL_SSH_KEY }}
-          source: '_md/**/* public/**/* docs/**/*'
+          source: '_md/**/* public/**/*'
           target: '/home/bitnami/htdocs/weniVooks'
 
       # AWS 인증
