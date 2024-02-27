@@ -1,15 +1,30 @@
 [
   {
-    "bgColor": "#7DDCFC",
-    "categoryColor": "#fff",
-    "categoryBg": "#121314",
-    "thumbnail": "/images/banner/main-banner-react.webp",
-    "thumbnailMobile": "/images/banner/main-banner-react-m.webp",
-    "category": "신규 부트캠프 오픈",
-    "title": ["React mini 부트캠프 1기", ": 기초부터 실무까지"],
+    "bgColor": "#2E6FF2",
+    "textColor": "#fff",
+    "categoryColor": "#121314",
+    "categoryBg": "#fff",
+    "thumbnail": "/images/banner/main-banner_20240227-1.jpg",
+    "thumbnailMobile": "/images/banner/main-banner_20240227-1m.jpg",
+    "category": "제주코딩베이스캠프 VOD",
+    "title": ["'제주코딩베이스캠프'와 함께", "코알못에서 웹 서비스 런칭까지,"],
     "description": [
-      "React 기초부터 실무까지, 5일이면 ‘큰 그림’을 그리기에 충분합니다!"
+      "이번 캠프에 참여하지 못해 아쉽다면? 제코베 VOD 강의를 추천해요!"
     ],
-    "link": "http://bootcamp.weniv.co.kr/react"
+    "link": "https://www.inflearn.com/users/@jejucoding"
+  },
+  {
+    "bgColor": "#2E6FF2",
+    "textColor": "#fff",
+    "categoryColor": "#121314",
+    "categoryBg": "#fff",
+    "thumbnail": "/images/banner/main-banner_20240227-2.jpg",
+    "thumbnailMobile": "/images/banner/main-banner_20240227-2.jpg",
+    "category": "스터디인",
+    "title": ["견고한 파이썬,", "같이 공부할 사람 없을까?"],
+    "description": [
+      "개발 스터디 모집 플랫폼 '스터디인'에서 함께 공부할 사람을 모집해보세요."
+    ],
+    "link": "https://www.studyin.co.kr/"
   }
 ]
