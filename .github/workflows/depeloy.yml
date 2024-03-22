@@ -34,7 +34,7 @@ jobs:
 
       # 위 step에서 변한게 있다면 npm i 을 실행, 없다면 해당 step을 건너뜀
       - name: Install Dependencies
-        if: steps.cache.outputs.cache-hit != 'true'
+        # if: steps.cache.outputs.cache-hit != 'true'
         run: npm install
 
         # 프로젝트 빌드
