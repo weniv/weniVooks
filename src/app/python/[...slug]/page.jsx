@@ -5,8 +5,9 @@ import Script from 'next/script';
 
 function replaceCodeWithPyRepl(htmlString) {
   const dom = new JSDOM(htmlString);
+
   const codeElements = dom.window.document.querySelectorAll(
-    'pre[class="weniv-light"]',
+    'pre.weniv-light[data-language="python-exec"]',
   );
 
   let deleteElements = dom.window.document.querySelectorAll(
@@ -19,6 +20,9 @@ function replaceCodeWithPyRepl(htmlString) {
 
   codeElements.forEach((el) => {
     const content = el.textContent;
+
+    // console.log('==== content ====');
+    // console.log(content);
     const pyReplElement = dom.window.document.createElement('py-repl');
     pyReplElement.textContent = content;
     el.replaceWith(pyReplElement);
