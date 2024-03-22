@@ -55,26 +55,18 @@ export default async function Page({ params }) {
 
   return (
     <>
-      {htmlContent ? (
-        <>
-          {/* <link rel="stylesheet" href="/pyscript/pyscript.css" />
+      {/* <link rel="stylesheet" href="/pyscript/pyscript.css" />
           <Script defer src="/pyscript/pyscript.js" /> */}
 
-          {htmlContent && (
-            <>
-              <h3 className="title">{title}</h3>
-              <div dangerouslySetInnerHTML={{ __html: replacedHtmlContent }} />
-            </>
-          )}
-
-          <link rel="stylesheet" href="/pyscript/pyscript.css" />
-          <Script src="/pyscript/pyscript.js" strategy="beforeInteractive" />
-        </>
-      ) : (
+      {htmlContent && (
         <>
-          <p>문제 발생</p>
+          <h3 className="title">{title}</h3>
+          <div dangerouslySetInnerHTML={{ __html: replacedHtmlContent }} />
         </>
       )}
+
+      <link rel="stylesheet" href="/pyscript/pyscript.css" />
+      <Script src="/pyscript/pyscript.js" />
     </>
   );
 }
