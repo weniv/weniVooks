@@ -20,7 +20,7 @@ function replaceCodeWithPyRepl(htmlString) {
   );
 
   let deleteElements = dom.window.document.querySelectorAll(
-    'pre[class="weniv-dark"]',
+    'pre.weniv-dark[data-language="python-exec"]',
   );
 
   deleteElements.forEach((el) => {
