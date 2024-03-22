@@ -3,6 +3,15 @@ import { DEFAULT_PATH, TITLE, DESC, OGIMG } from '../data';
 import { JSDOM } from 'jsdom';
 import Script from 'next/script';
 
+function ConvertSystemSourcetoHtml(str) {
+  str = str.replace(/</g, '&lt;');
+  str = str.replace(/>/g, '&gt;');
+  str = str.replace(/\"/g, '&quot;');
+  str = str.replace(/\'/g, '&#39;');
+  str = str.replace(/\n/g, '<br />');
+  return str;
+}
+
 function replaceCodeWithPyRepl(htmlString) {
   const dom = new JSDOM(htmlString);
 
@@ -21,8 +30,6 @@ function replaceCodeWithPyRepl(htmlString) {
   codeElements.forEach((el) => {
     const content = el.textContent;
 
-    // console.log('==== content ====');
-    // console.log(content);
     const pyReplElement = dom.window.document.createElement('py-repl');
     pyReplElement.textContent = content;
     el.replaceWith(pyReplElement);
