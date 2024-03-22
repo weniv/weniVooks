@@ -162,9 +162,6 @@ html {
 
 .py-repl-box {
   flex-direction: column;
-  border: 1px solid var(--grayLv2);
-  border-radius: 10px;
-  margin: 15px 0;
 }
 
 .py-repl-editor {
@@ -319,13 +316,11 @@ textarea {
  bundled together at build time (by rollup?) */
 
 .py-terminal {
-  position: absolute;
   min-height: 10em;
   background-color: black;
   color: white;
   padding: 0.5rem;
   overflow: auto;
-  left: -9999px;
 }
 
 .py-terminal-hidden {
@@ -333,11 +328,11 @@ textarea {
 }
 
 .py-repl-output {
-  padding: 4px 20px;
+  border-top: 1px solid var(--grayLv2);
+  padding: 20px;
   font-size: 16px;
   line-height: 22px;
   word-break: break-all;
-  white-space: normal;
 }
 
 .py-repl-button-wrap {

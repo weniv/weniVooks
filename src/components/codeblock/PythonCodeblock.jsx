@@ -7,7 +7,6 @@ import {
 } from './event';
 import PythonREPL from './PythonREPL';
 import Header from './Header';
-import ResultBar from './ResultBar';
 import Layout from './Layout';
 
 function PythonCodeblock() {
@@ -28,7 +27,6 @@ function PythonCodeblock() {
     <Layout event={event}>
       <Header event={event} copyCode={copy} />
       <PythonREPL>{code}</PythonREPL>
-      <ResultBar result={result} />
     </Layout>
   );
 }

@@ -1,5 +1,31 @@
 import { getPostDetail } from '@/utils/getPosts';
 import { DEFAULT_PATH, TITLE, DESC, OGIMG } from '../data';
+import { JSDOM } from 'jsdom';
+import Script from 'next/script';
+
+function replaceCodeWithPyRepl(htmlString) {
+  const dom = new JSDOM(htmlString);
+  const codeElements = dom.window.document.querySelectorAll(
+    'pre[class="weniv-light"]',
+  );
+
+  let deleteElements = dom.window.document.querySelectorAll(
+    'pre[class="weniv-dark"]',
+  );
+
+  deleteElements.forEach((el) => {
+    el.remove();
+  });
+
+  codeElements.forEach((el) => {
+    const content = el.textContent;
+    const pyReplElement = dom.window.document.createElement('py-repl');
+    pyReplElement.textContent = content;
+    el.replaceWith(pyReplElement);
+  });
+
+  return dom.serialize();
+}
 
 export async function generateMetadata({ params }, parent) {
   const { title } = await getPostDetail(DEFAULT_PATH, params.slug);
@@ -24,13 +50,16 @@ export async function generateMetadata({ params }, parent) {
 
 export default async function Page({ params }) {
   const { title, htmlContent } = await getPostDetail(DEFAULT_PATH, params.slug);
+  const replacedHtmlContent = replaceCodeWithPyRepl(htmlContent);
 
   return (
     <>
+      <link rel="stylesheet" href="/pyscript/pyscript.css" />
+      <Script defer src="/pyscript/pyscript.js" />
       {htmlContent && (
         <>
           <h3 className="title">{title}</h3>
-          <div dangerouslySetInnerHTML={{ __html: htmlContent }} />
+          <div dangerouslySetInnerHTML={{ __html: replacedHtmlContent }} />
         </>
       )}
     </>

@@ -14206,7 +14206,7 @@ var pyscript = (function (exports) {
       '.cm-scroller': {
         display: 'flex !important',
         alignItems: 'flex-start !important',
-        fontFamily: 'var(--code), monospace',
+        fontFamily: 'Source Code Pro',
         fontSize: '16px',
         lineHeight: 1.4,
         height: '100%',
@@ -14291,7 +14291,7 @@ var pyscript = (function (exports) {
         display: 'block',
       },
       '&light .cm-activeLine': {
-        backgroundColor: 'var(--activation)',
+        backgroundColor: '#dee8ff',
         padding: '5px 0 5px 20px',
       },
       '&dark .cm-activeLine': { backgroundColor: '#99eeff33' },
@@ -14306,8 +14306,8 @@ var pyscript = (function (exports) {
         zIndex: 200,
       },
       '&light .cm-gutters': {
-        // backgroundColor: '#F3F5FA',
-        // color: '#8D9299',
+        backgroundColor: '#F3F5FA',
+        color: '#8D9299',
       },
       '&dark .cm-gutters': {
         backgroundColor: '#333338',
@@ -14323,7 +14323,6 @@ var pyscript = (function (exports) {
       },
       '.cm-gutterElement': {
         boxSizing: 'border-box',
-        color: 'var(--grayLv3)',
       },
       '.cm-lineNumbers .cm-gutterElement': {
         display: 'flex',
@@ -14334,9 +14333,9 @@ var pyscript = (function (exports) {
         whiteSpace: 'nowrap',
       },
       '&light .cm-activeLineGutter': {
-        color: 'var(--surface)',
-        backgroundColor: 'var(--activation)',
-        borderLeft: '4px solid var(--primary)',
+        color: '#121314',
+        backgroundColor: '#dee8ff',
+        borderLeft: '4px solid #2E6FF2',
         padding: '0 3px 0 31px !important',
       },
       '&dark .cm-activeLineGutter': {
@@ -23060,7 +23059,7 @@ var pyscript = (function (exports) {
     },
     {
       tag: tags.comment,
-      color: '#8D9299',
+      color: '#940',
     },
     {
       tag: tags.invalid,
@@ -27963,7 +27962,7 @@ var pyscript = (function (exports) {
   const baseTheme$1 = /*@__PURE__*/ EditorView.baseTheme({
     '.cm-tooltip.cm-tooltip-autocomplete': {
       '& > ul': {
-        fontFamily: 'var(--code), monospace',
+        fontFamily: 'Source Code Pro',
         whiteSpace: 'nowrap',
         overflow: 'hidden auto',
         maxWidth_fallback: '700px',
@@ -31575,15 +31574,10 @@ var pyscript = (function (exports) {
   );
 
   const logger$8 = getLogger('py-repl');
-  const RUNBUTTON = `<svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-<rect width="30" height="30" rx="15" fill="#2E6FF2"/>
-<path d="M19.7894 14.7052C20.0045 14.8429 20.0045 15.1571 19.7894 15.2948L12.0387 20.2552C11.8057 20.4043 11.5 20.237 11.5 19.9604L11.5 10.0395C11.5 9.76295 11.8057 9.59564 12.0387 9.74474L19.7894 14.7052Z" fill="white"/>
-</svg>
-`;
-  const COPYBUTTON = `<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path fill-rule="evenodd" clip-rule="evenodd" d="M3.41667 2C2.53927 2 2 2.78089 2 3.51667V12.4833C2 13.2191 2.53927 14 3.41667 14H5.75V12.5H3.50097C3.50037 12.495 3.5 12.4895 3.5 12.4833V3.51667C3.5 3.51052 3.50037 3.50497 3.50097 3.5H11.999C11.9996 3.50497 12 3.51052 12 3.51667V5.25H13.5V3.51667C13.5 2.78089 12.9607 2 12.0833 2H3.41667ZM8.41667 6.5C7.6002 6.5 7 7.18409 7 7.95V17.05C7 17.8159 7.6002 18.5 8.41667 18.5H17.0833C17.8998 18.5 18.5 17.8159 18.5 17.05V7.95C18.5 7.18409 17.8998 6.5 17.0833 6.5H8.41667ZM17 17H8.5V8H17V17ZM15.5 10.75C15.5 11.1642 15.1642 11.5 14.75 11.5H10.75C10.3358 11.5 10 11.1642 10 10.75C10 10.3358 10.3358 10 10.75 10H14.75C15.1642 10 15.5 10.3358 15.5 10.75ZM14.75 15C15.1642 15 15.5 14.6642 15.5 14.25C15.5 13.8358 15.1642 13.5 14.75 13.5H10.75C10.3358 13.5 10 13.8358 10 14.25C10 14.6642 10.3358 15 10.75 15H14.75Z" fill="#8D9299"/>
-</svg>
-`;
+  const RUNBUTTON = `<svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M11.7894 6.7052C12.0045 6.84287 12.0045 7.15712 11.7894 7.29479L4.03867 12.2552C3.80571 12.4043 3.5 12.237 3.5 11.9604L3.5 2.03954C3.5 1.76295 3.80571 1.59564 4.03867 1.74474L11.7894 6.7052Z" fill="white"/>
+</svg>`;
+  // const RUNBUTTON = `<svg style="height:20px;width:20px;vertical-align:-.125em;transform-origin:center;overflow:visible;color:green" viewBox="0 0 384 512" aria-hidden="true" role="img" xmlns="http://www.w3.org/2000/svg"><g transform="translate(192 256)" transform-origin="96 0"><g transform="translate(0,0) scale(1,1)"><path d="M361 215C375.3 223.8 384 239.3 384 256C384 272.7 375.3 288.2 361 296.1L73.03 472.1C58.21 482 39.66 482.4 24.52 473.9C9.377 465.4 0 449.4 0 432V80C0 62.64 9.377 46.63 24.52 38.13C39.66 29.64 58.21 29.99 73.03 39.04L361 215z" fill="currentColor" transform="translate(-192 -256)"></path></g></g></svg>`;
   function make_PyRepl(runtime) {
     /* High level structure of py-repl DOM, and the corresponding JS names.
 
@@ -31593,7 +31587,7 @@ var pyscript = (function (exports) {
            boxDiv               <div class='py-repl-box'>
            editorLabel              <label>...</label>
            editorDiv                <div class="py-repl-editor"></div>
-           outDiv                   <pre class="py-repl-output"></pre>
+           outDiv                   <div class="py-repl-output"></div>
                                 </div>
                             </py-repl>
     */
@@ -31630,20 +31624,8 @@ var pyscript = (function (exports) {
           languageConf.of(python()),
           keymap.of([
             ...defaultKeymap,
-            {
-              key: 'Ctrl-Enter',
-              run: () => {
-                this.execute();
-                return true;
-              },
-            },
-            {
-              key: 'Shift-Enter',
-              run: () => {
-                this.execute();
-                return true;
-              },
-            },
+            { key: 'Ctrl-Enter', run: this.execute.bind(this) },
+            { key: 'Shift-Enter', run: this.execute.bind(this) },
           ]),
         ];
         if (getAttribute(this, 'theme') === 'dark') {
@@ -31662,17 +31644,10 @@ var pyscript = (function (exports) {
       makeBoxDiv() {
         const boxDiv = document.createElement('div');
         boxDiv.className = 'py-repl-box';
-        const buttonWrap = document.createElement('div');
-        buttonWrap.className = 'py-repl-button-wrap';
-        const runButton = this.makeRunButton();
-        const copyButton = this.makeCopyButton();
-        buttonWrap.append(runButton);
-        buttonWrap.append(copyButton);
         const editorDiv = this.makeEditorDiv();
         const editorLabel = this.makeLabel('Python Script Area', editorDiv);
         this.outDiv = this.makeOutDiv();
         boxDiv.append(editorLabel);
-        boxDiv.append(buttonWrap);
         boxDiv.appendChild(editorDiv);
         boxDiv.appendChild(this.outDiv);
         return boxDiv;
@@ -31682,6 +31657,9 @@ var pyscript = (function (exports) {
         editorDiv.id = 'code-editor';
         editorDiv.className = 'py-repl-editor';
         editorDiv.appendChild(this.editor.dom);
+        const runButton = this.makeRunButton();
+        const runLabel = this.makeLabel('Python Script Run Button', runButton);
+        editorDiv.appendChild(runLabel);
         return editorDiv;
       }
       makeLabel(text, elementFor) {
@@ -31697,27 +31675,12 @@ var pyscript = (function (exports) {
         return lbl;
       }
       makeRunButton() {
-        const runButton = document.createElement('button');
-        runButton.innerHTML = RUNBUTTON;
+        const runButton = document.querySelector('#btn-run');
         runButton.addEventListener('click', this.execute.bind(this));
         return runButton;
       }
-      makeCopyButton() {
-        const copyButton = document.createElement('button');
-        copyButton.innerHTML = COPYBUTTON;
-        copyButton.addEventListener('click', async () => {
-          try {
-            const content = this.querySelector('.cm-content').innerText;
-            await navigator.clipboard.writeText(content);
-            alert('복사되었습니다.');
-          } catch (err) {
-            console.error('클립보드 복사 오류:', err);
-          }
-        });
-        return copyButton;
-      }
       makeOutDiv() {
-        const outDiv = document.createElement('pre');
+        const outDiv = document.createElement('div');
         outDiv.className = 'py-repl-output';
         outDiv.id = this.id + '-' + this.getAttribute('exec-id');
         outDiv.innerText = '결과값';
@@ -31731,10 +31694,6 @@ var pyscript = (function (exports) {
         const pySrc = this.getPySrc();
         // determine the output element
         const outEl = this.getOutputElement();
-        const terminal = document.querySelector(
-          'py-terminal > pre.py-terminal',
-        );
-
         if (outEl === undefined) {
           // this happens if we specified output="..." but we couldn't
           // find the ID. We already displayed an error message inside
@@ -31743,15 +31702,11 @@ var pyscript = (function (exports) {
         }
         // clear the old output before executing the new code
         outEl.innerHTML = '';
-        terminal.innerHTML = '';
-
         // execute the python code
         const pyResult = pyExec(runtime, pySrc, outEl);
         // display the value of the last evaluated expression (REPL-style)
         if (pyResult !== undefined) {
           pyDisplay(runtime, pyResult, { target: outEl.id });
-        } else if (pyResult === undefined && terminal.innerHTML) {
-          outEl.innerText = terminal.innerHTML.replaceAll('<br>', '\n');
         }
         this.autogenerateMaybe();
       }
@@ -31760,7 +31715,6 @@ var pyscript = (function (exports) {
       }
       getOutputElement() {
         const outputID = getAttribute(this, 'output');
-
         if (outputID !== null) {
           const el = document.getElementById(outputID);
           if (el === null) {
@@ -32634,4 +32588,4 @@ modules must contain a "plugin" attribute. For more information check the plugin
 
   return exports;
 })({});
-//# sourceMappingURL=pyscript.js.map(),;
+//# sourceMappingURL=pyscript.js.map

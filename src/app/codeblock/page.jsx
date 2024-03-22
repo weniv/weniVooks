@@ -18,7 +18,7 @@ const JavascriptCodeblock = dynamic(
 
 export default function page() {
   return (
-    <>
+    <div>
       <div>
         <h2>Python</h2>
         <PythonCodeblock />
@@ -28,6 +28,6 @@ export default function page() {
         <h2>JavaScript</h2>
         <JavascriptCodeblock />
       </div>
-    </>
+    </div>
   );
 }

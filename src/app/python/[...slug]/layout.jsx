@@ -29,7 +29,7 @@ export default function Layout({ children }) {
         </main>
         {windowWidth > 1024 && isHeading ? <AsidePC /> : null}
       </div>
-      <BtnCopy />
+      {/* <BtnCopy /> */}
     </>
   );
 }

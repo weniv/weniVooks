@@ -1,6 +1,6 @@
 /* BASICS */
 .CodeMirror {
-  font-family: 'Source Code Pro', monospace;
+  font-family: var(--code), monospace;
   min-height: 144px;
   height: 100%;
   color: black;

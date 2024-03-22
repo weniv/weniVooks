@@ -1,3 +1,5 @@
+import { useEffect } from 'react';
+
 // localStorage에서 코드 초기값 불러오기
 export const getSaveCode = (lang) => {
   const pyCode = window.localStorage.getItem('pythonCode');
@@ -31,29 +33,59 @@ export const copyCode = async (code) => {
   console.log('code', code);
   try {
     await navigator.clipboard.writeText(code);
-    alert('코드가 클립보드에 복사되었습니다.');
+    alert('복사되었습니다.');
   } catch (err) {
     alert('코드 복사에 실패하였습니다.');
   }
 };
 
+// shift enter 키보드 이벤트 발생
+export const simulateShiftEnter = (button) => {
+  const e = new KeyboardEvent('keydown', {
+    key: 'Enter',
+    code: 'Enter',
+    shiftKey: true,
+  });
+
+  console.log('shift enter clicked!');
+  // button.dispatchEvent(e);
+};
+
 // 파이썬 결과값 출력
-export const getResultPython = async (setResult) => {
+export const getResultPython = async (id, setPython) => {
   try {
     const pyResult = document.querySelector('.py-repl-output');
     const error = document.querySelector('.py-repl-output .py-error');
 
-    console.log('pyResult', pyResult.innerText === '');
+    const updateResult = (id, newResult) => {
+      setPython((prev) =>
+        prev.map((el) =>
+          Number(el.id) === Number(id) ? { ...el, result: newResult } : el,
+        ),
+      );
+    };
 
     if (error) {
-      setResult('Error:' + error.innerText.toString().split('Error:')[1]);
+      const errMsg = 'Error:' + error.innerText.toString().split('Error:')[1];
+      console.log('errMsg', errMsg);
+      updateResult(
+        id,
+        'Error:' + error.innerText.toString().split('Error:')[1],
+      );
+      // setResult('Error:' + error.innerText.toString().split('Error:')[1]);
     } else {
       if (pyResult.innerText) {
-        setResult(pyResult.innerText);
+        updateResult(id, pyResult.innerText);
+
+        // setResult(pyResult.innerText);
       } else if (pyResult.innerText === '') {
-        setResult('None');
+        updateResult(id, 'None');
+
+        // setResult('None');
       } else {
-        setResult('결과값');
+        updateResult(id, '결과값');
+
+        // setResult('결과값');
       }
     }
   } catch (err) {
@@ -62,11 +94,16 @@ export const getResultPython = async (setResult) => {
 };
 
 // 파이썬 입력 컨텐츠 가져오기 및 저장
-export const getPythonCode = () => {
+export const getPythonCode = (id) => {
   const content = document.querySelectorAll('.cm-content .cm-line');
   const list = [];
+
   content.forEach((el) => list.push(el.innerText));
   localStorage.setItem('pythonCode', list.join('\n'));
+
+  console.log('list', list);
+
+  console.log('id', id);
   return list.join('\n');
 };
 
