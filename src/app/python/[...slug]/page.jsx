@@ -57,14 +57,18 @@ export default async function Page({ params }) {
     <>
       {htmlContent ? (
         <>
-          <link rel="stylesheet" href="/pyscript/pyscript.css" />
-          <Script defer src="/pyscript/pyscript.js" />
+          {/* <link rel="stylesheet" href="/pyscript/pyscript.css" />
+          <Script defer src="/pyscript/pyscript.js" /> */}
+
           {htmlContent && (
             <>
               <h3 className="title">{title}</h3>
               <div dangerouslySetInnerHTML={{ __html: replacedHtmlContent }} />
             </>
           )}
+
+          <link rel="stylesheet" href="/pyscript/pyscript.css" />
+          <Script src="/pyscript/pyscript.js" strategy="beforeInteractive" />
         </>
       ) : (
         <>
