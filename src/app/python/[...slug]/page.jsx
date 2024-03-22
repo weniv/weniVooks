@@ -53,16 +53,20 @@ export default async function Page({ params }) {
   const { title, htmlContent } = await getPostDetail(DEFAULT_PATH, params.slug);
   const replacedHtmlContent = replaceCodeWithPyRepl(htmlContent);
 
+  console.log('htmlContent', htmlContent);
+
   return (
     <>
       {/* <link rel="stylesheet" href="/pyscript/pyscript.css" />
           <Script defer src="/pyscript/pyscript.js" /> */}
 
-      {htmlContent && (
+      {htmlContent ? (
         <>
           <h3 className="title">{title}</h3>
           <div dangerouslySetInnerHTML={{ __html: replacedHtmlContent }} />
         </>
+      ) : (
+        <p>에러발생</p>
       )}
 
       <link rel="stylesheet" href="/pyscript/pyscript.css" />
