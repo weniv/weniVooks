@@ -31760,8 +31760,6 @@ var pyscript = (function (exports) {
 
           // outEl.innerText = terminal.innerHTML.replaceAll('<br>', '\n');
           outEl.innerText = ConvertSystemSourcetoHtml(terminal.innerHTML);
-
-          console.log('dd', outEl.innerText);
         }
         this.autogenerateMaybe();
       }
