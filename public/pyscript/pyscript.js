@@ -31751,7 +31751,15 @@ var pyscript = (function (exports) {
         if (pyResult !== undefined) {
           pyDisplay(runtime, pyResult, { target: outEl.id });
         } else if (pyResult === undefined && terminal.innerHTML) {
-          outEl.innerText = terminal.innerHTML.replaceAll('<br>', '\n');
+          function ConvertSystemSourcetoHtml(str) {
+            str = str.replace(/&lt;/g, '<');
+            str = str.replace(/&gt;/g, '>');
+            str = str.replaceAll('<br>', '\n');
+            return str;
+          }
+
+          // outEl.innerText = terminal.innerHTML.replaceAll('<br>', '\n');
+          outEl.innerText = ConvertSystemSourcetoHtml(terminal.innerHTML);
         }
         this.autogenerateMaybe();
       }
