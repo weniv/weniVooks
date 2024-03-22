@@ -1,3 +1,4 @@
+import dynamic from 'next/dynamic';
 import { getPostDetail } from '@/utils/getPosts';
 import { DEFAULT_PATH, TITLE, DESC, OGIMG } from '../data';
 import { JSDOM } from 'jsdom';
@@ -54,12 +55,20 @@ export default async function Page({ params }) {
 
   return (
     <>
-      <link rel="stylesheet" href="/pyscript/pyscript.css" />
-      <Script defer src="/pyscript/pyscript.js" />
-      {htmlContent && (
+      {htmlContent ? (
         <>
-          <h3 className="title">{title}</h3>
-          <div dangerouslySetInnerHTML={{ __html: replacedHtmlContent }} />
+          <link rel="stylesheet" href="/pyscript/pyscript.css" />
+          <Script defer src="/pyscript/pyscript.js" />
+          {htmlContent && (
+            <>
+              <h3 className="title">{title}</h3>
+              <div dangerouslySetInnerHTML={{ __html: replacedHtmlContent }} />
+            </>
+          )}
+        </>
+      ) : (
+        <>
+          <p>문제 발생</p>
         </>
       )}
     </>
