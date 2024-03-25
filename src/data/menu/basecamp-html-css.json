@@ -1,0 +1,124 @@
+{
+  "title": "HTML/CSS 베이스캠프",
+  "link": "/basecamp-html-css",
+  "sections": [
+    {
+      "title": "개발의 첫 걸음",
+      "link": "/basecamp-html-css/chapter01",
+      "sections": [
+        {
+          "title": "웹 기초와 개발환경 설정",
+          "link": "/basecamp-html-css/chapter01/01-1"
+        },
+        {
+          "title": "HTML Living Standard 태그",
+          "link": "/basecamp-html-css/chapter01/01-2"
+        }
+      ]
+    },
+    {
+      "title": "더 견고하게 알아볼 HTML",
+      "link": "/basecamp-html-css/chapter02",
+      "sections": [
+        {
+          "title": "Forms",
+          "link": "/basecamp-html-css/chapter02/02-1"
+        },
+        {
+          "title": "CheatSheet",
+          "link": "/basecamp-html-css/chapter02/02-2"
+        }
+      ]
+    },
+    {
+      "title": "CSS",
+      "link": "/basecamp-html-css/chapter03",
+      "sections": [
+        {
+          "title": "CSS 기본",
+          "link": "/basecamp-html-css/chapter03/03-1"
+        },
+        {
+          "title": "CSS 적용하기",
+          "link": "/basecamp-html-css/chapter03/03-2"
+        },
+        {
+          "title": "CSS 선택자(기본)",
+          "link": "/basecamp-html-css/chapter03/03-3"
+        }
+      ]
+    },
+    {
+      "title": "일단 글을 적고 꾸며보자!",
+      "link": "/basecamp-html-css/chapter04",
+      "sections": [
+        {
+          "title": "텍스트 꾸미기",
+          "link": "/basecamp-html-css/chapter04/04-1"
+        },
+        {
+          "title": "단위",
+          "link": "/basecamp-html-css/chapter04/04-2"
+        },
+        {
+          "title": "CSS 선택자(가상 클래스 / 가상 요소)",
+          "link": "/basecamp-html-css/chapter04/04-3"
+        },
+        {
+          "title": "CSS 선택자 우선순위",
+          "link": "/basecamp-html-css/chapter04/04-4"
+        }
+      ]
+    },
+    {
+      "title": "CSS의 기본, Box Model!",
+      "link": "/basecamp-html-css/chapter05",
+      "sections": [
+        {
+          "title": "CSS Box Model",
+          "link": "/basecamp-html-css/chapter05/05-1"
+        },
+        {
+          "title": "display 속성",
+          "link": "/basecamp-html-css/chapter05/05-2"
+        },
+        {
+          "title": "reset.css",
+          "link": "/basecamp-html-css/chapter05/05-3"
+        }
+      ]
+    },
+    {
+      "title": "요소를 배치해보자!",
+      "link": "/basecamp-html-css/chapter06",
+      "sections": [
+        {
+          "title": "position",
+          "link": "/basecamp-html-css/chapter06/06-1"
+        },
+        {
+          "title": "z-index",
+          "link": "/basecamp-html-css/chapter06/06-2"
+        }
+      ]
+    },
+    {
+      "title": "그런데 좀 멋지게 배치할 수 없을까?",
+      "link": "/basecamp-html-css/chapter07",
+      "sections": [
+        {
+          "title": "flex",
+          "link": "/basecamp-html-css/chapter07/07-1"
+        },
+        {
+          "title": "grid",
+          "link": "/basecamp-html-css/chapter07/07-2"
+        },
+        {
+          "title": "[직접 해보기] 레이아웃 만들기",
+          "link": "/basecamp-html-css/chapter07/07-3"
+        }
+      ]
+    }
+  ]
+}

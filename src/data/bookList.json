@@ -34,5 +34,17 @@
     "booklink": "/wenivworld-teacher",
     "classlink": "https://www.youtube.com/watch?v=IoPgnixhm5M&list=PLkfUwwo13dlVEm9gX_ca4BtAIFuY-o3OO",
     "date": "2023-11-07"
+  },
+  {
+    "thumbnail": null,
+    "publisher": "사도출판",
+    "title": "HTML/CSS 베이스캠프",
+    "subtitle": null,
+    "type": "전자책",
+    "price": "무료",
+    "description": "웹 페이지의 구조를 정의하는 HTML과 웹 페이지의 스타일을 정의하는 CSS로 다양한 콘텐츠와 디자인을 구현할 수 있습니다.",
+    "booklink": "/basecamp-html-css",
+    "classlink": null,
+    "date": "2024-03-25"
   }
 ]
