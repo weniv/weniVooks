@@ -1,0 +1,168 @@
+{
+  "title": "JavaScript 베이스캠프",
+  "link": "/basecamp-javascript",
+  "sections": [
+    {
+      "title": "JavaScript 기초",
+      "link": "/basecamp-javascript/chapter01",
+      "sections": [
+        {
+          "title": "JavaScript 기초",
+          "link": "/basecamp-javascript/chapter01/01-1"
+        },
+        {
+          "title": "개발할 때 알아두면 유용한 브라우저 API (BOM)",
+          "link": "/basecamp-javascript/chapter01/01-2"
+        },
+        {
+          "title": "변수",
+          "link": "/basecamp-javascript/chapter01/01-3"
+        }
+      ]
+    },
+    {
+      "title": "원시타입에 관하여",
+      "link": "/basecamp-javascript/chapter02",
+      "sections": [
+        {
+          "title": "원시타입과 문자열 자료형",
+          "link": "/basecamp-javascript/chapter02/02-1"
+        },
+        {
+          "title": "숫자 자료형",
+          "link": "/basecamp-javascript/chapter02/02-2"
+        },
+        {
+          "title": "논리 자료형",
+          "link": "/basecamp-javascript/chapter02/02-3"
+        }
+      ]
+    },
+    {
+      "title": "코드를 묶어주는 함수",
+      "link": "/basecamp-javascript/chapter03",
+      "sections": [
+        {
+          "title": "코드를 묶어 재사용성을 높이는 함수",
+          "link": "/basecamp-javascript/chapter03/03-1"
+        }
+      ]
+    },
+    {
+      "title": "객체 타입에 관하여",
+      "link": "/basecamp-javascript/chapter04",
+      "sections": [
+        {
+          "title": "객체타입과 배열",
+          "link": "/basecamp-javascript/chapter04/04-1"
+        },
+        {
+          "title": "객체",
+          "link": "/basecamp-javascript/chapter04/04-2"
+        }
+      ]
+    },
+    {
+      "title": "코드를 제어한다! 조건문과 반복문, 전개 구문과 Destructuring",
+      "link": "/basecamp-javascript/chapter05",
+      "sections": [
+        {
+          "title": "조건문",
+          "link": "/basecamp-javascript/chapter05/05-1"
+        },
+        {
+          "title": "반복문",
+          "link": "/basecamp-javascript/chapter05/05-2"
+        },
+        {
+          "title": "전개 구문과 Destructuring",
+          "link": "/basecamp-javascript/chapter05/05-3"
+        }
+      ]
+    },
+    {
+      "title": "조금 더 깊이 들여다보기",
+      "link": "/basecamp-javascript/chapter06",
+      "sections": [
+        {
+          "title": "this",
+          "link": "/basecamp-javascript/chapter06/06-1"
+        },
+        {
+          "title": "반복문(for in과 for of)",
+          "link": "/basecamp-javascript/chapter06/06-2"
+        },
+        {
+          "title": "Map과 Set",
+          "link": "/basecamp-javascript/chapter06/06-3"
+        },
+        {
+          "title": "JSON",
+          "link": "/basecamp-javascript/chapter06/06-4"
+        }
+      ]
+    },
+    {
+      "title": "기본 개념을 확인해 봅시다",
+      "link": "/basecamp-javascript/chapter07",
+      "sections": [
+        {
+          "title": "기본 개념 확인 문제",
+          "link": "/basecamp-javascript/chapter07/07-1"
+        }
+      ]
+    },
+    {
+      "title": "DOM",
+      "link": "/basecamp-javascript/chapter08",
+      "sections": [
+        {
+          "title": "DOM API와 DOM에 접근하기",
+          "link": "/basecamp-javascript/chapter08/08-1"
+        },
+        {
+          "title": "DOM 제어하기",
+          "link": "/basecamp-javascript/chapter08/08-2"
+        },
+        {
+          "title": "DOM의 이벤트 흐름",
+          "link": "/basecamp-javascript/chapter08/08-3"
+        }
+      ]
+    },
+    {
+      "title": "설계 도면 Class",
+      "link": "/basecamp-javascript/chapter09",
+      "sections": [
+        {
+          "title": "실제 만든 게임 코드로 보는 Class의 활용",
+          "link": "/basecamp-javascript/chapter09/09-1"
+        }
+      ]
+    },
+    {
+      "title": "비동기 프로그래밍",
+      "link": "/basecamp-javascript/chapter10",
+      "sections": [
+        {
+          "title": "비동기 프로그래밍과 Promise",
+          "link": "/basecamp-javascript/chapter10/10-1"
+        },
+        {
+          "title": "fetch와 async, await",
+          "link": "/basecamp-javascript/chapter10/10-2"
+        }
+      ]
+    },
+    {
+      "title": "Final Project: 쇼핑몰 API 활용 실습",
+      "link": "/basecamp-javascript/chapter11",
+      "sections": [
+        {
+          "title": " Final Project",
+          "link": "/basecamp-javascript/chapter11/11-1"
+        }
+      ]
+    }
+  ]
+}
