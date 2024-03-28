@@ -3,14 +3,9 @@ import { DEFAULT_PATH, TITLE, DESC, OGIMG } from '../data';
 import { JSDOM } from 'jsdom';
 import Script from 'next/script';
 
-function ConvertSystemSourcetoHtml(str) {
-  str = str.replace(/</g, '&lt;');
-  str = str.replace(/>/g, '&gt;');
-  str = str.replace(/\"/g, '&quot;');
-  str = str.replace(/\'/g, '&#39;');
-  str = str.replace(/\n/g, '<br />');
-  return str;
-}
+const json = {
+  packages: ['numpy'],
+};
 
 function replaceCodeWithPyRepl(htmlString) {
   const dom = new JSDOM(htmlString);
@@ -74,6 +69,7 @@ export default async function Page({ params }) {
 
       <link rel="stylesheet" href="/pyscript/pyscript.css" />
       <Script src="/pyscript/pyscript.js" />
+      <py-config type="json">{JSON.stringify(json)}</py-config>
     </>
   );
 }
