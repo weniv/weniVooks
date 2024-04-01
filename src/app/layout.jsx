@@ -61,7 +61,7 @@ export default function RootLayout({ children }) {
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
 
-            gtag('config', '${process.env.GA_ID}');`}
+            gtag('config', '${process.env.NEXT_PUBLIC_GA_ID}');`}
       </Script>
       <SettingProvider>
         <Body>{children}</Body>
