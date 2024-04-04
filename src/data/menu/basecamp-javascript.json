@@ -155,12 +155,28 @@
       ]
     },
     {
-      "title": "쇼핑몰 API 활용 실습",
+      "title": "부록",
       "link": "/basecamp-javascript/chapter11",
       "sections": [
         {
-          "title": "Final Project",
+          "title": "javascript CheatSheet",
           "link": "/basecamp-javascript/chapter11/11-1"
+        },
+        {
+          "title": "javascript 삽입 위치에 대한 최신 글(21년)",
+          "link": "/basecamp-javascript/chapter11/11-2"
+        },
+        {
+          "title": "ES Version 관련 글",
+          "link": "/basecamp-javascript/chapter11/11-3"
+        },
+        {
+          "title": "로컬스토리지",
+          "link": "/basecamp-javascript/chapter11/11-4"
+        },
+        {
+          "title": "날짜",
+          "link": "/basecamp-javascript/chapter11/11-5"
         }
       ]
     }
