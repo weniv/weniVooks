@@ -34,5 +34,29 @@
     "booklink": "/wenivworld-teacher",
     "classlink": "https://www.youtube.com/watch?v=IoPgnixhm5M&list=PLkfUwwo13dlVEm9gX_ca4BtAIFuY-o3OO",
     "date": "2023-11-07"
+  },
+  {
+    "thumbnail": "/images/basecamp-html-css/cover-html-css.png",
+    "publisher": "사도출판",
+    "title": "HTML/CSS 베이스캠프",
+    "subtitle": null,
+    "type": "전자책",
+    "price": "무료",
+    "description": "웹 페이지의 구조를 정의하는 HTML과 웹 페이지의 스타일을 정의하는 CSS로 다양한 콘텐츠와 디자인을 구현할 수 있습니다.",
+    "booklink": "/basecamp-html-css",
+    "classlink": null,
+    "date": "2024-03-25"
+  },
+  {
+    "thumbnail": "/images/basecamp-javascript/cover-javascript.png",
+    "publisher": "사도출판",
+    "title": "JavaScript 베이스캠프",
+    "subtitle": null,
+    "type": "전자책",
+    "price": "무료",
+    "description": "웹 개발에서 필수! 다양한 분야에서 폭넓게 사용되는 인기 언어 JavaScript, 기본 개념과 실전 예제로 학습해 보세요!",
+    "booklink": "/basecamp-javascript",
+    "classlink": null,
+    "date": "2024-03-25"
   }
 ]
