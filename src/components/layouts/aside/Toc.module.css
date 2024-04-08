@@ -1,0 +1,36 @@
+.wrap {
+  margin-top: -0.5rem;
+  max-height: 26rem;
+}
+.wrap > ol > li:first-child {
+  padding-top: 0.5rem;
+}
+.wrap > ol > li:last-child {
+  padding-bottom: 0.5rem;
+}
+
+.toc a {
+  display: block;
+  padding: 0.9rem;
+  transition: background-color 0.3s;
+  outline-offset: -1px;
+}
+.toc a.active {
+  font-weight: bold;
+  color: var(--primary);
+  background-color: var(--activation);
+}
+@media (hover: hover) {
+  .toc a:not(.active):hover {
+    background-color: var(--grayLv1);
+  }
+}
+.toc > li > a {
+  padding-left: 2rem;
+}
+.toc > li > ol > li > a {
+  padding-left: 4rem;
+}
+.toc > li > ol > li > ol > li > a {
+  padding-left: 6rem;
+}/*# sourceMappingURL=Toc.module.css.map */

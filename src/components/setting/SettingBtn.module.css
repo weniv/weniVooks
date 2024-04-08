@@ -1,0 +1,12 @@
+.standard {
+  position: relative;
+}
+
+.btnSetting {
+  border: none;
+  z-index: 100;
+  position: relative;
+}
+.btnSetting.active {
+  background-color: var(--activation);
+}/*# sourceMappingURL=SettingBtn.module.css.map */

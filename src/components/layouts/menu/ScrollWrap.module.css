@@ -1,0 +1,27 @@
+.scrollWrap {
+  width: 100%;
+  flex-grow: 1;
+  overflow: auto;
+}
+.scrollWrap > :first-child::before, .scrollWrap > :first-child::after {
+  content: "";
+  width: 100%;
+  height: 2.4rem;
+  position: sticky;
+  margin-top: -2.4rem;
+  transition: all 0.3s;
+}
+.scrollWrap > :first-child::before {
+  top: 0;
+  background: linear-gradient(to bottom, var(--background) 0 calc(100% - 2rem), transparent 100%);
+}
+.scrollWrap > :first-child::after {
+  bottom: 0;
+  background: linear-gradient(to top, var(--background) 0 calc(100% - 2rem), transparent 100%);
+}
+.scrollWrap > :first-child::before, .scrollWrap > :first-child::after {
+  display: none;
+}
+.scrollWrap.maskTop > :first-child::before, .scrollWrap.maskBottom > :first-child::after {
+  display: block;
+}/*# sourceMappingURL=ScrollWrap.module.css.map */
