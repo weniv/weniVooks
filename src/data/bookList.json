@@ -44,7 +44,7 @@
     "price": "무료",
     "description": "웹 페이지의 구조를 정의하는 HTML과 웹 페이지의 스타일을 정의하는 CSS로 다양한 콘텐츠와 디자인을 구현할 수 있습니다.",
     "booklink": "/basecamp-html-css",
-    "classlink": null,
+    "classlink": "https://www.inflearn.com/course/html-css-%EB%B2%A0%EC%9D%B4%EC%8A%A4%EC%BA%A0%ED%94%84",
     "date": "2024-03-25"
   },
   {
@@ -56,7 +56,7 @@
     "price": "무료",
     "description": "웹 개발에서 필수! 다양한 분야에서 폭넓게 사용되는 인기 언어 JavaScript, 기본 개념과 실전 예제로 학습해 보세요!",
     "booklink": "/basecamp-javascript",
-    "classlink": null,
+    "classlink": "https://www.inflearn.com/course/javascript-%EB%B2%A0%EC%9D%B4%EC%8A%A4%EC%BA%A0%ED%94%84",
     "date": "2024-03-25"
   }
 ]

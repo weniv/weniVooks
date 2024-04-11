@@ -41,7 +41,11 @@ export default function BookItem({ data }) {
             Web-book
           </Btn>
         )}
-        {classlink && <Btn href={classlink}>온라인 강의</Btn>}
+        {classlink && (
+          <Btn href={classlink} target="_blank">
+            온라인 강의
+          </Btn>
+        )}
       </div>
     </article>
   );
