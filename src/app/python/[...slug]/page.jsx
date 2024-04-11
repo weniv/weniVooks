@@ -18,6 +18,16 @@ function replaceCodeWithPyRepl(htmlString) {
     'pre.weniv-dark[data-language="python-exec"]',
   );
 
+  // const button = dom.window.document.querySelectorAll(
+  //   'div[data-rehype-pretty-code-fragment] button.copyBtn',
+  // );
+
+  // console.log('button', button);
+
+  // button.forEach((el) => {
+  //   el.remove();
+  // });
+
   deleteElements.forEach((el) => {
     el.remove();
   });

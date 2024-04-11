@@ -26,7 +26,10 @@ export default function BtnCopy() {
 
         handleClipBoard(text);
       });
-      code.append(button);
+
+      if (code.querySelector('pre.weniv-light')) {
+        code.append(button);
+      }
     });
   }, []);
 }
