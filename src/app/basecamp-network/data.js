@@ -1,4 +1,4 @@
-export const DEFAULT_PATH = '/basecamp-html-css';
+export const DEFAULT_PATH = '/basecamp-network';
 export const TITLE = 'HTML/CSS 베이스캠프';
 export const DESC = '위니브의 다양한 교안을 웹에서 확인해보세요!';
 export const OGIMG = [`/images${DEFAULT_PATH}/og.png`];

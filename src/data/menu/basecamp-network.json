@@ -21,7 +21,7 @@
       ]
     },
     {
-      "title": "웹과 인터넷, 개발자 포지션",
+      "title": "웹과 인터넷, 이와 연결된 다양한 직업군",
       "link": "/basecamp-network/chapter02",
       "sections": [
         {
@@ -33,7 +33,7 @@
           "link": "/basecamp-network/chapter02/02-2"
         },
         {
-          "title": "프론트엔드 개발자와 백엔드 개발자",
+          "title": "IT 분야의 직업군",
           "link": "/basecamp-network/chapter02/02-3"
         }
       ]
@@ -43,20 +43,12 @@
       "link": "/basecamp-network/chapter03",
       "sections": [
         {
-          "title": "HTML(주로 FE)",
+          "title": "HTML/CSS/JS(주로 FE)",
           "link": "/basecamp-network/chapter03/03-1"
         },
         {
-          "title": "CSS(주로 FE)",
-          "link": "/basecamp-network/chapter03/03-2"
-        },
-        {
-          "title": "JavaScript(주로 FE)",
-          "link": "/basecamp-network/chapter03/03-3"
-        },
-        {
           "title": "Python(주로 BE)",
-          "link": "/basecamp-network/chapter03/03-4"
+          "link": "/basecamp-network/chapter03/03-2"
         }
       ]
     },
