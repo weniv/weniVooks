@@ -1,0 +1,109 @@
+# 8. 프로토콜의 특징
+
+## 8.1 Request 요청과 Response 응답
+
+![](/images/basecamp-network/chapter08-1-1.png)
+
+## 8.2 State(상태)
+
+![](/images/basecamp-network/chapter08-1-2.png)
+
+- 무상태(Stateless)와 상태 유지(Stateful) 프로토콜은 네트워크 통신에서 중요한 개념입니다. 이 두 가지 특성은 서버가 클라이언트와의 통신에서 상태 정보를 유지하는지 여부에 따라 구분됩니다.
+- 위 케이스에서 클라이언트와 서버가 연결되지 않아, 그전에 처리된 요청과 응답이 통신에 영향을 주지 않고 독립적으로 처리됩니다. 즉, 이전 데이터 요청과 다음 데이터 요청은 서로 전혀 관계가 없습니다.
+
+### 8.2.1 **Stateful(상태유지)**
+
+![](/images/basecamp-network/chapter08-1-3.png)
+
+- 같은 점원이어야 합니다. 즉, 항상 같은 서버로 유지해야 함을 뜻합니다.
+- 대표적인 상태 유지 프로토콜로는 TCP(Transmission Control Protocol)와 FTP(File Transfer Protocol)가 있습니다.
+    - TCP를 사용한다고 해서 항상 상태유지를 하는 것은 아닙니다. 그 위에 애플리케이션에 따라 상태유지를 안할 수도 있습니다.
+- 상태 유지 프로토콜은 클라이언트와 서버 간의 긴밀한 상호 작용을 가능하게 하며, 복잡한 작업을 처리하는 데 적합합니다.
+- 하지만 서버는 각 클라이언트의 상태를 추적해야 하므로 리소스 사용량이 증가할 수 있습니다.
+
+### 8.2.2 Stateless(무상태)
+
+- 무상태
+    
+    ![](/images/basecamp-network/chapter08-1-2.png)
+    
+- 무상태에서 외부에 기술을 사용하여 상태를 공유하게 함
+    
+    ![](/images/basecamp-network/chapter08-1-4.png)
+    
+- 점원이 바뀌어도 됩니다. 즉, 서버를 변경할 수 있습니다.
+- 대표적인 무상태 프로토콜로는 **HTTP(Hypertext Transfer Protocol)**와 UDP(User Datagram Protocol)가 있습니다.
+    - 여기서 궁금증이 생깁니다. HTTP가 무상태이면 우리는 어떻게 로그인을 해서 물건을 구매할 수 있는 것일까요?
+    
+    <aside>
+    💡 **HTTP와 같은 무상태 프로토콜에서도 쿠키, 세션, 토큰 등의 메커니즘을 사용하여 상태 정보를 유지**할 수 있습니다. 이를 통해 사용자 인증, 장바구니 등의 기능을 구현할 수 있습니다. 실무에서 많이 사용하는 JWT은 무상태 인증입니다. 이 정보를 클라이언트 쪽 어딘가에(주로 로컬스토리지나 세션 스토리지, 쿠키에 저장) 저장을 하고 통신을 하면서 효율적인 인증을 구현할 수 있습니다.
+    
+    </aside>
+    
+- 무상태 프로토콜은 서버 리소스를 효율적(서버 설계를 단순)으로 사용할 수 있으며, 확장성이 좋습니다.
+- 하지만 매 요청마다 필요한 정보를 모두 포함해야 하므로 네트워크 오버헤드가 증가할 수 있습니다.
+
+```jsx
+// 회원 가입 fetch를 이용한 POST 요청
+fetch('http://eduapi.weniv.co.kr/1/signup', {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+        username: 'test1',
+        password: 'test1234',
+    }),
+})
+    .then(response => response.json())
+    .then(json => console.log(json))
+    .catch(error => console.error(error));
+
+fetch('http://eduapi.weniv.co.kr/1/signup', {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+        username: 'test2',
+        password: 'test1234',
+    }),
+})
+    .then(response => response.json())
+    .then(json => console.log(json))
+    .catch(error => console.error(error));
+
+// 회원가입이 제대로 되었는지 확인하기 위한 GET 요청
+fetch('http://eduapi.weniv.co.kr/1/login_user_info')
+    .then(response => response.json())
+    .then(json => console.log(json))
+    .catch(error => console.error(error));
+
+// 로그인 fetch를 이용한 POST 요청
+fetch('http://eduapi.weniv.co.kr/1/login', {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+        username: 'test1',
+        password: 'test1234',
+    }),
+})
+    .then(response => response.json())
+    .then(json => console.log(json))
+    .catch(error => console.error(error));
+    
+// 이곳에서 토큰을 어딘가에 저장해야 함
+
+// 로그인이 제대로 되었는지 확인하기 위한 POST 요청(Bearer Token 필요)
+fetch('http://eduapi.weniv.co.kr/login_confirm', {
+    method: 'POST',
+    headers: {
+        'Authorization': 'Bearer eyJhbGciOi.weniv.h8t7NJKEiWCh7G3',
+    },
+})
+    .then(response => response.json())
+    .then(json => console.log(json))
+    .catch(error => console.error(error));
+```
