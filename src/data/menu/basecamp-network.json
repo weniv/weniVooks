@@ -1,0 +1,166 @@
+{
+  "title": "웹/네트워크/HTTP 베이스캠프 for developer",
+  "link": "/basecamp-network",
+  "sections": [
+    {
+      "title": "강의 소개",
+      "link": "/basecamp-network/chapter01",
+      "sections": [
+        {
+          "title": "강의 대상",
+          "link": "/basecamp-network/chapter01/01-1"
+        },
+        {
+          "title": "강의 특징",
+          "link": "/basecamp-network/chapter01/01-2"
+        },
+        {
+          "title": "수업 실습 환경",
+          "link": "/basecamp-network/chapter01/01-3"
+        }
+      ]
+    },
+    {
+      "title": "웹과 인터넷, 개발자 포지션",
+      "link": "/basecamp-network/chapter02",
+      "sections": [
+        {
+          "title": "웹 Web 이란?",
+          "link": "/basecamp-network/chapter02/02-1"
+        },
+        {
+          "title": "웹의 동작",
+          "link": "/basecamp-network/chapter02/02-2"
+        },
+        {
+          "title": "프론트엔드 개발자와 백엔드 개발자",
+          "link": "/basecamp-network/chapter02/02-3"
+        }
+      ]
+    },
+    {
+      "title": "HTML, CSS, JavaScript, Python",
+      "link": "/basecamp-network/chapter03",
+      "sections": [
+        {
+          "title": "HTML(주로 FE)",
+          "link": "/basecamp-network/chapter03/03-1"
+        },
+        {
+          "title": "CSS(주로 FE)",
+          "link": "/basecamp-network/chapter03/03-2"
+        },
+        {
+          "title": "JavaScript(주로 FE)",
+          "link": "/basecamp-network/chapter03/03-3"
+        },
+        {
+          "title": "Python(주로 BE)",
+          "link": "/basecamp-network/chapter03/03-4"
+        }
+      ]
+    },
+    {
+      "title": "URL",
+      "link": "/basecamp-network/chapter04",
+      "sections": [
+        {
+          "title": "URI",
+          "link": "/basecamp-network/chapter04/04-1"
+        },
+        {
+          "title": "URL",
+          "link": "/basecamp-network/chapter04/04-2"
+        },
+        {
+          "title": "실습",
+          "link": "/basecamp-network/chapter04/04-3"
+        }
+      ]
+    },
+    {
+      "title": "HTTP",
+      "link": "/basecamp-network/chapter05",
+      "sections": [
+        {
+          "title": "실습",
+          "link": "/basecamp-network/chapter05/05-1"
+        }
+      ]
+    },
+    {
+      "title": "HTTP 메시지 구조",
+      "link": "/basecamp-network/chapter06",
+      "sections": [
+        {
+          "title": "Request",
+          "link": "/basecamp-network/chapter06/06-1"
+        },
+        {
+          "title": "중간 과제 - Create 실습",
+          "link": "/basecamp-network/chapter06/06-2"
+        },
+        {
+          "title": "Response",
+          "link": "/basecamp-network/chapter06/06-3"
+        },
+        {
+          "title": "상태 코드 실습",
+          "link": "/basecamp-network/chapter06/06-4"
+        }
+      ]
+    },
+    {
+      "title": "TCP/IP",
+      "link": "/basecamp-network/chapter07",
+      "sections": [
+        {
+          "title": "TCP/IP 4계층(Layer)",
+          "link": "/basecamp-network/chapter07/07-1"
+        }
+      ]
+    },
+    {
+      "title": "프로토콜의 특징",
+      "link": "/basecamp-network/chapter08",
+      "sections": [
+        {
+          "title": "Request 요청과 Response 응답",
+          "link": "/basecamp-network/chapter08/08-1"
+        },
+        {
+          "title": "State(상태)",
+          "link": "/basecamp-network/chapter08/08-2"
+        }
+      ]
+    },
+    {
+      "title": "상태 저장",
+      "link": "/basecamp-network/chapter09",
+      "sections": [
+        {
+          "title": "클라이언트 상태 저장",
+          "link": "/basecamp-network/chapter09/09-1"
+        },
+        {
+          "title": "서버 상태 저장",
+          "link": "/basecamp-network/chapter09/09-2"
+        }
+      ]
+    },
+    {
+      "title": "HTTPS",
+      "link": "/basecamp-network/chapter10",
+      "sections": [
+        {
+          "title": "HTTPS + 암호화 + 인증 + 무결성 = HTTPS",
+          "link": "/basecamp-network/chapter10/10-1"
+        },
+        {
+          "title": "HTTPS 적용",
+          "link": "/basecamp-network/chapter10/10-2"
+        }
+      ]
+    }
+  ]
+}
