@@ -106,7 +106,7 @@ GET과 비슷하지만 Response Body를 반환하지 않음. |
 
 [(부록) json-server로 Mock 서버 세팅](https://paullabworkspace.notion.site/json-server-Mock-a0d0afb418d34120948e94eb86390f92?pvs=4)
 
-**GET: 서버! 네가 가진 정보를 줘!**
+**6.1.2.1 GET: 서버! 네가 가진 정보를 줘!**
 
 GET 메서드는 서버에 특정 리소스를 요청할 때 사용됩니다. 요청 패킷의 구조는 다음과 같습니다.
 
@@ -135,7 +135,7 @@ fetch('https://eduapi.weniv.co.kr/753/product', {
 });
 ```
 
-**6.4 POST: 서버! 새로운 상품 정보를 줄게! 데이터를 생성해줘!**
+**6.1.2.2 POST: 서버! 새로운 상품 정보를 줄게! 데이터를 생성해줘!**
 
 POST 메서드는 서버에 새로운 리소스를 생성할 때 사용됩니다. 요청 패킷의 구조는 다음과 같습니다.
 
@@ -197,7 +197,7 @@ fetch('https://eduapi.weniv.co.kr/753/product', {
 .catch(error => console.error(error));
 ```
 
-**6.5 PUT: 서버야 유저 정보를 덮어씌워 줘!**
+**6.1.2.3 PUT: 서버야 유저 정보를 덮어씌워 줘!**
 
 PUT 메서드는 서버에 이미 존재하는 리소스를 수정할 때 사용됩니다. 인증 값이 꼭 필요한 것은 아니지만 특히 POST, PUT, DELETE는 인증 정보를 요구하는 경우가 많습니다. 이 경우 아래와 같이 인증 값까지 함께 들어가 있게 됩니다. 여기서는 인증을 주석처리하고 갑니다.
 
@@ -243,7 +243,7 @@ fetch("https://eduapi.weniv.co.kr/753/product/1", {
 .catch(error => console.error(error));
 ```
 
-**6.6 DELETE: 서버야 있던 정보를 삭제해줘!**
+**6.1.2.4 DELETE: 서버야 있던 정보를 삭제해줘!**
 
 ```
 DELETE /753/product/1 HTTP/1.1
@@ -261,6 +261,73 @@ fetch(`https://eduapi.weniv.co.kr/753/product/${productId}`, {
     //     "Authorization": `Bearer ${token}`,
     // },
 })
+```
+
+**6.1.2.5 들어오는 데이터의 원본 보기**
+```python
+import http.server
+import socketserver
+import json
+
+class RequestHandler(http.server.SimpleHTTPRequestHandler):
+    def do_GET(self):
+        raw_data = self.get_raw_request_data()
+        print("Raw GET request data:")
+        print(raw_data)
+        # 실제로는 아래와 같이 파싱된 데이터를 사용하게 됩니다.
+        # parsed_url = urlparse(self.path)
+        # query_params = parse_qs(parsed_url.query)
+        # response_data = {
+        #     'method': 'GET',
+        #     'path': self.path,
+        #     'headers': dict(self.headers),
+        #     'query_params': query_params,
+        #     'raw_data': f"GET {self.path} {self.protocol_version}\n{self.headers}"
+        # }
+
+        self.send_response(200)
+        self.send_header('Content-Type', 'application/json')
+        self.end_headers()
+        self.wfile.write(json.dumps({'message': 'Success'}).encode('utf-8'))
+
+    def do_POST(self):
+        raw_data = self.get_raw_request_data()
+        print("Raw POST request data:")
+        print(raw_data)
+        
+        # 실제로는 아래와 같이 파싱된 데이터를 사용하게 됩니다.
+        # content_length = int(self.headers['Content-Length'])
+        # post_data = self.rfile.read(content_length).decode('utf-8')
+
+        # response_data = {
+        #     'method': 'POST',
+        #     'path': self.path,
+        #     'headers': dict(self.headers),
+        #     'post_data': post_data,
+        #     'raw_data': f"POST {self.path} {self.protocol_version}\n{self.headers}\n\n{post_data}"
+        # }
+
+        self.send_response(200)
+        self.send_header('Content-Type', 'application/json')
+        self.end_headers()
+        self.wfile.write(json.dumps({'message': 'Success'}).encode('utf-8'))
+
+    def get_raw_request_data(self):
+        raw_data = f"{self.command} {self.path} {self.request_version}\n"
+        raw_data += str(self.headers)
+
+        content_length = self.headers.get('Content-Length')
+        if content_length:
+            body = self.rfile.read(int(content_length)).decode('utf-8')
+            raw_data += f"\n\n{body}"
+
+        return raw_data
+
+PORT = 8000
+
+with socketserver.TCPServer(("", PORT), RequestHandler) as httpd:
+    print(f"Serving at port {PORT}")
+    httpd.serve_forever()
 ```
 
 ## 6.2 중간 과제 - Create 실습
