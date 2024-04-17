@@ -22,7 +22,7 @@ export async function GET(req) {
 
     return NextResponse.json(output);
   } catch (err) {
-    console.error(err);
+    console.error(`Error: ${err}`);
     return NextResponse.json('정보를 가져오는데 실패하였습니다', {
       status: 500,
     });
