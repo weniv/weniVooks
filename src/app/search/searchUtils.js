@@ -265,17 +265,8 @@ export const splitArray = (array, delimiter) => {
 
 // 책 종류 선택
 export const choiceBookKind = (bookkind) => {
-  const kind = bookkind?.toLowerCase();
-  if (kind === 'python') {
-    return '견고한 파이썬';
-  } else if (kind === 'wenivworld') {
-    return '위니브 월드(학생용)';
-  } else if (kind === 'wenivworld-teacher') {
-    return '위니브 월드(선생님용)';
-  }
-  // else if (bookkind === 'react') {
-  //   return '리액트 부트캠프';
-  // }
+  const bookData = require(`@/data/menu/${bookkind}.json`);
+  return bookData.title;
 };
 
 // 파일의 상대경로를 반환하는 함수
@@ -407,7 +398,7 @@ export const getChapterContent = (chapter, keyword) => {
  * @returns {string} 책 이름
  */
 export const getBookTitle = (link) => {
-  const result = link.split('/').filter((part) => part !== '')[0];
+  const result = link.split('\\').filter((part) => part !== '')[0];
   return choiceBookKind(result);
 };
 
