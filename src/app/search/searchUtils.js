@@ -398,7 +398,7 @@ export const getChapterContent = (chapter, keyword) => {
  * @returns {string} 책 이름
  */
 export const getBookTitle = (link) => {
-  const result = link.split('/').filter((part) => part !== '')[0];
+  const result = link.split(/[\/\\]/).filter((part) => part)[0];
   return choiceBookKind(result);
 };
 
