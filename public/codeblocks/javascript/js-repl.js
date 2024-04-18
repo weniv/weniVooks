@@ -19,17 +19,33 @@ class JsRepl extends HTMLElement {
     box.append(header, editor, result);
     return box;
   }
+
   _execute() {
     try {
-      const editor = this.querySelector('.codeblock-editor');
-      const currentCode = editor ? editor.value : '';
-      const result = new Function(currentCode)();
-      this.result = result ? result : 'return값이 없습니다. 콘솔을 확인하세요';
+      const currentCode = this._getCurrentCode();
+      const result = eval(currentCode);
+      this.result = this.getResultMessage(result, currentCode);
       this._updateResult(this.result);
     } catch (error) {
       console.error('js 코드 실행 중 오류 발생:', error);
     }
   }
+
+  _getCurrentCode() {
+    const editor = this.querySelector('.codeblock-editor');
+    return editor ? editor.value : '';
+  }
+
+  getResultMessage(result, currentCode) {
+    if (result === null) {
+      return 'null';
+    } else if (result === undefined && currentCode.includes('console.log')) {
+      return '콘솔을 확인하세요';
+    } else {
+      return result === undefined ? 'undefined' : result;
+    }
+  }
+
   _copyCodeToClipboard() {
     const editor = this.querySelector('.codeblock-editor');
     if (editor) {
@@ -43,6 +59,7 @@ class JsRepl extends HTMLElement {
         });
     }
   }
+
   _createExecHeader() {
     const RUN_BUTTON = `<svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
       <rect width="30" height="30" rx="15" fill="#2E6FF2"/>
