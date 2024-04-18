@@ -5,7 +5,7 @@ import Script from 'next/script';
 import '../../../../public/codeblocks/common.css';
 import '../../../../public/codeblocks/codemirror.css';
 
-function replaceCodeWithPyRepl(htmlString) {
+function replaceCodeWithJsRepl(htmlString) {
   const dom = new JSDOM(htmlString);
 
   const codeElements = dom.window.document.querySelectorAll(
@@ -50,7 +50,7 @@ export async function generateMetadata({ params }, parent) {
 
 export default async function Page({ params }) {
   const { title, htmlContent } = await getPostDetail(DEFAULT_PATH, params.slug);
-  const replacedHtmlContent = replaceCodeWithPyRepl(htmlContent);
+  const replacedHtmlContent = replaceCodeWithJsRepl(htmlContent);
 
   return (
     <>
