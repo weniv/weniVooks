@@ -62,7 +62,10 @@ export default async function Page({ params }) {
       )}
       <link rel="stylesheet" href="/codeblocks/codemirror.css" />
       <Script src="/codeblocks/codemirror.js" />
-      <Script src="/codeblocks/javascript/js-repl.js" />
+      <Script defer src="/codeblocks/javascript/js-repl.js" />
+      <Script defer src="/codeblocks/codemirror.js" />
+      <Script defer src="/codeblocks/javascript/javascript.js" />
+      <Script defer src="/codeblocks/codemirror/active-line.js" />
     </>
   );
 }
