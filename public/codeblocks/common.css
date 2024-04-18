@@ -5,6 +5,10 @@
   margin: 15px 0;
 }
 
+span {
+  color: var(--surface);
+}
+
 .codeblock-header {
   display: flex;
   padding: 10px 12px;
