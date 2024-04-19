@@ -4,6 +4,20 @@
     "textColor": "#fff",
     "categoryColor": "#121314",
     "categoryBg": "#fff",
+    "thumbnail": "/images/banner/main-banner_20240419.jpg",
+    "thumbnailMobile": "/images/banner/main-banner_20240419m.jpg",
+    "category": "제주코딩베이스캠프",
+    "title": ["제주코딩베이스캠프와", " 함께하는 IT 교육의 모든 것!"],
+    "description": [
+      "지금 바로 '제주코딩베이스캠프' 유튜브 채널을 구독하고 함께해요!"
+    ],
+    "link": "https://www.youtube.com/@jejucodingcamp"
+  },
+  {
+    "bgColor": "#2E6FF2",
+    "textColor": "#fff",
+    "categoryColor": "#121314",
+    "categoryBg": "#fff",
     "thumbnail": "/images/banner/main-banner_20240227-1.jpg",
     "thumbnailMobile": "/images/banner/main-banner_20240227-1m.jpg",
     "category": "제주코딩베이스캠프 VOD",
