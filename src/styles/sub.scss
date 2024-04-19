@@ -177,7 +177,7 @@ $titleGap: 8rem;
     font-weight: 400;
   }
   // 코드
-  pre:not(.py-error):not(.py-repl-output) {
+  pre:not(.py-error):not(.py-repl-output):not(.CodeMirror-line) {
     padding: 3.2rem 6rem 3.2rem 3.2rem;
     box-sizing: border-box;
     border-radius: 1rem;

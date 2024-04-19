@@ -2,10 +2,11 @@
 .CodeMirror {
   font-family: var(--code), monospace;
   min-height: 144px;
-  height: auto;
+  height: 100%;
   color: black;
   direction: ltr;
-  font-size: clamp(1.5rem, 1.3445378151vw, 1.6rem);
+  font-size: 16px;
+  font-weight: 700;
 }
 
 /* PADDING */
@@ -165,27 +166,23 @@
 }
 
 .cm-s-default .cm-keyword {
-  color: var(--code-purple);
+  color: #c93864;
 }
 .cm-s-default .cm-atom {
-  color: var(--code-green);
+  color: #219;
 }
 .cm-s-default .cm-number {
-  color: var(--code-green);
+  color: #328026;
 }
 .cm-s-default .cm-def {
   color: #e37c00;
-}
-.cm-s-default .cm-property {
-  color: var(--code-pink);
 }
 /* .cm-s-default .cm-variable,
 .cm-s-default .cm-punctuation,
 .cm-s-default .cm-property,
 .cm-s-default .cm-operator {} */
-
 .cm-s-default .cm-variable {
-  color: var(--code-blue);
+  color: #328026;
 }
 .cm-s-default .cm-variable-2 {
   color: #05a;
@@ -195,10 +192,10 @@
   color: #085;
 }
 .cm-s-default .cm-comment {
-  color: var(--grayLv3);
+  color: #8d9299;
 }
 .cm-s-default .cm-string {
-  color: var(--code-orange);
+  color: #2e5dd6;
 }
 .cm-s-default .cm-string-2 {
   color: #f50;
@@ -251,7 +248,7 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {
   background: rgba(255, 150, 0, 0.3);
 }
 .CodeMirror-activeline-background {
-  background: var(--activation);
+  background: #e8f2ff;
 }
 
 /* STOP */
