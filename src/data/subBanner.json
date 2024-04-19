@@ -1,5 +1,13 @@
 [
   {
+    "title": "제주코딩베이스캠프",
+    "subText": "유튜브 채널 구독하고 함께해요!",
+    "src": "/images/banner/banner3.png",
+    "bgColor": "#081826",
+    "textColor": "#fff",
+    "url": "https://www.youtube.com/@jejucodingcamp"
+  },
+  {
     "title": "위니브 부트캠프",
     "subText": "지금 이 책의 저자와 함께 공부해요!",
     "src": "/images/banner/banner1.png",
