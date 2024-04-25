@@ -152,11 +152,11 @@
       "sections": [
         {
           "title": "RESTful API",
-          "link": "/basecamp-network/chapter10/11-1"
+          "link": "/basecamp-network/chapter11/11-1"
         },
         {
           "title": "모놀리식과 마이크로서비스 아키텍처",
-          "link": "/basecamp-network/chapter10/11-2"
+          "link": "/basecamp-network/chapter11/11-2"
         }
       ]
     }
