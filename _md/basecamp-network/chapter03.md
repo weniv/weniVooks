@@ -1,5 +1,5 @@
 ---
-title: 웹 상에서 HTML, CSS, JavaScript, Python 역할
+title: 웹 상에서 프로그래밍 언어 역할
 date: 2024-04-05
 ---
 
