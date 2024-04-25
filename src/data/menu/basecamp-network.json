@@ -43,11 +43,11 @@
       "link": "/basecamp-network/chapter03",
       "sections": [
         {
-          "title": "HTML/CSS/JS(주로 FE)",
+          "title": "웹 상에서 HTML/CSS/JS 역할",
           "link": "/basecamp-network/chapter03/03-1"
         },
         {
-          "title": "Python(주로 BE)",
+          "title": "웹 상에서 Python 역할",
           "link": "/basecamp-network/chapter03/03-2"
         }
       ]
@@ -137,12 +137,26 @@
       "link": "/basecamp-network/chapter10",
       "sections": [
         {
-          "title": "HTTPS + 암호화 + 인증 + 무결성 = HTTPS",
+          "title": "HTTPS란?",
           "link": "/basecamp-network/chapter10/10-1"
         },
         {
           "title": "HTTPS 적용",
           "link": "/basecamp-network/chapter10/10-2"
+        }
+      ]
+    },
+    {
+      "title": "부록",
+      "link": "/basecamp-network/chapter11",
+      "sections": [
+        {
+          "title": "RESTful API",
+          "link": "/basecamp-network/chapter10/11-1"
+        },
+        {
+          "title": "모놀리식과 마이크로서비스 아키텍처",
+          "link": "/basecamp-network/chapter10/11-2"
         }
       ]
     }
