@@ -63,7 +63,7 @@ export default function RootLayout({ children }) {
 
             gtag('config', '${process.env.NEXT_PUBLIC_GA_ID}');`}
       </Script>
-      <Script src="/analytics-pageview.js"></Script>
+      <Script src="/analytics/analytics-pageview.js"></Script>
 
       <SettingProvider>
         <Body>{children}</Body>

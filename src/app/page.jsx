@@ -8,7 +8,7 @@ import Script from 'next/script';
 export default function Home() {
   return (
     <>
-      <Script src="/analytics-click.js"></Script>
+      <Script src="/analytics/analytics-click.js"></Script>
 
       <Header type="intro" />
       <div className="layout-grow">
