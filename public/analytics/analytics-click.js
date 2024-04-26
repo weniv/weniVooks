@@ -1,13 +1,14 @@
 // 앵커 클릭 이벤트 리스너 등록
 document.addEventListener('click', function (event) {
-  if (event.target.tagName === 'A') {
+  const ANCHOR = event.target.closest('a');
+  if (ANCHOR) {
     event.preventDefault(); // 기본 동작 막기
 
     var session_id = sessionStorage.getItem('session_id');
 
     const source_url = window.location.href;
-    const target_url = event.target.href;
-    const target_bank = event.target.blank || '_self';
+    const target_url = ANCHOR.href;
+    const target_tar = ANCHOR.target || '_self';
 
     fetch('https://www.analytics.weniv.co.kr/collect/anchor-click', {
       method: 'POST',
@@ -24,7 +25,7 @@ document.addEventListener('click', function (event) {
         return response.json();
       })
       .then((data) => {
-        window.open(target_url, target_bank);
+        window.open(target_url, target_tar);
       })
       .catch((error) => console.error('Error:', error));
   }
