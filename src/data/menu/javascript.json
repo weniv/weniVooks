@@ -1,0 +1,38 @@
+{
+  "title": "JavaScript 에센셜",
+  "link": "/javascript",
+  "sections": [
+    {
+      "title": "JavaScript의 기초",
+      "link": "/javascript/chapter01",
+      "sections": [
+        {
+          "title": "JavaScript란?",
+          "link": "/javascript/chapter01/01-1"
+        },
+        {
+          "title": "JavaScript 사용하기",
+          "link": "/javascript/chapter01/01-2"
+        },
+        {
+          "title": "브라우저에서 실행하기",
+          "link": "/javascript/chapter01/01-3"
+        }
+      ]
+    },
+    {
+      "title": "변수",
+      "link": "/javascript/chapter02",
+      "sections": [
+        {
+          "title": "변수란?",
+          "link": "/javascript/chapter02/02-1"
+        },
+        {
+          "title": "var, let, const",
+          "link": "/javascript/chapter02/02-2"
+        }
+      ]
+    }
+  ]
+}
