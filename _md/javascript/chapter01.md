@@ -1,5 +1,5 @@
 ---
-title: 1. JavaScript 기초
+title: JavaScript 기초
 date: 2024-04-29
 ---
 
