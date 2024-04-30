@@ -1,13 +1,50 @@
 ---
-title: 들어가기 전
-date: 2024-01-29
+title: 수업 전 알아 두기
+date: 2024-04-29
 ---
 
 :::div{.box .list}
 **목차**
 
-1. [머리말](/html-css/chapter00/hello)
+1. [코드편집 도구](/html-css/chapter00/hello)
 2. [알아야 할 내용이 담겨 있습니다](/html-css/chapter00/content)
 3. [이 책을 읽는 방법](/html-css/chapter00/how-to-read)
 
 :::
+
+# 1. 코드편집 도구: VSCode(Visual Studio Code)
+
+::a[Visual Studio Code]{class='btn-link' href="https://code.visualstudio.com/" target="\_blank"}
+
+## 단축키
+|                  |             mac OS             |           Window           |
+|:----------------:|:------------------------------:|:--------------------------:|
+|   **주석처리**   |             cmd + /            |           Ctrl+/           |
+| **선택 줄 복사** | option + shift + 위아래 방향키 | shift + alt+ 위아래 방향키 |
+| **선택 줄 이동** |     option +  위아래 방향키    |     alt+ 위아래 방향키     |
+
+* Mac
+::a[Mac OS keyboard shortcuts]{class='btn-link' href="chrome-extension://efaidnbmnnnibpcajpcglclefindmkaj/https://code.visualstudio.com/shortcuts/keyboard-shortcuts-macos.pdf" target="\_blank"}
+* Window
+::a[Window keyboard shortcuts]{class='btn-link' href="chrome-extension://efaidnbmnnnibpcajpcglclefindmkaj/https://code.visualstudio.com/shortcuts/keyboard-shortcuts-windows.pdf" target="\_blank"}
+## 확장도구
+# 2. 웹 브라우저:Chrome
+::a[크롬 웹 브라우저]{class='btn-link' href="https://www.google.co.kr/chrome/?brand=IBEF&gclid=CjwKCAiAuOieBhAIEiwAgjCvcrLkFa-fE5W5vcZtak-KGqw6lqvwuSpha8iOdULeM9PJgdOf5EhliBoCsgEQAvD_BwE&gclsrc=aw.ds" target="\_blank"}
+## 확장도구
+# 3. 수업코드: GitHub
+# 4. 폴더 및 파일 이름 규칙
+## 공백 없이 영문 소문자, 언더바(_) 대신 하이픈(-) 사용하기!
+## HTML/CSS 파일구조 및 파일 경로
+```
+index.html
+├ images
+│	└ logo.png
+├ css
+│	 ├ reset.css
+│	 └ style.css
+└ js
+	└script.js
+```
+### 상대경로
+### 절대경로
+# 5. 개발자도구
