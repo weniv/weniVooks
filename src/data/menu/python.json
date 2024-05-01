@@ -3,19 +3,19 @@
   "link": "/python",
   "sections": [
     {
-      "title": "들어가기 전",
+      "title": "00장 들어가기 전",
       "link": "/python/chapter00",
       "sections": [
         {
-          "title": "머리말",
+          "title": "00.1 머리말",
           "link": "/python/chapter00/hello"
         },
         {
-          "title": "알아야 할 내용이 담겨 있습니다",
+          "title": "00.2 알아야 할 내용을",
           "link": "/python/chapter00/content"
         },
         {
-          "title": "이 책을 읽는 방법",
+          "title": "00.3 이 책을 읽는 방법",
           "link": "/python/chapter00/how-to-read"
         }
       ]
