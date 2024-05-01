@@ -7,8 +7,8 @@ date: 2024-01-29
 **목차**
 
 1. [클래스란](/python/chapter09/09-1)
-2. [클래스 변수와 인스턴스 변수](/python/chapter09/09-2)
-3. [클래스를 왜 써야 하는가?](/python/chapter09/09-3)
+2. [클래스를 왜 써야 하는가?](/python/chapter09/09-2)
+3. [클래스 변수와 인스턴스 변수](/python/chapter09/09-3)
 4. [매직 메서드(magic method)](/python/chapter09/09-4)
 5. [상속](/python/chapter09/09-5)
 6. [다중 상속](/python/chapter09/09-6)
