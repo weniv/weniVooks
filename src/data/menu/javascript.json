@@ -119,7 +119,16 @@
     {
       "title": "객체지향 프로그래밍",
       "link": "/javascript/chapter13",
-      "sections": []
+      "sections": [
+        {
+          "title": "객체지향 프로그래밍이란?",
+          "link": "/javascript/chapter13/13-1"
+        },
+        {
+          "title": "클래스",
+          "link": "/javascript/chapter13/13-2"
+        }
+      ]
     },
     {
       "title": "promise, async, await",
