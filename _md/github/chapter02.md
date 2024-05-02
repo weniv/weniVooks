@@ -1,5 +1,5 @@
 ---
-title: 들어가기 전
+title: GitHub 핵심개념
 date: 2024-01-29
 ---
 

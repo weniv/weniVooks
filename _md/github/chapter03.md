@@ -1,5 +1,5 @@
 ---
-title: 들어가기 전
+title: 협업을 위한 GitHub
 date: 2024-01-29
 ---
 
