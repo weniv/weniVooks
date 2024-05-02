@@ -10,7 +10,7 @@ export default async function Home() {
             <h3 className="title">알잘깔딱센 GitHub 핵심개념</h3>
             <Image
               src="/images/github/cover-github.png"
-              alt="{알잘깔딱센 GitHub 핵심개념}"
+              alt="알잘깔딱센 GitHub 핵심개념"
               className="cover"
               width={658}
               height={800}
