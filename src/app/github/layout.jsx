@@ -1,7 +1,7 @@
 import '@/styles/sub.scss';
 
 import { DEFAULT_PATH, META_DATA, TITLE } from './data';
-import menuDdata from '@/data/menu/basecamp-network.json';
+import menuDdata from '@/data/menu/github.json';
 
 import Header from '@/components/layouts/header/Header';
 import Side from '@/components/layouts/menu/Side';
