@@ -105,7 +105,16 @@
     {
       "title": "DOM (Document Object Model)",
       "link": "/javascript/chapter12",
-      "sections": []
+      "sections": [
+        {
+          "title": "DOM API",
+          "link": "/javascript/chapter12/12-1"
+        },
+        {
+          "title": "이벤트",
+          "link": "/javascript/chapter12/12-2"
+        }
+      ]
     },
     {
       "title": "객체지향 프로그래밍",
