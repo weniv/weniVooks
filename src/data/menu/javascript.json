@@ -91,7 +91,16 @@
     {
       "title": "JSON",
       "link": "/javascript/chapter11",
-      "sections": []
+      "sections": [
+        {
+          "title": "JSON이란?",
+          "link": "/javascript/chapter11/11-1"
+        },
+        {
+          "title": "JSON 메서드",
+          "link": "/javascript/chapter11/11-2"
+        }
+      ]
     },
     {
       "title": "DOM (Document Object Model)",
