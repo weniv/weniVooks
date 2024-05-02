@@ -77,7 +77,16 @@
     {
       "title": "Map & Set",
       "link": "/javascript/chapter10",
-      "sections": []
+      "sections": [
+        {
+          "title": "Map",
+          "link": "/javascript/chapter10/10-1"
+        },
+        {
+          "title": "Set",
+          "link": "/javascript/chapter10/10-2"
+        }
+      ]
     },
     {
       "title": "JSON",
