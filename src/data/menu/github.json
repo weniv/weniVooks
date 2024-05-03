@@ -1,0 +1,84 @@
+{
+  "title": "알잘깔딱센 GitHub 핵심개념",
+  "link": "/github",
+  "sections": [
+    {
+      "title": "01장 들어가기 전",
+      "link": "/github/chapter01",
+      "sections": [
+        {
+          "title": "01.1 머리말과 저자소개",
+          "link": "/github/chapter01/01-1"
+        },
+        {
+          "title": "01.2 교안 자료",
+          "link": "/github/chapter01/01-2"
+        }
+      ]
+    },
+    {
+      "title": "02장 GitHub 핵심개념",
+      "link": "/github/chapter02",
+      "sections": [
+        {
+          "title": "02.1 들어가기 전, 간단한 실습과 공부방향",
+          "link": "/github/chapter02/02-1"
+        },
+        {
+          "title": "02.2 Git & GitHub 기본 개념",
+          "link": "/github/chapter02/02-2"
+        },
+        {
+          "title": "02.3 Git",
+          "link": "/github/chapter02/02-3"
+        },
+        {
+          "title": "02.4 GitHub",
+          "link": "/github/chapter02/02-4"
+        },
+        {
+          "title": "02.5 Branch",
+          "link": "/github/chapter02/02-5"
+        },
+        {
+          "title": "02.6 Fork",
+          "link": "/github/chapter02/02-6"
+        },
+        {
+          "title": "02.7 Pull Request",
+          "link": "/github/chapter02/02-7"
+        },
+        {
+          "title": "02.8 그 외 명령어",
+          "link": "/github/chapter02/02-8"
+        }
+      ]
+    },
+    {
+      "title": "03장 협업을 위한 GitHub",
+      "link": "/github/chapter03",
+      "sections": [
+        {
+          "title": "03.1 GitHub으로 협업하기",
+          "link": "/github/chapter03/03-1"
+        },
+        {
+          "title": "03.2 GitHub Repository 권한 부여",
+          "link": "/github/chapter03/03-2"
+        },
+        {
+          "title": "03.3 Git log 옵션",
+          "link": "/github/chapter03/03-3"
+        },
+        {
+          "title": "03.4 Mermaid로 GitHub 내에서 순서도 그리기",
+          "link": "/github/chapter03/03-4"
+        },
+        {
+          "title": "03.5 Git에 관한 잡다한 이야기들",
+          "link": "/github/chapter03/03-5"
+        }
+      ]
+    }
+  ]
+}
