@@ -5,7 +5,7 @@
   margin: 15px 0;
 }
 
-span {
+.codeblock-wrap span {
   color: var(--surface);
 }
 
