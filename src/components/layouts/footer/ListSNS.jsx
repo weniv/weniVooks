@@ -1,3 +1,4 @@
+'use client';
 import styles from './ListSNS.module.scss';
 
 import BtnIcon from '@/components/common/button/BtnIcon';
@@ -6,6 +7,7 @@ import SVGInflearn from '@/components/svg/SVGInflearn';
 import SVGInstar from '@/components/svg/SVGInstar';
 import SVGNaver from '@/components/svg/SVGNaver';
 import SVGYoutube from '@/components/svg/SVGYoutube';
+import handleAnalyticsClick from '@/utils/handleAnalyticsClick';
 
 export default function ListSNS({ color = 'grayLv2' }) {
   const SNSList = [
@@ -49,6 +51,11 @@ export default function ListSNS({ color = 'grayLv2' }) {
             className={styles.snsBtn}
             href={sns.href}
             target={sns.target}
+            onClick={(event) =>
+              index === 0
+                ? null
+                : handleAnalyticsClick(event, `푸터: ${sns.text}`)
+            }
           >
             {sns.icon}
             <span className="a11y-hidden">{sns.text}</span>

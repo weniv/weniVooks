@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import useWindowSize from '@/utils/useWindowSize';
 import styles from './Banner.module.scss';
+import handleAnalyticsClick from '@/utils/handleAnalyticsClick';
 
 const Content = (props) => {
   const {
@@ -51,6 +52,7 @@ const Content = (props) => {
           width={640}
           height={394}
           alt=""
+          priority={index === 0 ? true : false}
         />
       )}
     </div>
@@ -67,7 +69,13 @@ export default function BannerItem({ data, index }) {
       style={{ backgroundColor: bgColor, color: textColor }}
     >
       {link && link ? (
-        <a href={link} target={isBlank ? '_blank' : ''}>
+        <a
+          href={link}
+          target={isBlank ? '_blank' : ''}
+          onClick={(event) =>
+            handleAnalyticsClick(event, `배너: ${rest.title.join('')}`)
+          }
+        >
           <Content {...rest} index={index} />
         </a>
       ) : (

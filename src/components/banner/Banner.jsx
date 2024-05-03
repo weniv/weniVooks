@@ -29,7 +29,7 @@ export default function Banner() {
       >
         {bannerData.map((banner, index) => (
           <SwiperSlide key={index}>
-            <BannerItem data={banner} />
+            <BannerItem data={banner} index={index} />
           </SwiperSlide>
         ))}
       </Swiper>

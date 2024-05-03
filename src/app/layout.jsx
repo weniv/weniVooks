@@ -1,5 +1,5 @@
 import { Source_Code_Pro, Nanum_Myeongjo } from 'next/font/google';
-
+import localFont from 'next/font/local';
 import Script from 'next/script';
 
 import '@/styles/globals.scss';
@@ -7,6 +7,7 @@ import '@/styles/globals.scss';
 import SettingProvider from '@/context/SettingContext';
 import Body from '@/components/layouts/body/Body';
 import classNames from 'classnames';
+import AnalyticsPageview from '@/components/AnalyticsPageview';
 
 const source_code_pro = Source_Code_Pro({
   subsets: ['latin'],
@@ -18,6 +19,27 @@ const nanum_myeongjo = Nanum_Myeongjo({
   subsets: ['latin'],
   weight: ['400', '700', '800'],
   variable: '--myeongjo',
+});
+
+const pretendard = localFont({
+  src: [
+    {
+      path: './font/Pretendard-Regular.woff',
+      weight: '400',
+      style: 'normal',
+    },
+
+    {
+      path: './font/Pretendard-SemiBold.woff',
+      weight: '600',
+      style: 'normal',
+    },
+    {
+      path: './font/Pretendard-Bold.woff',
+      weight: '700',
+      style: 'normal',
+    },
+  ],
 });
 
 export const metadata = {
@@ -45,7 +67,11 @@ export default function RootLayout({ children }) {
   return (
     <html
       lang="ko-KR"
-      className={classNames(source_code_pro.variable, nanum_myeongjo.variable)}
+      className={classNames(
+        pretendard.className,
+        source_code_pro.variable,
+        nanum_myeongjo.variable,
+      )}
     >
       <meta
         name="naver-site-verification"
@@ -63,9 +89,9 @@ export default function RootLayout({ children }) {
 
             gtag('config', '${process.env.NEXT_PUBLIC_GA_ID}');`}
       </Script>
-      <Script src="/analytics/analytics-pageview.js"></Script>
 
       <SettingProvider>
+        <AnalyticsPageview />
         <Body>{children}</Body>
       </SettingProvider>
     </html>
