@@ -39,7 +39,6 @@ export default function AnalyticsPageview() {
     if (!session_id) {
       // 사이트 첫 방문
       sendPageveiw();
-      console.log(document.referrer);
     } else {
       if (lastPage !== pathname) {
         // 페이지 이동
