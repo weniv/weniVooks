@@ -1,6 +1,9 @@
+'use client';
+
 import Image from 'next/image';
 import Btn from '../common/button/Btn';
 import styles from './BookItem.module.scss';
+import handleAnalyticsClick from '@/utils/handleAnalyticsClick';
 
 export default function BookItem({ data }) {
   const {
@@ -42,7 +45,13 @@ export default function BookItem({ data }) {
           </Btn>
         )}
         {classlink && (
-          <Btn href={classlink} target="_blank">
+          <Btn
+            href={classlink}
+            target="_blank"
+            onClick={(event) =>
+              handleAnalyticsClick(event, `온라인 강의: ${title}`)
+            }
+          >
             온라인 강의
           </Btn>
         )}
