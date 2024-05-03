@@ -52,6 +52,7 @@ const Content = (props) => {
           width={640}
           height={394}
           alt=""
+          priority={index === 0 ? true : false}
         />
       )}
     </div>

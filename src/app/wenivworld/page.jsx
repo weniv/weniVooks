@@ -16,6 +16,7 @@ export default async function Home() {
               className="cover"
               width={658}
               height={800}
+              priority={true}
             />
             {/* contents */}
           </div>
