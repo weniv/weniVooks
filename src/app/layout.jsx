@@ -7,6 +7,7 @@ import '@/styles/globals.scss';
 import SettingProvider from '@/context/SettingContext';
 import Body from '@/components/layouts/body/Body';
 import classNames from 'classnames';
+import AnalyticsPageview from '@/components/AnalyticsPageview';
 
 const source_code_pro = Source_Code_Pro({
   subsets: ['latin'],
@@ -63,9 +64,9 @@ export default function RootLayout({ children }) {
 
             gtag('config', '${process.env.NEXT_PUBLIC_GA_ID}');`}
       </Script>
-      <Script src="/analytics/analytics-pageview.js"></Script>
 
       <SettingProvider>
+        <AnalyticsPageview />
         <Body>{children}</Body>
       </SettingProvider>
     </html>
