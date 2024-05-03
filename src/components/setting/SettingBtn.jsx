@@ -36,7 +36,6 @@ export default function SettingBtn() {
 
         lastItems.forEach((item) => {
           item.addEventListener('change', (e) => {
-            console.log(e.target);
             e.target.addEventListener('keydown', handleFirstFocus);
             lastItem = e.target;
           });

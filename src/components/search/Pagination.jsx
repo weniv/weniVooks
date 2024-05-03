@@ -76,8 +76,6 @@ export default function Pagination({ page, setPage, searchResults }) {
     getDisplayedPages(page, searchResults.page, setDisplayPages);
   }, [page]);
 
-  // console.log('displayPages', displayPages);
-
   return (
     <div className={styles.btnWrap}>
       <Btn className={styles.btnPrev} disabled={page === 1} onClick={goPrev}>

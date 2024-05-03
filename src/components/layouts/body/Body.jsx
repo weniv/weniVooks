@@ -29,7 +29,7 @@ const BeforeFn = () => {
   }
 };
 
-export default function Body({ children }) {
+export default function Body({ className, children }) {
   const { theme, fontStyle, fontSize, menu } = useContext(SettingContext);
   const [isWindows, setIsWindows] = useState(false);
 
@@ -47,6 +47,7 @@ export default function Body({ children }) {
         fontSize !== null && `size${fontSize}`,
         menu ? 'side-close' : '',
         isWindows && 'windows',
+        className,
       )}
       suppressHydrationWarning={true}
     >
