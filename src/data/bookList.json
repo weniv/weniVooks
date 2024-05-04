@@ -20,7 +20,7 @@
     "price": "무료",
     "description": "위니브월드(https://world.weniv.co.kr/)는 파이썬 환경을 더욱 쉽게 접할 수 있도록 제작된 교육용 소프트웨어입니다.",
     "booklink": "/wenivworld",
-    "classlink": "https://www.youtube.com/watch?v=IoPgnixhm5M&list=PLkfUwwo13dlVEm9gX_ca4BtAIFuY-o3OO",
+    "classlink": "https://inf.run/bckqb",
     "date": "2023-11-07"
   },
   {
@@ -32,7 +32,7 @@
     "price": "무료",
     "description": "위니브월드(https://world.weniv.co.kr/)는 파이썬 환경을 더욱 쉽게 접할 수 있도록 제작된 교육용 소프트웨어입니다.",
     "booklink": "/wenivworld-teacher",
-    "classlink": "https://www.youtube.com/watch?v=IoPgnixhm5M&list=PLkfUwwo13dlVEm9gX_ca4BtAIFuY-o3OO",
+    "classlink": "https://inf.run/bckqb",
     "date": "2023-11-07"
   },
   {
@@ -44,7 +44,7 @@
     "price": "무료",
     "description": "웹 페이지의 구조를 정의하는 HTML과 웹 페이지의 스타일을 정의하는 CSS로 다양한 콘텐츠와 디자인을 구현할 수 있습니다.",
     "booklink": "/basecamp-html-css",
-    "classlink": "https://www.inflearn.com/course/html-css-%EB%B2%A0%EC%9D%B4%EC%8A%A4%EC%BA%A0%ED%94%84",
+    "classlink": "https://inf.run/G19cK",
     "date": "2024-03-25"
   },
   {
@@ -56,7 +56,7 @@
     "price": "무료",
     "description": "웹 개발에서 필수! 다양한 분야에서 폭넓게 사용되는 인기 언어 JavaScript, 기본 개념과 실전 예제로 학습해 보세요!",
     "booklink": "/basecamp-javascript",
-    "classlink": "https://www.inflearn.com/course/javascript-%EB%B2%A0%EC%9D%B4%EC%8A%A4%EC%BA%A0%ED%94%84",
+    "classlink": "https://inf.run/MJKLX",
     "date": "2024-03-25"
   },
   {
@@ -68,7 +68,7 @@
     "price": "무료",
     "description": "개발자라면 누구나 알아야 할 웹, 네트워크, 그리고 HTTP의 기초에 대해 함께 알아가 보겠습니다!",
     "booklink": "/basecamp-network",
-    "classlink": "",
+    "classlink": "https://inf.run/21CQA",
     "date": "2024-04-19"
   },
   {
@@ -80,7 +80,7 @@
     "price": "무료",
     "description": "개발자라면 누구나 알아야 할 GitHub 핵심 개념에 대해 살펴봅니다.",
     "booklink": "/github",
-    "classlink": "",
+    "classlink": "https://inf.run/9VExd",
     "date": "2024-05-02"
   }
 ]
