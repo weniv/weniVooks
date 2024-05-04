@@ -113,6 +113,24 @@
           "link": "/github/chapter04/04-7"
         }
       ]
+    },
+    {
+      "title": "05장 실습 코드",
+      "link": "/github/chapter05",
+      "sections": [
+        {
+          "title": "협업하기 실습 코드 1",
+          "link": "/github/chapter05/05-1"
+        },
+        {
+          "title": "협업하기 실습 코드 2",
+          "link": "/github/chapter05/05-2"
+        },
+        {
+          "title": "GitHub으로 협업 프로젝트하기 - GitHub을 모르는 동료와 PR 반복훈련",
+          "link": "/github/chapter05/05-3"
+        }
+      ]
     }
   ]
 }
