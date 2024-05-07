@@ -2,6 +2,7 @@ import Image from 'next/image';
 import styles from './SubBanner.module.scss';
 
 import banner from '@/data/subBanner.json';
+import handleAnalyticsClick from '@/utils/handleAnalyticsClick';
 
 export default function SubBanner() {
   const randomNum = Math.floor(Math.random() * banner.length);
@@ -18,6 +19,9 @@ export default function SubBanner() {
             color: banner[randomNum].textColor && banner[randomNum].textColor,
             border: banner[randomNum].bgColor && 'none',
           }}
+          onClick={(event) =>
+            handleAnalyticsClick(event, `서브 배너: ${banner[randomNum].title}`)
+          }
         >
           <h3>{banner[randomNum].title}</h3>
           <p>{banner[randomNum].subText}</p>
