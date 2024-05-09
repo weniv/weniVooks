@@ -15,6 +15,7 @@ export default function AnalyticsPageview() {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
+        'Session-Id': sessionId,
       },
       body: JSON.stringify(payload),
     })
