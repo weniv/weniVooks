@@ -7,16 +7,19 @@ export default function AnalyticsPageview() {
 
   const sendPageveiw = (sessionId) => {
     let payload = { url: window.location.href };
+    let header = { 'Content-Type': 'application/json' };
+
     if (sessionId) {
       payload = { url: window.location.href, session_id: sessionId };
+      header = {
+        'Content-Type': 'application/json',
+        'Session-Id': sessionId,
+      };
     }
 
     fetch('https://www.analytics.weniv.co.kr/collect/pageview', {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Session-Id': sessionId,
-      },
+      headers: header,
       body: JSON.stringify(payload),
     })
       .then((response) => {
