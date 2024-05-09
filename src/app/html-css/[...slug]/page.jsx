@@ -4,6 +4,8 @@ import { JSDOM } from 'jsdom';
 import Script from 'next/script';
 import './page.scss';
 
+import '@/styles/codemirror.css';
+
 export async function generateMetadata({ params }, parent) {
   const { title } = await getPostDetail(DEFAULT_PATH, params.slug);
   const previousImages = (await parent).openGraph?.images || [];
@@ -62,13 +64,10 @@ export default async function Page({ params }) {
         </>
       )}
 
-      <link rel="stylesheet" href="/codeblocks/codemirror.css" />
       <Script defer src="/codeblocks/codemirror.js" />
-
       <Script defer src="/codeblocks/htmlcss/xml.js" />
       <Script defer src="/codeblocks/htmlcss/css.js" />
       <Script defer src="/codeblocks/htmlcss/htmlcss-preview.js" />
-
       <Script defer src="/codeblocks/codemirror/active-line.js" />
     </>
   );
