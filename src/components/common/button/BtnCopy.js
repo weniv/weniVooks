@@ -1,13 +1,10 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import styles from './BtnCopy.module.scss';
-import Btn from './Btn';
 import { handleClipBoard } from '@/utils/handleClipBoard';
 
 export default function BtnCopy() {
-  const [code, setCode] = useState(null);
-
   useEffect(() => {
     const codes = Array.from(
       document.querySelectorAll('[data-rehype-pretty-code-fragment]'),
