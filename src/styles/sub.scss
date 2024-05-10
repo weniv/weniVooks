@@ -30,7 +30,7 @@ $titleGap: 8rem;
   }
 
   .main {
-    width: 100%;
+    width: 300px;
     flex-grow: 1;
     box-sizing: border-box;
     padding: fcSize(20, 80) fcSize(20, 40) fcSize(80, 100);
@@ -124,6 +124,7 @@ $titleGap: 8rem;
     max-height: 50rem;
     margin: 1em auto;
     border: 5px solid var(--grayLv1);
+    box-sizing: border-box;
   }
   // 이미지
   figure {
