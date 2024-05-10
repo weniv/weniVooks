@@ -1,0 +1,24 @@
+{
+  "title": "SQL",
+  "link": "/basecamp-sql",
+  "sections": [
+    {
+      "title": "01장 SQL",
+      "link": "/basecamp-sql/chapter00",
+      "sections": [
+        {
+          "title": "01.1 SQL",
+          "link": "/basecamp-sql/chapter01/01-1"
+        },
+        {
+          "title": "01.2 SQL",
+          "link": "/basecamp-sql/chapter01/01-2"
+        },
+        {
+          "title": "01.3 SQL",
+          "link": "/basecamp-sql/chapter01/01-3"
+        }
+      ]
+    }
+  ]
+}
