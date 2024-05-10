@@ -67,74 +67,54 @@
       ]
     },
     {
-      "title": "일단 글을 적고 꾸며보자!",
-      "link": "/html-css/chapter04",
-      "sections": [
-        {
-          "title": "텍스트 꾸미기",
-          "link": "/html-css/chapter04/04-1"
-        },
-        {
-          "title": "단위",
-          "link": "/html-css/chapter04/04-2"
-        },
-        {
-          "title": "CSS 선택자(가상 클래스 / 가상 요소)",
-          "link": "/html-css/chapter04/04-3"
-        },
-        {
-          "title": "CSS 선택자 우선순위",
-          "link": "/html-css/chapter04/04-4"
-        }
-      ]
-    },
-    {
-      "title": "CSS의 기본, Box Model!",
+      "title": "CSS",
       "link": "/html-css/chapter05",
       "sections": [
         {
-          "title": "CSS Box Model",
+          "title": "CSS 기본",
           "link": "/html-css/chapter05/05-1"
         },
         {
-          "title": "display 속성",
+          "title": "CSS 적용하기",
           "link": "/html-css/chapter05/05-2"
         },
         {
-          "title": "reset.css",
+          "title": "CSS 선택자(기본)",
           "link": "/html-css/chapter05/05-3"
+        },
+        {
+          "title": "CSS 상속",
+          "link": "/html-css/chapter05/05-4"
         }
       ]
     },
     {
-      "title": "요소를 배치해보자!",
+      "title": "일단 글을 적고 꾸며보자!",
       "link": "/html-css/chapter06",
       "sections": [
         {
-          "title": "position",
+          "title": "텍스트 꾸미기",
           "link": "/html-css/chapter06/06-1"
         },
         {
-          "title": "z-index",
+          "title": "단위",
           "link": "/html-css/chapter06/06-2"
-        }
-      ]
-    },
-    {
-      "title": "그런데 좀 멋지게 배치할 수 없을까?",
-      "link": "/html-css/chapter07",
-      "sections": [
-        {
-          "title": "flex",
-          "link": "/html-css/chapter07/07-1"
         },
         {
-          "title": "grid",
-          "link": "/html-css/chapter07/07-2"
+          "title": "list-style",
+          "link": "/html-css/chapter06/06-3"
         },
         {
-          "title": "[직접 해보기] 레이아웃 만들기",
-          "link": "/html-css/chapter07/07-3"
+          "title": "CSS 선택자(가상 클래스 /  가상 요소)",
+          "link": "/html-css/chapter06/06-4"
+        },
+        {
+          "title": "CSS 선택자 우선순위",
+          "link": "/html-css/chapter06/06-5"
+        },
+        {
+          "title": "[해보기]나의 글로건을 꾸며보자",
+          "link": "/html-css/chapter06/06-6"
         }
       ]
     }
