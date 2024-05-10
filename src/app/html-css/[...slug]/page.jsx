@@ -2,8 +2,9 @@ import { getPostDetail } from '@/utils/getPosts';
 import { DEFAULT_PATH, TITLE, DESC } from '../data';
 import { JSDOM } from 'jsdom';
 import Script from 'next/script';
-import './page.scss';
 
+// 코드 실행관련
+import '@/styles/htmlcss_code.scss';
 import '@/styles/codemirror.css';
 
 export async function generateMetadata({ params }, parent) {

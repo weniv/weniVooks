@@ -98,6 +98,8 @@
 
   //
   .CodeMirror pre.CodeMirror-line {
+    color: var(--surface);
+
     padding: 4px 0 4px 4px;
   }
   .CodeMirror-linenumber {
