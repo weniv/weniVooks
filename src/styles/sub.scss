@@ -213,6 +213,10 @@ $titleGap: 8rem;
       p + p {
         margin-top: 1em;
       }
+      ul,
+      ol {
+        margin: 0.2em 0 0.8em;
+      }
     }
   }
 
