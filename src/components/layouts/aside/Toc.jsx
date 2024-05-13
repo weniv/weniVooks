@@ -65,9 +65,9 @@ export default function Toc({ toggleMenu }) {
         result.push(h4Obj);
       } else if (tagName === 'h5') {
         h5Obj = { title, href, section: [] };
-        h4Obj.section.push(h5Obj);
+        h4Obj?.section.push(h5Obj);
       } else if (tagName === 'h6') {
-        h5Obj.section.push({ title, href, section: [] });
+        h5Obj?.section.push({ title, href, section: [] });
       }
     });
 
