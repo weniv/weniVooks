@@ -30,14 +30,14 @@ export default function AnalyticsPageview() {
       })
       .then((data) => {
         if (!sessionId) {
-          sessionStorage.setItem('session_id', data.session_id);
+          localStorage.setItem('session_id', data.session_id);
         }
       })
       .catch((error) => console.error('Error:', error));
   };
 
   useEffect(() => {
-    let session_id = sessionStorage.getItem('session_id');
+    let session_id = localStorage.getItem('session_id');
     const lastPage = sessionStorage.getItem('lastPage');
 
     if (!session_id) {

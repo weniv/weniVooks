@@ -5,7 +5,7 @@ export default async function handleAnalyticsClick(event, text) {
 
   const ANCHOR = event.currentTarget;
 
-  const session_id = sessionStorage.getItem('session_id');
+  const session_id = localStorage.getItem('session_id');
 
   const source_url = window.location.href;
   const target_url = ANCHOR.href;
