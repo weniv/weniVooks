@@ -11,7 +11,7 @@
           "link": "/basecamp-javascript/chapter01/01-1"
         },
         {
-          "title": "개발할 때 알아두면 유용한 브라우저 API (BOM)",
+          "title": "브라우저 API (BOM)",
           "link": "/basecamp-javascript/chapter01/01-2"
         },
         {
@@ -63,7 +63,7 @@
       ]
     },
     {
-      "title": "코드를 제어한다! 조건문과 반복문, 전개 구문과 Destructuring",
+      "title": "코드를 제어한다!",
       "link": "/basecamp-javascript/chapter05",
       "sections": [
         {
@@ -75,7 +75,7 @@
           "link": "/basecamp-javascript/chapter05/05-2"
         },
         {
-          "title": "전개 구문과 Destructuring",
+          "title": "전개 구문과 디스트럭처링",
           "link": "/basecamp-javascript/chapter05/05-3"
         }
       ]
@@ -135,7 +135,7 @@
       "link": "/basecamp-javascript/chapter09",
       "sections": [
         {
-          "title": "실제 만든 게임 코드로 보는 Class의 활용",
+          "title": "게임 코드로 보는 Class의 활용",
           "link": "/basecamp-javascript/chapter09/09-1"
         }
       ]
@@ -163,7 +163,7 @@
           "link": "/basecamp-javascript/chapter11/11-1"
         },
         {
-          "title": "javascript 삽입 위치에 대한 최신 글(21년)",
+          "title": "JS 삽입 위치에 대한 글",
           "link": "/basecamp-javascript/chapter11/11-2"
         },
         {
