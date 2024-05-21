@@ -28,6 +28,7 @@ class JsRepl extends HTMLElement {
       this._updateResult(this.result);
     } catch (error) {
       console.error('js 코드 실행 중 오류 발생:', error);
+      this._updateResult(error);
     }
   }
 
@@ -40,10 +41,31 @@ class JsRepl extends HTMLElement {
     if (result === null) {
       return 'null';
     } else if (result === undefined && currentCode.includes('console.log')) {
-      return '콘솔을 확인하세요';
+      return this._extractCodeResult(currentCode);
+    } else if (result !== undefined && currentCode.includes('console.log')) {
+      return `${result}\n${this._extractCodeResult(currentCode)}`;
+    } else if (result === undefined) {
+      return 'undefined';
     } else {
-      return result === undefined ? 'undefined' : result;
+      return result;
     }
+  }
+
+  _extractCodeResult(code) {
+    let log = [];
+    let oldLog = console.log;
+    console.log = function (message) {
+      log.push(message);
+      oldLog.apply(console, arguments);
+    };
+
+    eval(code);
+
+    if (log.length === 0) {
+      return '(console) ';
+    }
+
+    return `(console) ${log.join('\n')}`;
   }
 
   _copyCodeToClipboard() {
