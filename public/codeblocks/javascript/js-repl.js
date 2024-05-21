@@ -55,7 +55,11 @@ class JsRepl extends HTMLElement {
     let log = [];
     let oldLog = console.log;
     console.log = function (message) {
-      log.push(message);
+      try {
+        log.push(JSON.stringify(message));
+      } catch (error) {
+        log.push(message);
+      }
       oldLog.apply(console, arguments);
     };
 
@@ -65,7 +69,7 @@ class JsRepl extends HTMLElement {
       return '(console) ';
     }
 
-    return `(console) ${log.join('\n')}`;
+    return `(console)\n${log.join('\n')}`;
   }
 
   _copyCodeToClipboard() {
