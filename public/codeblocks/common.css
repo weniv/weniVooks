@@ -31,3 +31,7 @@
   white-space: normal;
   margin: 1em 0px;
 }
+
+.codeblock-result p {
+  white-space: pre;
+}
