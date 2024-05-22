@@ -21,7 +21,7 @@
       ]
     },
     {
-      "title": "개발할 때 알아두면 유용한 브라우저 API",
+      "title": "브라우저 API - BOM",
       "link": "/javascript/chapterBOM",
       "sections": []
     },
@@ -60,7 +60,7 @@
       ]
     },
     {
-      "title": "전개 구문(Spread syntax)과 디스트럭쳐링(Destructuring)",
+      "title": "전개 구문과 디스트럭쳐링",
       "link": "/javascript/chapter07",
       "sections": []
     },
