@@ -17,13 +17,12 @@
         {
           "title": "브라우저에서 실행하기",
           "link": "/javascript/chapter01/01-3"
+        },
+        {
+          "title": "자바스크립트로 출력해보기",
+          "link": "/javascript/chapter01/01-4"
         }
       ]
-    },
-    {
-      "title": "개발할 때 알아두면 유용한 브라우저 API",
-      "link": "/javascript/chapterBOM",
-      "sections": []
     },
     {
       "title": "변수",
@@ -31,142 +30,88 @@
       "sections": []
     },
     {
-      "title": "Type - 원시타입",
+      "title": "연산",
       "link": "/javascript/chapter03",
       "sections": []
     },
     {
-      "title": "Type2 - 객체타입",
+      "title": "Type - 원시타입",
       "link": "/javascript/chapter04",
       "sections": []
     },
     {
-      "title": "함수",
+      "title": "Type2 - 객체타입",
       "link": "/javascript/chapter05",
       "sections": []
     },
     {
       "title": "조건문과 반복문",
       "link": "/javascript/chapter06",
-      "sections": [
-        {
-          "title": "조건문",
-          "link": "/javascript/chapter06/06-1"
-        },
-        {
-          "title": "반복문",
-          "link": "/javascript/chapter06/06-2"
-        }
-      ]
+      "sections": []
     },
     {
-      "title": "전개 구문(Spread syntax)과 디스트럭쳐링(Destructuring)",
+      "title": "함수",
       "link": "/javascript/chapter07",
       "sections": []
     },
     {
-      "title": "this",
-      "link": "/javascript/chapter08",
+      "title": "전개구문과 디스트럭쳐링",
+      "link": "/javascript/chapter8",
       "sections": []
     },
     {
-      "title": "함수2 - 함수 심화",
+      "title": "this",
       "link": "/javascript/chapter09",
       "sections": []
     },
     {
-      "title": "Map & Set",
+      "title": "함수2 - 함수 심화",
       "link": "/javascript/chapter10",
-      "sections": [
-        {
-          "title": "Map",
-          "link": "/javascript/chapter10/10-1"
-        },
-        {
-          "title": "Set",
-          "link": "/javascript/chapter10/10-2"
-        }
-      ]
+      "sections": []
+    },
+    {
+      "title": "Map & Set",
+      "link": "/javascript/chapter11",
+      "sections": []
     },
     {
       "title": "JSON",
-      "link": "/javascript/chapter11",
-      "sections": [
-        {
-          "title": "JSON이란?",
-          "link": "/javascript/chapter11/11-1"
-        },
-        {
-          "title": "JSON 메서드",
-          "link": "/javascript/chapter11/11-2"
-        }
-      ]
+      "link": "/javascript/chapter12",
+      "sections": []
     },
     {
       "title": "DOM (Document Object Model)",
-      "link": "/javascript/chapter12",
-      "sections": [
-        {
-          "title": "DOM API",
-          "link": "/javascript/chapter12/12-1"
-        },
-        {
-          "title": "이벤트",
-          "link": "/javascript/chapter12/12-2"
-        }
-      ]
+      "link": "/javascript/chapter13",
+      "sections": []
     },
     {
       "title": "객체지향 프로그래밍",
-      "link": "/javascript/chapter13",
-      "sections": [
-        {
-          "title": "객체지향 프로그래밍이란?",
-          "link": "/javascript/chapter13/13-1"
-        },
-        {
-          "title": "클래스",
-          "link": "/javascript/chapter13/13-2"
-        }
-      ]
-    },
-    {
-      "title": "promise, async, await",
       "link": "/javascript/chapter14",
-      "sections": [
-        {
-          "title": "비동기 프로그래밍",
-          "link": "/javascript/chapter14/14-1"
-        },
-        {
-          "title": "실행 컨텍스트와 호출 스택",
-          "link": "/javascript/chapter14/14-2"
-        }
-      ]
+      "sections": []
     },
     {
-      "title": "전체 복습 및 심화과정 Code",
+      "title": "AJAX",
       "link": "/javascript/chapter15",
       "sections": []
     },
     {
-      "title": "javascript Cheatsheet",
+      "title": "정규표현식",
       "link": "/javascript/chapter16",
       "sections": []
     },
     {
-      "title": "최적화 (Optimization)",
+      "title": "전체 복습 및 심화 과정 Code",
       "link": "/javascript/chapter17",
       "sections": []
     },
     {
-      "title": "Jest (TDD)",
+      "title": "최적화 (Optimization)",
       "link": "/javascript/chapter18",
       "sections": []
     },
     {
-      "title": "부록",
-      "link": "/javacript/chapter19",
+      "title": "TDD와 Jest",
+      "link": "/javascript/chapter19",
       "sections": []
     }
   ]

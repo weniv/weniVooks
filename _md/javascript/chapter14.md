@@ -1,12 +1,12 @@
 ---
-title: promise, async, await
-date: 2024-04-30
+title: 객체지향 프로그래밍
+date: 2024-05-21
 ---
 
 :::div{.box .list}
 **목차**
 
-1. [비동기 프로그래밍](/javascript/chapter14/14-1)
-2. [실행 컨텍스트와 호출 스택](/javascript/chapter14/14-2)
-
-:::
+1. [객체지향 프로그래밍이란?](/javascript/chapter14/14-1)
+2. [프로토타입](/javascript/chapter14/14-2)
+3. [클래스](/javascript/chapter14/14-3)
+   :::

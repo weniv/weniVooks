@@ -1,12 +1,12 @@
 ---
-title: JSON
-date: 2024-05-02
+title: Map & Set
+date: 2024-05-21
 ---
 
 :::div{.box .list}
 **목차**
 
-1. [JSON이란?](/javascript/chapter11/11-1)
-2. [JSON 메서드](/javascript/chapter11/11-2)
+1. [Map](/javascript/chapter11/11-1)
+2. [Set](/javascript/chapter11/11-2)
 
 :::
