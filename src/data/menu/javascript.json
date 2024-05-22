@@ -27,67 +27,150 @@
     {
       "title": "변수",
       "link": "/javascript/chapter02",
-      "sections": []
+      "sections": [
+        {
+          "title": "변수란?",
+          "link": "/javascript/chapter02/02-1"
+        },
+        {
+          "title": "var, let, const",
+          "link": "/javascript/chapter02/02-2"
+        }
+      ]
     },
     {
       "title": "연산",
       "link": "/javascript/chapter03",
-      "sections": []
+      "sections": [{ "title": "연산", "link": "/javascript/chapter03/03-1" }]
     },
     {
-      "title": "Type - 원시타입",
+      "title": "Type1 - 원시타입",
       "link": "/javascript/chapter04",
-      "sections": []
+      "sections": [
+        { "title": "Type이란?", "link": "/javascript/chapter04/04-1" },
+        { "title": "원시타입", "link": "/javascript/chapter04/04-2" }
+      ]
     },
     {
       "title": "Type2 - 객체타입",
       "link": "/javascript/chapter05",
-      "sections": []
+      "sections": [
+        { "title": "객체 타입", "link": "/javascript/chapter05/05-1" },
+        { "title": "배열(Array)", "link": "/javascript/chapter05/05-2" },
+        { "title": "객체(Object)", "link": "/javascript/chapter05/05-3" }
+      ]
     },
     {
       "title": "조건문과 반복문",
       "link": "/javascript/chapter06",
-      "sections": []
+      "sections": [
+        { "title": "조건문", "link": "/javascript/chapter06/06-1" },
+        { "title": "반복문", "link": "/javascript/chapter06/06-2" }
+      ]
     },
     {
       "title": "함수",
       "link": "/javascript/chapter07",
-      "sections": []
+      "sections": [
+        { "title": "함수란?", "link": "/javascript/chapter07/07-1" },
+        { "title": "함수의 활용", "link": "/javascript/chapter07/07-2" },
+        {
+          "title": "함수를 선언하는 여러가지 방법",
+          "link": "/javascript/chapter07/07-3"
+        }
+      ]
     },
     {
       "title": "전개구문과 디스트럭쳐링",
       "link": "/javascript/chapter8",
-      "sections": []
+      "sections": [
+        { "title": "전개 구문", "link": "/javascript/chapter08/08-1" },
+        { "title": "디스트럭쳐링", "link": "/javascript/chapter08/08-2" }
+      ]
     },
     {
       "title": "this",
       "link": "/javascript/chapter09",
-      "sections": []
+      "sections": [
+        {
+          "title": "this란?",
+          "link": "/javascript/chapter08/08-1"
+        },
+        {
+          "title": "this 값 조작하기",
+          "link": "/javascript/chapter08/08-2"
+        }
+      ]
     },
     {
       "title": "함수2 - 함수 심화",
       "link": "/javascript/chapter10",
-      "sections": []
+      "sections": [
+        {
+          "title": "함수 심화",
+          "link": "/javascript/chapter10/10-1"
+        }
+      ]
     },
     {
       "title": "Map & Set",
       "link": "/javascript/chapter11",
-      "sections": []
+      "sections": [
+        {
+          "title": "Map",
+          "link": "/javascript/chapter11/11-1"
+        },
+        {
+          "title": "Set",
+          "link": "/javascript/chapter11/11-2"
+        }
+      ]
     },
     {
       "title": "JSON",
       "link": "/javascript/chapter12",
-      "sections": []
+      "sections": [
+        {
+          "title": "JSON이란?",
+          "link": "/javascript/chapter12/12-1"
+        },
+        {
+          "title": "JSON 메서드",
+          "link": "/javascript/chapter12/12-2"
+        }
+      ]
     },
     {
       "title": "DOM (Document Object Model)",
       "link": "/javascript/chapter13",
-      "sections": []
+      "sections": [
+        {
+          "title": "DOM API",
+          "link": "/javascript/chapter13/13-1"
+        },
+        {
+          "title": "DOM 이벤트",
+          "link": "/javascript/chapter13/13-2"
+        }
+      ]
     },
     {
       "title": "객체지향 프로그래밍",
       "link": "/javascript/chapter14",
-      "sections": []
+      "sections": [
+        {
+          "title": "객체지향 프로그래밍이란?",
+          "link": "/javascript/chapter14/14-1"
+        },
+        {
+          "title": "프로토타입",
+          "link": "/javascript/chapter14/14-2"
+        },
+        {
+          "title": "클래스",
+          "link": "/javascript/chapter14/14-3"
+        }
+      ]
     },
     {
       "title": "AJAX",
@@ -97,22 +180,36 @@
     {
       "title": "정규표현식",
       "link": "/javascript/chapter16",
-      "sections": []
-    },
-    {
-      "title": "전체 복습 및 심화 과정 Code",
-      "link": "/javascript/chapter17",
-      "sections": []
+      "sections": [
+        {
+          "title": "정규표현식",
+          "link": "/javascript/chapter16/16-1"
+        }
+      ]
     },
     {
       "title": "최적화 (Optimization)",
-      "link": "/javascript/chapter18",
-      "sections": []
+      "link": "/javascript/chapter17",
+      "sections": [
+        {
+          "title": "최적화",
+          "link": "/javascript/chapter17/17-1"
+        }
+      ]
     },
     {
       "title": "TDD와 Jest",
-      "link": "/javascript/chapter19",
-      "sections": []
+      "link": "/javascript/chapter18",
+      "sections": [
+        {
+          "title": "TDD",
+          "link": "/javascript/chapter18/18-1"
+        },
+        {
+          "title": "Jest",
+          "link": "/javascript/chapter18/18-2"
+        }
+      ]
     }
   ]
 }
