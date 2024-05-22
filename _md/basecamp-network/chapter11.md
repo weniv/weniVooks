@@ -8,5 +8,6 @@ date: 2024-04-25
 
 1. [RESTful API](/basecamp-network/chapter10/11-1)
 2. [모놀리식과 마이크로서비스 아키텍처](/basecamp-network/chapter10/11-2)
+3. [웹의 역사](/basecamp-network/chapter10/11-3)
 
 :::
