@@ -1,6 +1,7 @@
 export const DEFAULT_PATH = '/javascript';
 export const TITLE = 'JavaScript 에센셜';
-export const DESC = '위니브의 다양한 교안을 웹에서 확인해보세요!';
+export const DESC =
+  'JavaScript의 기초부터 심화까지 필수적인 내용을 담았습니다!';
 export const OGIMG = [`/images${DEFAULT_PATH}/og.png`];
 export const META_DATA = {
   title: `${TITLE} | 위니북스`,

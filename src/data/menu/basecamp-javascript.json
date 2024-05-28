@@ -39,11 +39,11 @@
       ]
     },
     {
-      "title": "코드를 묶어주는 함수",
+      "title": "함수",
       "link": "/basecamp-javascript/chapter03",
       "sections": [
         {
-          "title": "코드를 묶어 재사용성을 높이는 함수",
+          "title": "코드를 묶어주는 함수",
           "link": "/basecamp-javascript/chapter03/03-1"
         }
       ]
