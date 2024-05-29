@@ -33,6 +33,6 @@
 }
 
 .codeblock-result p {
-  white-space: pre;
+  white-space: pre-wrap;
   line-height: 30px;
 }

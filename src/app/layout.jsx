@@ -22,24 +22,10 @@ const nanum_myeongjo = Nanum_Myeongjo({
 });
 
 const pretendard = localFont({
-  src: [
-    {
-      path: './font/Pretendard-Regular.woff',
-      weight: '400',
-      style: 'normal',
-    },
-
-    {
-      path: './font/Pretendard-SemiBold.woff',
-      weight: '600',
-      style: 'normal',
-    },
-    {
-      path: './font/Pretendard-Bold.woff',
-      weight: '700',
-      style: 'normal',
-    },
-  ],
+  src: './font/PretendardVariable.woff2',
+  display: 'swap',
+  weight: '45 920',
+  variable: '--pretendard',
 });
 
 export const metadata = {
