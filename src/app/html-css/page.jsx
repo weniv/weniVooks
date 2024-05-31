@@ -9,7 +9,7 @@ export default async function Home() {
             {/* contents */}
             <h3 className="title">HTML/CSS 에센셜</h3>
             <Image
-              src="/images/basecamp-html-css/cover-html-css.png"
+              src="/images/html-css/cover-essential-html-css.png"
               alt="HTML/CSS 에센셜"
               className="cover"
               width={658}

@@ -67,54 +67,118 @@
       ]
     },
     {
-      "title": "CSS",
+      "title": "이미지도 넣어보자!",
+      "link": "/html-css/chapter04",
+      "sections": [
+        {
+          "title": "이미지 img",
+          "link": "/html-css/chapter04/04-1"
+        }
+      ]
+    },
+    {
+      "title": "어떻게 배치하면 좋을까?",
       "link": "/html-css/chapter05",
       "sections": [
         {
-          "title": "CSS 기본",
+          "title": "Layout History",
           "link": "/html-css/chapter05/05-1"
         },
         {
-          "title": "CSS 적용하기",
+          "title": "Sections",
           "link": "/html-css/chapter05/05-2"
+        }
+      ]
+    },
+    {
+      "title": "검색도 잘되게 해보자",
+      "link": "/html-css/chapter06",
+      "sections": [
+        {
+          "title": "검색엔진 최적화 (SEO)",
+          "link": "/html-css/chapter06/06-1"
+        }
+      ]
+    },
+    {
+      "title": "웹페이지에 다양한 컨텐츠를 넣고 싶어!",
+      "link": "/html-css/chapter07",
+      "sections": [
+        {
+          "title": "표(table)",
+          "link": "/html-css/chapter07/07-1"
+        },
+        {
+          "title": "[해보기] 표 만들기",
+          "link": "/html-css/chapter07/07-2"
+        },
+        {
+          "title": "video & audio",
+          "link": "/html-css/chapter07/07-3"
+        },
+        {
+          "title": "iframe",
+          "link": "/html-css/chapter07/07-4"
+        },
+        {
+          "title": "SVG, Canvas",
+          "link": "/html-css/chapter07/07-5"
+        },
+        {
+          "title": "양식(form)",
+          "link": "/html-css/chapter07/07-6"
+        }
+      ]
+    },
+    {
+      "title": "CSS",
+      "link": "/html-css/chapter08",
+      "sections": [
+        {
+          "title": "CSS 기본",
+          "link": "/html-css/chapter08/08-1"
+        },
+        {
+          "title": "CSS 적용하기",
+          "link": "/html-css/chapter08/08-2"
         },
         {
           "title": "CSS 선택자(기본)",
-          "link": "/html-css/chapter05/05-3"
+          "link": "/html-css/chapter08/08-3"
         },
         {
           "title": "CSS 상속",
-          "link": "/html-css/chapter05/05-4"
+          "link": "/html-css/chapter08/08-4"
         }
       ]
     },
     {
       "title": "일단 글을 적고 꾸며보자!",
-      "link": "/html-css/chapter06",
+      "link": "/html-css/chapter09",
       "sections": [
         {
           "title": "텍스트 꾸미기",
-          "link": "/html-css/chapter06/06-1"
+          "link": "/html-css/chapter09/09-1"
         },
         {
           "title": "단위",
-          "link": "/html-css/chapter06/06-2"
+          "link": "/html-css/chapter09/09-2"
         },
         {
           "title": "list-style",
-          "link": "/html-css/chapter06/06-3"
+          "link": "/html-css/chapter09/09-3"
         },
         {
           "title": "CSS 선택자(가상 클래스 /  가상 요소)",
-          "link": "/html-css/chapter06/06-4"
+          "link": "/html-css/chapter09/09-4"
         },
         {
           "title": "CSS 선택자 우선순위",
-          "link": "/html-css/chapter06/06-5"
+          "link": "/html-css/chapter09/09-5"
         },
         {
-          "title": "[해보기]나의 글로건을 꾸며보자",
-          "link": "/html-css/chapter06/06-6"
+          "title": "[해보기]나의 슬로건을 꾸며보자",
+          "link": "/html-css/chapter09/09-6"
         }
       ]
     }
