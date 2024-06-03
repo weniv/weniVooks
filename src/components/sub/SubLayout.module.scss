@@ -6,9 +6,7 @@
   width: 100%;
 
   .left {
-    background-color: skyblue;
     flex-shrink: 0;
-
     position: sticky;
     top: calc($headerHeight + $scrollBarHeight);
     left: 0;
