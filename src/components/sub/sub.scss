@@ -1,7 +1,6 @@
 @import '@/styles/var.scss';
 
-// reset
-.sub-main {
+.sub-contents {
   // ul, li
   ul,
   ol {
@@ -98,5 +97,33 @@
     .btn-link {
       background-color: var(--background);
     }
+  }
+}
+
+// menu transition
+.menu-container {
+  // 열림,
+  &-enter {
+    margin-left: fcSize(-280, -320);
+    transform: translateX(-100%);
+  }
+  &-enter-active {
+    margin-left: 0;
+    transform: translateX(0%);
+  }
+
+  // 닫힘
+  &-exit {
+    margin-left: 0;
+    transform: translateX(0%);
+  }
+  &-exit-active {
+    margin-left: fcSize(-280, -320);
+    transform: translateX(-100%);
+  }
+
+  &-enter-active,
+  &-exit-active {
+    transition: all linear 0.3s;
   }
 }

@@ -1,21 +1,21 @@
 import '@/components/sub/sub.scss';
 
-import { DEFAULT_PATH, META_DATA, TITLE } from './data';
+import { CHAPTER_TITLE, DEFAULT_PATH, META_DATA, TITLE } from './data';
 
 import Header from '@/components/layouts/header/Header';
 import SubLayout from '@/components/sub/SubLayout';
-import { getMenu } from './getMenu';
+import { getMenu } from '../util_sub/getMenu';
 
 export const metadata = META_DATA;
 
-export default async function Layout({ children }) {
-  const menuData = await getMenu(DEFAULT_PATH);
+export default function Layout({ children }) {
+  const menuData = getMenu(DEFAULT_PATH, TITLE, CHAPTER_TITLE);
 
   return (
     <>
       <Header />
 
-      <SubLayout data={menuData} link={DEFAULT_PATH} title={TITLE}>
+      <SubLayout DEFAULT_PATH={DEFAULT_PATH} TITLE={TITLE} menuData={menuData}>
         {children}
       </SubLayout>
     </>

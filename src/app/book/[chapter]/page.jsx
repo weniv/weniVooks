@@ -1,21 +1,31 @@
-import Link from 'next/link';
-import { CHAPTER_TITLE, DEFAULT_PATH } from '../data';
-import { getMenu } from '../getMenu';
-import { getMarkdown } from '../getMarkdown';
+import { getChapters } from '@/app/util_sub/getChapters';
+import { getMarkdown } from '@/app/util_sub/getMarkdown';
+import { CHAPTER_TITLE, DEFAULT_PATH, TITLE } from '../data';
+import ChapterIndex from '@/components/sub/ChapterIndex';
+import { getMenu } from '@/app/util_sub/getMenu';
+
+export const dynamicParams = false;
+
+export function generateStaticParams() {
+  const data = getChapters();
+  return data;
+}
 
 export default async function Page({ params }) {
+  const isPage = Boolean(params.page);
+
   const { title, htmlContent } = await getMarkdown(
     `/${DEFAULT_PATH}/${params.chapter}.md`,
+    isPage,
   );
 
-  const menuData = await getMenu(DEFAULT_PATH);
-
+  const menuData = getMenu(DEFAULT_PATH, TITLE, CHAPTER_TITLE);
   const menuList = menuData.sections.filter(
     (item) => item.link === `/${DEFAULT_PATH}/${params.chapter}`,
   );
 
   return (
-    <>
+    <main>
       {htmlContent ? (
         <>
           {/* 하위 메뉴 있을 때 md 파일 노출 */}
@@ -28,18 +38,10 @@ export default async function Page({ params }) {
           <h3 className="title">{CHAPTER_TITLE[params.chapter]}</h3>
           <div className="box list">
             <h4>목차</h4>
-            {menuList && (
-              <ol>
-                {menuList[0].sections?.map((item, index) => (
-                  <li key={index}>
-                    <Link href={item.link}>{item.title}</Link>
-                  </li>
-                ))}
-              </ol>
-            )}
+            <ChapterIndex menuList={menuList} />
           </div>
         </>
       )}
-    </>
+    </main>
   );
 }

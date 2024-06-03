@@ -1,9 +1,9 @@
 import Image from 'next/image';
 import { DEFAULT_PATH, TITLE } from './data';
 
-export default async function Home() {
+export default function Home() {
   return (
-    <>
+    <main>
       <h3 className="title">{TITLE}</h3>
       <Image
         src={`/images/${DEFAULT_PATH}/cover-${DEFAULT_PATH}.png`}
@@ -13,6 +13,6 @@ export default async function Home() {
         height={800}
         priority={true}
       />
-    </>
+    </main>
   );
 }

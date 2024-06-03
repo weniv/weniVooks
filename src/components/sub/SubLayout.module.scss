@@ -12,23 +12,32 @@
     left: 0;
     z-index: 1;
   }
-  .contents {
-    width: 100px;
-    flex-grow: 1;
-    flex-shrink: 1;
 
-    main {
-      margin: 0 auto;
-      max-width: max(80%, 99rem);
-      padding: fcSize(40, 40) fcSize(20, 40);
-      box-sizing: border-box;
-    }
-  }
   .right {
-    flex-shrink: 0;
+    flex-grow: 1;
+    .contents {
+      display: flex;
+      align-items: flex-start;
+      width: 100%;
+      main {
+        flex-grow: 1;
+        width: 100px;
+        padding: fcSize(40, 40) fcSize(20, 40);
 
-    position: sticky;
-    top: calc($headerHeight + $scrollBarHeight + 4rem);
-    left: 0;
+        max-width: calc(99rem + fcSize(200, 280));
+
+        margin: 0 auto;
+      }
+      main > div {
+        box-sizing: border-box;
+      }
+
+      aside {
+        flex-shrink: 0;
+        position: sticky;
+        top: calc($headerHeight + $scrollBarHeight + 4rem);
+        left: 0;
+      }
+    }
   }
 }
