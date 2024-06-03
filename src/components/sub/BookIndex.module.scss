@@ -1,4 +1,65 @@
 @import '@/styles/var.scss';
+
 .bookIndex {
   width: fcSize(280, 320);
+  a {
+    padding: 0.8rem;
+    min-height: 4rem;
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    outline-offset: -1px;
+  }
+  h2 {
+    font-size: 1.8rem;
+  }
+
+  // 1depth
+  & > li > a {
+    padding-left: 4rem;
+  }
+  // 2depth
+  & > li > ol > li > div {
+    padding-left: 2rem;
+  }
+  & > li > ol > li > a {
+    padding-left: 6rem;
+
+    line-height: 1.6;
+    font-size: 0.95em;
+    letter-spacing: -0.1px;
+  }
+  // 3depth
+  & > li > ol > li > ol > li > a {
+    padding-left: 8rem;
+  }
+}
+
+.fold {
+  & > div {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+
+    a {
+      flex-grow: 1;
+    }
+  }
+}
+.fold,
+.notFold {
+  transition: background-color 0.3s;
+}
+.fold div:hover,
+.notFold:hover {
+  background-color: var(--activation);
+  button {
+    background-color: var(--background);
+  }
+}
+
+.active {
+  background-color: var(--grayLv1);
+  color: var(--primaryA11y);
+  font-weight: bold;
 }
