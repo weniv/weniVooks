@@ -6,15 +6,17 @@ import { convertMarkdownToHtml } from '@/utils/convertMarkdownToHtml';
 
 const postsDirectory = path.join(process.cwd(), '_md');
 
-export async function getMarkdown(defaultPath) {
+export async function getMarkdown(defaultPath, isPage) {
   const detailPath = `${postsDirectory}${defaultPath}`;
 
   const readContent = (path) => {
     try {
       return fs.readFileSync(path, 'utf-8');
     } catch (error) {
-      console.log(error);
-      console.log('🚨 파일 경로 확인하기');
+      if (isPage) {
+        console.log(error);
+        console.log('🚨 파일 경로 확인하기');
+      }
       return '';
     }
   };

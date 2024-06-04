@@ -1,3 +1,11 @@
 .sideContainer {
   border-right: 1px solid var(--grayLv2);
+
+  position: relative;
+
+  .closeBtn {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
 }

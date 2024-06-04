@@ -1,0 +1,54 @@
+.bookIndexItem {
+  ol li a {
+    padding-left: 4rem;
+    font-size: 0.95em;
+  }
+}
+
+.fold,
+.notFold {
+  & > div {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+
+    a {
+      flex-grow: 1;
+    }
+  }
+
+  transition: background-color 0.3s;
+}
+.fold div:hover,
+.notFold:hover {
+  background-color: var(--activation);
+  .chapterIcon {
+    background-color: var(--background);
+  }
+}
+
+.chapterIcon {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 0.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-left: 1.2rem;
+
+  svg {
+    vertical-align: middle;
+    transition: all 0.3s;
+  }
+
+  &.close svg {
+    rotate: -90deg;
+  }
+}
+
+.active {
+  background-color: var(--grayLv1);
+  color: var(--primaryA11y);
+  font-weight: bold;
+}

@@ -4,13 +4,13 @@ import styles from './BookIndex.module.scss';
 
 import BookIndexItem from './BookIndexItem';
 
-export default async function BookIndex(props) {
-  const { link, title, data: menuData } = props;
+export default function BookIndex(props) {
+  const { DEFAULT_PATH, TITLE, menuData } = props;
 
   return (
     <div className={styles.bookIndex}>
       <h2>
-        <Link href={`/${link}`}>{title}</Link>
+        <Link href={`/${DEFAULT_PATH}`}>{TITLE}</Link>
       </h2>
       <nav>
         {menuData && (

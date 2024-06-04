@@ -1,25 +1,26 @@
 import path from 'path';
 import fs from 'fs';
 import matter from 'gray-matter';
-import { TITLE, CHAPTER_TITLE } from './data';
 
 const postsDirectory = path.join(process.cwd(), '_md');
 
-function getDirectoryStructure(dirPath) {
+export function getMenu(DEFAULT_PATH, TITLE, CHAPTER_TITLE) {
+  const allPath = `${postsDirectory}/${DEFAULT_PATH}`;
+
   const data = {
-    title: CHAPTER_TITLE[path.basename(dirPath)] || path.basename(dirPath),
-    link: `/${path.relative(postsDirectory, dirPath).replace(/\\/g, '/')}`,
+    title: TITLE,
+    link: `/${DEFAULT_PATH}`,
     sections: [],
   };
 
-  const files = fs.readdirSync(dirPath);
+  const files = fs.readdirSync(allPath);
 
   for (const file of files) {
-    const filePath = path.join(dirPath, file);
+    const filePath = path.join(allPath, file);
     const stats = fs.statSync(filePath);
 
     if (stats.isDirectory()) {
-      data.sections.push(getDirectoryStructure(filePath));
+      data.sections.push(getDirectoryStructure(filePath, CHAPTER_TITLE));
     } else if (file.endsWith('.md')) {
       const fileContents = fs.readFileSync(filePath, 'utf8');
       const { data: frontmatter } = matter(fileContents);
@@ -35,19 +36,17 @@ function getDirectoryStructure(dirPath) {
   return data;
 }
 
-export async function getMenu(dirPath) {
-  const allPath = `${postsDirectory}/${dirPath}`;
-
+function getDirectoryStructure(dirPath, CHAPTER_TITLE) {
   const data = {
-    title: TITLE,
-    link: `/${dirPath}`,
+    title: CHAPTER_TITLE[path.basename(dirPath)] || path.basename(dirPath),
+    link: `/${path.relative(postsDirectory, dirPath).replace(/\\/g, '/')}`,
     sections: [],
   };
 
-  const files = fs.readdirSync(allPath);
+  const files = fs.readdirSync(dirPath);
 
   for (const file of files) {
-    const filePath = path.join(allPath, file);
+    const filePath = path.join(dirPath, file);
     const stats = fs.statSync(filePath);
 
     if (stats.isDirectory()) {
