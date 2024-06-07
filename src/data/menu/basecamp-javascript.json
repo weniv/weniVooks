@@ -45,6 +45,10 @@
         {
           "title": "03.1 코드를 묶어주는 함수",
           "link": "/basecamp-javascript/chapter03/03-1"
+        },
+        {
+          "title": "03.2 함수의 활용",
+          "link": "/basecamp-javascript/chapter03/03-2"
         }
       ]
     },
@@ -159,23 +163,23 @@
       "link": "/basecamp-javascript/chapter11",
       "sections": [
         {
-          "title": "11.1 javascript CheatSheet",
+          "title": "11.1 로컬스토리지",
           "link": "/basecamp-javascript/chapter11/11-1"
         },
         {
-          "title": "11.2 JS 삽입 위치에 대한 글",
+          "title": "11.2 날짜와 시간",
           "link": "/basecamp-javascript/chapter11/11-2"
         },
         {
-          "title": "11.3 ES Version 관련 글",
+          "title": "11.3 JS 삽입 위치에 대한 글",
           "link": "/basecamp-javascript/chapter11/11-3"
         },
         {
-          "title": "11.4 로컬스토리지",
+          "title": "11.4 ES Version 관련 글",
           "link": "/basecamp-javascript/chapter11/11-4"
         },
         {
-          "title": "11.5 날짜",
+          "title": "11.5 javascript CheatSheet",
           "link": "/basecamp-javascript/chapter11/11-5"
         }
       ]
