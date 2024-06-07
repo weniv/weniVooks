@@ -1,3 +1,16 @@
+# 위니북스
+
+## 시작하기
+
+다운로드 받으신 후 아래 명령어를 실행해주세요. 로컬에서 http://localhost:3000 에서 확인하실 수 있습니다. 실행에 애러가 없는 것을 확인하고 push해주세요.
+
+```
+npm install
+npm run dev
+```
+
+## 백업 텍스트
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
