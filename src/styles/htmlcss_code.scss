@@ -79,7 +79,6 @@
         left: 0;
         width: 100%;
         height: calc(100% - 5rem);
-        overflow: scroll;
       }
       &.hide + div {
         z-index: -1;
