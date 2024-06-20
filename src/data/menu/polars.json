@@ -1,0 +1,56 @@
+{
+  "title": "Polars",
+  "link": "/polars",
+  "sections": [
+    {
+      "title": "강의 소개",
+      "link": "/polars/chapter01",
+      "sections": [
+        {
+          "title": "강의 대상",
+          "link": "/polars/chapter01/01-1"
+        },
+        {
+          "title": "강의 특징",
+          "link": "/polars/chapter01/01-2"
+        },
+        {
+          "title": "수업 실습 환경",
+          "link": "/polars/chapter01/01-3"
+        }
+      ]
+    },
+    {
+      "title": "Polars 살펴보기",
+      "link": "/polars/chapter02",
+      "sections": [
+        {
+          "title": "Polars란?",
+          "link": "/polars/chapter02/02-1"
+        },
+        {
+          "title": "Polars 설치 및 기본 사용법",
+          "link": "/polars/chapter02/02-2"
+        },
+        {
+          "title": "데이터 분석 라이브러리 소개 및 비교",
+          "link": "/polars/chapter02/02-3"
+        }
+      ]
+    },
+    {
+      "title": "데이터 구조",
+      "link": "/polars/chapter03",
+      "sections": [
+        {
+          "title": "Series(시리즈)",
+          "link": "/polars/chapter03/03-1"
+        },
+        {
+          "title": "DataFrame(데이터프레임)",
+          "link": "/polars/chapter02/03-2"
+        }
+      ]
+    }
+  ]
+}
