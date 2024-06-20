@@ -82,5 +82,17 @@
     "booklink": "/github",
     "classlink": "https://inf.run/9VExd",
     "date": "2024-05-02"
+  },
+  {
+    "thumbnail": "썸네일 이미지",
+    "publisher": "사도출판",
+    "title": "Polars",
+    "subtitle": "Polars",
+    "type": "전자책",
+    "price": "무료",
+    "description": "description 작성",
+    "booklink": "/polars",
+    "classlink": "링크",
+    "date": "출판 안됨"
   }
 ]
