@@ -9,7 +9,7 @@
     "description": "웹/앱, 인공지능, 게임 개발, 데이터 분석, 업무 자동화 등 다양한 분야에서 활용되는 프로그래밍 언어 파이썬을 견고하게 배워보자!",
     "booklink": "/python",
     "classlink": null,
-    "date": "2024-02-03"
+    "date": "3000-12-31"
   },
   {
     "thumbnail": "/images/wenivworld/cover-weniv-world-student.png",
@@ -45,7 +45,7 @@
     "description": "웹 페이지의 구조를 정의하는 HTML과 웹 페이지의 스타일을 정의하는 CSS로 다양한 콘텐츠와 디자인을 구현할 수 있습니다.",
     "booklink": "/basecamp-html-css",
     "classlink": "https://inf.run/G19cK",
-    "date": "2024-03-25"
+    "date": "3000-12-29"
   },
   {
     "thumbnail": "/images/basecamp-javascript/cover-javascript.png",
@@ -57,7 +57,7 @@
     "description": "웹 개발에서 필수! 다양한 분야에서 폭넓게 사용되는 인기 언어 JavaScript, 기본 개념과 실전 예제로 학습해 보세요!",
     "booklink": "/basecamp-javascript",
     "classlink": "https://inf.run/MJKLX",
-    "date": "2024-03-25"
+    "date": "3000-12-30"
   },
   {
     "thumbnail": "/images/basecamp-network/cover-network.png",
@@ -69,7 +69,7 @@
     "description": "개발자라면 누구나 알아야 할 웹, 네트워크, 그리고 HTTP의 기초에 대해 함께 알아가 보겠습니다!",
     "booklink": "/basecamp-network",
     "classlink": "https://inf.run/21CQA",
-    "date": "2024-04-19"
+    "date": "3000-12-28"
   },
   {
     "thumbnail": "/images/github/cover-github.png",
