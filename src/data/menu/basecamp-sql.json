@@ -3,20 +3,22 @@
   "link": "/basecamp-sql",
   "sections": [
     {
-      "title": "01장 SQL",
-      "link": "/basecamp-sql/chapter00",
+      "title": "01장 데이터 분석과 SQL",
+      "link": "/basecamp-sql/chapter01",
       "sections": [
         {
           "title": "01.1 SQL",
           "link": "/basecamp-sql/chapter01/01-1"
-        },
+        }
+      ]
+    },
+    {
+      "title": "02장 SQL",
+      "link": "/basecamp-sql/chapter02",
+      "sections": [
         {
-          "title": "01.2 SQL",
-          "link": "/basecamp-sql/chapter01/01-2"
-        },
-        {
-          "title": "01.3 SQL",
-          "link": "/basecamp-sql/chapter01/01-3"
+          "title": "01.1 SQL",
+          "link": "/basecamp-sql/chapter02/02-1"
         }
       ]
     }

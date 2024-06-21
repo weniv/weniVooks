@@ -82,5 +82,17 @@
     "booklink": "/github",
     "classlink": "https://inf.run/9VExd",
     "date": "2024-05-02"
+  },
+  {
+    "thumbnail": "/images/basecamp-sql/cover-sql.png",
+    "publisher": "사도출판",
+    "title": "SQL 베이스캠프",
+    "subtitle": null,
+    "type": "전자책",
+    "price": "무료",
+    "description": "개발자라면 누구나 알아야 할 SQL 핵심 개념에 대해 살펴봅니다.",
+    "booklink": "/basecamp-sql",
+    "classlink": null,
+    "date": "2024-06-21"
   }
 ]
