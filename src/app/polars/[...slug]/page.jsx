@@ -4,7 +4,7 @@ import { JSDOM } from 'jsdom';
 import Script from 'next/script';
 
 const json = {
-  packages: ['numpy', 'pandas'],
+  packages: ['numpy', 'pandas'], // 추후 Polars 지원 여부 확인 후 추가
 };
 
 function replaceCodeWithPyRepl(htmlString) {
