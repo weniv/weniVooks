@@ -143,6 +143,16 @@
           "link": "/basecamp-html-css/chapter07/07-3"
         }
       ]
+    },
+    {
+      "title": "8장 부록",
+      "link": "/basecamp-html-css/chapter08",
+      "sections": [
+        {
+          "title": "08.1 최신 CSS 기술",
+          "link": "/basecamp-html-css/chapter08/08-1"
+        }
+      ]
     }
   ]
 }
