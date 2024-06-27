@@ -11,16 +11,12 @@
           "link": "/javascript/chapter01/01-1"
         },
         {
-          "title": "JavaScript 사용하기",
+          "title": "JavaScript 실행하기",
           "link": "/javascript/chapter01/01-2"
         },
         {
-          "title": "브라우저에서 실행하기",
+          "title": "출력해봅시다",
           "link": "/javascript/chapter01/01-3"
-        },
-        {
-          "title": "자바스크립트로 출력해보기",
-          "link": "/javascript/chapter01/01-4"
         }
       ]
     },
