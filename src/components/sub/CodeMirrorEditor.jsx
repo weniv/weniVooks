@@ -49,6 +49,8 @@ export default function CodeMirrorEditor({
         indentUnit: 2,
         styleActiveLine: true,
         lineWiseCopyCut: true,
+        autofocus: false, // 자동 포커스
+        inputStyle: 'contenteditable', //한글 자모음 깨짐
       }}
       onBeforeChange={handleBeforeChange}
       editorDidMount={(e) => (editor.current = e)}
