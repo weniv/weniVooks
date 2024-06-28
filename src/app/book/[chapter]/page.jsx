@@ -1,17 +1,11 @@
-import { getChapters } from '@/app/util_sub/getChapters';
-import { getMarkdown } from '@/app/util_sub/getMarkdown';
 import { CHAPTER_TITLE, DEFAULT_PATH, TITLE } from '../data';
+import { getMenu } from '@/sub/getMenu';
+import { getMarkdown } from '@/sub/getMarkdown';
+import { getChapters } from '@/sub/getChapters';
 import ChapterIndex from '@/components/sub/ChapterIndex';
-import { getMenu } from '@/app/util_sub/getMenu';
 
-export const dynamicParams = false;
-
-export function generateStaticParams() {
-  const data = getChapters();
-  return data;
-}
-
-export default async function Page({ params }) {
+// 챕터 페이지
+export default async function ChapterPage({ params }) {
   const isPage = Boolean(params.page);
 
   const { title, htmlContent } = await getMarkdown(
@@ -28,7 +22,7 @@ export default async function Page({ params }) {
     <main>
       {htmlContent ? (
         <>
-          {/* 하위 메뉴 있을 때 md 파일 노출 */}
+          {/* 하위 메뉴 없을 때 md 파일 노출 */}
           <h3 className="title">{title}</h3>
           <div dangerouslySetInnerHTML={{ __html: htmlContent }} />
         </>
@@ -44,4 +38,11 @@ export default async function Page({ params }) {
       )}
     </main>
   );
+}
+
+export const dynamicParams = false;
+
+export function generateStaticParams() {
+  const data = getChapters();
+  return data;
 }

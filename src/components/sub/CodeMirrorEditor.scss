@@ -1,0 +1,66 @@
+/* Color scheme */
+.cm-s-custom.CodeMirror {
+  padding: 1rem;
+  background-color: var(--grayLv1);
+  color: var(--grayLv4);
+  line-height: 1.8;
+}
+.cm-s-custom .cm-comment {
+  color: var(--grayLv3);
+}
+.cm-s-custom .cm-bracket {
+  color: var(--grayLv3);
+}
+.cm-s-custom .cm-keyword,
+.cm-s-custom .cm-property {
+  /* color: #1d75b3; */
+  color: var(--code-blue);
+}
+.cm-s-custom .cm-atom,
+.cm-s-custom .cm-number {
+  color: var(--code-purple);
+}
+.cm-s-custom .cm-node,
+.cm-s-custom .cm-tag {
+  color: var(--code-pink);
+}
+.cm-s-custom .cm-string {
+  color: var(--code-orange);
+}
+.cm-s-custom .cm-variable,
+.cm-s-custom .cm-qualifier {
+  color: var(--code-green);
+}
+
+/* Editor styling */
+
+.cm-s-custom pre {
+  padding: 0;
+}
+
+.cm-s-custom .CodeMirror-gutters {
+  border: none;
+  border-right: 10px solid transparent;
+  background-color: var(--grayLv1);
+}
+
+.cm-s-custom .CodeMirror-linenumber {
+  padding: 0;
+  color: var(--grayLv3);
+}
+
+.cm-s-custom .CodeMirror-guttermarker {
+  color: #1d75b3;
+}
+.cm-s-custom .CodeMirror-guttermarker-subtle {
+  color: #e0e2e5;
+}
+
+/* 커서 */
+.cm-s-custom .CodeMirror-cursor {
+  width: 3px;
+  border: 0;
+  background: var(--primary);
+  z-index: 1;
+  margin-left: 1px;
+}

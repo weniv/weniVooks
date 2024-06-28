@@ -1,0 +1,120 @@
+// html-css 코드
+.editor_container {
+  display: flex;
+  gap: 1px;
+  margin: 2rem 0;
+
+  border-radius: 1rem;
+  overflow: hidden;
+
+  border: 1px solid var(--grayLv2);
+  box-sizing: border-box;
+  border-radius: 1rem;
+  background-color: var(--grayLv2);
+
+  .editor_header,
+  .preview_title {
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    height: 5rem;
+    box-shadow: inset 0 -1px 1px var(--grayLv2);
+  }
+  .editor_header {
+    justify-content: space-between;
+    padding: 0.6rem 1rem 0 1rem;
+
+    .editor_tab {
+      display: flex;
+      height: 5rem;
+      flex-shrink: 0;
+      .tab_btn {
+        width: 8rem;
+
+        border: 1px solid transparent;
+        border-width: 1px 1px 0 1px;
+        border-radius: 1rem 1rem 0 0;
+        &.active {
+          color: var(--primary);
+          background-color: var(--grayLv1);
+
+          border-color: var(--grayLv2);
+          border-bottom: 1px solid var(--grayLv1);
+
+          font-weight: bold;
+        }
+      }
+    }
+
+    .copy-btn {
+      width: 4rem;
+      height: 4rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: -0.6rem;
+    }
+  }
+  .preview_title {
+    font-weight: bold;
+    padding: 0 1rem;
+  }
+
+  .editor_wrap,
+  .preview_wrap {
+    background-color: var(--background);
+    flex-shrink: 0;
+    flex-basis: 0;
+    flex-grow: 1;
+  }
+
+  .editor_wrap {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    .html_editor,
+    .css_editor {
+      flex-grow: 1;
+      & > div {
+        width: 100%;
+        height: 100%;
+        box-sizing: border-box;
+      }
+    }
+  }
+
+  .preview_wrap {
+    .htmlcssPreview {
+      flex-shrink: 0;
+      border: 0;
+      width: 100%;
+      height: calc(100% - 5rem);
+      background-color: #fff;
+    }
+  }
+
+  //
+  .CodeMirror pre.CodeMirror-line {
+    color: var(--surface);
+    padding: 4px 0 4px 4px;
+  }
+  .CodeMirror-linenumber {
+    padding: 4px 0 4px 25px;
+  }
+
+  @media screen and (min-width: 641px) {
+    height: 50rem;
+    .editor_wrap,
+    .preview_wrap {
+      width: calc((100% - 1px) / 2);
+    }
+  }
+
+  @media screen and (max-width: 640px) {
+    flex-direction: column;
+    .editor_wrap,
+    .preview_wrap {
+      height: 40rem;
+    }
+  }
+}

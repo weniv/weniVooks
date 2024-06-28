@@ -1,4 +1,4 @@
-import { getMarkdown } from '@/app/util_sub/getMarkdown';
+import { getMarkdown } from '@sub/getMarkdown';
 
 export default async function Markdown({ DEFAULT_PATH, params }) {
   const { title, htmlContent } = await getMarkdown(

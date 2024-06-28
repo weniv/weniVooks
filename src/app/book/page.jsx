@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import { DEFAULT_PATH, TITLE } from './data';
 
+// 교안 표지
 export default function Home() {
   return (
     <main>
