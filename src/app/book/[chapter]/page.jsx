@@ -1,4 +1,4 @@
-import { CHAPTER_TITLE, DEFAULT_PATH, TITLE } from '../data';
+import { DEFAULT_PATH, TITLE } from '../data';
 import { getMenu } from '@/sub/getMenu';
 import { getMarkdown } from '@/sub/getMarkdown';
 import { getChapters } from '@/sub/getChapters';
@@ -13,11 +13,14 @@ export default async function ChapterPage({ params }) {
     isPage,
   );
 
-  const menuData = getMenu(DEFAULT_PATH, TITLE, CHAPTER_TITLE);
+  const menuData = getMenu(DEFAULT_PATH, TITLE);
   const menuList = menuData.sections.filter(
     (item) => item.link === `/${DEFAULT_PATH}/${params.chapter}`,
   );
 
+  const chapterTitle = menuData.sections.find(({ link }) =>
+    link.includes(params.chapter),
+  ).title;
   return (
     <main>
       {htmlContent ? (
@@ -29,7 +32,7 @@ export default async function ChapterPage({ params }) {
       ) : (
         <>
           {/* 하위 메뉴 있을 때 목차 노출 */}
-          <h3 className="title">{CHAPTER_TITLE[params.chapter]}</h3>
+          <h3 className="title">{chapterTitle}</h3>
           <div className="box list">
             <h4>목차</h4>
             <ChapterIndex menuList={menuList} />

@@ -2,7 +2,6 @@ import classNames from 'classnames';
 
 import styles from './SideContainer.module.scss';
 import BookIndex from './BookIndex';
-import SVGNavArrow from '../svg/SVGNavArrow';
 import SVGListClose from '../svg/SVGListClose';
 
 export default function SideContainer(props) {

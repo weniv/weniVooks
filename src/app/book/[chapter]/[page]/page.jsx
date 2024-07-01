@@ -28,5 +28,5 @@ export default async function Page({ params }) {
 export const dynamicParams = false;
 
 export function generateStaticParams() {
-  return getPages();
+  return getPages(DEFAULT_PATH);
 }

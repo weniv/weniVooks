@@ -1,6 +1,6 @@
 ---
-chapter: 부록?chapter12
-title: chapter12 하위 폴더 없을때
+chapter: chapter12
+title: 타이틀 하위 폴더 없을때
 date: 2024-04-02
 ---
 
