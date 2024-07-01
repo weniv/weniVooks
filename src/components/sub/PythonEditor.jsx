@@ -1,37 +1,51 @@
 'use client';
 
 import styles from './JavaScriptEditor.module.scss';
-
 import React, { useCallback, useState, useEffect, useRef } from 'react';
 import dynamic from 'next/dynamic';
-import Script from 'next/script';
+import Icon from '../icon/Icon';
+import ExecutionIcon from '../svg/ExecutionIcon';
+import Loading from '@/app/loading';
+
 const CodeMirrorEditor = dynamic(() => import('./CodeMirrorEditor'), {
   ssr: false,
 });
 
 const PythonEditor = ({ initialCode }) => {
   const [pythonCode, setPythonCode] = useState(initialCode);
-  const [result, setResult] = useState('결과값');
+  const [result, setResult] = useState(null);
   const [isPyScriptReady, setIsPyScriptReady] = useState(false);
+  const [loadingError, setLoadingError] = useState(null);
   const outputRef = useRef(null);
 
   useEffect(() => {
-    const checkPyScriptReady = () => {
-      if (window.pyscript) {
-        setIsPyScriptReady(true);
-        console.log('PyScript object:', window.pyscript);
-      } else {
-        setTimeout(checkPyScriptReady, 100);
-      }
+    const loadPyScript = () => {
+      const script = document.createElement('script');
+      script.src = 'https://pyscript.net/latest/pyscript.js';
+      script.async = true;
+      script.onload = () => {
+        const checkPyScriptReady = () => {
+          if (window.pyscript && window.pyscript.interpreter) {
+            setIsPyScriptReady(true);
+          } else {
+            setTimeout(checkPyScriptReady, 100);
+          }
+        };
+        checkPyScriptReady();
+      };
+      script.onerror = () => {
+        setLoadingError('Failed to load PyScript');
+      };
+      document.body.appendChild(script);
     };
 
-    checkPyScriptReady();
+    loadPyScript();
 
     // PyScript 스타일 제어
     const style = document.createElement('style');
     style.textContent = `
       #output-container { display: none !important; }
-
+      py-terminal { display: none !important; }
     `;
     document.head.appendChild(style);
 
@@ -48,16 +62,10 @@ const PythonEditor = ({ initialCode }) => {
 
     try {
       setResult('실행 중...');
-
-      // Clear previous output
       if (outputRef.current) {
         outputRef.current.textContent = '';
       }
-
-      // Create a new Python element
       const pyElement = document.createElement('py-script');
-
-      // Wrap the user's code to capture print outputs
       const wrappedCode = `
 import sys
 from js import document
@@ -83,16 +91,13 @@ except Exception as e:
       pyElement.textContent = wrappedCode;
       document.body.appendChild(pyElement);
 
-      // Wait for the code to execute
       await new Promise((resolve) => setTimeout(resolve, 1000));
 
-      // Get the output
       const output = outputRef.current
         ? outputRef.current.textContent
         : 'No output';
       setResult(output);
 
-      // Remove the temporary py-script element
       document.body.removeChild(pyElement);
     } catch (error) {
       setResult(`Error: ${error.message}`);
@@ -106,26 +111,49 @@ except Exception as e:
       .catch((err) => console.error('복사 실패:', err));
   }, [pythonCode]);
 
+  if (loadingError) {
+    return <div>Error: {loadingError}</div>;
+  }
+
   return (
     <div className={styles.editor_container}>
-      <Script
-        src="https://pyscript.net/latest/pyscript.js"
-        strategy="beforeInteractive"
-      />
       <div className={styles.top}>
         <button type="button" onClick={executeCode} disabled={!isPyScriptReady}>
-          실행
+          {isPyScriptReady ? (
+            <ExecutionIcon />
+          ) : (
+            <ExecutionIcon color="grayLv2" />
+          )}
+          <span className="a11y-hidden">실행</span>
         </button>
-        <button type="button" onClick={copyCode}>
-          복사
-        </button>
+
+        <div>
+          <button
+            type="button"
+            onClick={() => {
+              setPythonCode(initialCode);
+              setResult(null);
+            }}
+          >
+            <Icon name="reset" color="grayLv3" />
+            <span className="a11y-hidden">초기화</span>
+          </button>
+          <button type="button" onClick={copyCode}>
+            <Icon name="copy" color="grayLv3" />
+            <span className="a11y-hidden">복사</span>
+          </button>
+        </div>
       </div>
       <CodeMirrorEditor
         mode="python"
         inputText={pythonCode}
         setInputText={setPythonCode}
       />
-      <div className={styles.result}>{result}</div>
+
+      <div className={styles.result}>
+        <p className={styles.result_title}>결과값</p>
+        {result && <div>{result}</div>}
+      </div>
       <div id="python-output" ref={outputRef} style={{ display: 'none' }}></div>
     </div>
   );

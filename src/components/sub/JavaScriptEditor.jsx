@@ -4,6 +4,8 @@ import React, { useCallback, useState } from 'react';
 import dynamic from 'next/dynamic';
 
 import styles from './JavaScriptEditor.module.scss';
+import Icon from '../icon/Icon';
+import ExecutionIcon from '../svg/ExecutionIcon';
 
 const CodeMirrorEditor = dynamic(() => import('./CodeMirrorEditor'), {
   ssr: false,
@@ -11,7 +13,7 @@ const CodeMirrorEditor = dynamic(() => import('./CodeMirrorEditor'), {
 
 const JavaScriptEditor = ({ initialCode }) => {
   const [javaScript, setJavaScript] = useState(initialCode);
-  const [result, setResult] = useState('결과값');
+  const [result, setResult] = useState(null);
 
   const executeCode = useCallback(() => {
     let output = [];
@@ -47,10 +49,10 @@ const JavaScriptEditor = ({ initialCode }) => {
 
   const formatValue = (value) => {
     if (value === null) {
-      return '<span style="color: gray;">null</span>';
+      return `<span class=${styles.null}>null</span>`;
     }
     if (value === undefined) {
-      return '<span style="color: gray;">undefined</span>';
+      return `<span class=${styles.undefined}>undefined</span>`;
     }
     switch (typeof value) {
       case 'string':
@@ -70,9 +72,9 @@ const JavaScriptEditor = ({ initialCode }) => {
     // 키가 유효한 JavaScript 식별자인지 확인
     const isValidIdentifier = /^[a-zA-Z_$][a-zA-Z0-9_$]*$/.test(key);
     if (isValidIdentifier) {
-      return `<span style="color: #a52a2a;">${key}</span>`;
+      return `<span class=${styles.green}>${key}</span>`;
     } else {
-      return `<span style="color: #a52a2a;">"${key}"</span>`;
+      return `<span  class=${styles.string}>"${key}"</span>`;
     }
   };
 
@@ -94,7 +96,6 @@ const JavaScriptEditor = ({ initialCode }) => {
     return `<span>{</span>${formattedEntries}<span>}</span>`;
   };
 
-  const a = [{ 1: 1 }, { 'dfjfjf djfj': '문자자자', ddd: '1' }];
   const copyCode = useCallback(() => {
     navigator.clipboard
       .writeText(javaScript)
@@ -106,21 +107,39 @@ const JavaScriptEditor = ({ initialCode }) => {
     <div className={styles.editor_container}>
       <div className={styles.top}>
         <button type="button" onClick={executeCode}>
-          실행
+          <ExecutionIcon />
+          <span className="a11y-hidden">실행</span>
         </button>
-        <button type="button" onClick={copyCode}>
-          복사
-        </button>
+
+        <div>
+          <button
+            type="button"
+            onClick={() => {
+              setJavaScript(initialCode);
+              setResult(null);
+            }}
+          >
+            <Icon name="reset" color="grayLv3" />
+            <span className="a11y-hidden">초기화</span>
+          </button>
+          <button type="button" onClick={copyCode}>
+            <Icon name="copy" color="grayLv3" />
+            <span className="a11y-hidden">복사</span>
+          </button>
+        </div>
       </div>
       <CodeMirrorEditor
         mode="javascript"
         inputText={javaScript}
         setInputText={setJavaScript}
       />
-      <div
-        className={styles.result}
-        dangerouslySetInnerHTML={{ __html: result }}
-      />
+      <div className={styles.result}>
+        <p className={styles.result_title}>결과값</p>
+
+        {result !== null && (
+          <div dangerouslySetInnerHTML={{ __html: result }} />
+        )}
+      </div>
     </div>
   );
 };

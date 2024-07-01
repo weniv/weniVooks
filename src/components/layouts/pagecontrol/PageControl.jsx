@@ -82,7 +82,13 @@ export default function PageControl({ data, DEFAULT_PATH }) {
     };
   };
 
-  const { prev, next } = findPage(data.sections, pathname);
+  const { prev: findPrev, next: findNext } = findPage(data.sections, pathname);
+  let prev = findPrev;
+  let next = findNext;
+
+  if (pathname === `/${DEFAULT_PATH}`) {
+    next = data.sections[0];
+  }
 
   return (
     <div className={styles.page}>

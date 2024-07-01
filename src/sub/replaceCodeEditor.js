@@ -1,7 +1,6 @@
 import React from 'react';
 import { JSDOM } from 'jsdom';
 import dynamic from 'next/dynamic';
-import PythonEditor from '@/components/sub/PythonEditor';
 
 const HtmlCssEditor = dynamic(() => import('@/components/sub/HtmlCssEditor'), {
   ssr: false,
@@ -12,7 +11,9 @@ const JavaScriptEditor = dynamic(
     ssr: false,
   },
 );
-
+const PythonEditor = dynamic(() => import('@/components/sub/PythonEditor'), {
+  ssr: false,
+});
 export default function replaceCodeEditor(htmlString) {
   const dom = new JSDOM(htmlString);
   const document = dom.window.document;

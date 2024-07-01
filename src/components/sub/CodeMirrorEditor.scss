@@ -1,5 +1,6 @@
 /* Color scheme */
 .cm-s-custom.CodeMirror {
+  font-family: var(--code), monospace;
   padding: 1rem;
   background-color: var(--grayLv1);
   color: var(--grayLv4);

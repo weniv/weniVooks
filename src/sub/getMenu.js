@@ -20,7 +20,7 @@ export function getMenu(DEFAULT_PATH, TITLE) {
     const stats = fs.statSync(filePath);
 
     if (stats.isDirectory()) {
-      data.sections.push(getDirectoryStructure(filePath));
+      data.sections.push(getDirectoryStructure(filePath, DEFAULT_PATH));
     } else if (file.endsWith('.md')) {
       data.sections.push(getFileStructure(filePath, data.link));
     }
@@ -29,7 +29,7 @@ export function getMenu(DEFAULT_PATH, TITLE) {
   return data;
 }
 
-function getDirectoryStructure(dirPath) {
+function getDirectoryStructure(dirPath, DEFAULT_PATH) {
   const files = fs.readdirSync(dirPath);
   let chapterInfo = null;
 
@@ -43,7 +43,14 @@ function getDirectoryStructure(dirPath) {
   }
 
   const data = {
-    title: chapterInfo ? chapterInfo.chapter : path.basename(dirPath),
+    title: chapterInfo
+      ? `${
+          path
+            .relative(postsDirectory, dirPath)
+            .replace(/\\/g, '/')
+            .split('chapter0')[1]
+        }장 ${chapterInfo.chapter}`
+      : path.basename(dirPath),
     link: `/${path.relative(postsDirectory, dirPath).replace(/\\/g, '/')}`,
     sections: [],
   };
@@ -53,7 +60,7 @@ function getDirectoryStructure(dirPath) {
     const stats = fs.statSync(filePath);
 
     if (stats.isDirectory()) {
-      data.sections.push(getDirectoryStructure(filePath));
+      data.sections.push(getDirectoryStructure(filePath, DEFAULT_PATH));
     } else if (file.endsWith('.md')) {
       data.sections.push(getFileStructure(filePath, data.link));
     }
@@ -67,8 +74,19 @@ function getFileStructure(filePath, parentLink) {
   const { data: frontmatter } = matter(fileContents);
   const { title, chapter } = frontmatter;
 
+  // console.log(filePath);
+  console.log(
+    path
+      .basename(filePath)
+      .replace('.md', '')
+      .replace('0', '')
+      .replace('-', '.'),
+  );
+
   return {
-    title: title || path.basename(filePath).replace('.md', ''),
+    title:
+      `${getChapterNum(path.basename(filePath))} ` + title ||
+      path.basename(filePath).replace('.md', ''),
     link: `${parentLink}/${path.basename(filePath).replace('.md', '')}`,
     chapter: chapter || null,
   };
@@ -80,4 +98,20 @@ function getChapterInfo(filePath) {
   const { chapter } = frontmatter;
 
   return { chapter: chapter || null };
+}
+
+function getChapterNum(filename) {
+  let formatted = filename.replace(/\.md$/, '');
+
+  const parts = formatted.split('-');
+
+  if (parts.length === 2) {
+    const chapter = parts[0].replace(/^0+/, ''); // Remove leading zeros
+    const section = parts[1].replace(/^0+/, ''); // Remove leading zeros
+    formatted = `${chapter}.${section}`;
+  } else {
+    formatted = formatted.replace(/^0+/, '');
+  }
+
+  return formatted;
 }
