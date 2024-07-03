@@ -74,15 +74,6 @@ function getFileStructure(filePath, parentLink) {
   const { data: frontmatter } = matter(fileContents);
   const { title, chapter } = frontmatter;
 
-  // console.log(filePath);
-  console.log(
-    path
-      .basename(filePath)
-      .replace('.md', '')
-      .replace('0', '')
-      .replace('-', '.'),
-  );
-
   return {
     title:
       `${getChapterNum(path.basename(filePath))} ` + title ||

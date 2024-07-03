@@ -46,6 +46,5 @@ export default async function ChapterPage({ params }) {
 export const dynamicParams = false;
 
 export function generateStaticParams() {
-  const data = getChapters();
-  return data;
+  return getChapters(DEFAULT_PATH);
 }

@@ -1,10 +1,9 @@
 const fs = require('fs');
 const path = require('path');
 
-const postsDirectory = path.join(process.cwd(), '_md', 'book');
-
-export function getChapters() {
+export function getChapters(default_path) {
   const result = [];
+  const postsDirectory = path.join(process.cwd(), '_md', default_path);
 
   const directories = fs
     .readdirSync(postsDirectory, { withFileTypes: true })
