@@ -22,6 +22,11 @@
   <lastmod>2024-01-18T01:39:50+00:00</lastmod>
   <priority>0.90</priority>
 </url>
+<url>
+  <loc>https://www.books.weniv.co.kr/basecamp-react</loc>
+  <lastmod>2024-01-18T01:39:50+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
 
 <!-- 검색 -->
 <url>
@@ -1211,6 +1216,18 @@
 </url>
 
 <!-- React 베이스캠프 -->
+<!-- 00 -->
+<url>
+  <loc>https://www.books.weniv.co.kr/basecamp-react/chapter00/00-1</loc>
+  <lastmod>2024-01-18T01:39:50+00:00</lastmod>
+  <priority>0.30</priority>
+</url>
+<url>
+  <loc>https://www.books.weniv.co.kr/basecamp-react/chapter00/00-2</loc>
+  <lastmod>2024-01-18T01:39:50+00:00</lastmod>
+  <priority>0.30</priority>
+</url>
+
 <!-- 01 -->
 <url>
   <loc>https://www.books.weniv.co.kr/basecamp-react/chapter01/01-1</loc>
@@ -1239,6 +1256,51 @@
   <lastmod>2024-01-18T01:39:50+00:00</lastmod>
   <priority>0.30</priority>
 </url>
+<url>
+  <loc>https://www.books.weniv.co.kr/basecamp-react/chapter02/02-2</loc>
+  <lastmod>2024-01-18T01:39:50+00:00</lastmod>
+  <priority>0.30</priority>
+</url>
+<url>
+  <loc>https://www.books.weniv.co.kr/basecamp-react/chapter02/02-3</loc>
+  <lastmod>2024-01-18T01:39:50+00:00</lastmod>
+  <priority>0.30</priority>
+</url>
+<url>
+  <loc>https://www.books.weniv.co.kr/basecamp-react/chapter02/02-4</loc>
+  <lastmod>2024-01-18T01:39:50+00:00</lastmod>
+  <priority>0.30</priority>
+</url>
+<url>
+  <loc>https://www.books.weniv.co.kr/basecamp-react/chapter02/02-5</loc>
+  <lastmod>2024-01-18T01:39:50+00:00</lastmod>
+  <priority>0.30</priority>
+</url>
+<url>
+  <loc>https://www.books.weniv.co.kr/basecamp-react/chapter02/02-6</loc>
+  <lastmod>2024-01-18T01:39:50+00:00</lastmod>
+  <priority>0.30</priority>
+</url>
+<url>
+  <loc>https://www.books.weniv.co.kr/basecamp-react/chapter02/02-7</loc>
+  <lastmod>2024-01-18T01:39:50+00:00</lastmod>
+  <priority>0.30</priority>
+</url>
+<url>
+  <loc>https://www.books.weniv.co.kr/basecamp-react/chapter02/02-8</loc>
+  <lastmod>2024-01-18T01:39:50+00:00</lastmod>
+  <priority>0.30</priority>
+</url>
+<url>
+  <loc>https://www.books.weniv.co.kr/basecamp-react/chapter02/02-9</loc>
+  <lastmod>2024-01-18T01:39:50+00:00</lastmod>
+  <priority>0.30</priority>
+</url>
+<url>
+  <loc>https://www.books.weniv.co.kr/basecamp-react/chapter02/02-10</loc>
+  <lastmod>2024-01-18T01:39:50+00:00</lastmod>
+  <priority>0.30</priority>
+</url>
 
 <!-- 03 -->
 <url>
@@ -1248,6 +1310,36 @@
 </url>
 <url>
   <loc>https://www.books.weniv.co.kr/basecamp-react/chapter03/03-2</loc>
+  <lastmod>2024-01-18T01:39:50+00:00</lastmod>
+  <priority>0.30</priority>
+</url>
+<url>
+  <loc>https://www.books.weniv.co.kr/basecamp-react/chapter03/03-3</loc>
+  <lastmod>2024-01-18T01:39:50+00:00</lastmod>
+  <priority>0.30</priority>
+</url>
+<url>
+  <loc>https://www.books.weniv.co.kr/basecamp-react/chapter03/03-4</loc>
+  <lastmod>2024-01-18T01:39:50+00:00</lastmod>
+  <priority>0.30</priority>
+</url>
+<url>
+  <loc>https://www.books.weniv.co.kr/basecamp-react/chapter03/03-5</loc>
+  <lastmod>2024-01-18T01:39:50+00:00</lastmod>
+  <priority>0.30</priority>
+</url>
+<url>
+  <loc>https://www.books.weniv.co.kr/basecamp-react/chapter03/03-6</loc>
+  <lastmod>2024-01-18T01:39:50+00:00</lastmod>
+  <priority>0.30</priority>
+</url>
+<url>
+  <loc>https://www.books.weniv.co.kr/basecamp-react/chapter03/03-7</loc>
+  <lastmod>2024-01-18T01:39:50+00:00</lastmod>
+  <priority>0.30</priority>
+</url>
+<url>
+  <loc>https://www.books.weniv.co.kr/basecamp-react/chapter03/03-8</loc>
   <lastmod>2024-01-18T01:39:50+00:00</lastmod>
   <priority>0.30</priority>
 </url>
@@ -1285,6 +1377,114 @@
 </url>
 <url>
   <loc>https://www.books.weniv.co.kr/basecamp-react/chapter04/04-7</loc>
+  <lastmod>2024-01-18T01:39:50+00:00</lastmod>
+  <priority>0.30</priority>
+</url>
+
+<!-- 05 -->
+<url>
+  <loc>https://www.books.weniv.co.kr/github/chapter05/05-1</loc>
+  <lastmod>2024-01-18T01:39:50+00:00</lastmod>
+  <priority>0.30</priority>
+</url>
+<url>
+  <loc>https://www.books.weniv.co.kr/github/chapter05/05-2</loc>
+  <lastmod>2024-01-18T01:39:50+00:00</lastmod>
+  <priority>0.30</priority>
+</url>
+<url>
+  <loc>https://www.books.weniv.co.kr/github/chapter05/05-3</loc>
+  <lastmod>2024-01-18T01:39:50+00:00</lastmod>
+  <priority>0.30</priority>
+</url>
+<url>
+  <loc>https://www.books.weniv.co.kr/github/chapter05/05-4</loc>
+  <lastmod>2024-01-18T01:39:50+00:00</lastmod>
+  <priority>0.30</priority>
+</url>
+<url>
+  <loc>https://www.books.weniv.co.kr/github/chapter05/05-5</loc>
+  <lastmod>2024-01-18T01:39:50+00:00</lastmod>
+  <priority>0.30</priority>
+</url>
+<url>
+  <loc>https://www.books.weniv.co.kr/github/chapter05/05-6</loc>
+  <lastmod>2024-01-18T01:39:50+00:00</lastmod>
+  <priority>0.30</priority>
+</url>
+
+<!-- 06 -->
+<url>
+  <loc>https://www.books.weniv.co.kr/github/chapter06/06-1</loc>
+  <lastmod>2024-01-18T01:39:50+00:00</lastmod>
+  <priority>0.30</priority>
+</url>
+
+<!-- 07 -->
+<url>
+  <loc>https://www.books.weniv.co.kr/github/chapter07/07-1</loc>
+  <lastmod>2024-01-18T01:39:50+00:00</lastmod>
+  <priority>0.30</priority>
+</url>
+
+<!-- 08 -->
+<url>
+  <loc>https://www.books.weniv.co.kr/basecamp-react/chapter08/08-1</loc>
+  <lastmod>2024-01-18T01:39:50+00:00</lastmod>
+  <priority>0.30</priority>
+</url>
+<url>
+  <loc>https://www.books.weniv.co.kr/basecamp-react/chapter08/08-2</loc>
+  <lastmod>2024-01-18T01:39:50+00:00</lastmod>
+  <priority>0.30</priority>
+</url>
+<url>
+  <loc>https://www.books.weniv.co.kr/basecamp-react/chapter08/08-3</loc>
+  <lastmod>2024-01-18T01:39:50+00:00</lastmod>
+  <priority>0.30</priority>
+</url>
+<url>
+  <loc>https://www.books.weniv.co.kr/basecamp-react/chapter08/08-4</loc>
+  <lastmod>2024-01-18T01:39:50+00:00</lastmod>
+  <priority>0.30</priority>
+</url>
+<url>
+  <loc>https://www.books.weniv.co.kr/basecamp-react/chapter08/08-5</loc>
+  <lastmod>2024-01-18T01:39:50+00:00</lastmod>
+  <priority>0.30</priority>
+</url>
+<url>
+  <loc>https://www.books.weniv.co.kr/basecamp-react/chapter08/08-6</loc>
+  <lastmod>2024-01-18T01:39:50+00:00</lastmod>
+  <priority>0.30</priority>
+</url>
+<url>
+  <loc>https://www.books.weniv.co.kr/basecamp-react/chapter08/08-7</loc>
+  <lastmod>2024-01-18T01:39:50+00:00</lastmod>
+  <priority>0.30</priority>
+</url>
+<url>
+  <loc>https://www.books.weniv.co.kr/basecamp-react/chapter08/08-8</loc>
+  <lastmod>2024-01-18T01:39:50+00:00</lastmod>
+  <priority>0.30</priority>
+</url>
+<url>
+  <loc>https://www.books.weniv.co.kr/basecamp-react/chapter08/08-9</loc>
+  <lastmod>2024-01-18T01:39:50+00:00</lastmod>
+  <priority>0.30</priority>
+</url>
+<url>
+  <loc>https://www.books.weniv.co.kr/basecamp-react/chapter08/08-10</loc>
+  <lastmod>2024-01-18T01:39:50+00:00</lastmod>
+  <priority>0.30</priority>
+</url>
+<url>
+  <loc>https://www.books.weniv.co.kr/basecamp-react/chapter08/08-11</loc>
+  <lastmod>2024-01-18T01:39:50+00:00</lastmod>
+  <priority>0.30</priority>
+</url>
+<url>
+  <loc>https://www.books.weniv.co.kr/basecamp-react/chapter08/08-12</loc>
   <lastmod>2024-01-18T01:39:50+00:00</lastmod>
   <priority>0.30</priority>
 </url>
