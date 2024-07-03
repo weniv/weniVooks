@@ -1,0 +1,86 @@
+{
+    "title": "React 베이스캠프",
+    "link": "/basecamp-react",
+    "sections": [
+    {
+        "title": "01장 React",
+        "link": "/basecamp-react/chapter01",
+        "sections": [
+        {
+            "title": "01.1 React 소개",
+            "link": "/basecamp-react/chapter01/01-1"
+        },
+        {
+            "title": "01.2 React 기초",
+            "link": "/basecamp-react/chapter01/01-2"
+        },
+        {
+            "title": "01.3 Hook",
+            "link": "/basecamp-react/chapter01/01-3"
+        },
+        {
+            "title": "01.4 Router",
+            "link": "/basecamp-react/chapter01/01-4"
+        }
+        ]
+    },
+    {
+        "title": "02장 Redux",
+        "link": "/basecamp-react/chapter02",
+        "sections": [
+        {
+            "title": "02.1 Redux란?",
+            "link": "/basecamp-react/chapter02/02-1"
+        }
+        ]
+    },
+    {
+        "title": "03장 Project",
+        "link": "/basecamp-react/chapter03",
+        "sections": [
+        {
+            "title": "03.1 쇼핑몰 메인 페이지 구현",
+            "link": "/basecamp-react/chapter03/03-1"
+        },
+        {
+            "title": "03.2 blog 만들기",
+            "link": "/basecamp-react/chapter03/03-2"
+        }
+        ]
+    },
+    {
+        "title": "04장 부록",
+        "link": "/basecamp-react/chapter04",
+        "sections": [
+        {
+            "title": "04.1 npm",
+            "link": "/basecamp-react/chapter04/04-1"
+        },
+        {
+            "title": "04.2 state 끌어올리기(lifting-state-up)",
+            "link": "/basecamp-react/chapter04/04-2"
+        },
+        {
+            "title": "04.3 axios",
+            "link": "/basecamp-react/chapter04/04-3"
+        },
+        {
+            "title": "04.4 json server",
+            "link": "/basecamp-react/chapter04/04-4"
+        },
+        {
+            "title": "04.5 리액트 프로젝트 코드리뷰",
+            "link": "/basecamp-react/chapter04/04-5"
+        },
+        {
+            "title": "04.6 useLayoutEffect와 useEffect차이(깜빡임 없애기)",
+            "link": "/basecamp-react/chapter04/04-6"
+        },
+        {
+            "title": "04.7 React Developer Tools",
+            "link": "/basecamp-react/chapter04/04-7"
+        }
+        ]
+    }
+    ]
+}

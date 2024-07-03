@@ -72,6 +72,18 @@
     "date": "3000-12-28"
   },
   {
+    "thumbnail": "/images/basecamp-react/cover-react.png",
+    "publisher": "사도출판",
+    "title": "React 베이스캠프",
+    "subtitle": null,
+    "type": "전자책",
+    "price": "무료",
+    "description": "개발자라면 누구나 알아야 할 React 핵심 개념에 대해 살펴봅니다.",
+    "booklink": "/basecamp-react",
+    "classlink": "https://inf.run/9afjb",
+    "date": "2024-07-02"
+  },
+  {
     "thumbnail": "/images/github/cover-github.png",
     "publisher": "사도출판",
     "title": "알잘깔딱센 GitHub 핵심개념",
