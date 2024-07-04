@@ -3,9 +3,12 @@
 import React, { useCallback, useState } from 'react';
 import dynamic from 'next/dynamic';
 
-import styles from './JavaScriptEditor.module.scss';
-import Icon from '../icon/Icon';
-import ExecutionIcon from '../svg/ExecutionIcon';
+import './common/Editor.scss';
+import styles from './common/Editor.module.scss';
+
+import CodeCopyBtn from './common/CodeCopyBtn';
+import CodeResetBtn from './common/CodeResetBtn';
+import CodeExecuteBtn from './common/CodeExecuteBtn';
 
 const CodeMirrorEditor = dynamic(() => import('./CodeMirrorEditor'), {
   ssr: false,
@@ -96,36 +99,19 @@ const JavaScriptEditor = ({ initialCode }) => {
     return `<span>{</span>${formattedEntries}<span>}</span>`;
   };
 
-  const copyCode = useCallback(() => {
-    navigator.clipboard
-      .writeText(javaScript)
-      .then(() => alert('코드가 클립보드에 복사되었습니다.'))
-      .catch((err) => console.error('복사 실패:', err));
-  }, [javaScript]);
-
   return (
     <div className={styles.editor_container}>
-      <div className={styles.top}>
-        <button type="button" onClick={executeCode}>
-          <ExecutionIcon />
-          <span className="a11y-hidden">실행</span>
-        </button>
+      <div className="editor_top">
+        <CodeExecuteBtn onClick={executeCode} />
 
-        <div>
-          <button
-            type="button"
+        <div className="btn-group">
+          <CodeCopyBtn code={javaScript} />
+          <CodeResetBtn
             onClick={() => {
               setJavaScript(initialCode);
               setResult(null);
             }}
-          >
-            <Icon name="reset" color="grayLv3" />
-            <span className="a11y-hidden">초기화</span>
-          </button>
-          <button type="button" onClick={copyCode}>
-            <Icon name="copy" color="grayLv3" />
-            <span className="a11y-hidden">복사</span>
-          </button>
+          />
         </div>
       </div>
       <CodeMirrorEditor

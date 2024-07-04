@@ -4,7 +4,8 @@ import React, { useState, useMemo, useCallback } from 'react';
 import dynamic from 'next/dynamic';
 import styles from './HtmlCssEditor.module.scss';
 import classNames from 'classnames';
-import Icon from '../icon/Icon';
+import CodeCopyBtn from './common/CodeCopyBtn';
+import CodeResetBtn from './common/CodeResetBtn';
 
 const CodeMirrorEditor = dynamic(() => import('./CodeMirrorEditor'), {
   ssr: false,
@@ -27,14 +28,6 @@ const HtmlCssEditor = ({ initialHtml, initialCss }) => {
     `;
   }, [html, css]);
 
-  const copyCode = useCallback(() => {
-    const code = activeTab === 'html' ? html : css;
-    navigator.clipboard
-      .writeText(code)
-      .then(() => alert('코드가 클립보드에 복사되었습니다.'))
-      .catch((err) => console.error('복사 실패:', err));
-  }, [html, css, activeTab]);
-
   return (
     <div className={styles.editor_container}>
       <div className={styles.editor_wrap}>
@@ -53,10 +46,16 @@ const HtmlCssEditor = ({ initialHtml, initialCss }) => {
               </button>
             ))}
           </div>
-          <button type="button" onClick={copyCode}>
-            <Icon name="copy" color="grayLv3" />
-            <span className="a11y-hidden">복사</span>
-          </button>
+
+          <div className="btn-group">
+            <CodeCopyBtn code={activeTab === 'html' ? html : css} />
+            <CodeResetBtn
+              onClick={() => {
+                setHtml(initialHtml);
+                setCss(initialCss);
+              }}
+            />
+          </div>
         </div>
 
         <CodeMirrorEditor
