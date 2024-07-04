@@ -1,6 +1,7 @@
 import React from 'react';
 import { JSDOM } from 'jsdom';
 import dynamic from 'next/dynamic';
+import parse from 'html-react-parser';
 
 const HtmlCssEditor = dynamic(() => import('@/components/sub/HtmlCssEditor'), {
   ssr: false,
@@ -14,7 +15,8 @@ const JavaScriptEditor = dynamic(
 const PythonEditor = dynamic(() => import('@/components/sub/PythonEditor'), {
   ssr: false,
 });
-export default function replaceCodeEditor(htmlString) {
+
+export default function replaceCodeEditor(htmlString, Editor) {
   const dom = new JSDOM(htmlString);
   const document = dom.window.document;
 
@@ -26,46 +28,45 @@ export default function replaceCodeEditor(htmlString) {
   const elements = Array.from(document.body.childNodes)
     .map((node, index) => {
       if (node.nodeType === 1) {
-        if (node.classList.contains('htmlPlay')) {
+        if (
+          Editor.includes('HTML/CSS') &&
+          node.classList.contains('htmlPlay')
+        ) {
           const html =
             node.querySelector('[data-language="html"]')?.textContent || '';
           const css =
             node.querySelector('[data-language="css"]')?.textContent || '';
 
           return (
-            <React.Fragment key={`editor-${index}`}>
-              <HtmlCssEditor initialHtml={html} initialCss={css} />
-            </React.Fragment>
+            <HtmlCssEditor
+              key={`editor-${index}`}
+              initialHtml={html}
+              initialCss={css}
+            />
           );
-        } else if (node.querySelector('[data-language="javascript-exec"]')) {
+        } else if (
+          Editor.includes('JavaScript') &&
+          node.querySelector('[data-language="javascript-exec"]')
+        ) {
           const code = node.textContent || '';
 
           return (
-            <React.Fragment key={`js-editor-${index}`}>
-              <JavaScriptEditor initialCode={code} />
-            </React.Fragment>
+            <JavaScriptEditor key={`js-editor-${index}`} initialCode={code} />
           );
-        } else if (node.querySelector('[data-language="python-exec"]')) {
+        } else if (
+          Editor.includes('Python') &&
+          node.querySelector('[data-language="python-exec"]')
+        ) {
           const code = node.textContent || '';
           return (
-            <React.Fragment key={`js-python-${index}`}>
-              <PythonEditor initialCode={code} />
-            </React.Fragment>
+            <PythonEditor key={`python-editor-${index}`} initialCode={code} />
           );
         } else {
-          return (
-            <div
-              key={`other-${index}`}
-              dangerouslySetInnerHTML={{ __html: node.outerHTML }}
-            />
-          );
+          return <React.Fragment>{parse(node.outerHTML)}</React.Fragment>;
         }
       } else if (node.nodeType === 3 && node.textContent.trim()) {
-        return (
-          <React.Fragment key={`text-${index}`}>
-            {node.textContent}
-          </React.Fragment>
-        );
+        // 텍스트 노드는 그대로 반환
+        return node.textContent;
       }
       return null;
     })
