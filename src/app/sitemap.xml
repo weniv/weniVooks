@@ -1338,11 +1338,6 @@
   <lastmod>2024-01-18T01:39:50+00:00</lastmod>
   <priority>0.30</priority>
 </url>
-<url>
-  <loc>https://www.books.weniv.co.kr/basecamp-react/chapter03/03-8</loc>
-  <lastmod>2024-01-18T01:39:50+00:00</lastmod>
-  <priority>0.30</priority>
-</url>
 
 <!-- 04 -->
 <url>
@@ -1377,6 +1372,11 @@
 </url>
 <url>
   <loc>https://www.books.weniv.co.kr/basecamp-react/chapter04/04-7</loc>
+  <lastmod>2024-01-18T01:39:50+00:00</lastmod>
+  <priority>0.30</priority>
+</url>
+<url>
+  <loc>https://www.books.weniv.co.kr/basecamp-react/chapter04/04-8</loc>
   <lastmod>2024-01-18T01:39:50+00:00</lastmod>
   <priority>0.30</priority>
 </url>

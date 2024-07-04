@@ -1,267 +1,264 @@
 {
-    "title": "React 베이스캠프",
-    "link": "/basecamp-react",
-    "sections": [
+  "title": "React 베이스캠프",
+  "link": "/basecamp-react",
+  "sections": [
     {
-        "title": "00장 환경 설정",
-        "link": "/basecamp-react/chapter00",
-        "sections": [
+      "title": "00장 환경 설정",
+      "link": "/basecamp-react/chapter00",
+      "sections": [
         {
-            "title": "00.1 필수 설치 프로그램 및 단축키",
-            "link": "/basecamp-react/chapter00/00-1"
+          "title": "00.1 필수 설치 프로그램 및 단축키",
+          "link": "/basecamp-react/chapter00/00-1"
         },
         {
-            "title": "00.2 전체 소스코드",
-            "link": "/basecamp-react/chapter00/00-2"
+          "title": "00.2 전체 소스코드",
+          "link": "/basecamp-react/chapter00/00-2"
         }
-        ]
+      ]
     },
     {
-        "title": "01장 React 개념(소개)",
-        "link": "/basecamp-react/chapter01",
-        "sections": [
+      "title": "01장 React 개념(소개)",
+      "link": "/basecamp-react/chapter01",
+      "sections": [
         {
-            "title": "01.1 라이브러리와 프레임워크. 그리고 React, Vue, Angular 비교 분석",
-            "link": "/basecamp-react/chapter01/01-1"
+          "title": "01.1 라이브러리와 프레임워크. 그리고 React, Vue, Angular 비교 분석",
+          "link": "/basecamp-react/chapter01/01-1"
         },
         {
-            "title": "01.2 내 웹페이지에서 1분만에 도입해보기",
-            "link": "/basecamp-react/chapter01/01-2"
+          "title": "01.2 내 웹페이지에서 1분만에 도입해보기",
+          "link": "/basecamp-react/chapter01/01-2"
         },
         {
-            "title": "01.3 React 사용 이유와 실용 예제",
-            "link": "/basecamp-react/chapter01/01-3"
+          "title": "01.3 React 사용 이유와 실용 예제",
+          "link": "/basecamp-react/chapter01/01-3"
         },
         {
-            "title": "01.4 React 프로젝트 생성, 배포하기",
-            "link": "/basecamp-react/chapter01/01-4"
+          "title": "01.4 React 프로젝트 생성, 배포하기",
+          "link": "/basecamp-react/chapter01/01-4"
         }
-        ]
+      ]
     },
     {
-        "title": "02장 React 기초",
-        "link": "/basecamp-react/chapter02",
-        "sections": [
+      "title": "02장 React 기초",
+      "link": "/basecamp-react/chapter02",
+      "sections": [
         {
-            "title": "02.1 JSX",
-            "link": "/basecamp-react/chapter02/02-1"
+          "title": "02.1 JSX",
+          "link": "/basecamp-react/chapter02/02-1"
         },
         {
-            "title": "02.2 Fragments",
-            "link": "/basecamp-react/chapter02/02-2"
+          "title": "02.2 Fragments",
+          "link": "/basecamp-react/chapter02/02-2"
         },
         {
-            "title": "02.3 Component 만들기",
-            "link": "/basecamp-react/chapter02/02-3"
+          "title": "02.3 Component 만들기",
+          "link": "/basecamp-react/chapter02/02-3"
         },
         {
-            "title": "02.4 Hook Basic - useState",
-            "link": "/basecamp-react/chapter02/02-4"
+          "title": "02.4 Hook Basic - useState",
+          "link": "/basecamp-react/chapter02/02-4"
         },
         {
-            "title": "02.5 React에서 이벤트 처리하기",
-            "link": "/basecamp-react/chapter02/02-5"
+          "title": "02.5 React에서 이벤트 처리하기",
+          "link": "/basecamp-react/chapter02/02-5"
         },
         {
-            "title": "02.6 컴포넌트 리스트 만들기",
-            "link": "/basecamp-react/chapter02/02-6"
+          "title": "02.6 컴포넌트 리스트 만들기",
+          "link": "/basecamp-react/chapter02/02-6"
         },
         {
-            "title": "02.7 조건부 렌더링",
-            "link": "/basecamp-react/chapter02/02-7"
+          "title": "02.7 조건부 렌더링",
+          "link": "/basecamp-react/chapter02/02-7"
         },
         {
-            "title": "02.8 스타일 적용하기",
-            "link": "/basecamp-react/chapter02/02-8"
+          "title": "02.8 스타일 적용하기",
+          "link": "/basecamp-react/chapter02/02-8"
         },
         {
-            "title": "02.9 합성 컴포넌트",
-            "link": "/basecamp-react/chapter02/02-9"
+          "title": "02.9 합성 컴포넌트",
+          "link": "/basecamp-react/chapter02/02-9"
         },
         {
-            "title": "02.10 (참고) 라이프 사이클 - class component",
-            "link": "/basecamp-react/chapter02/02-10"
+          "title": "02.10 (참고) 라이프 사이클 - class component",
+          "link": "/basecamp-react/chapter02/02-10"
         }
-        ]
+      ]
     },
     {
-        "title": "03장 Hooks",
-        "link": "/basecamp-react/chapter03",
-        "sections": [
+      "title": "03장 React Router",
+      "link": "/basecamp-react/chapter03",
+      "sections": [
         {
-            "title": "03.1 Hook - useEffect",
-            "link": "/basecamp-react/chapter03/03-1"
+          "title": "03.1 설치하기",
+          "link": "/basecamp-react/chapter03/03-1"
         },
         {
-            "title": "03.2 Hook - useRef",
-            "link": "/basecamp-react/chapter03/03-2"
+          "title": "03.2 BrowserRouter, Routes, Route",
+          "link": "/basecamp-react/chapter03/03-2"
         },
         {
-            "title": "03.3 Hook - useMemo",
-            "link": "/basecamp-react/chapter03/03-3"
+          "title": "03.3 Quiz - Route 사용하여 페이지 경로 만들기",
+          "link": "/basecamp-react/chapter03/03-3"
         },
         {
-            "title": "03.4 Hook - useContext",
-            "link": "/basecamp-react/chapter03/03-4"
+          "title": "03.4 (참고) ReactRouter V6가 되면서 달라진 문법들",
+          "link": "/basecamp-react/chapter03/03-4"
         },
         {
-            "title": "03.5 Context(ContextAPI)",
-            "link": "/basecamp-react/chapter03/03-5"
+          "title": "03.5 (참고) 기존 V4, V5 강의자료 백업",
+          "link": "/basecamp-react/chapter03/03-5"
         },
         {
-            "title": "03.6 useState - Lazy initialize",
-            "link": "/basecamp-react/chapter03/03-6"
+          "title": "03.6 (참고) WHATWG URL's origin property",
+          "link": "/basecamp-react/chapter03/03-6"
         },
         {
-            "title": "03.7 Functional Component - Hook Flow",
-            "link": "/basecamp-react/chapter03/03-7"
+          "title": "03.7 추가 연습문제(다양한 문법 사용)",
+          "link": "/basecamp-react/chapter03/03-7"
         }
-        ,
-        {
-            "title": "03.8 Hook - Custom Hook",
-            "link": "/basecamp-react/chapter03/03-8"
-        }
-        ]
+      ]
     },
     {
-        "title": "04장 React Router",
-        "link": "/basecamp-react/chapter04",
-        "sections": [
+      "title": "04장 Hooks",
+      "link": "/basecamp-react/chapter04",
+      "sections": [
         {
-            "title": "04.1 설치하기",
-            "link": "/basecamp-react/chapter04/04-1"
+          "title": "04.1 Hook - useEffect",
+          "link": "/basecamp-react/chapter04/04-1"
         },
         {
-            "title": "04.2 BrowserRouter, Routes, Route",
-            "link": "/basecamp-react/chapter04/04-2"
+          "title": "04.2 Hook - useRef",
+          "link": "/basecamp-react/chapter04/04-2"
         },
         {
-            "title": "04.3 Quiz - Route 사용하여 페이지 경로 만들기",
-            "link": "/basecamp-react/chapter04/04-3"
+          "title": "04.3 Hook - useMemo",
+          "link": "/basecamp-react/chapter04/04-3"
         },
         {
-            "title": "04.4 (참고) ReactRouter V6가 되면서 달라진 문법들",
-            "link": "/basecamp-react/chapter04/04-4"
+          "title": "04.4 Hook - useContext",
+          "link": "/basecamp-react/chapter04/04-4"
         },
         {
-            "title": "04.5 (참고) 기존 V4, V5 강의자료 백업",
-            "link": "/basecamp-react/chapter04/04-5"
+          "title": "04.5 Context(ContextAPI)",
+          "link": "/basecamp-react/chapter04/04-5"
+        },
+        {
+          "title": "04.6 useState - Lazy initialize",
+          "link": "/basecamp-react/chapter04/04-6"
+        },
+        {
+          "title": "04.7 Functional Component - Hook Flow",
+          "link": "/basecamp-react/chapter04/04-7"
+        },
+        {
+          "title": "04.8 Hook - Custom Hook",
+          "link": "/basecamp-react/chapter04/04-8"
         }
-        ,
-        {
-            "title": "04.6 (참고) WHATWG URL's origin property",
-            "link": "/basecamp-react/chapter04/04-6"
-        }
-        ,
-        {
-            "title": "04.7 추가 연습문제(다양한 문법 사용)",
-            "link": "/basecamp-react/chapter04/04-7"
-        }
-        ]
+      ]
     },
     {
-        "title": "05장 Redux",
-        "link": "/basecamp-react/chapter05",
-        "sections": [
+      "title": "05장 Redux",
+      "link": "/basecamp-react/chapter05",
+      "sections": [
         {
-            "title": "05.1 Redux란?",
-            "link": "/basecamp-react/chapter05/05-1"
+          "title": "05.1 Redux란?",
+          "link": "/basecamp-react/chapter05/05-1"
         },
         {
-            "title": "05.2 Redux, 이것만은 알고 갑시다!",
-            "link": "/basecamp-react/chapter05/05-2"
+          "title": "05.2 Redux, 이것만은 알고 갑시다!",
+          "link": "/basecamp-react/chapter05/05-2"
         },
         {
-            "title": "05.3 Node 환경에서 리덕스 사용하기(vanilla JS)",
-            "link": "/basecamp-react/chapter05/05-3"
+          "title": "05.3 Node 환경에서 리덕스 사용하기(vanilla JS)",
+          "link": "/basecamp-react/chapter05/05-3"
         },
         {
-            "title": "05.4 리액트에서 리덕스 사용하기",
-            "link": "/basecamp-react/chapter05/05-4"
+          "title": "05.4 리액트에서 리덕스 사용하기",
+          "link": "/basecamp-react/chapter05/05-4"
         },
         {
-            "title": "05.5 리덕스 툴킷",
-            "link": "/basecamp-react/chapter05/05-5"
+          "title": "05.5 리덕스 툴킷",
+          "link": "/basecamp-react/chapter05/05-5"
         },
         {
-            "title": "05.6 (참고) 이전 버전에서 리액트에서 리덕스 사용하기(connect)",
-            "link": "/basecamp-react/chapter05/05-6"
+          "title": "05.6 (참고) 이전 버전에서 리액트에서 리덕스 사용하기(connect)",
+          "link": "/basecamp-react/chapter05/05-6"
         }
-        ]
+      ]
     },
     {
-        "title": "06장 프로젝트 1",
-        "link": "/basecamp-react/chapter06",
-        "sections": [
+      "title": "06장 프로젝트 1",
+      "link": "/basecamp-react/chapter06",
+      "sections": [
         {
-            "title": "06.1 쇼핑몰 메인 페이지 구현",
-            "link": "/basecamp-react/chapter06/06-1"
+          "title": "06.1 쇼핑몰 메인 페이지 구현",
+          "link": "/basecamp-react/chapter06/06-1"
         }
-        ]
+      ]
     },
     {
-        "title": "07장 프로젝트 2",
-        "link": "/basecamp-react/chapter07",
-        "sections": [
+      "title": "07장 프로젝트 2",
+      "link": "/basecamp-react/chapter07",
+      "sections": [
         {
-            "title": "07.1 blog 만들기",
-            "link": "/basecamp-react/chapter07/07-1"
+          "title": "07.1 blog 만들기",
+          "link": "/basecamp-react/chapter07/07-1"
         }
-        ]
+      ]
     },
     {
-        "title": "08장 부록",
-        "link": "/basecamp-react/chapter08",
-        "sections": [
+      "title": "08장 부록",
+      "link": "/basecamp-react/chapter08",
+      "sections": [
         {
-            "title": "08.1 npm",
-            "link": "/basecamp-react/chapter08/08-1"
+          "title": "08.1 npm",
+          "link": "/basecamp-react/chapter08/08-1"
         },
         {
-            "title": "08.2 axios",
-            "link": "/basecamp-react/chapter08/08-2"
+          "title": "08.2 axios",
+          "link": "/basecamp-react/chapter08/08-2"
         },
         {
-            "title": "08.3 json server",
-            "link": "/basecamp-react/chapter08/08-3"
+          "title": "08.3 json server",
+          "link": "/basecamp-react/chapter08/08-3"
         },
         {
-            "title": "08.4 state 끌어올리기(Lifting-state-up)",
-            "link": "/basecamp-react/chapter08/08-4"
+          "title": "08.4 state 끌어올리기(Lifting-state-up)",
+          "link": "/basecamp-react/chapter08/08-4"
         },
         {
-            "title": "08.5 useLayoutEffect와 useEffect의 차이",
-            "link": "/basecamp-react/chapter08/08-5"
+          "title": "08.5 useLayoutEffect와 useEffect의 차이",
+          "link": "/basecamp-react/chapter08/08-5"
         },
         {
-            "title": "08.6 Hook - usereducer",
-            "link": "/basecamp-react/chapter08/08-6"
+          "title": "08.6 Hook - usereducer",
+          "link": "/basecamp-react/chapter08/08-6"
         },
         {
-            "title": "08.7 JSX 좀 더 알아보기",
-            "link": "/basecamp-react/chapter08/08-7"
+          "title": "08.7 JSX 좀 더 알아보기",
+          "link": "/basecamp-react/chapter08/08-7"
         },
         {
-            "title": "08.8 유효성 검사 (글 링크)",
-            "link": "/basecamp-react/chapter08/08-8"
+          "title": "08.8 유효성 검사 (글 링크)",
+          "link": "/basecamp-react/chapter08/08-8"
         },
         {
-            "title": "08.9 참고할만한 자료 (글 또는 영상 링크)",
-            "link": "/basecamp-react/chapter08/08-9"
+          "title": "08.9 참고할만한 자료 (글 또는 영상 링크)",
+          "link": "/basecamp-react/chapter08/08-9"
         },
         {
-            "title": "08.10 리액트 프로젝트 코드리뷰",
-            "link": "/basecamp-react/chapter08/08-10"
+          "title": "08.10 리액트 프로젝트 코드리뷰",
+          "link": "/basecamp-react/chapter08/08-10"
         },
         {
-            "title": "08.11 리액트 기초 Part.1",
-            "link": "/basecamp-react/chapter08/08-11"
+          "title": "08.11 리액트 기초 Part.1",
+          "link": "/basecamp-react/chapter08/08-11"
         },
         {
-            "title": "08.12 리액트 기초 Part.2",
-            "link": "/basecamp-react/chapter08/08-12"
+          "title": "08.12 리액트 기초 Part.2",
+          "link": "/basecamp-react/chapter08/08-12"
         }
-        ]
+      ]
     }
-    ]
+  ]
 }
