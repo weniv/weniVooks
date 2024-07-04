@@ -106,5 +106,17 @@
     "booklink": "/basecamp-sql",
     "classlink": null,
     "date": "2024-06-21"
+  },
+  {
+    "thumbnail": "/images/basecamp-sql/cover-sql.png",
+    "publisher": "위니브",
+    "title": "데이터 분석 및 시각화",
+    "subtitle": null,
+    "type": "전자책",
+    "price": "무료",
+    "description": "개발자라면 누구나 알아야 할 데이터 분석 및 시각화 핵심 개념에 대해 살펴봅니다.",
+    "booklink": "/databooks",
+    "classlink": null,
+    "date": "2024-07-04"
   }
 ]
