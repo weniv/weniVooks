@@ -1,5 +1,5 @@
 ---
-title: React 개념(소개))
+title: React 개념(소개)
 date: 2024-07-02
 ---
 

@@ -12,7 +12,7 @@ import path, { join } from 'path';
 export const CWD = process.cwd();
 export const BASEURL = '_md';
 export const ABSOLUTE_PATH = path.join(CWD, BASEURL);
-const EXCEPTBOOKLIST = ['html-css', 'book', 'polars']; // 검색대상에서 제외할 책 리스트
+const EXCEPTBOOKLIST = ['html-css', 'book', 'polars', 'basecamp-react']; // 검색대상에서 제외할 책 리스트
 
 /**
  * 검색 대상에서 특정책 제외
