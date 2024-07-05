@@ -35,7 +35,7 @@ export default function PageControl({ data, DEFAULT_PATH }) {
           const prevSection = sections[index - 1].sections;
           return {
             prev: prevSection[prevSection.length - 1],
-            next: section.sections ? section.sections[0] : '다음챕터',
+            next: section.sections ? section.sections[0] : null,
           };
         }
       }
@@ -89,6 +89,17 @@ export default function PageControl({ data, DEFAULT_PATH }) {
   if (pathname === `/${DEFAULT_PATH}`) {
     next = data.sections[0];
   }
+  const safeHref = (link) => {
+    if (typeof link === 'string') {
+      return link;
+    }
+    if (typeof link === 'object' && link !== null) {
+      return link;
+    }
+    return undefined; // 또는 적절한 기본값
+  };
+
+  console.log;
 
   return (
     <div className={styles.page}>
