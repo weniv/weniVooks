@@ -103,7 +103,6 @@
   }
 
   @media screen and (min-width: 641px) {
-    height: 50rem;
     .editor_wrap,
     .preview_wrap {
       width: calc((100% - 1px) / 2);
@@ -112,9 +111,5 @@
 
   @media screen and (max-width: 640px) {
     flex-direction: column;
-    .editor_wrap,
-    .preview_wrap {
-      height: 40rem;
-    }
   }
 }
