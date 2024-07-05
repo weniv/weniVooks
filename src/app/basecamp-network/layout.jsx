@@ -1,31 +1,36 @@
 import '@/styles/sub.scss';
 
-import { DEFAULT_PATH, META_DATA, TITLE } from './data';
-import menuDdata from '@/data/menu/basecamp-network.json';
-
 import Header from '@/components/layouts/header/Header';
+import { getMenu } from '@/sub/getMenu';
 import Side from '@/components/layouts/menu/Side';
-import Page from '@/components/layouts/pagecontrol/PageControl';
 import BtnTop from '@/components/common/button/BtnTop';
-import Breadcrumb from '@/components/layouts/breadcrumb/Breadcrumb';
+import PageControl from '@/components/layouts/pagecontrol/PageControl';
+import NewBreadcrumb from '@/components/sub/layout/NewBreadcrumb';
+import { DEFAULT_PATH, EDITOR, TITLE } from './bookInfo';
+import { PyScriptProvider } from '@/context/PyScriptContext';
 
-export const metadata = META_DATA;
+export default function Layout({ children }) {
+  let title = TITLE || '';
+  const menuData = getMenu(DEFAULT_PATH, title);
 
-export default async function Layout({ children }) {
   return (
     <>
       <Header />
-
       <div className="sub">
-        <h2 className="a11y-hidden">{TITLE}</h2>
-        <Side data={menuDdata} />
+        <h2 className="a11y-hidden">{title}</h2>
+        <Side data={menuData} />
         <div className="sub__content">
-          <Breadcrumb data={menuDdata} DEFAULT_PATH={DEFAULT_PATH} />
-          {children}
+          <NewBreadcrumb data={menuData} DEFAULT_PATH={DEFAULT_PATH} />
+
+          {EDITOR && EDITOR.includes('Python') ? (
+            <PyScriptProvider>{children}</PyScriptProvider>
+          ) : (
+            <> {children}</>
+          )}
         </div>
       </div>
 
-      <Page data={menuDdata} DEFAULT_PATH={DEFAULT_PATH} />
+      <PageControl data={menuData} DEFAULT_PATH={DEFAULT_PATH} />
       <BtnTop />
     </>
   );

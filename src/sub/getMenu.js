@@ -65,7 +65,11 @@ function getDirectoryStructure(dirPath, DEFAULT_PATH) {
           path
             .relative(postsDirectory, dirPath)
             .replace(/\\/g, '/')
-            .split('chapter0')[1]
+            .split('chapter0')[1] ||
+          path
+            .relative(postsDirectory, dirPath)
+            .replace(/\\/g, '/')
+            .split('chapter')[1]
         }장 ${chapterInfo.chapter}`
       : path.basename(dirPath),
     link: `/${path.relative(postsDirectory, dirPath).replace(/\\/g, '/')}`,
