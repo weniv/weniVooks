@@ -5,6 +5,8 @@
   background-color: var(--grayLv1);
   color: var(--grayLv4);
   line-height: 1.8;
+  box-sizing: border-box;
+  height: 100%;
 }
 .cm-s-custom .cm-comment {
   color: var(--grayLv3);

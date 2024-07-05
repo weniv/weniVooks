@@ -20,8 +20,8 @@ export default function CodeMirrorEditor({
   mode,
   inputText,
   setInputText,
-  minHeight = '400px',
-  maxHeight = '600px',
+  minHeight = '300px',
+  maxHeight = '500px',
   ...rest
 }) {
   const editorRef = useRef(null);
@@ -84,22 +84,31 @@ export default function CodeMirrorEditor({
   );
 
   return (
-    <CodeMirror
-      editorDidMount={handleEditorDidMount}
-      options={{
-        mode: mode, // 코드의 언어 모드 설정 ('javascript', 'python')
-        theme: 'custom', // 사용자 정의 테마 사용
-        smartIndent: true, // 새 줄에서 자동으로 적절한 들여쓰기를 적용
-        lineNumbers: true, // 줄 번호 표시
-        matchBrackets: true, // 괄호 쌍 매칭 하이라이트
-        indentUnit: 2, // 들여쓰기 단위 (스페이스 개수)
-        styleActiveLine: true, // 현재 커서가 있는 줄 하이라이트
-        lineWiseCopyCut: true, // 줄 단위로 복사/잘라내기 활성화
-        autofocus: false, // 자동으로 에디터에 포커스
-        inputStyle: 'textarea', // 입력 방식 설정
+    <div
+      style={{
+        height: editorHeight,
+        minHeight,
+        maxHeight,
+        overflow: 'auto',
       }}
-      onChange={handleChange}
       {...rest}
-    />
+    >
+      <CodeMirror
+        editorDidMount={handleEditorDidMount}
+        options={{
+          mode: mode, // 코드의 언어 모드 설정 ('javascript', 'python')
+          theme: 'custom', // 사용자 정의 테마 사용
+          smartIndent: true, // 새 줄에서 자동으로 적절한 들여쓰기를 적용
+          lineNumbers: true, // 줄 번호 표시
+          matchBrackets: true, // 괄호 쌍 매칭 하이라이트
+          indentUnit: 2, // 들여쓰기 단위 (스페이스 개수)
+          styleActiveLine: true, // 현재 커서가 있는 줄 하이라이트
+          lineWiseCopyCut: true, // 줄 단위로 복사/잘라내기 활성화
+          autofocus: false, // 자동으로 에디터에 포커스
+          inputStyle: 'textarea', // 입력 방식 설정
+        }}
+        onChange={handleChange}
+      />
+    </div>
   );
 }
