@@ -1,8 +1,6 @@
 'use client';
 import { usePathname } from 'next/navigation';
-
 import styles from './PageControl.module.scss';
-
 import SVGNextArrow from '@/components/svg/SVGNextArrow';
 import SVGPrevArrow from '@/components/svg/SVGPrevArrow';
 import Btn from '../../common/button/Btn';
@@ -12,98 +10,55 @@ export default function PageControl({ data, DEFAULT_PATH }) {
   const { windowWidth } = useWindowSize();
   const pathname = usePathname();
 
+  const flattenSections = (sections) => {
+    let flattened = [];
+    sections.forEach((section) => {
+      flattened.push(section);
+      if (section.sections) {
+        flattened = flattened.concat(flattenSections(section.sections));
+      }
+    });
+    return flattened;
+  };
+
   const findPage = (sections, path) => {
-    if (path === DEFAULT_PATH) {
+    const flattenedSections = flattenSections(sections);
+
+    if (path === `/${DEFAULT_PATH}`) {
       return {
         prev: null,
-        next: sections[0],
+        next: flattenedSections[0],
       };
     }
 
-    for (const section of sections) {
-      if (section.link === path) {
-        // 2depth
-        const index = sections.indexOf(section);
+    let prevPage = null;
+    let currentPage = null;
+    let nextPage = null;
 
-        if (index === 0) {
-          // 첫번째
-          return {
-            prev: data,
-            next: section.sections[0],
-          };
-        } else {
-          const prevSection = sections[index - 1].sections;
-          return {
-            prev: prevSection[prevSection.length - 1],
-            next: section.sections ? section.sections[0] : null,
-          };
-        }
-      }
-      if (section.sections) {
-        const currentSection = section.sections.find(
-          (item) => item.link === path,
-        );
-
-        if (currentSection) {
-          const sectionLength = section.sections.length - 1;
-          const index = section.sections.indexOf(currentSection);
-          const prevSection = sections.find(
-            (item) => item.link === section.link,
-          );
-          const prevSectionIndex = sections.indexOf(prevSection);
-
-          if (index === 0) {
-            return {
-              prev: section,
-              next: section.sections[index + 1]
-                ? section.sections[index + 1]
-                : sections[prevSectionIndex + 1],
-            };
-          } else if (index === sectionLength) {
-            const parentIndex = sections.indexOf(section) + 1;
-
-            return {
-              prev: section.sections[index - 1],
-              next: sections[parentIndex] ? sections[parentIndex] : null,
-            };
-          } else {
-            return {
-              prev: section.sections[index - 1],
-              next: section.sections[index + 1],
-            };
-          }
-        }
+    for (let i = 0; i < flattenedSections.length; i++) {
+      if (flattenedSections[i].link === path) {
+        currentPage = flattenedSections[i];
+        prevPage =
+          i === 0
+            ? { title: data.title, link: `/${DEFAULT_PATH}` }
+            : flattenedSections[i - 1];
+        nextPage =
+          i < flattenedSections.length - 1 ? flattenedSections[i + 1] : null;
+        break;
       }
     }
 
     return {
-      prev: null,
-      next: null,
+      prev: prevPage,
+      next: nextPage,
     };
   };
 
-  const { prev: findPrev, next: findNext } = findPage(data.sections, pathname);
-  let prev = findPrev;
-  let next = findNext;
-
-  if (pathname === `/${DEFAULT_PATH}`) {
-    next = data.sections[0];
-  }
-  const safeHref = (link) => {
-    if (typeof link === 'string') {
-      return link;
-    }
-    if (typeof link === 'object' && link !== null) {
-      return link;
-    }
-    return undefined; // 또는 적절한 기본값
-  };
-
-  console.log;
+  const { prev, next } = findPage(data.sections, pathname);
 
   return (
     <div className={styles.page}>
-      <Btn className={styles.btnPrev} href={prev && prev.link} disabled={!prev}>
+      <Btn className={styles.btnPrev} href={prev?.link} disabled={!prev}>
         <SVGPrevArrow color="grayLv3" />
         {windowWidth > 1024 ? (
           <>
@@ -114,7 +69,7 @@ export default function PageControl({ data, DEFAULT_PATH }) {
           <span className="a11y-hidden">{prev ? prev.title : '이전'}</span>
         )}
       </Btn>
-      <Btn className={styles.btnNext} href={next && next.link} disabled={!next}>
+      <Btn className={styles.btnNext} href={next?.link} disabled={!next}>
         {windowWidth > 1024 ? (
           <>
             <span className="a11y-hidden">다음</span>{' '}

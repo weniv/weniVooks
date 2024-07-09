@@ -122,7 +122,10 @@ function getChapterNum(filename) {
     const section = parts[1].replace(/^0+/, ''); // Remove leading zeros
     formatted = `${chapter || 0}.${section}`;
   } else {
-    formatted = `${formatted.replace(/^0+/, '').split('chapter0')[1]}장`;
+    formatted = `${
+      formatted.replace(/^0+/, '').split('chapter0')[1] ||
+      formatted.split('chapter')[1]
+    }장 `;
   }
 
   return formatted;
