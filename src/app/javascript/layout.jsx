@@ -6,8 +6,7 @@ import Side from '@/components/layouts/menu/Side';
 import BtnTop from '@/components/common/button/BtnTop';
 import PageControl from '@/components/layouts/pagecontrol/PageControl';
 import NewBreadcrumb from '@/components/sub/layout/NewBreadcrumb';
-import { DEFAULT_PATH, EDITOR, TITLE } from './bookInfo';
-import { PyScriptProvider } from '@/context/PyScriptContext';
+import { DEFAULT_PATH, TITLE } from './bookInfo';
 
 export default function Layout({ children }) {
   let title = TITLE || '';
@@ -22,11 +21,7 @@ export default function Layout({ children }) {
         <div className="sub__content">
           <NewBreadcrumb data={menuData} DEFAULT_PATH={DEFAULT_PATH} />
 
-          {EDITOR && EDITOR.includes('Python') ? (
-            <PyScriptProvider>{children}</PyScriptProvider>
-          ) : (
-            <> {children}</>
-          )}
+          {children}
         </div>
       </div>
 

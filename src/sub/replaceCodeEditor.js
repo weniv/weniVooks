@@ -12,18 +12,16 @@ const JavaScriptEditor = dynamic(
     ssr: false,
   },
 );
-const PythonEditor = dynamic(() => import('@/components/sub/PythonEditor'), {
-  ssr: false,
-});
 
 export default function replaceCodeEditor(htmlString, Editor) {
   const dom = new JSDOM(htmlString);
   const document = dom.window.document;
 
-  const darkElements = document.querySelectorAll(
+  const darkElementsJs = document.querySelectorAll(
     'pre.weniv-dark[data-language="javascript-exec"]',
   );
-  darkElements?.forEach((el) => el.remove());
+
+  darkElementsJs?.forEach((el) => el.remove());
 
   const elements = Array.from(document.body.childNodes)
     .map((node, index) => {
@@ -52,14 +50,6 @@ export default function replaceCodeEditor(htmlString, Editor) {
 
           return (
             <JavaScriptEditor key={`js-editor-${index}`} initialCode={code} />
-          );
-        } else if (
-          Editor.includes('Python') &&
-          node.querySelector('[data-language="python-exec"]')
-        ) {
-          const code = node.textContent || '';
-          return (
-            <PythonEditor key={`python-editor-${index}`} initialCode={code} />
           );
         } else {
           return <React.Fragment>{parse(node.outerHTML)}</React.Fragment>;
