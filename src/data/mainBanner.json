@@ -20,6 +20,20 @@
     "categoryBg": "#fff",
     "thumbnail": "/images/banner/main-banner_20240227-1.jpg",
     "thumbnailMobile": "/images/banner/main-banner_20240227-1m.jpg",
+    "category": "제주코딩베이스캠프 부트캠프",
+    "title": ["'제주코딩베이스캠프'와 함께", "개발자로 성장하는 부트캠프!"],
+    "description": [
+      "프론트엔드, 백엔드, 데이터 분석 등 다양한 부트캠프를 만나보세요!"
+    ],
+    "link": "https://bootcamp.weniv.co.kr/"
+  },
+  {
+    "bgColor": "#2E6FF2",
+    "textColor": "#fff",
+    "categoryColor": "#121314",
+    "categoryBg": "#fff",
+    "thumbnail": "/images/banner/main-banner_20240227-1.jpg",
+    "thumbnailMobile": "/images/banner/main-banner_20240227-1m.jpg",
     "category": "제주코딩베이스캠프 VOD",
     "title": ["'제주코딩베이스캠프'와 함께", "코알못에서 웹 서비스 런칭까지,"],
     "description": [
