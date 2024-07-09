@@ -1,11 +1,91 @@
 ---
+chapter: 파이널 프로젝트
 title: 파이널 프로젝트
-date: 2024-01-29
+date: 2024-01-30
 ---
 
-:::div{.box .list}
-**목차**
+# 1. 최종 프로젝트 의도와 필요 지식
 
-1. [파이널 프로젝트](/python/chapter14/14-1)
+## 1.1 의도
 
-:::
+프로그래밍 언어는 결국 무엇을 만드는 도구입니다. 목적을 가지고 실제 사용될만한 프로젝트를 해볼 필요가 있습니다. 이러한 프로젝트를 할 때에는 반드시 기본 문법 외에 다른 라이브러리를 사용하게 됩니다. 파이썬의 강점 중 하나가 `큰 생태계`임을 기억해주세요.
+
+이 프로젝트를 통해 데이터 구조화, 파일 입출력, HTML 구조, 웹 통신의 구조 등을 다양하게 학습하기를 기대하며 프로젝트 문제를 출제하였습니다.
+
+## 1.2 필요 지식
+
+이 프로젝트를 위해 Python에 대한 공부가 필수적이며 특히 HTML, CSS, 개발자 도구에 대한 기초 지식이 필요합니다. 이 지식은 제주코딩베이스캠프 30분 요약 강좌를 참고해주세요. 영상을 보지 않고 프로젝트를 바로 시작하고 모르는 부분을 ChatGPT에게 물어가며 학습하는 것도 훌륭한 방법입니다.
+
+::a[(신) 올 뉴 30분 요약강좌(HTML) - 2022년까지 업데이트]{class='btn-link' href="https://www.youtube.com/watch?v=PQymWXKehlk&list=PLkfUwwo13dlUhRuBra9j6YCypYRdifd2O" target="\_blank"}
+
+**개발자 도구 사용법**
+
+1. 크롤링 대상 페이지를 열고 개발자 도구를 엽니다. 대부분의 웹 브라우저에서 개발자 도구는 `Ctrl + Shift + I` (Windows/Linux) 또는 `Cmd + Opt + I` (Mac)를 누르거나, 마우스 오른쪽 버튼을 클릭하여 "검사(Inspect)"를 선택함으로써 열 수 있습니다.
+2. 개발자 도구가 열리면, 페이지의 구조를 볼 수 있는 "Elements" 탭이 보일 것입니다. 이곳에서 HTML 소스 코드를 볼 수 있으며, 웹 페이지의 각 요소들이 어떻게 구성되어 있는지 확인할 수 있습니다.
+3. 특정 요소의 id와 class를 찾기 위해, 개발자 도구 상단에 있는 마우스 포인터 모양의 아이콘(요소 선택 도구)을 클릭합니다. 이후, 웹 페이지에서 조사하고 싶은 요소를 클릭하면 개발자 도구의 Elements 탭에서 해당 HTML 코드로 직접 이동합니다.
+4. 선택한 요소의 HTML 태그를 확인하여 `id`와 `class` 속성을 찾습니다. 예를 들어, `<em id="_market_sum" class="one two three">349조 2,323</em>`와 같이 표시됩니다. `id`는 페이지 내에서 유일한 식별자이며, `class`는 스타일링을 위해 같은 스타일을 공유하는 여러 요소에 적용됩니다. class는 여러개가 들어있을 수 있습니다. 셈플로 one, two, three 3개를 넣어보았습니다.
+
+   ![](/images/python/chapter14-1.png '개발자도구 화면')
+
+5. id나 class를 사용하여 크롤링 코드에서 특정 요소를 식별하고 데이터를 추출할 수 있습니다. 예를 들어, Python의 `BeautifulSoup` 라이브러리를 사용하면 select 메서드를 통해 특정 id나 class를 가진 요소를 쉽게 찾을 수 있습니다.
+
+   ```python
+   soup.select('#_market_sum') # 아이디 _market_sum 입니다.
+   soup.select('.one') # 클래스 one 입니다.
+   ```
+
+# 2. 주가 크롤링하여 저장하기
+
+## 2.1 과제 설명
+
+- **목표**: `https://www.paullab.co.kr/stock.html` 페이지에서 '제주코딩베이스캠프'의 2019년 10월 총 거래량 데이터를 크롤링하여 저장합니다.
+- **요구 사항**:
+  1. **DailyTradingVolume 클래스**:
+     - 클래스는 날짜, 종가, 전일비, 시가, 고가, 저가, 거래량 데이터를 속성으로 가져야 합니다.
+     - 매일의 거래 데이터를 해당 클래스 인스턴스로 생성하고 이를 리스트로 관리합니다.
+  2. **PublicCompany 클래스**:
+     - 회사명, 시가총액, 상장주식수, 매출, 비용, 순익을 속성으로 가져야 합니다.
+     - DailyTradingVolume 인스턴스의 리스트를 포함하여, 해당 회사의 일일 거래 데이터에 접근할 수 있어야 합니다.
+  3. 2019년 10월의 데이터만을 대상, 해당 월의 총 거래량을 계산할 수 있어야 합니다.
+  4. 결과는 csv 파일로 저장할 수 있어야 합니다.
+
+## 2.2 추가 지침
+
+- 샘플 코드를 참조하여 시작하되, 필요에 따라 코드를 수정하고 확장합니다.
+
+  ```python
+  import requests
+  from bs4 import BeautifulSoup
+
+  response = requests.get('http://www.paullab.co.kr/stock.html')
+  # response.encoding = 'utf-8'
+  html = response.text
+
+  soup = BeautifulSoup(html, 'html.parser') # 원하는 문자열로 잘라줌
+  soup.select('#update') # 원하는 데이터 id, class, HTML의 id와 class입니다.
+  ```
+
+- 필요에 따라 BeautifulSoup 및 requests 라이브러리의 사용법을 숙지하세요. 무료 영상이 녹화되어 있으니 참고바랍니다.
+
+::a[[Summary 시리즈 2] 30분 Crawling 요약 1]{class='btn-link' href="https://youtu.be/l_pjQWtJf3Y" target="\_blank"}
+
+::a[[Summary 시리즈 2] 30분 Crawling 요약 2]{class='btn-link' href="https://youtu.be/aJzuPAAnCm8" target="\_blank"}
+
+# 3. 북 크롤링하여 저장하기
+
+## 3.1 과제 설명
+
+- **목표**: `https://paullab.co.kr/bookservice/` 페이지에서 '위니브' 출판사가 출간한 책의 데이터를 크롤링하여 HTML 파일로 저장합니다.
+- **요구 사항**
+  1. **Book 클래스**
+     - 제목, 이미지 링크, 페이지 링크, 저자, 가격을 속성으로 가져야 합니다.
+     - 이 클래스를 사용하여 크롤링된 책의 데이터를 인스턴스로 관리합니다.
+  2. 출력 파일은 `.html` 형식이어야 합니다.
+  3. HTML 파일에는 책 제목이 `<h2>` 태그로, 이미지는 직접적으로 보여야 하며, 저자와 가격 정보가 포함되어야 합니다.
+  4. 책 링크는 클릭 가능해야 합니다.
+
+## 3.2 추가 지침
+
+- 책 정보를 크롤링하여 클래스 인스턴스를 만들고, 이를 HTML 파일로 변환하는 과정을 구현합니다.
+- 이미지를 직접 보여주기 위해 `<img>` 태그의 사용법을 숙지하세요.
+- 책의 제목을 클릭하면 해당 책의 상세 페이지로 이동할 수 있도록 `<a>` 태그를 활용합니다.
