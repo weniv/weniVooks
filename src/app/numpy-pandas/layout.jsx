@@ -1,14 +1,15 @@
-import { DEFAULT_PATH, DESCRIPTION, TITLE, OG_IMG } from './bookInfo';
-
 import '@/styles/sub.scss';
-
-import Header from '@/components/layouts/header/Header';
+import { DEFAULT_PATH, DESCRIPTION, TITLE, OG_IMG } from './bookInfo';
 import { getMenu } from '@/sub/getMenu';
-import Side from '@/components/layouts/menu/Side';
+
+// components
 import BtnTop from '@/components/common/button/BtnTop';
+import Header from '@/components/layouts/header/Header';
 import PageControl from '@/components/layouts/pagecontrol/PageControl';
+import Side from '@/components/layouts/menu/Side';
 import NewBreadcrumb from '@/components/sub/layout/NewBreadcrumb';
 
+// meta
 export async function generateMetadata(parent) {
   const IMG = OG_IMG || (await parent).openGraph?.images;
 

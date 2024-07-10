@@ -1,12 +1,30 @@
 import '@/styles/sub.scss';
-
-import Header from '@/components/layouts/header/Header';
+import { DEFAULT_PATH, DESCRIPTION, TITLE, OG_IMG } from './bookInfo';
 import { getMenu } from '@/sub/getMenu';
-import Side from '@/components/layouts/menu/Side';
+
+// components
 import BtnTop from '@/components/common/button/BtnTop';
+import Header from '@/components/layouts/header/Header';
 import PageControl from '@/components/layouts/pagecontrol/PageControl';
+import Side from '@/components/layouts/menu/Side';
 import NewBreadcrumb from '@/components/sub/layout/NewBreadcrumb';
-import { DEFAULT_PATH, TITLE } from './bookInfo';
+
+// meta
+export async function generateMetadata(parent) {
+  const IMG = OG_IMG || (await parent).openGraph?.images;
+
+  return {
+    title: `${TITLE} | 위니북스`,
+    description: DESCRIPTION,
+    openGraph: {
+      type: 'website',
+      title: `${TITLE} | 위니북스`,
+      url: `https://books.weniv.co.kr/${DEFAULT_PATH}`,
+      siteName: '위니북스',
+      images: [IMG],
+    },
+  };
+}
 
 export default function Layout({ children }) {
   let title = TITLE || '';

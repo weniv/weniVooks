@@ -1,22 +1,5 @@
-import { DEFAULT_PATH, DESCRIPTION, TITLE, OG_IMG, COVER } from './bookInfo';
+import { TITLE, COVER } from './bookInfo';
 import Image from 'next/image';
-
-export async function generateMetadata(parent) {
-  const IMG =
-    `/images/${DEFAULT_PATH}/og.png` || (await parent).openGraph?.images;
-
-  return {
-    title: `${DEFAULT_PATH} | 위니북스`,
-    description: DESCRIPTION,
-    openGraph: {
-      type: 'website',
-      title: `${TITLE} | 위니북스`,
-      url: `https://books.weniv.co.kr/${DEFAULT_PATH}`,
-      siteName: TITLE,
-      images: [IMG],
-    },
-  };
-}
 
 // 교안 표지
 export default function Home() {
