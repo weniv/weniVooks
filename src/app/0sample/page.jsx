@@ -17,15 +17,6 @@ export async function generateMetadata(parent) {
     },
   };
 }
-export const dynamicParams = false;
-
-export function generateStaticParams() {
-  return [
-    { book: 'test' },
-    { book: 'book' },
-    { book: 'basecamp-html-css-test' },
-  ];
-}
 
 // 교안 표지
 export default function Home() {
