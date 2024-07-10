@@ -1,5 +1,5 @@
 import axios from 'axios';
-
+import bookData from '@/data/bookList.json';
 const PAGE = 1;
 
 // 개행문자 통일, 각 줄을 배열의 요소로 변환
@@ -265,7 +265,6 @@ export const splitArray = (array, delimiter) => {
 
 // 책 종류 선택
 export const choiceBookKind = (bookKind) => {
-  const bookData = require(`@/data/BookList.json`);
   const result = bookData.reduce((acc, item) => {
     if (item.booklink) {
       acc[item.booklink.replace('/', '')] = item.title;
@@ -406,8 +405,6 @@ export const getChapterContent = (chapter, keyword) => {
  */
 export const getBookTitle = (link) => {
   const result = link.split(/[\/\\]/).filter((part) => part)[0];
-  console.log(result);
-
   return choiceBookKind(result);
 };
 

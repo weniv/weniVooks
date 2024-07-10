@@ -9,12 +9,10 @@ import {
 } from '@/app/search/searchUtils';
 import fs, { readdirSync, statSync, readFileSync } from 'fs';
 import path, { join } from 'path';
-
+import bookData from '@/data/bookList.json';
 export const CWD = process.cwd();
 export const BASEURL = '_md';
 export const ABSOLUTE_PATH = path.join(CWD, BASEURL);
-
-const bookData = require(`@/data/BookList.json`);
 
 const BOOK_LIST = bookData.reduce((acc, item) => {
   if (item.booklink) {
