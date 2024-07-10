@@ -1,5 +1,5 @@
 'use client';
-import React, { useEffect, useState } from 'react';
+import React, { Fragment, useEffect, useState } from 'react';
 import Link from 'next/link';
 
 import styles from '@/components/search/Pagination.module.scss';
@@ -89,7 +89,9 @@ export default function Pagination({ page, setPage, searchResults }) {
               ...
             </span>
           ) : (
-            renderPageButton(currentPage, page, setPage)
+            <Fragment key={idx}>
+              {renderPageButton(currentPage, page, setPage)}
+            </Fragment>
           ),
         )}
       </div>
