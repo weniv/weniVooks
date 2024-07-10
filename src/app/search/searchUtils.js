@@ -264,9 +264,16 @@ export const splitArray = (array, delimiter) => {
 };
 
 // 책 종류 선택
-export const choiceBookKind = (bookkind) => {
-  const bookData = require(`@/data/menu/${bookkind}.json`);
-  return bookData.title;
+export const choiceBookKind = (bookKind) => {
+  const bookData = require(`@/data/BookList.json`);
+  const result = bookData.reduce((acc, item) => {
+    if (item.booklink) {
+      acc[item.booklink.replace('/', '')] = item.title;
+    }
+    return acc;
+  }, {});
+
+  return result[bookKind];
 };
 
 // 파일의 상대경로를 반환하는 함수
@@ -394,11 +401,13 @@ export const getChapterContent = (chapter, keyword) => {
 
 /**
  * md 파일 책 이름 출력하는 함수
- * @param {string} link .md 파일 링크
+ * @param {string} link - .md 파일 링크
  * @returns {string} 책 이름
  */
 export const getBookTitle = (link) => {
   const result = link.split(/[\/\\]/).filter((part) => part)[0];
+  console.log(result);
+
   return choiceBookKind(result);
 };
 

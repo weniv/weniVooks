@@ -1,10 +1,11 @@
+// @ts-nocheck
 import {
   parseMarkdown,
   textNormalize,
   filteredChapter,
   getChapterContent,
-  getBookTitle,
   getMetaData,
+  getBookTitle,
 } from '@/app/search/searchUtils';
 import fs, { readdirSync, statSync, readFileSync } from 'fs';
 import path, { join } from 'path';
@@ -12,20 +13,15 @@ import path, { join } from 'path';
 export const CWD = process.cwd();
 export const BASEURL = '_md';
 export const ABSOLUTE_PATH = path.join(CWD, BASEURL);
-const EXCEPTBOOKLIST = ['html-css', 'book', 'polars', 'basecamp-react']; // 검색대상에서 제외할 책 리스트
 
-/**
- * 검색 대상에서 특정책 제외
- * @param {string[]} filePath 책 리스트
- * @param {string[]} exceptBookList 검색에서 제외할 책 리스트
- * @returns {string[]} 필터링 된 책 리스트
- */
-const exceptBook = (bookList, exceptBookList) => {
-  const result = bookList
-    .filter((book) => !exceptBookList.includes(book.toLowerCase()))
-    .filter((book) => book.toLowerCase() !== '.ds_store');
-  return result;
-};
+const bookData = require(`@/data/BookList.json`);
+
+const BOOK_LIST = bookData.reduce((acc, item) => {
+  if (item.booklink) {
+    acc.push(item.booklink.replace('/', ''));
+  }
+  return acc;
+}, []); // 검색대상 책 리스트
 
 /**
  * 절대경로를 받아 모든 md파일의 주소를 배열로 출력하는 함수
@@ -36,8 +32,9 @@ export const getFiles = (absolutePath) => {
   const files = fs.readdirSync(absolutePath);
   let fileList = [];
 
-  // 검색에서 제외할 책을 필터링
-  const filteredBookList = exceptBook(files, EXCEPTBOOKLIST);
+  const filteredBookList = files
+    .filter((book) => BOOK_LIST.includes(book.toLowerCase()))
+    .filter((book) => book.toLowerCase() !== '.ds_store');
 
   const readDir = (dirPath) => {
     const mdFiles = readdirSync(dirPath);
@@ -104,7 +101,9 @@ export const customizedData = (dataList, keyword) => {
     const getTitleData = getMetaData(html);
     const title = getTitleData.title; // .md 파일 제목
     const chapter = getTitleData.chapterTitle; // .md 파일 챕터명
-    const bookTitle = getBookTitle(link); // ,md 파일 책 제목
+
+    const bookTitle = getBookTitle(link); // .md 파일 책 제목
+
     let content;
 
     const chapterList = filteredChapter(html, keyword); // 키워드를 포함하는 챕터
