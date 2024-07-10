@@ -6,4 +6,4 @@ export const DESCRIPTION =
 export const COVER = `/images/${DEFAULT_PATH}/cover-${DEFAULT_PATH}.png`; // 책 표지
 export const OG_IMG = `/images/${DEFAULT_PATH}/cover-${DEFAULT_PATH}.png`; // 링크 공유 시 나올 이미지
 
-export const EDITOR = null;
+export const EDITOR = ['Python'];
