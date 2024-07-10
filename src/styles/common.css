@@ -1,0 +1,38 @@
+.codeblock-wrap {
+  flex-direction: column;
+  border: 1px solid var(--grayLv2);
+  border-radius: 10px;
+  margin: 15px 0;
+}
+
+.codeblock-wrap span {
+  color: var(--surface);
+}
+
+.codeblock-header {
+  display: flex;
+  padding: 10px 12px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.codeblock-exec-button,
+.codeblock-copy-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.codeblock-result {
+  padding: 4px 20px;
+  font-size: 16px;
+  line-height: 22px;
+  word-break: break-all;
+  white-space: normal;
+  margin: 1em 0px;
+}
+
+.codeblock-result p {
+  white-space: pre-wrap;
+  line-height: 30px;
+}

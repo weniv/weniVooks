@@ -3,6 +3,7 @@ import { JSDOM } from 'jsdom';
 
 import { getMarkdown } from '@/sub/getMarkdown';
 import replaceCodeEditor from '@/sub/replaceCodeEditor';
+import JavaScriptContent from './JavaScriptContent';
 
 export default async function ContentPage({
   chapter,
@@ -37,7 +38,9 @@ export default async function ContentPage({
           <py-config type="json">{JSON.stringify(json)}</py-config>
         </>
       );
-    } else if (EDITOR.includes('HTML/CSS')) {
+    } else if (EDITOR.includes('JavaScript')) {
+      return <JavaScriptContent htmlContent={htmlContent} title={title} />;
+    } else {
       return (
         <>
           <h3 className="title">{title}</h3>

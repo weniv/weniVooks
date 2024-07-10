@@ -1,9 +1,8 @@
-import { getPostDetail } from '@/utils/getPosts';
-import { DEFAULT_PATH, TITLE, DESC } from '../data';
-import { JSDOM } from 'jsdom';
 import Script from 'next/script';
-import '../../../../public/codeblocks/common.css';
-import '../../../../public/codeblocks/codemirror.css';
+import { JSDOM } from 'jsdom';
+
+import '@/styles/common.css';
+import '@/styles/codemirror.css';
 
 function replaceCodeWithJsRepl(htmlString) {
   const dom = new JSDOM(htmlString);
@@ -30,34 +29,17 @@ function replaceCodeWithJsRepl(htmlString) {
   return dom.serialize();
 }
 
-export async function generateMetadata({ params }, parent) {
-  const { title } = await getPostDetail(DEFAULT_PATH, params.slug);
-  const previousImages = (await parent).openGraph?.images || [];
-
-  return {
-    metadataBase: new URL(`https://books.weniv.co.kr${DEFAULT_PATH}`),
-    title: `${title ? title + ' | ' : ''} ${TITLE}`,
-    openGraph: {
-      type: 'website',
-      title: `${title ? title + ' | ' : ''} ${TITLE}`,
-      description: DESC,
-      // url: `${url}`,
-      siteName: TITLE,
-      images: [`/images${DEFAULT_PATH}/og.png`, ...previousImages],
-    },
-  };
-}
-
-export default async function Page({ params }) {
-  const { title, htmlContent } = await getPostDetail(DEFAULT_PATH, params.slug);
-  const replacedHtmlContent = replaceCodeWithJsRepl(htmlContent);
-
+export default function JavaScriptContent({ htmlContent, title }) {
   return (
     <>
       {htmlContent && (
         <>
           <h3 className="title">{title}</h3>
-          <div dangerouslySetInnerHTML={{ __html: replacedHtmlContent }} />
+          <div
+            dangerouslySetInnerHTML={{
+              __html: replaceCodeWithJsRepl(htmlContent),
+            }}
+          />
         </>
       )}
       <link rel="stylesheet" href="/codeblocks/codemirror.css" />
