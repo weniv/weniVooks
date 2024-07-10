@@ -14,12 +14,12 @@
     "link": "https://www.youtube.com/@jejucodingcamp"
   },
   {
-    "bgColor": "#2E6FF2",
+    "bgColor": "#1555E5",
     "textColor": "#fff",
     "categoryColor": "#121314",
     "categoryBg": "#fff",
-    "thumbnail": "/images/banner/main-banner_20240227-1.jpg",
-    "thumbnailMobile": "/images/banner/main-banner_20240227-1m.jpg",
+    "thumbnail": "/images/banner/main-banner-20240710.jpg",
+    "thumbnailMobile": "/images/banner/main-banner-20240710m.jpg",
     "category": "제주코딩베이스캠프 부트캠프",
     "title": ["'제주코딩베이스캠프'와 함께", "개발자로 성장하는 부트캠프!"],
     "description": [
