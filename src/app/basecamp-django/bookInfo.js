@@ -2,9 +2,8 @@ export const DEFAULT_PATH = 'basecamp-django';
 export const TITLE = 'Django 베이스캠프';
 export const DESCRIPTION = '위니브의 다양한 교안을 웹에서 확인해보세요!';
 
-// 'HTML/CSS', 'JavaScript', 'Python'
-export const EDITOR = null;
-
-// 다를 경우 수정하세요! 경로에 알맞은 형식으로 넣었다면 수정할 필요 없습니다.
 export const COVER = `/images/${DEFAULT_PATH}/cover-django.png`;
-export const OG_IMG = `/images/opengraph-image.png`;
+export const OG_IMG = `/images/${DEFAULT_PATH}/cover.png`; // 링크 공유 시 나올 이미지
+
+// 'HTML/CSS', 'Python', 'JavaScript' 중 선택하여 삽입해주세요
+export const EDITOR = [];
