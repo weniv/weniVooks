@@ -119,7 +119,8 @@ $titleGap: 8rem;
     display: inline-flex;
   }
 
-  .main__inner > img {
+  .main__inner > img,
+  .main__inner > div img {
     display: block;
     max-height: 50rem;
     margin: 1em auto;
