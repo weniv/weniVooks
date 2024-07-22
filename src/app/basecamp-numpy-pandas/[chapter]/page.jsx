@@ -1,14 +1,10 @@
 import { DEFAULT_PATH, TITLE } from '../bookInfo';
 import { getChapters } from '@/sub/getChapters';
 import ChapterPage from '@/components/pages/ChapterPage';
-import 'numpy';
-import 'pandas';
-
 
 const json = {
   package: ['numpy', 'pandas'],
 };
-
 
 // 챕터 페이지
 export default function page({ params }) {
