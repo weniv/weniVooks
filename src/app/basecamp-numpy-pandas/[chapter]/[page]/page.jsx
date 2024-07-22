@@ -2,6 +2,10 @@ import { DEFAULT_PATH, EDITOR } from '../../bookInfo';
 import { getPages } from '@/sub/getPages';
 import ContentPage from '@/components/pages/ContentPage';
 
+const json = {
+  package : ['numpy', 'pandas'],
+};
+
 // 컨텐츠 페이지
 export default function Page({ params }) {
   const chapter = params.chapter;
