@@ -12,6 +12,18 @@
     "date": "3000-12-31"
   },
   {
+    "thumbnail": "/images/basecamp-python/cover.png",
+    "publisher": "사도출판",
+    "title": "파이썬 베이스캠프",
+    "subtitle": null,
+    "type": "전자책",
+    "price": "무료",
+    "description": "파이썬을 쉽고 재미있게! 가장 기초적인 지식을 빠르게 학습할 수 있는 베이스캠프 시리즈를 만나보세요.",
+    "booklink": "/basecamp-python",
+    "classlink": "https://inf.run/yfCTL",
+    "date": "3000-12-31"
+  },
+  {
     "thumbnail": "/images/wenivworld/cover-weniv-world-student.png",
     "publisher": "사도출판",
     "title": "위니브월드 탐험대(학생용)",
