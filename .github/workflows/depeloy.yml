@@ -52,10 +52,14 @@ jobs:
             if ! command -v rsync &> /dev/null; then
               sudo apt-get update && sudo apt-get install -y rsync
             fi
+
+            TEMP_DIR=$(mktemp -d)
+
+            git clone https://github.com/weniv/weniVooks.git $TEMP_DIR
             
-            rsync -avzc --delete ${{ github.workspace }}/src/ /home/bitnami/htdocs/weniVooks/src/
-            rsync -avzc --delete ${{ github.workspace }}/_md/ /home/bitnami/htdocs/weniVooks/_md/
-            rsync -avzc --delete ${{ github.workspace }}/public/ /home/bitnami/htdocs/weniVooks/public/
+            rsync -avzc --delete $TEMP_DIR/src/ /home/bitnami/htdocs/weniVooks/src/
+            rsync -avzc --delete $TEMP_DIR/_md/ /home/bitnami/htdocs/weniVooks/_md/
+            rsync -avzc --delete $TEMP_DIR/public/ /home/bitnami/htdocs/weniVooks/public/
 
       # AWS 인증
       - name: AWS Auth
@@ -76,7 +80,10 @@ jobs:
           host: ${{ secrets.LIGHTSAIL_HOST }}
           username: ${{ env.LIGHTSAIL_USERNAME }}
           key: ${{ secrets.LIGHTSAIL_SSH_KEY }}
-          script: rsync -avz --delete ${{ github.workspace }}/.next/ /home/bitnami/htdocs/weniVooks/.next/
+          script: |
+            rsync -avzc --delete $TEMP_DIR/.next/ /home/bitnami/htdocs/weniVooks/.next/
+
+            rm -rf $TEMP_DIR
 
       - name: Restart PM2 process
         uses: appleboy/ssh-action@master
