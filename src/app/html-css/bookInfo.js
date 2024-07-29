@@ -1,4 +1,4 @@
-export const DEFAULT_PATH = 'html-css';
+export const DEFAULT_PATH = 'essentials-html-css';
 export const TITLE = 'HTML/CSS 에센셜';
 export const DESCRIPTION = '위니브의 다양한 교안을 웹에서 확인해보세요!';
 
