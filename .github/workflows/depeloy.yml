@@ -41,35 +41,17 @@ jobs:
       - name: Build Project
         run: npm run build
 
-      # src 디렉토리 복사
-      - name: Copy public to Deploy
-        uses: appleboy/scp-action@master
+      # src, _md, public 디렉토리 동기화
+      - name: Sync src, _md, public Directory
+        uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.LIGHTSAIL_HOST }}
           username: ${{ env.LIGHTSAIL_USERNAME }}
           key: ${{ secrets.LIGHTSAIL_SSH_KEY }}
-          source: 'src/**/*'
-          target: '/home/bitnami/htdocs/weniVooks'
-
-      # _md 디렉토리 복사
-      - name: Copy _md to Deploy
-        uses: appleboy/scp-action@master
-        with:
-          host: ${{ secrets.LIGHTSAIL_HOST }}
-          username: ${{ env.LIGHTSAIL_USERNAME }}
-          key: ${{ secrets.LIGHTSAIL_SSH_KEY }}
-          source: '_md/**/*'
-          target: '/home/bitnami/htdocs/weniVooks'
-
-      # public 디렉토리 복사
-      - name: Copy public to Deploy
-        uses: appleboy/scp-action@master
-        with:
-          host: ${{ secrets.LIGHTSAIL_HOST }}
-          username: ${{ env.LIGHTSAIL_USERNAME }}
-          key: ${{ secrets.LIGHTSAIL_SSH_KEY }}
-          source: 'public/**/*'
-          target: '/home/bitnami/htdocs/weniVooks'
+          script: |
+            rsync -avzc --delete ${{ github.workspace }}/src/ /home/bitnami/htdocs/weniVooks/src/
+            rsync -avzc --delete ${{ github.workspace }}/_md/ /home/bitnami/htdocs/weniVooks/_md/
+            rsync -avzc --delete ${{ github.workspace }}/public/ /home/bitnami/htdocs/weniVooks/public/
 
       # AWS 인증
       - name: AWS Auth
@@ -85,14 +67,12 @@ jobs:
 
       # 배포
       - name: Deploy
-        uses: appleboy/scp-action@master
+        uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.LIGHTSAIL_HOST }}
           username: ${{ env.LIGHTSAIL_USERNAME }}
           key: ${{ secrets.LIGHTSAIL_SSH_KEY }}
-          source: '.next/**/*'
-          strip_components: 1
-          target: '/home/bitnami/htdocs/weniVooks/.next'
+          script: rsync -avz --delete ${{ github.workspace }}/.next/ /home/bitnami/htdocs/weniVooks/.next/
 
       - name: Restart PM2 process
         uses: appleboy/ssh-action@master
