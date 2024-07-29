@@ -49,13 +49,19 @@ jobs:
           username: ${{ env.LIGHTSAIL_USERNAME }}
           key: ${{ secrets.LIGHTSAIL_SSH_KEY }}
           script: |
+            # GitHub의 호스트 키를 known_hosts에 추가
+            mkdir -p ~/.ssh
+            ssh-keyscan -H github.com >> ~/.ssh/known_hosts
+
+            TEMP_DIR=$(mktemp -d)
+
+            # Git 클론
+            git clone git@github.com:weniv/weniVooks.git $TEMP_DIR
+
             if ! command -v rsync &> /dev/null; then
               sudo apt-get update && sudo apt-get install -y rsync
             fi
 
-            TEMP_DIR=$(mktemp -d)
-
-            git clone git@github.com:weniv/weniVooks.git $TEMP_DIR
             
             rsync -avzc --delete $TEMP_DIR/src/ /home/bitnami/htdocs/weniVooks/src/
             rsync -avzc --delete $TEMP_DIR/_md/ /home/bitnami/htdocs/weniVooks/_md/
