@@ -1,5 +1,5 @@
-export const DEFAULT_PATH = 'basecamp-numpy-pandas';
-export const TITLE = 'basecamp-numpy-pandas';
+export const DEFAULT_PATH = 'essentials-numpy-pandas';
+export const TITLE = 'essentials-numpy-pandas';
 export const DESCRIPTION = '위니브의 다양한 교안을 웹에서 확인해보세요!';
 
 export const COVER = `/images/${DEFAULT_PATH}/cover.png`; // 책 표지
