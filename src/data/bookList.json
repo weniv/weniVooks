@@ -94,5 +94,17 @@
     "booklink": "/github",
     "classlink": "https://inf.run/9VExd",
     "date": "2024-05-02"
+  },
+  {
+    "thumbnail": "/images/essentials-html-css/cover-essentials-html-css.png",
+    "publisher": "사도출판",
+    "title": "HTML/CSS 에센셜",
+    "subtitle": null,
+    "type": "전자책",
+    "price": "무료",
+    "description": "HTML/CSS의 기초부터 고급 기술까지 웹 페이지 제작의 모든 측면을 다룹니다. 초보자부터 중급 개발자까지 모두에게 유익한 내용으로 구성되어 있습니다.",
+    "booklink": "/essentials-html-css",
+    "classlink": null,
+    "date": "2024-08-05"
   }
 ]
