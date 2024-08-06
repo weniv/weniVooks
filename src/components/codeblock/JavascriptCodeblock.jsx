@@ -20,6 +20,7 @@ export default function JavascriptCodeblock() {
   const event = () => {
     return runJavascript(lang, code, setResult);
   };
+  
 
   const copy = () => {
     copyCode(code);
