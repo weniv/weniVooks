@@ -1,5 +1,5 @@
-export const DEFAULT_PATH = 'polars';
-export const TITLE = 'Polars';
+export const DEFAULT_PATH = 'right-now-polars';
+export const TITLE = 'Right Now, Polars';
 export const DESCRIPTION = '위니브의 다양한 교안을 웹에서 확인해보세요!';
 
 export const COVER = `/images/${DEFAULT_PATH}/cover.png`; // 책 표지
