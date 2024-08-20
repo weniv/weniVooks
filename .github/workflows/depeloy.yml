@@ -51,16 +51,27 @@ jobs:
           source: 'src/**/*'
           target: '/home/bitnami/htdocs/weniVooks'
 
-      # _md, public 디렉토리 동기화
-      - name: Sync _md and public directories
-        uses: appleboy/ssh-action@master
+      # _md 디렉토리 복사
+      - name: Copy _md to Deploy
+        uses: burnett01/rsync-deployments@5.2.1
         with:
-          host: ${{ secrets.LIGHTSAIL_HOST }}
-          username: ${{ env.LIGHTSAIL_USERNAME }}
-          key: ${{ secrets.LIGHTSAIL_SSH_KEY }}
-          script: |
-            rsync -avzc --delete ./_md/ /home/bitnami/htdocs/weniVooks/_md/
-            rsync -avzc --delete ./public/ /home/bitnami/htdocs/weniVooks/public/
+          switches: -avzc --delete
+          path: _md/
+          remote_path: /home/bitnami/htdocs/weniVooks/_md/
+          remote_host: ${{ secrets.LIGHTSAIL_HOST }}
+          remote_user: ${{ env.LIGHTSAIL_USERNAME }}
+          remote_key: ${{ secrets.LIGHTSAIL_SSH_KEY }}
+
+      # public 디렉토리 복사
+      - name: Copy public to Deploy
+        uses: burnett01/rsync-deployments@5.2.1
+        with:
+          switches: -avzc --delete
+          path: public/
+          remote_path: /home/bitnami/htdocs/weniVooks/public/
+          remote_host: ${{ secrets.LIGHTSAIL_HOST }}
+          remote_user: ${{ env.LIGHTSAIL_USERNAME }}
+          remote_key: ${{ secrets.LIGHTSAIL_SSH_KEY }}
 
       # AWS 인증
       - name: AWS Auth
