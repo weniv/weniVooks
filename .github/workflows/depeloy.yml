@@ -37,18 +37,17 @@ jobs:
         if: steps.cache.outputs.cache-hit != 'true'
         run: npm install
 
-        # 프로젝트 빌드
-      - name: Build Project
-        run: npm run build
-
       - name : Change to project directory
-        run: cd /home/bitnami/htdocs/weniVooks/
+        run: cd /opt/bitnami/apache/htdocs/weniVooks/
 
       - name : Fetch all branches
         run: git fetch --all
 
       - name : Pull latest changes
         run: git pull origin main
+
+      - name: Build Project
+        run: npm run build
 
       # AWS 인증
       - name: AWS Auth
