@@ -41,37 +41,14 @@ jobs:
       - name: Build Project
         run: npm run build
 
-      # src 디렉토리 복사
-      - name: Copy public to Deploy
-        uses: appleboy/scp-action@master
-        with:
-          host: ${{ secrets.LIGHTSAIL_HOST }}
-          username: ${{ env.LIGHTSAIL_USERNAME }}
-          key: ${{ secrets.LIGHTSAIL_SSH_KEY }}
-          source: 'src/**/*'
-          target: '/home/bitnami/htdocs/weniVooks'
+      - name : Change to project directory
+        run: cd /home/bitnami/htdocs/weniVooks/
 
-      # _md 디렉토리 복사
-      - name: Copy _md to Deploy
-        uses: burnett01/rsync-deployments@5.2.1
-        with:
-          switches: -avzc --delete
-          path: _md/
-          remote_path: /home/bitnami/htdocs/weniVooks/_md/
-          remote_host: ${{ secrets.LIGHTSAIL_HOST }}
-          remote_user: ${{ env.LIGHTSAIL_USERNAME }}
-          remote_key: ${{ secrets.LIGHTSAIL_SSH_KEY }}
+      - name : Fetch all branches
+        run: git fetch --all
 
-      # public 디렉토리 복사
-      - name: Copy public to Deploy
-        uses: burnett01/rsync-deployments@5.2.1
-        with:
-          switches: -avzc --delete
-          path: public/
-          remote_path: /home/bitnami/htdocs/weniVooks/public/
-          remote_host: ${{ secrets.LIGHTSAIL_HOST }}
-          remote_user: ${{ env.LIGHTSAIL_USERNAME }}
-          remote_key: ${{ secrets.LIGHTSAIL_SSH_KEY }}
+      - name : Pull latest changes
+        run: git pull origin main
 
       # AWS 인증
       - name: AWS Auth
