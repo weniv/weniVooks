@@ -37,14 +37,16 @@ jobs:
         if: steps.cache.outputs.cache-hit != 'true'
         run: npm install
 
-      - name : Change to project directory
-        run: cd /opt/bitnami/apache/htdocs/weniVooks/
-
-      - name : Fetch all branches
-        run: git fetch --all
-
       - name : Pull latest changes
-        run: git pull origin main
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.LIGHTSAIL_HOST }}
+          username: ${{ env.LIGHTSAIL_USERNAME }}
+          key: ${{ secrets.LIGHTSAIL_SSH_KEY }}
+          script: |
+            cd /opt/bitnami/apache/htdocs/weniVooks/
+            git fetch --all
+            git pull origin main
 
       - name: Build Project
         run: npm run build
