@@ -130,5 +130,17 @@
     "booklink": "/essentials-javascript",
     "classlink": null,
     "date": "2024-08-29"
+  },
+  {
+    "thumbnail": "/images/essentials-numpy-pandas/cover-essentials-numpy-pandas.png",
+    "publisher": "사도출판",
+    "title": "numpy pandas 에센셜",
+    "subtitle": null,
+    "type": "전자책",
+    "price": "무료",
+    "description": "데이터 분석을 하며 알아야할 numpy와 pandas의 기초부터 중급까지, 데이터 분석을 하면서 알아야할 실무에서 활용할 수 있는 스킬과 함께 다룹니다.",
+    "booklink": "/essentials-numpy-pandas",
+    "classlink": null,
+    "date": "2024-08-29"
   }
 ]
