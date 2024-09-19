@@ -96,6 +96,18 @@
     "date": "3000-12-28"
   },
   {
+    "thumbnail": "/images/basecamp-fastapi/cover-fastapi.png",
+    "publisher": "사도출판",
+    "title": "FastAPI 베이스캠프",
+    "subtitle": null,
+    "type": "전자책",
+    "price": "무료",
+    "description": "파이썬으로 빠르고 현대적인 API를 쉽게 만들 수 있는 웹 프레임워크 FastAPI를 베이스캠프 시리즈로 만나보세요.",
+    "booklink": "/basecamp-fastapi",
+    "classlink": null,
+    "date": "3000-12-28"
+  },
+  {
     "thumbnail": "/images/github/cover-github.png",
     "publisher": "사도출판",
     "title": "알잘깔딱센 GitHub 핵심개념",
