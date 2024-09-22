@@ -57,7 +57,7 @@ export default async function ContentPage({
 }
 
 const json = {
-  packages: ['numpy', 'pandas'],
+  packages: ['numpy', 'pandas', 'matplotlib'],
 };
 
 function replaceCodeWithPyRepl(htmlString) {
