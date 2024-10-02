@@ -1,6 +1,18 @@
 [
   {
     "thumbnail": "/images/python/cover-python.png",
+    "publisher": "",
+    "title": "타입스크립트",
+    "subtitle": null,
+    "type": "전자책",
+    "price": "무료",
+    "description": "타입스크립트 ",
+    "booklink": "basecamp-typescript",
+    "classlink": null,
+    "date": "3000-12-31"
+  },
+  {
+    "thumbnail": "/images/python/cover-python.png",
     "publisher": "사도출판",
     "title": "견고한 파이썬",
     "subtitle": null,
