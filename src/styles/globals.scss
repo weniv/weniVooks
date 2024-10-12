@@ -323,3 +323,67 @@ a.btn-solid {
 [data-rehype-pretty-code-fragment] {
   position: relative;
 }
+
+/* 미디어 쿼리 ------------------------------------------------------- */
+@media print {
+
+  @page {
+    margin: 20mm !important; /* 페이지 마진 설정 */
+    size: A4;
+  }
+
+  .page-break {
+    page-break-before: always !important;;
+    margin-top: 20mm !important;; /* 페이지 상단 마진 */
+    margin-bottom: 20mm !important;; /* 페이지 하단 마진 추가 */
+  }
+
+  .print-button {
+    display: none !important;
+  }
+
+  img, table {
+    page-break-inside: avoid;
+  }
+
+  aside {
+    display: none !important;
+  }
+
+  [class^="Header_header"],
+  [class^="Breadcrumb_breadcrumb"],
+  [class^="Side_btnOpen"],
+  [class^="BtnCopy"],
+  [class^="PageControl"],
+  [class^="Side_side"] {
+    display: none !important;
+  }
+
+  .codeblock-copy-button {
+    display: none !important;
+  }
+
+  div[data-rehype-pretty-code-fragment] {
+    page-break-inside: avoid !important;
+    break-inside: avoid !important; // 모던 브라우저 지원
+  }
+}
+
+/* 인쇄 버튼 ------------------------------------------------------- */
+.print-button {
+  float: right;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5em;
+  border: 1px solid var(--grayLv2);
+  border-radius: 0.5em;
+  background-color: #ffffff;
+  color: var(--surface);
+  cursor: pointer;
+
+  svg {
+    width: 24px;
+    height: 24px;
+  }
+}

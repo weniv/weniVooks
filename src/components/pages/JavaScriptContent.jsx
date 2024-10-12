@@ -4,6 +4,8 @@ import { JSDOM } from 'jsdom';
 import '@/styles/common.css';
 import '@/styles/codemirror.css';
 
+import PrintButton from './PrintButton';
+
 function replaceCodeWithJsRepl(htmlString) {
   const dom = new JSDOM(htmlString);
 
@@ -34,6 +36,7 @@ export default function JavaScriptContent({ htmlContent, title }) {
     <>
       {htmlContent && (
         <>
+          <PrintButton />
           <h3 className="title">{title}</h3>
           <div
             dangerouslySetInnerHTML={{
