@@ -178,5 +178,17 @@
     "booklink": "/essentials-numpy-pandas",
     "classlink": null,
     "date": "2024-08-29"
+  },
+  {
+    "thumbnail": "/images/regular-expression/cover.png",
+    "publisher": "사도출판",
+    "title": "정규표현식 톺아보기 with JavaScript and Python",
+    "subtitle": null,
+    "type": "전자책",
+    "price": "무료",
+    "description": "정규표현식에 기초부터 활용까지, Python과 JavaScript로 실무에서 활용할 수 있는 스킬과 함께 다룹니다.",
+    "booklink": "/regular-expression",
+    "classlink": null,
+    "date": "2024-11-02"
   }
 ]
