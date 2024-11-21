@@ -1,4 +1,4 @@
-export const DEFAULT_PATH = 'async-javascript';
+export const DEFAULT_PATH = 'javascript-async';
 export const TITLE = '떠먹는 자바스크립트 비동기';
 export const DESCRIPTION =
   '자바스크립트 비동기 동작원리부터 비동기 제어, 통신까지 전반을 알아보세요!';
