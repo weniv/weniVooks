@@ -214,5 +214,17 @@
     "booklink": "/accessibility",
     "classlink": null,
     "date": "2024-11-19"
+  },
+  {
+    "thumbnail": "/images/javascript-async/cover.png",
+    "publisher": "사도출판",
+    "title": "떠먹는 자바스크립트 비동기",
+    "subtitle": null,
+    "type": "전자책",
+    "price": "무료",
+    "description": "동기와 비동기부터, 비동기 제어, 비동기 통신까지! 자바스크립트 비동기의 모든 것을 배워보세요.",
+    "booklink": "/javascript-async",
+    "classlink": null,
+    "date": "2024-11-21"
   }
 ]
