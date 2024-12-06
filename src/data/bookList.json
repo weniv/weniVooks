@@ -214,5 +214,17 @@
     "booklink": "/accessibility",
     "classlink": null,
     "date": "2024-11-19"
+  },
+  {
+    "thumbnail": "/images/essentials-notion/cover.png",
+    "publisher": "사도출판",
+    "title": "에센셜 노션",
+    "subtitle": null,
+    "type": "전자책",
+    "price": "무료",
+    "description": "노션의 가장 기초적인 사용법부터 고급 기술까지, 노션을 활용한 업무 효율화 방법을 다룹니다. 팀에 노션을 도입하고자 하는 분들에게 유용한 내용으로 구성되어 있습니다.",
+    "booklink": "/essentials-notion",
+    "classlink": null,
+    "date": "2024-12-06"
   }
 ]

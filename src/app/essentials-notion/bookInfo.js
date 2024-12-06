@@ -1,5 +1,5 @@
-export const DEFAULT_PATH = 'basecamp-notion';
-export const TITLE = 'Notion 베이스캠프';
+export const DEFAULT_PATH = 'essentials-notion';
+export const TITLE = 'Notion 에센셜';
 export const DESCRIPTION = '위니브의 다양한 교안을 웹에서 확인해보세요!';
 
 export const COVER = `/images/${DEFAULT_PATH}/cover.png`;
