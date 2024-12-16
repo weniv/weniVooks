@@ -1,5 +1,5 @@
 export const DEFAULT_PATH = 'basecamp-github';
-export const TITLE = 'GitHub 베이스캠프';
+export const TITLE = '깃헙 베이스캠프';
 export const DESCRIPTION = '위니브의 다양한 교안을 웹에서 확인해보세요!';
 
 export const COVER = `/images/${DEFAULT_PATH}/cover.png`;

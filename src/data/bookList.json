@@ -226,5 +226,17 @@
     "booklink": "/essentials-notion",
     "classlink": null,
     "date": "2024-12-06"
+  },
+  {
+    "thumbnail": "/images/basecamp-github/cover.png",
+    "publisher": "사도출판",
+    "title": "깃헙 베이스캠프",
+    "subtitle": null,
+    "type": "전자책",
+    "price": "무료",
+    "description": "깃헙의 가장 기초적인 내용만 살펴봅니다. 특히 비전공자의 깃헙 사용방식에 대해 다뤄봅니다.",
+    "booklink": "/basecamp-github",
+    "classlink": null,
+    "date": "2024-12-16"
   }
 ]
