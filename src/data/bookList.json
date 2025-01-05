@@ -238,5 +238,17 @@
     "booklink": "/basecamp-github",
     "classlink": null,
     "date": "2024-12-16"
+  },
+  {
+    "thumbnail": "/images/python-class/cover.png",
+    "publisher": "사도출판",
+    "title": "파이썬 클래스 톺아보기",
+    "subtitle": null,
+    "type": "전자책",
+    "price": "무료",
+    "description": "클래스 기본부터 활용까지 실무에서 활용할 수 있는 스킬과 더 깊은 내용까지 다룹니다.",
+    "booklink": "/python-class",
+    "classlink": null,
+    "date": "2025-01-05"
   }
 ]
