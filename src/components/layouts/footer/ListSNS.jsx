@@ -14,7 +14,7 @@ export default function ListSNS({ color = 'grayLv2' }) {
     {
       text: '메인',
       icon: <SVGHome color={color} />,
-      href: '/',
+      href: 'https://weniv.co.kr',
       target: null,
     },
     {
