@@ -1,3 +1,6 @@
+@import '@/styles/var.scss';
+@import '@/styles/function.scss';
+
 .filterNav {
     display: flex;
     flex-wrap: wrap;
@@ -29,29 +32,29 @@
     border-radius: 9999px;
     font-size: 15px;
     line-height: 20px;
-    border: 1px solid #47494d;
-    background-color: #1F2123;
-    color: #ffffff;
+    border: 1px solid var(--grayLv2);
+    background-color: var(--background);
+    color: var(--surface);
     transition: all 0.2s ease;
     white-space: nowrap;
     height: 40px;
   
     &:hover {
-      background-color: #374151;
+      background-color: var(--grayLv1);
     }
   
     &:focus {
-      outline: 2px solid #3b82f6;
+      outline: 2px solid var(--primary);
       outline-offset: 2px;
     }
   
     &.active {
-      background-color: #3b82f6;
+      background-color: var(--primary);
       color: #ffffff;
-      border-color: #3b82f6;
+      border-color: var(--primary);
   
       &:hover {
-        background-color: #2563eb;
+        background-color: var(--primaryA11y);
       }
     }
   }
@@ -60,7 +63,7 @@
   @media (prefers-reduced-motion: no-preference) {
     .filterButton {
       &:focus-visible {
-        outline: 2px solid #3b82f6;
+        outline: 2px solid var(--primary);
         outline-offset: 2px;
       }
     }
