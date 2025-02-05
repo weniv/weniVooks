@@ -29,7 +29,7 @@ export default function Home() {
       <Header type="intro" />
       <div className="layout-grow">
         <Banner />
-        <div className="max-w-[1200px] mx-auto px-5 py-6">
+        <div className="max-w-[1200px] mx-auto px-5">
           <FilterNav
             options={filterOptions}
             selectedValue={selectedFilter}

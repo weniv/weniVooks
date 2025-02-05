@@ -2,14 +2,18 @@
     display: flex;
     flex-wrap: wrap;
     gap: 8px;
-    margin: 0 -4px;  // 좌우 패딩을 위한 네거티브 마진
-    padding: 0 4px;  // 모바일에서 첫/마지막 버튼 여백
+    padding: 4px;
+    margin: 30px 160px 0;
+    position: relative;  
+    z-index: 10;      
+
 
     @media (max-width: 768px) {
       overflow-x: auto;
       flex-wrap: nowrap; 
       -webkit-overflow-scrolling: touch;
       padding-bottom: 4px;
+      margin: 8px 20px 0; 
       
       // 스크롤바 숨기기
       &::-webkit-scrollbar {
@@ -21,19 +25,19 @@
   }
   
   .filterButton {
-    padding: 8px 16px;
+    padding: 1rem 1.1em;
     border-radius: 9999px;
-    font-size: 14px;
+    font-size: 15px;
     line-height: 20px;
-    border: 1px solid #e5e7eb;
-    background-color: #ffffff;
-    color: #374151;
+    border: 1px solid #47494d;
+    background-color: #1F2123;
+    color: #ffffff;
     transition: all 0.2s ease;
     white-space: nowrap;
-    height: 36px;
+    height: 40px;
   
     &:hover {
-      background-color: #f3f4f6;
+      background-color: #374151;
     }
   
     &:focus {
