@@ -326,23 +326,23 @@ a.btn-solid {
 
 /* 미디어 쿼리 ------------------------------------------------------- */
 @media print {
-
   @page {
     margin: 20mm !important; /* 페이지 마진 설정 */
     size: A4;
   }
 
   .page-break {
-    page-break-before: always !important;;
-    margin-top: 20mm !important;; /* 페이지 상단 마진 */
-    margin-bottom: 20mm !important;; /* 페이지 하단 마진 추가 */
+    page-break-before: always !important;
+    margin-top: 20mm !important; /* 페이지 상단 마진 */
+    margin-bottom: 20mm !important; /* 페이지 하단 마진 추가 */
   }
 
   .print-button {
     display: none !important;
   }
 
-  img, table {
+  img,
+  table {
     page-break-inside: avoid;
   }
 
@@ -350,12 +350,12 @@ a.btn-solid {
     display: none !important;
   }
 
-  [class^="Header_header"],
-  [class^="Breadcrumb_breadcrumb"],
-  [class^="Side_btnOpen"],
-  [class^="BtnCopy"],
-  [class^="PageControl"],
-  [class^="Side_side"] {
+  [class^='Header_header'],
+  [class^='Breadcrumb_breadcrumb'],
+  [class^='Side_btnOpen'],
+  [class^='BtnCopy'],
+  [class^='PageControl'],
+  [class^='Side_side'] {
     display: none !important;
   }
 
@@ -378,9 +378,15 @@ a.btn-solid {
   padding: 0.5em;
   border: 1px solid var(--grayLv2);
   border-radius: 0.5em;
-  background-color: #ffffff;
-  color: var(--surface);
+  background-color: var(--background);
+  color: var(--grayLv4);
   cursor: pointer;
+  transition: all 0.3s;
+
+  &:hover {
+    background-color: var(--grayLv1);
+    color: var(--primary);
+  }
 
   svg {
     width: 24px;
