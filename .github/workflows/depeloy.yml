@@ -26,7 +26,7 @@ jobs:
 
       # node modules의 변화가 있을때만 npm install 실행
       - name: Cache node modules
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         id: cache # 해당 step을 대표하는 id
         with:
           path: node_modules # node_modules 폴더를 검사
