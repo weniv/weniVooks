@@ -2,69 +2,58 @@
 @import '@/styles/function.scss';
 
 .filterNav {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    padding: 4px;
-    margin: 30px 160px 0;
-    position: relative;  
-    z-index: 10;      
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  width: calc(100% - 4.8rem);
+  max-width: 119rem;
+  margin: clamp(2rem, 2.9411764706vw, 3.5rem) auto 0;
+  position: relative;
+  z-index: 10;
+  max-width: 119rem;
 
+  @media (max-width: 768px) {
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 4px;
 
-    @media (max-width: 768px) {
-      overflow-x: auto;
-      flex-wrap: nowrap; 
-      -webkit-overflow-scrolling: touch;
-      padding-bottom: 4px;
-      margin: 8px 20px 0; 
-      
-      // 스크롤바 숨기기
-      &::-webkit-scrollbar {
-        display: none;
-      }
-      -ms-overflow-style: none;
-      scrollbar-width: none;
+    // 스크롤바 숨기기
+    &::-webkit-scrollbar {
+      display: none;
     }
+    -ms-overflow-style: none;
+    scrollbar-width: none;
   }
-  
-  .filterButton {
-    padding: 1rem 1.1em;
-    border-radius: 9999px;
-    font-size: 15px;
-    line-height: 20px;
-    border: 1px solid var(--grayLv2);
-    background-color: var(--background);
-    color: var(--surface);
-    transition: all 0.2s ease;
-    white-space: nowrap;
-    height: 40px;
-  
+}
+
+.filterButton {
+  padding: 1rem 1.1em;
+  border-radius: 9999px;
+  line-height: 20px;
+  border: 1px solid var(--grayLv2);
+  background-color: var(--background);
+  color: var(--surface);
+  transition: all 0.2s ease;
+  white-space: nowrap;
+  height: 40px;
+
+  &:hover {
+    background-color: var(--grayLv1);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+  }
+
+  &.active {
+    background-color: var(--primary);
+    color: #ffffff;
+    border-color: var(--primary);
+
     &:hover {
-      background-color: var(--grayLv1);
-    }
-  
-    &:focus {
-      outline: 2px solid var(--primary);
-      outline-offset: 2px;
-    }
-  
-    &.active {
-      background-color: var(--primary);
-      color: #ffffff;
-      border-color: var(--primary);
-  
-      &:hover {
-        background-color: var(--primaryA11y);
-      }
+      background-color: var(--primaryA11y);
     }
   }
-  
-  // 키보드 사용자를 위한 포커스 스타일
-  @media (prefers-reduced-motion: no-preference) {
-    .filterButton {
-      &:focus-visible {
-        outline: 2px solid var(--primary);
-        outline-offset: 2px;
-      }
-    }
-  }
+}
