@@ -1,12 +1,4 @@
-/*
-npm i unified remark-parse remark-rehype remark-directive remark-gfm remark-behead
-npm i rehype-stringify rehype-title-figure
-npm i gray-matter
-npm rehype-pretty-code
-*/
-
 import { unified } from 'unified';
-
 import fs from 'fs';
 
 import remarkParse from 'remark-parse';
@@ -14,21 +6,31 @@ import remark2rehype from 'remark-rehype';
 import remarkDirective from 'remark-directive';
 import remarkGfm from 'remark-gfm';
 import remarkBehead from 'remark-behead';
-
+import rehypeRaw from 'rehype-raw';
 import rehypeStringify from 'rehype-stringify';
 import rehypeTitleFigure from 'rehype-title-figure';
 import { h } from 'hastscript';
 import { visit } from 'unist-util-visit';
 import rehypePrettyCode from 'rehype-pretty-code';
 
+/**
+ * 마크다운을 HTML로 변환
+ * - HTML 태그(<br>)를 직접 사용하여 개행 처리 가능
+ */
 export const convertMarkdownToHtml = async (markdown) => {
+  // Windows 줄바꿈을 표준화
+  const normalizedMarkdown = markdown.replace(/\r\n/g, '\n');
+
   const file = await unified()
     .use(remarkParse) // 마크다운을 파싱
     .use(remarkDirective) // 확장구문 사용
     .use(myRemarkPlugin)
-    .use(remarkGfm) //  GFM 지원(자동링크 리터럴, 각주, 취소선, 표, 작업 목록)
+    .use(remarkGfm) // GFM 지원(자동링크 리터럴, 각주, 취소선, 표, 작업 목록)
     .use(remarkBehead, { minDepth: 4 })
-    .use(remark2rehype) //파싱된 마크다운을 Rehype로 변환
+    .use(remark2rehype, {
+      allowDangerousHtml: true, // HTML 태그 허용
+    }) // 파싱된 마크다운을 Rehype로 변환
+    .use(rehypeRaw) // HTML 문자열을 실제 HTML 요소로 변환
     .use(rehypeTitleFigure)
     .use(rehypePrettyCode, {
       theme: {
@@ -36,8 +38,10 @@ export const convertMarkdownToHtml = async (markdown) => {
         dark: JSON.parse(fs.readFileSync(`public/theme/dark.json`, 'utf-8')),
       },
     })
-    .use(rehypeStringify) // HTML로 변환
-    .process(markdown);
+    .use(rehypeStringify, {
+      allowDangerousHtml: true, // HTML 태그 허용
+    }) // HTML로 변환
+    .process(normalizedMarkdown);
 
   return String(file);
 };
