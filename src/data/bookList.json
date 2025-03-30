@@ -252,15 +252,27 @@
     "date": "2025-01-05"
   },
   {
-    "thumbnail": "/images/python-class/cover.png",
+    "thumbnail": "/images/basecamp-data/cover.png",
     "publisher": "사도출판",
-    "title": "데이터베이스캠프 데이터Intro",
+    "title": "데이터 베이스캠프",
     "subtitle": null,
     "type": "전자책",
     "price": "무료",
     "description": "데이터의 기초를 배웁니다.",
-    "booklink": "/databasecamp-dataintro",
+    "booklink": "/basecamp-data",
     "classlink": null,
     "date": "2025-03-14"
+  },
+  {
+    "thumbnail": "/images/basecamp-mcp/cover-mcp.png",
+    "publisher": "사도출판",
+    "title": "MCP 베이스캠프",
+    "subtitle": null,
+    "type": "전자책",
+    "price": "무료",
+    "description": "클래스 기본부터 활용까지 실무에서 활용할 수 있는 스킬과 더 깊은 내용까지 다룹니다.",
+    "booklink": "/basecamp-mcp",
+    "classlink": null,
+    "date": "2025-03-29"
   }
 ]

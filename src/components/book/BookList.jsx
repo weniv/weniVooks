@@ -19,15 +19,12 @@ export default function BookList({ selectedFilter }) {
           return book.title.includes('견고한');
         case 'basecamp':
           return book.title.includes('베이스캠프');
-          case 'databasecamp':
-            return book.title.includes('데이터베이스캠프');
         case 'essentials':
           return book.title.includes('에센셜');
         case 'etc':
           return !book.title.includes('견고한') && 
                  !book.title.includes('베이스캠프') && 
-                 !book.title.includes('에센셜') &&
-                 !book.title.includes('데이터베이스캠프');
+                 !book.title.includes('에센셜');
         default:
           return true;
       }
