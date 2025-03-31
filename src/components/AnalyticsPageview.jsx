@@ -17,7 +17,7 @@ export default function AnalyticsPageview() {
       };
     }
 
-    fetch('https://www.analytics.weniv.co.kr/collect/pageview', {
+    fetch('https://dev.wenivops.co.kr/api/weniv_analytics/collect/pageview', {
       method: 'POST',
       headers: header,
       body: JSON.stringify(payload),

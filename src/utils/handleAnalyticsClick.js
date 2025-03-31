@@ -13,7 +13,7 @@ export default async function handleAnalyticsClick(event, text) {
 
   try {
     const response = await fetch(
-      'https://www.analytics.weniv.co.kr/collect/anchor-click',
+      'https://dev.wenivops.co.kr/api/weniv_analytics/collect/anchor-click',
       {
         method: 'POST',
         headers: {
