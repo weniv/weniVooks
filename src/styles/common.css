@@ -36,3 +36,45 @@
   white-space: pre-wrap;
   line-height: 30px;
 }
+
+.custom-toggle {
+  margin: 1rem 0;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+  overflow: hidden;
+  background-color: #f8fafc;
+}
+
+.toggle-summary {
+  padding: 0.75rem 1rem;
+  cursor: pointer;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  color: #334155;
+  user-select: none;
+  position: relative;
+}
+
+.toggle-summary:hover {
+  background-color: #f1f5f9;
+}
+
+.toggle-summary::before {
+  content: '▶';
+  font-size: 0.8rem;
+  margin-right: 0.5rem;
+  display: inline-block;
+  transition: transform 0.2s;
+  color: #64748b;
+}
+
+details[open] .toggle-summary::before {
+  transform: rotate(90deg);
+}
+
+.toggle-content {
+  padding: 1rem;
+  border-top: 1px solid #e2e8f0;
+  background-color: white;
+}
