@@ -16,10 +16,25 @@ import rehypePrettyCode from 'rehype-pretty-code';
 /**
  * 마크다운을 HTML로 변환
  * - HTML 태그(<br>)를 직접 사용하여 개행 처리 가능
+ * - <color=#HEX>텍스트</color> 형식으로 텍스트 색상 지정 가능
+ * - <toggle>제목::내용</toggle> 형식으로 토글(접기/펼치기) 기능 사용 가능
  */
+
 export const convertMarkdownToHtml = async (markdown) => {
   // Windows 줄바꿈을 표준화
-  const normalizedMarkdown = markdown.replace(/\r\n/g, '\n');
+  let normalizedMarkdown = markdown.replace(/\r\n/g, '\n');
+
+  // <color=#HEX>텍스트</color> 태그를 <span style="color:#HEX">텍스트</span>으로 변환
+  normalizedMarkdown = normalizedMarkdown.replace(
+    /<color=(#[0-9A-Fa-f]{3,8})>(.*?)<\/color>/g,
+    '<span style="color:$1">$2</span>',
+  );
+
+  // <toggle>제목::내용</toggle> 태그를 HTML details/summary 요소로 변환
+  normalizedMarkdown = normalizedMarkdown.replace(
+    /<toggle>(.*?)::([\s\S]*?)<\/toggle>/g,
+    '<details class="custom-toggle"><summary class="toggle-summary">$1</summary><div class="toggle-content">$2</div></details>',
+  );
 
   const file = await unified()
     .use(remarkParse) // 마크다운을 파싱
@@ -43,7 +58,18 @@ export const convertMarkdownToHtml = async (markdown) => {
     }) // HTML로 변환
     .process(normalizedMarkdown);
 
-  return String(file);
+  // 최종 HTML에서 남아있을 수 있는 색상 태그와 토글 태그 처리
+  let htmlResult = String(file)
+    .replace(
+      /<color=(#[0-9A-Fa-f]{3,8})>(.*?)<\/color>/g,
+      '<span style="color:$1">$2</span>',
+    )
+    .replace(
+      /<toggle>(.*?)::([\s\S]*?)<\/toggle>/g,
+      '<details><summary>$1</summary>$2</details>',
+    );
+
+  return htmlResult;
 };
 
 function myRemarkPlugin() {
