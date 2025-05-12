@@ -1,58 +1,60 @@
 [
   {
-    "bgColor": "#2E6FF2",
+    "bgColor": "linear-gradient(to bottom, #020715, #2E6FF2)",
     "textColor": "#fff",
-    "categoryColor": "#121314",
+    "categoryColor": "#fff",
     "categoryBg": "#fff",
-    "thumbnail": "/images/banner/main-banner_20240419.jpg",
-    "thumbnailMobile": "/images/banner/main-banner_20240419m.jpg",
-    "category": "제주코딩베이스캠프",
-    "title": ["제주코딩베이스캠프와", " 함께하는 IT 교육의 모든 것!"],
+    "thumbnail": "/images/banner/mcp_780480.png",
+    "thumbnailMobile": "/images/banner/mcp_646400.png",
+    "category": "E-BOOK 출간",
+    "title": ["전 세계가 주목한 MCP를", "가장 빠르게 소개한 단 한 권의 책"],
     "description": [
-      "지금 바로 '제주코딩베이스캠프' 유튜브 채널을 구독하고 함께해요!"
+      "MCP 혁신: 클로드로 엑셀, 한글, 휴가 등록부터 결재문서 자동화까지 with python"
     ],
+    "buttonText": "지금 바로가기",
+    "link": "https://ebook-product.kyobobook.co.kr/dig/epd/ebook/E000011285165"
+  },
+  {
+    "bgColor": "#0B1D16",
+    "textColor": "#fff",
+    "categoryColor": "#fff",
+    "categoryBg": "#fff",
+    "thumbnail": "/images/banner/fastapi_780480.png",
+    "thumbnailMobile": "/images/banner/fastapi_646400.png",
+    "category": "인프런 강의 출시",
+    "title": ["실무 백엔드 개발자가 알려주는,", "FastAPI 시스템 구축 강의"],
+    "description": ["FastAPI 실전편 : JWT와 Redis로 완성하는 인증 시스템"],
+    "buttonText": "지금 바로가기",
+    "link": "https://inf.run/5LR66"
+  },
+  {
+    "bgColor": "#15BF6F",
+    "textColor": "#fff",
+    "categoryColor": "#fff",
+    "categoryBg": "#fff",
+    "thumbnail": "/images/banner/jejucodingcamp_780480.png",
+    "thumbnailMobile": "/images/banner/jejucodingcamp_646400.png",
+    "category": "채널 구독! 좋아요! 알림 설정까지!",
+    "title": ["제주코딩베이스캠프와 함께", "함께하는 IT 교육의 모든것"],
+    "description": [
+      "유튜브 채널 '제주코딩베이스캠프'를 구독하고 함께 성장해요!"
+    ],
+    "buttonText": "지금 바로가기",
     "link": "https://www.youtube.com/@jejucodingcamp"
   },
   {
     "bgColor": "#1555E5",
     "textColor": "#fff",
-    "categoryColor": "#121314",
+    "categoryColor": "#fff",
     "categoryBg": "#fff",
     "thumbnail": "/images/banner/main-banner-20240710.jpg",
     "thumbnailMobile": "/images/banner/main-banner-20240710m.jpg",
-    "category": "제주코딩베이스캠프 부트캠프",
-    "title": ["'제주코딩베이스캠프'와 함께", "개발자로 성장하는 부트캠프!"],
+    "category": "위니브 부트캠프",
+    "title": ["위니브와 함께", "개발자로 성장하는 부트캠프!"],
     "description": [
       "프론트엔드, 백엔드, 데이터 분석 등 다양한 부트캠프를 만나보세요!"
     ],
+    "buttonText": "지금 바로가기",
     "link": "https://bootcamp.weniv.co.kr/"
-  },
-  {
-    "bgColor": "#2E6FF2",
-    "textColor": "#fff",
-    "categoryColor": "#121314",
-    "categoryBg": "#fff",
-    "thumbnail": "/images/banner/main-banner_20240227-1.jpg",
-    "thumbnailMobile": "/images/banner/main-banner_20240227-1m.jpg",
-    "category": "제주코딩베이스캠프 VOD",
-    "title": ["'제주코딩베이스캠프'와 함께", "코알못에서 웹 서비스 런칭까지,"],
-    "description": [
-      "이번 캠프에 참여하지 못해 아쉽다면? 제코베 VOD 강의를 추천해요!"
-    ],
-    "link": "https://www.inflearn.com/users/@jejucoding"
-  },
-  {
-    "bgColor": "#2E6FF2",
-    "textColor": "#fff",
-    "categoryColor": "#121314",
-    "categoryBg": "#fff",
-    "thumbnail": "/images/banner/main-banner_20240227-2.jpg",
-    "thumbnailMobile": "/images/banner/main-banner_20240227-2.jpg",
-    "category": "스터디인",
-    "title": ["견고한 파이썬,", "같이 공부할 사람 없을까?"],
-    "description": [
-      "개발 스터디 모집 플랫폼 '스터디인'에서 함께 공부할 사람을 모집해보세요."
-    ],
-    "link": "https://www.studyin.co.kr/"
   }
 ]

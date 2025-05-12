@@ -44,24 +44,50 @@ $bannerHeight: fcSize(240, 400);
   position: relative;
   z-index: 10;
 }
+
 .category {
   display: inline-block;
-  background-color: #fff;
+  // background-color: #fff;
   color: var(--primaryA11y);
-  font-weight: bold;
+  // font-weight: bold;
   font-size: 1.4rem;
   padding: 0.1em 0.3em;
 }
 
 .title {
   font-size: fcSize(18, 40);
-  margin: 1.2rem 0;
+  margin-top: 0.5rem;
+  margin-bottom: 0.3rem;
   display: flex;
   flex-direction: column;
 }
 
 .description {
-  margin-bottom: fcSize(12, 32);
+  margin-bottom: 3rem;
+  font-size: 1.7rem;
+  font-weight: 600;
+}
+
+.button {
+  display: inline-block;
+  height: 4.2rem;
+  padding: 0 2rem;
+  background-color: transparent;
+  color: white;
+  font-size: 1.6rem;
+  font-weight: 600;
+  border: 1.5px solid white;
+  border-radius: var(--borderRadius, 4px);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: center;
+  line-height: calc(4.2rem - 4px);
+  box-sizing: border-box;
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: var(--primaryA11y);
+  }
 }
 
 .thumbnail {
@@ -82,8 +108,19 @@ $bannerHeight: fcSize(240, 400);
     }
   }
 
-  .description {
+  .description,
+  .button {
     display: none;
+  }
+
+  .thumbnailContainer {
+    position: absolute;
+    bottom: 0;
+    width: calc(100% + 4rem); // 컨테이너 너비 확장
+    height: 100%;
+    aspect-ratio: 644/400;
+    overflow: hidden;
+    right: -2.4rem;
   }
 
   .thumbnail {
@@ -91,5 +128,16 @@ $bannerHeight: fcSize(240, 400);
     height: 100%;
     object-fit: contain;
     right: -2.4rem;
+  }
+
+  .thumbnailGradient {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 40%; // 그라데이션 높이 (필요에 따라 조정)
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.5), transparent);
+    z-index: 5;
+    pointer-events: none; // 클릭 이벤트가 방해되지 않도록
   }
 }
