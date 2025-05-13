@@ -154,7 +154,6 @@ export default function CopyButton({ markdownContent }) {
   const handleCopy = async () => {
     try {
       const convertedMarkdown = convertCustomMarkdown(markdownContent);
-      console.log('변환된 마크다운:', convertedMarkdown);
       await navigator.clipboard.writeText(convertedMarkdown);
       alert('마크다운이 클립보드에 복사되었습니다.');
     } catch (err) {
