@@ -28,6 +28,7 @@ export async function getMarkdown(defaultPath, isPage) {
 
   return {
     htmlContent,
+    markdownContent: matterData.content,
     ...matterData.data,
   };
 }

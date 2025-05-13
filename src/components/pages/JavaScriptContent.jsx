@@ -5,6 +5,7 @@ import '@/styles/common.css';
 import '@/styles/codemirror.css';
 
 import PrintButton from './PrintButton';
+import CopyButton from './CopyButton';
 
 function replaceCodeWithJsRepl(htmlString) {
   const dom = new JSDOM(htmlString);
@@ -31,11 +32,16 @@ function replaceCodeWithJsRepl(htmlString) {
   return dom.serialize();
 }
 
-export default function JavaScriptContent({ htmlContent, title }) {
+export default function JavaScriptContent({
+  htmlContent,
+  title,
+  markdownContent,
+}) {
   return (
     <>
       {htmlContent && (
         <>
+          <CopyButton markdownContent={markdownContent} />
           <PrintButton />
           <h3 className="title">{title}</h3>
           <div

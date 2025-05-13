@@ -6,6 +6,7 @@ import replaceCodeEditor from '@/sub/replaceCodeEditor';
 import JavaScriptContent from './JavaScriptContent';
 
 import PrintButton from './PrintButton';
+import CopyButton from './CopyButton';
 
 export default async function ContentPage({
   chapter,
@@ -14,13 +15,14 @@ export default async function ContentPage({
   EDITOR,
 }) {
   try {
-    const { title, htmlContent } = await getMarkdown(
+    const { title, htmlContent, markdownContent } = await getMarkdown(
       `/${DEFAULT_PATH}/${chapter}/${page}.md`,
     );
 
     if (!EDITOR || EDITOR.length === 0) {
       return (
         <>
+          <CopyButton markdownContent={markdownContent} />
           <PrintButton />
           <h3 className="title">{title}</h3>
           <div dangerouslySetInnerHTML={{ __html: htmlContent }} />
@@ -29,6 +31,7 @@ export default async function ContentPage({
     } else if (EDITOR.includes('Python')) {
       return (
         <>
+          <CopyButton markdownContent={markdownContent} />
           <PrintButton />
           <h3 className="title">{title}</h3>
           <div
@@ -43,10 +46,17 @@ export default async function ContentPage({
         </>
       );
     } else if (EDITOR.includes('JavaScript')) {
-      return <JavaScriptContent htmlContent={htmlContent} title={title} />;
+      return (
+        <JavaScriptContent
+          htmlContent={htmlContent}
+          title={title}
+          markdownContent={markdownContent}
+        />
+      );
     } else {
       return (
         <>
+          <CopyButton markdownContent={markdownContent} />
           <PrintButton />
           <h3 className="title">{title}</h3>
           {replaceCodeEditor(htmlContent, EDITOR)}

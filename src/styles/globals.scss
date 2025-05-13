@@ -340,6 +340,9 @@ a.btn-solid {
   .print-button {
     display: none !important;
   }
+  .copy-button {
+    display: none !important;
+  }
 
   img,
   table {
@@ -370,7 +373,8 @@ a.btn-solid {
 }
 
 /* 인쇄 버튼 ------------------------------------------------------- */
-.print-button {
+.print-button,
+.copy-button {
   float: right;
   display: inline-flex;
   align-items: center;
@@ -391,5 +395,12 @@ a.btn-solid {
   svg {
     width: 24px;
     height: 24px;
+  }
+}
+
+.copy-button {
+  margin-left: 0.5rem;
+  svg {
+    transform: scale(0.9, 0.9);
   }
 }
