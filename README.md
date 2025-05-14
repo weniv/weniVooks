@@ -28,3 +28,6 @@ https://www.notion.so/paullabworkspace/2024-07-11-32a23f27babe47d884f08450fe74ca
 * 에센셜 - 전공(부트캠프 강의)
 * 견고한 - 심화(부트캠프 강의+@)
 * 베이스캠프 접두사는 basecamp-, 에센셜은 essentials-, 라잇나우는 rightnow-로, 견고한은 pro- 로 폴더명을 변경
+
+## 기여하기
+[기여 가이드 바로가기](https://paullabworkspace.notion.site/1f1ebf76ee8a80d59dd1c668bfb696fb?pvs=4)
