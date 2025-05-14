@@ -26,7 +26,8 @@ $titleGap: 8rem;
   padding: 0 fcSize(20, 40);
 
   @media screen and (max-width: 640px) {
-    padding: 0;
+    // 북마크 아이콘 위치에 따른 여백 수정
+    padding: 0 20px;
   }
 
   .main {
@@ -84,6 +85,7 @@ $titleGap: 8rem;
     margin-top: -$titleGap;
     padding-top: $titleGap;
     margin-bottom: 0.5em;
+    position: relative;
   }
 
   ul,
