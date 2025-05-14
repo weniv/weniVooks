@@ -170,7 +170,6 @@ export default function CopyButton({ markdownContent }) {
         viewBox="0 0 40 40"
         fill="currentColor"
         xmlns="http://www.w3.org/2000/svg"
-        className="size-6"
       >
         <path
           fillRule="evenodd"
