@@ -1,5 +1,6 @@
 import Script from 'next/script';
 import { JSDOM } from 'jsdom';
+import dynamic from 'next/dynamic';
 
 import '@/styles/common.css';
 import '@/styles/codemirror.css';

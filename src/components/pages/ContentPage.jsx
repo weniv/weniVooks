@@ -7,7 +7,7 @@ import JavaScriptContent from './JavaScriptContent';
 
 import PrintButton from './PrintButton';
 import CopyButton from './CopyButton';
-// import RepoButton from './RepoButton';
+import dynamic from 'next/dynamic';
 
 export default async function ContentPage({
   chapter,
@@ -25,7 +25,6 @@ export default async function ContentPage({
         <>
           <CopyButton markdownContent={markdownContent} />
           <PrintButton />
-          {/* <RepoButton /> */}
           <h3 className="title">{title}</h3>
           <div dangerouslySetInnerHTML={{ __html: htmlContent }} />
         </>
@@ -35,7 +34,6 @@ export default async function ContentPage({
         <>
           <CopyButton markdownContent={markdownContent} />
           <PrintButton />
-          {/* <RepoButton /> */}
           <h3 className="title">{title}</h3>
           <div
             dangerouslySetInnerHTML={{
@@ -61,7 +59,6 @@ export default async function ContentPage({
         <>
           <CopyButton markdownContent={markdownContent} />
           <PrintButton />
-          {/* <RepoButton /> */}
           <h3 className="title">{title}</h3>
           {replaceCodeEditor(htmlContent, EDITOR)}
         </>

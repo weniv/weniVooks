@@ -9,6 +9,14 @@ export function useHeadingBookmark() {
     const pathParts = pathname.split('/');
     const book = pathParts[1] || '';
     const chapter = pathParts[2] || '';
+    const section = pathParts[3] || '';
+
+    // URL 해시 생성 함수 - 공백을 %20으로 대체
+    const createUrlHash = (text) => {
+      if (!text) return '';
+      // 공백을 %20으로 변환, 특수문자 제거
+      return encodeURIComponent(text.toLowerCase());
+    };
 
     // Load bookmarks from localStorage
     const getBookmarks = () => {
@@ -28,16 +36,35 @@ export function useHeadingBookmark() {
         bookmarks[book][chapter] = {};
       }
 
-      if (isBookmarked) {
-        bookmarks[book][chapter][heading] = true;
-      } else {
-        delete bookmarks[book][chapter][heading];
+      // pathname에서 챕터 번호 추출 (예: 02)
+      const chapterNum = chapter.match(/chapter(\d+)/)?.[1];
+      // 섹션 번호 생성 (예: 02-1)
+      const currentSection = chapterNum ? `${chapterNum}-1` : chapter;
 
-        // Clean up empty objects
+      if (!bookmarks[book][chapter][currentSection]) {
+        bookmarks[book][chapter][currentSection] = [];
+      }
+
+      if (isBookmarked) {
+        // 해당 섹션의 소제목 리스트에 추가
+        if (!bookmarks[book][chapter][currentSection].includes(heading)) {
+          bookmarks[book][chapter][currentSection].push(heading);
+        }
+      } else {
+        // 해당 섹션의 소제목 리스트에서 제거
+        const headingIndex =
+          bookmarks[book][chapter][currentSection].indexOf(heading);
+        if (headingIndex !== -1) {
+          bookmarks[book][chapter][currentSection].splice(headingIndex, 1);
+        }
+
+        // Clean up empty arrays and objects
+        if (bookmarks[book][chapter][currentSection].length === 0) {
+          delete bookmarks[book][chapter][currentSection];
+        }
         if (Object.keys(bookmarks[book][chapter]).length === 0) {
           delete bookmarks[book][chapter];
         }
-
         if (Object.keys(bookmarks[book]).length === 0) {
           delete bookmarks[book];
         }
@@ -49,12 +76,18 @@ export function useHeadingBookmark() {
     // Check if a heading is bookmarked
     const isBookmarked = (book, chapter, heading) => {
       const bookmarks = getBookmarks();
-      return bookmarks[book]?.[chapter]?.[heading] === true;
+      const chapterNum = chapter.match(/chapter(\d+)/)?.[1];
+      const currentSection = chapterNum ? `${chapterNum}-1` : chapter;
+
+      return (
+        bookmarks[book]?.[chapter]?.[currentSection]?.includes(heading) || false
+      );
     };
 
     headings.forEach((heading) => {
       if (!heading.id) {
-        heading.id = heading.textContent.toLowerCase().replace(/\s+/g, '-');
+        // ID 생성 방식을 encodeURIComponent로 변경
+        heading.id = createUrlHash(heading.textContent);
       }
 
       const headingText = heading.textContent;
