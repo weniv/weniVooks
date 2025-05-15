@@ -116,11 +116,13 @@ $bannerHeight: fcSize(240, 400);
   .thumbnailContainer {
     position: absolute;
     bottom: 0;
-    width: calc(100% + 4rem); // 컨테이너 너비 확장
+    width: calc(100% + 4rem);
     height: 100%;
     aspect-ratio: 644/400;
     overflow: hidden;
     right: -2.4rem;
+    transform: translateZ(0);
+    will-change: transform;
   }
 
   .thumbnail {
@@ -135,9 +137,11 @@ $bannerHeight: fcSize(240, 400);
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 40%; // 그라데이션 높이 (필요에 따라 조정)
+    height: 40%;
     background: linear-gradient(to top, rgba(0, 0, 0, 0.5), transparent);
     z-index: 5;
-    pointer-events: none; // 클릭 이벤트가 방해되지 않도록
+    pointer-events: none;
+    transform: translateZ(0);
+    will-change: transform;
   }
 }
