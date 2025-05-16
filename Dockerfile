@@ -1,32 +1,41 @@
-FROM node:18-alpine
+FROM node:18-alpine AS base
 
+# 의존성 설치 (캐시 레이어)
+FROM base AS deps
+RUN apk add --no-cache libc6-compat
 WORKDIR /app
-
-# 의존성 파일 복사
 COPY package*.json ./
-
-# 의존성 설치
-RUN npm ci
-
-# 소스 코드 복사
-COPY . .
-
-# 환경변수 설정
-ENV NODE_ENV=production
-ENV NEXT_TELEMETRY_DISABLED=1
+RUN npm ci --only=production && npm cache clean --force
 
 # 빌드
+FROM base AS builder
+WORKDIR /app
+COPY --from=deps /app/node_modules ./node_modules
+COPY . .
+
+ENV NEXT_TELEMETRY_DISABLED 1
+ENV NODE_OPTIONS="--max-old-space-size=4096"  # 메모리 증가
+
+# 병렬 처리 증가
 RUN npm run build
 
-# 포트 노출
-EXPOSE 3000
+# 프로덕션
+FROM base AS runner
+WORKDIR /app
 
-# 사용자 생성
+ENV NODE_ENV=dev
+ENV NEXT_TELEMETRY_DISABLED 1
+
 RUN addgroup --system --gid 1001 nodejs
 RUN adduser --system --uid 1001 nextjs
-RUN chown -R nextjs:nodejs /app
+
+COPY --from=builder --chown=nextjs:nodejs /app/.next ./.next
+COPY --from=builder --chown=nextjs:nodejs /app/node_modules ./node_modules
+COPY --from=builder --chown=nextjs:nodejs /app/package.json ./package.json
+COPY --from=builder --chown=nextjs:nodejs /app/public ./public
 
 USER nextjs
 
-# 일반 Next.js start 명령어 사용
+EXPOSE 3000
+
 CMD ["npm", "start"]
