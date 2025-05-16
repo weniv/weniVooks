@@ -1,32 +1,29 @@
-version: '3.8'
-
 services:
   wenivooks:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: wenivooks
+    container_name: wenivooks-dev
     restart: unless-stopped
-    environment:
-      - NODE_ENV=production
-      - NEXT_PUBLIC_API_URL=https://dev.wenivops.co.kr/services/wenivooks
+    env_file:
+      - .env
     networks:
       - traefik-network
     labels:
-      # Traefik 활성화
+      # Traefik 설정
       - "traefik.enable=true"
 
-      # 라우팅 규칙 - 서브패스로 설정
-      - "traefik.http.routers.wenivooks.rule=Host(`dev.wenivops.co.kr`) && PathPrefix(`/services/wenivooks`)"
-      - "traefik.http.routers.wenivooks.entrypoints=websecure"
-      - "traefik.http.routers.wenivooks.tls=true"
-      - "traefik.http.routers.wenivooks.tls.certresolver=myresolver"
+      # HTTPS 라우터
+      - "traefik.http.routers.wenivooks-dev.rule=Host(`dev.wenivops.co.kr`) && PathPrefix(`/services/wenivooks`)"
+      - "traefik.http.routers.wenivooks-dev.entrypoints=websecure"
+      - "traefik.http.routers.wenivooks-dev.tls=true"
+      - "traefik.http.routers.wenivooks-dev.tls.certresolver=myresolver"
 
       # 서비스 포트 설정
-      - "traefik.http.services.wenivooks.loadbalancer.server.port=3000"
+      - "traefik.http.services.wenivooks-dev.loadbalancer.server.port=3000"
 
-      # PathPrefix 제거를 위한 미들웨어 (옵션)
-      - "traefik.http.routers.wenivooks.middlewares=wenivooks-stripprefix"
+      # PathPrefix 제거를 위한 미들웨어
+      - "traefik.http.routers.wenivooks-dev.middlewares=wenivooks-stripprefix"
       - "traefik.http.middlewares.wenivooks-stripprefix.stripprefix.prefixes=/services/wenivooks"
 
 networks:
