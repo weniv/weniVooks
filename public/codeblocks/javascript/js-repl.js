@@ -23,12 +23,55 @@ class JsRepl extends HTMLElement {
   _execute() {
     try {
       const currentCode = this._getCurrentCode();
+
+      // console.log 캡처용 배열
+      let logs = [];
+      const originalLog = console.log;
+
+      console.log = (...args) => {
+        logs.push(args.map(arg => {
+          if (typeof arg === 'string') return arg;
+          if (arg === null) return 'null';
+          if (arg === undefined) return 'undefined';
+          try {
+            return JSON.stringify(arg);
+          } catch {
+            return String(arg);
+          }
+        }).join(' '));
+        originalLog.apply(console, args);
+      };
+
+      // 코드 실행
       const result = eval(currentCode);
-      this.result = this.getResultMessage(result, currentCode);
-      this._updateResult(this.result);
+
+      // console.log 복원
+      console.log = originalLog;
+
+      // 결과 조합
+      let finalResult = '';
+
+      // console.log 출력이 있으면 추가
+      if (logs.length > 0) {
+        finalResult += logs.join('\n');
+      }
+
+      // 함수 반환값이 undefined가 아니면 추가
+      if (result !== undefined) {
+        if (finalResult) finalResult += '\n';
+        finalResult += result;
+      }
+
+      // 둘 다 없으면 기본 메시지
+      if (!finalResult) {
+        finalResult = '실행 완료';
+      }
+
+      this._updateResult(finalResult);
+
     } catch (error) {
       console.error('js 코드 실행 중 오류 발생:', error);
-      this._updateResult(error);
+      this._updateResult(`Error: ${error.message}`);
     }
   }
 
@@ -38,38 +81,40 @@ class JsRepl extends HTMLElement {
   }
 
   getResultMessage(result, currentCode) {
-    if (result === null) {
-      return 'null';
-    } else if (result === undefined && currentCode.includes('console.log')) {
-      return this._extractCodeResult(currentCode);
-    } else if (result !== undefined && currentCode.includes('console.log')) {
-      return `${result}\n${this._extractCodeResult(currentCode)}`;
-    } else if (result === undefined) {
-      return 'undefined';
-    } else {
-      return result;
-    }
+    // if (result === null) {
+    //   return 'null';
+    // } else if (result === undefined && currentCode.includes('console.log')) {
+    //   return this._extractCodeResult(currentCode);
+    // } else if (result !== undefined && currentCode.includes('console.log')) {
+    //   return `${result}\n${this._extractCodeResult(currentCode)}`;
+    // } else if (result === undefined) {
+    //   return 'undefined';
+    // } else {
+    //   return result;
+    // }
+    return result;
   }
 
   _extractCodeResult(code) {
-    let log = [];
-    let oldLog = console.log;
-    console.log = function (message) {
-      try {
-        log.push(JSON.stringify(message));
-      } catch (error) {
-        log.push(message);
-      }
-      oldLog.apply(console, arguments);
-    };
-
-    eval(code);
-
-    if (log.length === 0) {
-      return '(console) ';
-    }
-
-    return `(console)\n${log.join('\n')}`;
+    // let log = [];
+    // let oldLog = console.log;
+    // console.log = function (message) {
+    //   try {
+    //     log.push(JSON.stringify(message));
+    //   } catch (error) {
+    //     log.push(message);
+    //   }
+    //   oldLog.apply(console, arguments);
+    // };
+    //
+    // eval(code);
+    //
+    // if (log.length === 0) {
+    //   return '(console) ';
+    // }
+    //
+    // return `(console)\n${log.join('\n')}`;
+    return '';
   }
 
   _copyCodeToClipboard() {
