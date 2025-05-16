@@ -1,24 +1,23 @@
 FROM node:18-alpine AS base
 
-# 의존성 설치 (캐시 레이어)
+# Install dependencies
 FROM base AS deps
 RUN apk add --no-cache libc6-compat
 WORKDIR /app
-COPY package*.json ./
-RUN npm ci --only=production && npm cache clean --force
+COPY package.json package-lock.json* ./
+RUN npm ci
 
-# 빌드
+# Build application
 FROM base AS builder
 WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 
+# Build with environment variables
 ENV NEXT_TELEMETRY_DISABLED 1
-
-# 병렬 처리 증가
 RUN npm run build
 
-# 프로덕션
+# Production image
 FROM base AS runner
 WORKDIR /app
 
@@ -28,13 +27,13 @@ ENV NEXT_TELEMETRY_DISABLED 1
 RUN addgroup --system --gid 1001 nodejs
 RUN adduser --system --uid 1001 nextjs
 
-COPY --from=builder --chown=nextjs:nodejs /app/.next ./.next
-COPY --from=builder --chown=nextjs:nodejs /app/node_modules ./node_modules
-COPY --from=builder --chown=nextjs:nodejs /app/package.json ./package.json
-COPY --from=builder --chown=nextjs:nodejs /app/public ./public
+# Copy built application
+COPY --from=builder /app/public ./public
+COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
+COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
 
 USER nextjs
 
 EXPOSE 3000
 
-CMD ["npm", "start"]
+CMD ["node", "server.js"]
