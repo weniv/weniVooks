@@ -27,12 +27,12 @@ jobs:
             # package.json이 변경되었는지 확인
             if git diff --name-only HEAD~1 HEAD | grep -q "package.json"; then
               echo "📦 Dependencies changed, rebuilding without cache..."
-              docker compose build --no-cache wenivooks
+              docker compose build --no-cache wenivooks-dev
             else
               echo "🚀 Code changes only, using cache..."
-              docker compose build wenivooks
+              docker compose build wenivooks-dev
             fi
             
-            docker compose up -d --no-deps wenivooks
+            docker compose up -d --no-deps wenivooks-dev
             
             echo "✅ Deployment completed successfully!"
