@@ -52,6 +52,7 @@ export const convertMarkdownToHtml = async (markdown) => {
     .use(remarkParse) // 마크다운을 파싱
     .use(remarkDirective) // 확장구문 사용
     .use(myRemarkPlugin)
+    .use(remarkBasePath) // 이미지 경로 basePath 추가 플러그인
     .use(remarkGfm) // GFM 지원(자동링크 리터럴, 각주, 취소선, 표, 작업 목록)
     .use(remarkBehead, { minDepth: 4 })
     .use(remark2rehype, {
