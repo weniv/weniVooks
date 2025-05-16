@@ -1,40 +1,32 @@
-FROM node:18-alpine AS base
+FROM node:18-alpine
+
+WORKDIR /app
+
+# 의존성 파일 복사
+COPY package*.json ./
 
 # 의존성 설치
-FROM base AS deps
-RUN apk add --no-cache libc6-compat
-WORKDIR /app
-COPY package*.json ./
 RUN npm ci
 
-# 빌드
-FROM base AS builder
-WORKDIR /app
-COPY --from=deps /app/node_modules ./node_modules
+# 소스 코드 복사
 COPY . .
 
-ENV NEXT_TELEMETRY_DISABLED 1
+# 환경변수 설정
+ENV NODE_ENV=production
+ENV NEXT_TELEMETRY_DISABLED=1
+
+# 빌드
 RUN npm run build
 
-# 프로덕션 이미지
-FROM base AS runner
-WORKDIR /app
+# 포트 노출
+EXPOSE 3000
 
-ENV NODE_ENV=dev
-ENV NEXT_TELEMETRY_DISABLED 1
-
+# 사용자 생성
 RUN addgroup --system --gid 1001 nodejs
 RUN adduser --system --uid 1001 nextjs
-
-# public 폴더 복사 (중요!)
-COPY --from=builder /app/public ./public
-
-# standalone 빌드 파일
-COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
-COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
+RUN chown -R nextjs:nodejs /app
 
 USER nextjs
 
-EXPOSE 3000
-
-CMD ["node", "server.js"]
+# 일반 Next.js start 명령어 사용
+CMD ["npm", "start"]
