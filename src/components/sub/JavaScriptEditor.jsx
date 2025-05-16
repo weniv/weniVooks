@@ -37,6 +37,11 @@ const JavaScriptEditor = ({ initialCode }) => {
       return new Date(obj.getTime());
     }
 
+    // Promise 처리 추가
+    if (obj instanceof Promise) {
+      return obj; // Promise는 그대로 반환
+    }
+
     if (Array.isArray(obj)) {
       return obj.map(deepClone);
     }
@@ -72,14 +77,41 @@ const JavaScriptEditor = ({ initialCode }) => {
       htmlOutput = element;
     };
 
+    // Promise를 처리하는 console.log override
     console.log = async (...args) => {
-      // 각 인자의 깊은 복사본을 만들어 저장 (함수 보존)
-      output.push(args.map(deepClone));
+      // Promise 처리를 위한 배열
+      const processedArgs = [];
+
+      for (const arg of args) {
+        if (arg instanceof Promise) {
+          try {
+            // Promise를 await하여 실제 값 얻기
+            const resolvedValue = await arg;
+            processedArgs.push(resolvedValue);
+          } catch (error) {
+            processedArgs.push(`Promise rejected: ${error.message}`);
+          }
+        } else {
+          processedArgs.push(deepClone(arg));
+        }
+      }
+
+      output.push(processedArgs);
     };
 
     try {
       const executeFunction = new Function('editorResult', javaScript);
       await executeFunction(editorResult);
+
+      // 함수 실행 결과가 Promise인 경우 처리
+      if (functionResult instanceof Promise) {
+        try {
+          await functionResult;
+        } catch (error) {
+          console.error('Execution error:', error);
+        }
+      }
+
       if (output.length > 0) {
         setResult(output.map(formatOutput).join('<br>'));
       } else if (htmlOutput) {
@@ -115,6 +147,9 @@ const JavaScriptEditor = ({ initialCode }) => {
     }
     if (value instanceof Date) {
       return `<span class=${styles.string}>'${value.toISOString()}'</span>`;
+    }
+    if (value instanceof Promise) {
+      return `<span class=${styles.object}>[object Promise]</span>`;
     }
     switch (typeof value) {
       case 'string':
