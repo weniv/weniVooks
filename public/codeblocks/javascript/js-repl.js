@@ -63,13 +63,14 @@ class JsRepl extends HTMLElement {
       oldLog.apply(console, arguments);
     };
 
-    eval(code);
+    // console.log 결과 초기화
+    console.log = oldLog;
 
     if (log.length === 0) {
-      return '(console) ';
+      return ''; // (console) 제거
     }
 
-    return `(console)\n${log.join('\n')}`;
+    return log.join('\n'); // (console) 제거
   }
 
   _copyCodeToClipboard() {
