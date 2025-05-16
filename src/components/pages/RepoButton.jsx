@@ -5,7 +5,23 @@ import Tooltip from '../common/tooltip/Tooltip';
 
 export default function RepoButton() {
   const handleRepo = () => {
-    const repoUrl = `https://github.com/weniv/wenivooks/tree/main/_md${window.location.pathname}.md`;
+    // 환경변수에서 브랜치 가져오기
+    const branch = process.env.NEXT_PUBLIC_BRANCH || 'main';
+
+    // pathname에서 basePath 제거
+    let pathname = window.location.pathname;
+    const basePath = '/services/wenivooks';
+
+    if (pathname.startsWith(basePath)) {
+      pathname = pathname.replace(basePath, '');
+    }
+
+    // 빈 문자열이면 기본값 처리
+    if (!pathname || pathname === '/') {
+      pathname = '';
+    }
+
+    const repoUrl = `https://github.com/weniv/weniVooks/tree/${branch}/_md${pathname}.md`;
     window.open(repoUrl, '_blank');
   };
   return (
