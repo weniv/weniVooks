@@ -3,7 +3,7 @@ import Script from 'next/script';
 
 export default function PythonREPL({ children }) {
   const basePath = process.env.NODE_ENV === 'dev' ? '/services/wenivooks' : '';
-
+  console.log(basePath);
   return (
     <div>
       {/* PyScript CSS */}
