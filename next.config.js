@@ -3,7 +3,7 @@ const nextConfig = {
   basePath: '/services/wenivooks',
   // assetPrefix: '/services/wenivooks',
   trailingSlash: true,
-  // output: 'standalone', // Docker standalone 빌드
+  output: 'standalone', // Docker standalone 빌드
 
   // 이미지 설정
   images: {
