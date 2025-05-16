@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  basePath: '/services/wenivooks',
-  // assetPrefix: '/services/wenivooks',
+  basePath: process.env.NODE_ENV === 'dev' ? '/services/wenivooks' : '',
+  assetPrefix: process.env.NODE_ENV === 'dev' ? '/services/wenivooks' : '',
   trailingSlash: true,
   output: 'standalone', // Docker standalone 빌드
 
