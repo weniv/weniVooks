@@ -19,7 +19,19 @@ import rehypePrettyCode from 'rehype-pretty-code';
  * - <color=#HEX>텍스트</color> 형식으로 텍스트 색상 지정 가능
  * - <toggle>제목::내용</toggle> 형식으로 토글(접기/펼치기) 기능 사용 가능
  */
+function remarkBasePath() {
+  return function (tree) {
+    // NEXT_PUBLIC_BASE_PATH 환경변수 사용 (없으면 빈 문자열)
+    const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
 
+    visit(tree, 'image', (node) => {
+      // 이미지 URL이 절대경로(/images로 시작)이고 basePath가 없는 경우
+      if (node.url && node.url.startsWith('/images') && !node.url.startsWith(basePath)) {
+        node.url = `${basePath}${node.url}`;
+      }
+    });
+  };
+}
 export const convertMarkdownToHtml = async (markdown) => {
   // Windows 줄바꿈을 표준화
   let normalizedMarkdown = markdown.replace(/\r\n/g, '\n');

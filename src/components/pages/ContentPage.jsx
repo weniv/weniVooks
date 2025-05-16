@@ -13,6 +13,8 @@ export default async function ContentPage({
   DEFAULT_PATH,
   EDITOR,
 }) {
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
+
   try {
     const { title, htmlContent, markdownContent } = await getMarkdown(
       `/${DEFAULT_PATH}/${chapter}/${page}.md`,
@@ -37,8 +39,8 @@ export default async function ContentPage({
             }}
           />
 
-          <link rel="stylesheet" href="/pyscript/pyscript.css" />
-          <Script src="/pyscript/pyscript.js" />
+          <link rel="stylesheet" href={`${basePath}/pyscript/pyscript.css`} />
+          <Script src={`${basePath}/pyscript/pyscript.js`} />
           <py-config type="json">{JSON.stringify(json)}</py-config>
         </>
       );
