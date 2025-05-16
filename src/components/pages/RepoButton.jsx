@@ -21,7 +21,10 @@ export default function RepoButton() {
       pathname = '';
     }
 
-    const repoUrl = `https://github.com/weniv/weniVooks/tree/${branch}/_md${pathname}.md`;
+    // 끝의 '/' 제거 (있다면)
+    pathname = pathname.replace(/\/$/, '');
+
+    const repoUrl = `https://github.com/weniv/weniVooks/blob/${branch}/_md${pathname}.md`;
     window.open(repoUrl, '_blank');
   };
   return (
