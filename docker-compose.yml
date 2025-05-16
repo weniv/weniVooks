@@ -13,25 +13,17 @@ services:
       # Traefik 설정
       - "traefik.enable=true"
 
-      # 정적 파일용 라우터 (StripPrefix 없음)
-      - "traefik.http.routers.wenivooks-static.rule=Host(`dev.wenivops.co.kr`) && PathPrefix(`/services/wenivooks`) && (PathPrefix(`/services/wenivooks/images`) || PathPrefix(`/services/wenivooks/pyscript`) || PathPrefix(`/services/wenivooks/_next/static`))"
-      - "traefik.http.routers.wenivooks-static.entrypoints=websecure"
-      - "traefik.http.routers.wenivooks-static.tls=true"
-      - "traefik.http.routers.wenivooks-static.tls.certresolver=myresolver"
-      - "traefik.http.routers.wenivooks-static.priority=100"
-
-      # 앱용 라우터 (StripPrefix 적용)
+      # 모든 요청 (정적 파일 포함)을 하나의 라우터로 처리
       - "traefik.http.routers.wenivooks-dev.rule=Host(`dev.wenivops.co.kr`) && PathPrefix(`/services/wenivooks`)"
       - "traefik.http.routers.wenivooks-dev.entrypoints=websecure"
       - "traefik.http.routers.wenivooks-dev.tls=true"
       - "traefik.http.routers.wenivooks-dev.tls.certresolver=myresolver"
-      - "traefik.http.routers.wenivooks-dev.middlewares=wenivooks-stripprefix"
-      - "traefik.http.routers.wenivooks-dev.priority=50"
 
       # 서비스 포트 설정
       - "traefik.http.services.wenivooks-dev.loadbalancer.server.port=3000"
 
-      # StripPrefix 미들웨어
+      # StripPrefix 미들웨어 - 정적 파일도 함께 처리
+      - "traefik.http.routers.wenivooks-dev.middlewares=wenivooks-stripprefix"
       - "traefik.http.middlewares.wenivooks-stripprefix.stripprefix.prefixes=/services/wenivooks"
 
 
