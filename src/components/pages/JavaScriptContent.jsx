@@ -5,8 +5,7 @@ import dynamic from 'next/dynamic';
 import '@/styles/common.css';
 import '@/styles/codemirror.css';
 
-import PrintButton from './PrintButton';
-import CopyButton from './CopyButton';
+import ButtonGroup from '../common/button/ButtonGroup';
 
 function replaceCodeWithJsRepl(htmlString) {
   const dom = new JSDOM(htmlString);
@@ -42,9 +41,8 @@ export default function JavaScriptContent({
     <>
       {htmlContent && (
         <>
-          <CopyButton markdownContent={markdownContent} />
-          <PrintButton />
           <h3 className="title">{title}</h3>
+          <ButtonGroup markdownContent={markdownContent} />
           <div
             dangerouslySetInnerHTML={{
               __html: replaceCodeWithJsRepl(htmlContent),

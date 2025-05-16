@@ -4,9 +4,7 @@ import { JSDOM } from 'jsdom';
 import { getMarkdown } from '@/sub/getMarkdown';
 import replaceCodeEditor from '@/sub/replaceCodeEditor';
 import JavaScriptContent from './JavaScriptContent';
-
-import PrintButton from './PrintButton';
-import CopyButton from './CopyButton';
+import ButtonGroup from '../common/button/ButtonGroup';
 import dynamic from 'next/dynamic';
 
 export default async function ContentPage({
@@ -23,8 +21,7 @@ export default async function ContentPage({
     if (!EDITOR || EDITOR.length === 0) {
       return (
         <>
-          <CopyButton markdownContent={markdownContent} />
-          <PrintButton />
+          <ButtonGroup markdownContent={markdownContent} />
           <h3 className="title">{title}</h3>
           <div dangerouslySetInnerHTML={{ __html: htmlContent }} />
         </>
@@ -32,8 +29,7 @@ export default async function ContentPage({
     } else if (EDITOR.includes('Python')) {
       return (
         <>
-          <CopyButton markdownContent={markdownContent} />
-          <PrintButton />
+          <ButtonGroup markdownContent={markdownContent} />
           <h3 className="title">{title}</h3>
           <div
             dangerouslySetInnerHTML={{
@@ -57,8 +53,7 @@ export default async function ContentPage({
     } else {
       return (
         <>
-          <CopyButton markdownContent={markdownContent} />
-          <PrintButton />
+          <ButtonGroup markdownContent={markdownContent} />
           <h3 className="title">{title}</h3>
           {replaceCodeEditor(htmlContent, EDITOR)}
         </>
