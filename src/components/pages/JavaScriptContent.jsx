@@ -37,6 +37,8 @@ export default function JavaScriptContent({
   title,
   markdownContent,
 }) {
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
+
   return (
     <>
       {htmlContent && (
@@ -50,12 +52,14 @@ export default function JavaScriptContent({
           />
         </>
       )}
-      <link rel="stylesheet" href="/codeblocks/codemirror.css" />
-      <Script src="/codeblocks/codemirror.js" />
-      <Script defer src="/codeblocks/javascript/js-repl.js" />
-      <Script defer src="/codeblocks/codemirror.js" />
-      <Script defer src="/codeblocks/javascript/javascript.js" />
-      <Script defer src="/codeblocks/codemirror/active-line.js" />
+      {/* basePath 적용된 CSS */}
+      <link rel="stylesheet" href={`${basePath}/codeblocks/codemirror.css`} />
+
+      {/* basePath 적용된 JavaScript 파일들 */}
+      <Script src={`${basePath}/codeblocks/codemirror.js`} />
+      <Script defer src={`${basePath}/codeblocks/javascript/js-repl.js`} />
+      <Script defer src={`${basePath}/codeblocks/javascript/javascript.js`} />
+      <Script defer src={`${basePath}/codeblocks/codemirror/active-line.js`} />
     </>
   );
 }
