@@ -1,7 +1,7 @@
 'use client';
 import { useRef } from 'react';
 import BtnIcon from '@/components/common/button/BtnIcon';
-import styles from './SearchForm.module.scss';
+import styles from './BookSearchForm.module.scss';
 import SVGSearch from '@/components/svg/SVGSearch';
 
 export default function BookSearchForm() {
@@ -15,7 +15,7 @@ export default function BookSearchForm() {
 
   return (
     <form
-      className={styles.search}
+      className={styles.bookSearch}
       action="/book-search"
       method="GET"
       onSubmit={handleSubmit}
@@ -26,7 +26,7 @@ export default function BookSearchForm() {
       <input
         id="book-search"
         type="search"
-        placeholder="책 제목을 입력하세요."
+        placeholder="어떤 책을 찾으시나요?"
         name="keyword"
         ref={inputRef}
       />

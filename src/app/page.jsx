@@ -31,9 +31,7 @@ export default function Home() {
       <div className="layout-grow">
         <Banner />
         <div className="max-w-[1200px] mx-auto px-5">
-          <div className="mb-6">
-            <BookSearchForm />
-          </div>
+          <BookSearchForm />
           <FilterNav
             options={filterOptions}
             selectedValue={selectedFilter}
