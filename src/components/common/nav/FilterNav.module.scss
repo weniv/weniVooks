@@ -11,12 +11,14 @@
   position: relative;
   z-index: 10;
   max-width: 119rem;
+  // justify-content: center;
 
   @media (max-width: 768px) {
     overflow-x: auto;
     flex-wrap: nowrap;
     -webkit-overflow-scrolling: touch;
     padding-bottom: 4px;
+    // justify-content: flex-start;
 
     // 스크롤바 숨기기
     &::-webkit-scrollbar {
