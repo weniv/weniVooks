@@ -20,8 +20,6 @@ export default function BookSearchForm() {
   return (
     <form
       className={styles.bookSearch}
-      action="/book-search"
-      method="GET"
       onSubmit={handleSubmit}
     >
       <label className="a11y-hidden" htmlFor="book-search">
