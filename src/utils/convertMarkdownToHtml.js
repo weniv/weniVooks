@@ -48,6 +48,22 @@ export const convertMarkdownToHtml = async (markdown) => {
     '<details class="custom-toggle"><summary class="toggle-summary">$1</summary><div class="toggle-content">$2</div></details>',
   );
 
+  // ::img 지시문을 HTML <img> 태그로 직접 변환
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
+  normalizedMarkdown = normalizedMarkdown.replace(
+    /::img\{([^}]*)\}/g,
+    (match, attributes) => {
+      // width="400" src="/images/..." 형식의 속성 파싱
+      const width = attributes.match(/width="([^"]*)"/)?.[1] || '';
+      const src = attributes.match(/src="([^"]*)"/)?.[1] || '';
+
+      if (!src) return match; // src가 없으면 원래 텍스트 유지
+
+      const fullSrc = src.startsWith('/') ? basePath + src : src;
+      return `<img width="${width}" src="${fullSrc}" alt="" />`;
+    }
+  );
+
   const file = await unified()
     .use(remarkParse) // 마크다운을 파싱
     .use(remarkDirective) // 확장구문 사용
