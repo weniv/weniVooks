@@ -53,13 +53,17 @@ export const convertMarkdownToHtml = async (markdown) => {
   normalizedMarkdown = normalizedMarkdown.replace(
     /::img\{([^}]*)\}/g,
     (match, attributes) => {
-      // width="400" src="/images/..." 형식의 속성 파싱
       const width = attributes.match(/width="([^"]*)"/)?.[1] || '';
       const src = attributes.match(/src="([^"]*)"/)?.[1] || '';
 
       if (!src) return match; // src가 없으면 원래 텍스트 유지
 
-      const fullSrc = src.startsWith('/') ? basePath + src : src;
+      // 여기서 중요한 변경: 슬래시로 시작하는 이미지 경로에 basePath 추가하되
+      // 이미 basePath가 있는 경우는 추가하지 않음
+      const fullSrc = src.startsWith('/') && !src.startsWith(basePath)
+        ? basePath + src
+        : src;
+
       return `<img width="${width}" src="${fullSrc}" alt="" />`;
     }
   );
