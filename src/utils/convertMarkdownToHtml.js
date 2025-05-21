@@ -161,12 +161,3 @@ function getFullImagePath(src) {
   // 기타 경우 그대로 반환
   return src;
 }
-function testDirective() {
-  const result = unified()
-    .use(remarkParse)
-    .use(remarkDirective)
-    .parse("::img{width=\"400\" src=\"/images/test.png\"}");
-
-  console.log("파싱 결과:", JSON.stringify(result, null, 2));
-}
-testDirective();
