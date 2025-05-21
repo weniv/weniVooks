@@ -85,6 +85,23 @@ export const convertMarkdownToHtml = async (markdown) => {
   return htmlResult;
 };
 
+// function myRemarkPlugin() {
+//   return function (tree) {
+//     visit(tree, function (node) {
+//       if (
+//         node.type === 'containerDirective' ||
+//         node.type === 'leafDirective' ||
+//         node.type === 'textDirective'
+//       ) {
+//         const data = node.data || (node.data = {});
+//         const hast = h(node.name, node.attributes || {});
+//
+//         data.hName = hast.tagName;
+//         data.hProperties = hast.properties;
+//       }
+//     });
+//   };
+// }
 function myRemarkPlugin() {
   return function (tree) {
     visit(tree, function (node) {
@@ -94,10 +111,19 @@ function myRemarkPlugin() {
         node.type === 'textDirective'
       ) {
         const data = node.data || (node.data = {});
-        const hast = h(node.name, node.attributes || {});
 
-        data.hName = hast.tagName;
-        data.hProperties = hast.properties;
+        // img 지시문 특별 처리
+        if (node.name === 'img') {
+          data.hName = 'img';
+          data.hProperties = {
+            ...node.attributes,
+            src: (process.env.NEXT_PUBLIC_BASE_PATH || '') + node.attributes.src
+          };
+        } else {
+          const hast = h(node.name, node.attributes || {});
+          data.hName = hast.tagName;
+          data.hProperties = hast.properties;
+        }
       }
     });
   };
