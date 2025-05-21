@@ -21,17 +21,15 @@ services:
 
       # 서비스 포트 설정
       - "traefik.http.services.wenivooks-dev.loadbalancer.server.port=3000"
+      - "traefik.http.middlewares.wenivooks-stripprefix.stripprefix.prefixes=/services/wenivooks"
 
       # 미들웨어 체인 (순서 중요!)
-      - "traefik.http.routers.wenivooks-dev.middlewares=wenivooks-redirect"
+      - "traefik.http.routers.wenivooks-dev.middlewares=wenivooks-redirect,wenivooks-stripprefix"
 
       # 슬래시 추가 리다이렉션 미들웨어
       - "traefik.http.middlewares.wenivooks-redirect.redirectregex.regex=^(.*/services/wenivooks/[^/]+)$$"
       - "traefik.http.middlewares.wenivooks-redirect.redirectregex.replacement=$${1}/"
       - "traefik.http.middlewares.wenivooks-redirect.redirectregex.permanent=true"
-
-      # PathPrefix 제거를 위한 미들웨어
-#      - "traefik.http.middlewares.wenivooks-stripprefix.stripprefix.prefixes=/services/wenivooks"
 
 networks:
   traefik-network:
