@@ -8,7 +8,7 @@ const nextConfig = {
   images: {
     domains: ['dev.wenivops.co.kr'],
     path: '/services/wenivooks/_next/image',
-    // unoptimized: true, // 필요한 경우 이미지 최적화 비활성화
+    unoptimized: true, // 필요한 경우 이미지 최적화 비활성화
   },
   async rewrites() {
     return [
