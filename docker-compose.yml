@@ -32,29 +32,18 @@ services:
 #      - "traefik.http.middlewares.wenivooks-redirect.redirectregex.permanent=true"
       # Traefik 설정
       - "traefik.enable=true"
+      # 기본 서비스 정의
+      - "traefik.http.services.wenivooks-dev.loadbalancer.server.port=3000"
 
-      # HTTPS 라우터 - 메인 애플리케이션용
+      # 메인 앱 라우터
       - "traefik.http.routers.wenivooks-dev.rule=Host(`dev.wenivops.co.kr`) && PathPrefix(`/services/wenivooks`)"
       - "traefik.http.routers.wenivooks-dev.entrypoints=websecure"
       - "traefik.http.routers.wenivooks-dev.tls=true"
       - "traefik.http.routers.wenivooks-dev.tls.certresolver=myresolver"
 
-      # 서비스 포트 설정
-      - "traefik.http.services.wenivooks-dev.loadbalancer.server.port=3000"
-
-      # 미들웨어 체인 - 정적 파일 경로 제외
-      - "traefik.http.routers.wenivooks-dev.middlewares=wenivooks-redirect"
-
-      # 슬래시 추가 리다이렉션 미들웨어
-      - "traefik.http.middlewares.wenivooks-redirect.redirectregex.regex=^(.*/services/wenivooks/[^/]+)$$"
-      - "traefik.http.middlewares.wenivooks-redirect.redirectregex.replacement=$${1}/"
-      - "traefik.http.middlewares.wenivooks-redirect.redirectregex.permanent=true"
-
-      # 정적 리소스 처리를 위한 별도 라우터
-      - "traefik.http.routers.wenivooks-static.rule=Host(`dev.wenivops.co.kr`) && (PathPrefix(`/services/wenivooks/images/`) || PathPrefix(`/services/wenivooks/codeblocks/`) || PathPrefix(`/services/wenivooks/pyscript/`))"
-      - "traefik.http.routers.wenivooks-static.entrypoints=websecure"
-      - "traefik.http.routers.wenivooks-static.tls=true"
-      - "traefik.http.routers.wenivooks-static.service=wenivooks-dev"
+      # 명시적으로 stripPrefix 미들웨어 다시 추가 (앱 경로를 위해)
+      - "traefik.http.middlewares.wenivooks-prefix.stripprefix.prefixes=/services/wenivooks"
+      - "traefik.http.routers.wenivooks-dev.middlewares=wenivooks-prefix"
 networks:
   traefik-network:
     external: true
