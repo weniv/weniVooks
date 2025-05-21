@@ -10,18 +10,6 @@ const nextConfig = {
     path: '/services/wenivooks/_next/image',
     unoptimized: true, // 필요한 경우 이미지 최적화 비활성화
   },
-  webpack: (config, { isServer }) => {
-    if (!isServer) {
-      // 클라이언트 빌드에서는 Node 모듈을 빈 객체로 처리
-      config.resolve.fallback = {
-        ...config.resolve.fallback,
-        fs: false,
-        net: false,
-        tls: false,
-      };
-    }
-    return config;
-  },
   async rewrites() {
     return [
       {
