@@ -24,6 +24,7 @@ jobs:
             echo "📥 Pulling latest changes..."
             git pull origin dev
             
-            docker compose up -d --build
+            docker compose build --no-cache wenivooks-dev
+            docker compose up -d
             
             echo "✅ Deployment completed successfully!"
