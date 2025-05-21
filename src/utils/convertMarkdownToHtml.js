@@ -30,12 +30,7 @@ function remarkBasePath() {
 }
 
 export const convertMarkdownToHtml = async (markdown) => {
-  // 원본 마크다운 확인
-  console.log("원본 마크다운:", markdown.slice(0, 500)); // 처음 500자만 표시
 
-  // 변환 전에 ::img 패턴이 있는지 확인
-  const imgMatches = markdown.match(/::img\{([^}]*)\}/g);
-  console.log("::img 매칭 결과:", imgMatches);
   // Windows 줄바꿈을 표준화
   let normalizedMarkdown = markdown.replace(/\r\n/g, '\n');
 
