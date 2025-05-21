@@ -42,8 +42,8 @@ services:
       - "traefik.http.routers.wenivooks-dev.tls.certresolver=myresolver"
 
       # 명시적으로 stripPrefix 미들웨어 다시 추가 (앱 경로를 위해)
-#      - "traefik.http.middlewares.wenivooks-prefix.stripprefix.prefixes=/services/wenivooks"
-#      - "traefik.http.routers.wenivooks-dev.middlewares=wenivooks-prefix"
+      - "traefik.http.middlewares.wenivooks-prefix.stripprefix.prefixes=/services/wenivooks"
+      - "traefik.http.routers.wenivooks-dev.middlewares=wenivooks-prefix"
 networks:
   traefik-network:
     external: true
