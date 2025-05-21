@@ -86,8 +86,6 @@ export const convertMarkdownToHtml = async (markdown) => {
       allowDangerousHtml: true, // HTML 태그 허용
     }) // HTML로 변환
     .process(normalizedMarkdown);
-  const finalHtml = String(file);
-  console.log("최종 HTML에 이미지 태그 포함 여부:", finalHtml.includes("<img"));
   // 최종 HTML에서 남아있을 수 있는 색상 태그와 토글 태그 처리
   let htmlResult = String(file)
     .replace(
