@@ -20,17 +20,19 @@ import rehypePrettyCode from 'rehype-pretty-code';
  * - <toggle>제목::내용</toggle> 형식으로 토글(접기/펼치기) 기능 사용 가능
  */
 function remarkBasePath() {
-  return function(tree) {
+  return function (tree) {
+    // NEXT_PUBLIC_BASE_PATH 환경변수 사용 (없으면 빈 문자열)
+    const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
+
     visit(tree, 'image', (node) => {
-      if (node.url) {
-        node.url = getFullImagePath(node.url);
+      // 이미지 URL이 절대경로(/images로 시작)이고 basePath가 없는 경우
+      if (node.url && node.url.startsWith('/images') && !node.url.startsWith(basePath)) {
+        node.url = `${basePath}${node.url}`;
       }
     });
   };
 }
-
 export const convertMarkdownToHtml = async (markdown) => {
-
   // Windows 줄바꿈을 표준화
   let normalizedMarkdown = markdown.replace(/\r\n/g, '\n');
 
@@ -44,24 +46,6 @@ export const convertMarkdownToHtml = async (markdown) => {
   normalizedMarkdown = normalizedMarkdown.replace(
     /<toggle>(.*?)::([\s\S]*?)<\/toggle>/g,
     '<details class="custom-toggle"><summary class="toggle-summary">$1</summary><div class="toggle-content">$2</div></details>',
-  );
-
-  // ::img 지시문을 HTML <img> 태그로 직접 변환
-  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
-  normalizedMarkdown = normalizedMarkdown.replace(
-    /::img\{([^}]*)\}/g,
-    (match, attributes) => {
-      const width = attributes.match(/width="([^"]*)"/)?.[1] || '';
-      const alt = attributes.match(/alt="([^"]*)"/)?.[1] || '';
-      const src = attributes.match(/src="([^"]*)"/)?.[1] || '';
-
-      if (!src) return match;
-
-      const fullSrc = getFullImagePath(src);
-
-      // data-custom-element 속성을 추가하여 Next.js가 이를 자동으로 Image 컴포넌트로 변환하지 않도록 함
-      return `<img width="${width}" src="${fullSrc}" alt="${alt}" data-custom-element="true" />`;
-    }
   );
 
   const file = await unified()
@@ -86,6 +70,7 @@ export const convertMarkdownToHtml = async (markdown) => {
       allowDangerousHtml: true, // HTML 태그 허용
     }) // HTML로 변환
     .process(normalizedMarkdown);
+
   // 최종 HTML에서 남아있을 수 있는 색상 태그와 토글 태그 처리
   let htmlResult = String(file)
     .replace(
@@ -118,8 +103,13 @@ export const convertMarkdownToHtml = async (markdown) => {
 //   };
 // }
 function myRemarkPlugin() {
-  return function(tree) {
-    visit(tree, function(node) {
+  return function (tree) {
+    visit(tree, function (node) {
+      // 디버깅을 위한 콘솔 로그 추가
+      if (node.name === 'img') {
+        console.log('Found img directive:', node);
+      }
+
       if (
         node.type === 'containerDirective' ||
         node.type === 'leafDirective' ||
@@ -127,15 +117,21 @@ function myRemarkPlugin() {
       ) {
         const data = node.data || (node.data = {});
 
+        // img 지시문 특별 처리 - 속성 접근 방식 개선
         if (node.name === 'img') {
           data.hName = 'img';
+          // 속성이 있는지 확인하고 src 경로 처리
           const attrs = node.attributes || {};
           const src = attrs.src || '';
+          const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
 
           data.hProperties = {
             ...attrs,
-            src: getFullImagePath(src),
+            src: src.startsWith('/') ? basePath + src : src
           };
+
+          // 디버깅용 로그
+          console.log('Processing img with src:', src, '-> final src:', data.hProperties.src);
         } else {
           const hast = h(node.name, node.attributes || {});
           data.hName = hast.tagName;
@@ -144,18 +140,4 @@ function myRemarkPlugin() {
       }
     });
   };
-}
-
-function getFullImagePath(src) {
-  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
-  // 이미 https://로 시작하는 완전한 URL이면 그대로 반환
-  if (src.startsWith('http://') || src.startsWith('https://')) {
-    return src;
-  }
-  // /images로 시작하고 basePath가 없는 경우 전체 도메인 포함 URL 구성
-  if (src.startsWith('/images') && !src.startsWith(basePath)) {
-    return `https://dev.wenivops.co.kr${basePath}${src}`;
-  }
-  // 기타 경우 그대로 반환
-  return src;
 }
