@@ -1,8 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // basePath: '/services/wenivooks',
+  basePath: '/services/wenivooks',
   assetPrefix: '/services/wenivooks',
-  trailingSlash: true,
+  trailingSlash: false,
   output: 'standalone', // Docker standalone 빌드
   // 이미지 최적화 설정 추가
   images: {
