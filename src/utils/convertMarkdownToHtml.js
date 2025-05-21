@@ -20,18 +20,15 @@ import rehypePrettyCode from 'rehype-pretty-code';
  * - <toggle>제목::내용</toggle> 형식으로 토글(접기/펼치기) 기능 사용 가능
  */
 function remarkBasePath() {
-  return function (tree) {
-    // NEXT_PUBLIC_BASE_PATH 환경변수 사용 (없으면 빈 문자열)
-    const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
-
+  return function(tree) {
     visit(tree, 'image', (node) => {
-      // 이미지 URL이 절대경로(/images로 시작)이고 basePath가 없는 경우
-      if (node.url && node.url.startsWith('/images') && !node.url.startsWith(basePath)) {
-        node.url = `${basePath}${node.url}`;
+      if (node.url) {
+        node.url = getFullImagePath(node.url);
       }
     });
   };
 }
+
 export const convertMarkdownToHtml = async (markdown) => {
   // Windows 줄바꿈을 표준화
   let normalizedMarkdown = markdown.replace(/\r\n/g, '\n');
@@ -55,17 +52,12 @@ export const convertMarkdownToHtml = async (markdown) => {
     (match, attributes) => {
       const width = attributes.match(/width="([^"]*)"/)?.[1] || '';
       const src = attributes.match(/src="([^"]*)"/)?.[1] || '';
+      if (!src) return match;
+      console.log(`src: ${src}`);
 
-      if (!src) return match; // src가 없으면 원래 텍스트 유지
-
-      // 여기서 중요한 변경: 슬래시로 시작하는 이미지 경로에 basePath 추가하되
-      // 이미 basePath가 있는 경우는 추가하지 않음
-      const fullSrc = src.startsWith('/') && !src.startsWith(basePath)
-        ? basePath + src
-        : src;
-
+      const fullSrc = getFullImagePath(src);
       return `<img width="${width}" src="${fullSrc}" alt="" />`;
-    }
+    },
   );
 
   const file = await unified()
@@ -123,10 +115,8 @@ export const convertMarkdownToHtml = async (markdown) => {
 //   };
 // }
 function myRemarkPlugin() {
-  return function (tree) {
-    visit(tree, function (node) {
-      // 불필요한 디버깅 로그 제거
-
+  return function(tree) {
+    visit(tree, function(node) {
       if (
         node.type === 'containerDirective' ||
         node.type === 'leafDirective' ||
@@ -134,20 +124,14 @@ function myRemarkPlugin() {
       ) {
         const data = node.data || (node.data = {});
 
-        // img 지시문 특별 처리
         if (node.name === 'img') {
           data.hName = 'img';
-          // 속성이 있는지 확인하고 src 경로 처리
           const attrs = node.attributes || {};
           const src = attrs.src || '';
-          const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
 
           data.hProperties = {
             ...attrs,
-            // 여기서도 같은 로직 적용: /images로 시작하고 basePath가 없는 경우에만 추가
-            src: (src.startsWith('/images') && !src.startsWith(basePath))
-              ? basePath + src
-              : src
+            src: getFullImagePath(src),
           };
         } else {
           const hast = h(node.name, node.attributes || {});
@@ -157,4 +141,18 @@ function myRemarkPlugin() {
       }
     });
   };
+}
+
+function getFullImagePath(src) {
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
+  // 이미 https://로 시작하는 완전한 URL이면 그대로 반환
+  if (src.startsWith('http://') || src.startsWith('https://')) {
+    return src;
+  }
+  // /images로 시작하고 basePath가 없는 경우 전체 도메인 포함 URL 구성
+  if (src.startsWith('/images') && !src.startsWith(basePath)) {
+    return `https://dev.wenivops.co.kr${basePath}${src}`;
+  }
+  // 기타 경우 그대로 반환
+  return src;
 }
