@@ -1,6 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  basePath: '/services/wenivooks',
+  // basePath: '/services/wenivooks',
   assetPrefix: '/services/wenivooks',
   trailingSlash: true,
   output: 'standalone', // Docker standalone 빌드
