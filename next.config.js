@@ -15,6 +15,14 @@ const nextConfig = {
         source: '/pyscript/:path*',
         destination: '/services/wenivooks/pyscript/:path*',
       },
+      {
+        source: '/codeblocks/:path*',
+        destination: '/services/wenivooks/codeblocks/:path*',
+      },
+      {
+        source: '/theme/:path*',
+        destination: '/services/wenivooks/theme/:path*',
+      }
     ];
   },
 };

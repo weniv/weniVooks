@@ -56,7 +56,12 @@ export default function JavaScriptContent({
       <link rel="stylesheet" href={`${basePath}/codeblocks/codemirror.css`} />
 
       {/* basePath 적용된 JavaScript 파일들 */}
-      <Script src={`${basePath}/codeblocks/codemirror.js`} />
+      <Script
+        src={`${basePath}/codeblocks/codemirror.js`}
+        strategy="beforeInteractive"
+        onLoad={() => console.log('CodeMirror loaded')}
+        onError={(e) => console.error('CodeMirror failed to load:', e)}
+      />
       <Script defer src={`${basePath}/codeblocks/javascript/js-repl.js`} />
       <Script defer src={`${basePath}/codeblocks/javascript/javascript.js`} />
       <Script defer src={`${basePath}/codeblocks/codemirror/active-line.js`} />
