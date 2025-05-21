@@ -125,10 +125,7 @@ export const convertMarkdownToHtml = async (markdown) => {
 function myRemarkPlugin() {
   return function (tree) {
     visit(tree, function (node) {
-      // 디버깅을 위한 콘솔 로그 추가
-      if (node.name === 'img') {
-        console.log('Found img directive:', node);
-      }
+      // 불필요한 디버깅 로그 제거
 
       if (
         node.type === 'containerDirective' ||
@@ -137,7 +134,7 @@ function myRemarkPlugin() {
       ) {
         const data = node.data || (node.data = {});
 
-        // img 지시문 특별 처리 - 속성 접근 방식 개선
+        // img 지시문 특별 처리
         if (node.name === 'img') {
           data.hName = 'img';
           // 속성이 있는지 확인하고 src 경로 처리
@@ -147,11 +144,11 @@ function myRemarkPlugin() {
 
           data.hProperties = {
             ...attrs,
-            src: src.startsWith('/') ? basePath + src : src
+            // 여기서도 같은 로직 적용: /images로 시작하고 basePath가 없는 경우에만 추가
+            src: (src.startsWith('/images') && !src.startsWith(basePath))
+              ? basePath + src
+              : src
           };
-
-          // 디버깅용 로그
-          console.log('Processing img with src:', src, '-> final src:', data.hProperties.src);
         } else {
           const hast = h(node.name, node.attributes || {});
           data.hName = hast.tagName;
