@@ -7,5 +7,5 @@
   border: 1px solid var(--grayLv2);
   box-sizing: border-box;
   border-radius: 1rem;
-  background: var(--background) url(/images/commons/icon-copy.svg) no-repeat 50% 50%/60%;
+  background: var(--background) url(${process.env.NEXT_PUBLIC_BASE_PATH}/images/commons/icon-copy.svg) no-repeat 50% 50%/60%;
 }/*# sourceMappingURL=BtnCopy.module.css.map */

@@ -4,7 +4,12 @@ const nextConfig = {
   assetPrefix: '/services/wenivooks',
   trailingSlash: true,
   output: 'standalone', // Docker standalone 빌드
-
+  // 이미지 최적화 설정 추가
+  images: {
+    domains: ['dev.wenivops.co.kr'],
+    path: '/services/wenivooks/_next/image',
+    // unoptimized: true, // 필요한 경우 이미지 최적화 비활성화
+  },
   async rewrites() {
     return [
       {
