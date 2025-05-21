@@ -54,17 +54,41 @@ export default function JavaScriptContent({
       )}
       {/* basePath 적용된 CSS */}
       <link rel="stylesheet" href={`${basePath}/codeblocks/codemirror.css`} />
-
-      {/* basePath 적용된 JavaScript 파일들 */}
+      {/* CodeMirror 코어 먼저 로드 - strategy 변경 */}
       <Script
         src={`${basePath}/codeblocks/codemirror.js`}
         strategy="beforeInteractive"
-        onLoad={() => console.log('CodeMirror loaded')}
-        onError={(e) => console.error('CodeMirror failed to load:', e)}
+        onLoad={() => {
+          console.log('CodeMirror loaded successfully');
+          // 코어 스크립트 로드 완료 후 종속 스크립트 로드
+          const loadDependentScripts = () => {
+            const jsRepl = document.createElement('script');
+            jsRepl.src = `${basePath}/codeblocks/javascript/js-repl.js`;
+            document.body.appendChild(jsRepl);
+
+            const jsScript = document.createElement('script');
+            jsScript.src = `${basePath}/codeblocks/javascript/javascript.js`;
+            document.body.appendChild(jsScript);
+
+            const activeLine = document.createElement('script');
+            activeLine.src = `${basePath}/codeblocks/codemirror/active-line.js`;
+            document.body.appendChild(activeLine);
+          };
+
+          loadDependentScripts();
+        }}
       />
-      <Script defer src={`${basePath}/codeblocks/javascript/js-repl.js`} />
-      <Script defer src={`${basePath}/codeblocks/javascript/javascript.js`} />
-      <Script defer src={`${basePath}/codeblocks/codemirror/active-line.js`} />
+      {/* basePath 적용된 JavaScript 파일들 */}
+      {/*<Script*/}
+      {/*  src={`${basePath}/codeblocks/codemirror.js`}*/}
+      {/*  strategy="beforeInteractive"*/}
+      {/*  onLoad={() => console.log('CodeMirror loaded')}*/}
+      {/*  onError={(e) => console.error('CodeMirror failed to load:', e)}*/}
+      {/*/>*/}
+      {/*<Script defer src={`${basePath}/codeblocks/javascript/js-repl.js`} />*/}
+      {/*<Script defer src={`${basePath}/codeblocks/javascript/javascript.js`} />*/}
+      {/*<Script defer src={`${basePath}/codeblocks/codemirror/active-line.js`} />*/}
     </>
+
   );
 }
