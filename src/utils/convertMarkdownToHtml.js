@@ -56,22 +56,17 @@ export const convertMarkdownToHtml = async (markdown) => {
   normalizedMarkdown = normalizedMarkdown.replace(
     /::img\{([^}]*)\}/g,
     (match, attributes) => {
-      console.log("매치된 ::img:", match);
-      console.log("추출된 속성:", attributes);
-
       const width = attributes.match(/width="([^"]*)"/)?.[1] || '';
+      const alt = attributes.match(/alt="([^"]*)"/)?.[1] || '';
       const src = attributes.match(/src="([^"]*)"/)?.[1] || '';
-
-      console.log("추출된 width:", width);
-      console.log("추출된 src:", src);
 
       if (!src) return match;
 
       const fullSrc = getFullImagePath(src);
-      console.log("변환된 src:", fullSrc);
 
-      return `<img width="${width}" src="${fullSrc}" alt="" />`;
-    },
+      // data-custom-element 속성을 추가하여 Next.js가 이를 자동으로 Image 컴포넌트로 변환하지 않도록 함
+      return `<img width="${width}" src="${fullSrc}" alt="${alt}" data-custom-element="true" />`;
+    }
   );
 
   const file = await unified()
