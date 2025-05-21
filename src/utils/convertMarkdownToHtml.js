@@ -30,6 +30,12 @@ function remarkBasePath() {
 }
 
 export const convertMarkdownToHtml = async (markdown) => {
+  // 원본 마크다운 확인
+  console.log("원본 마크다운:", markdown.slice(0, 500)); // 처음 500자만 표시
+
+  // 변환 전에 ::img 패턴이 있는지 확인
+  const imgMatches = markdown.match(/::img\{([^}]*)\}/g);
+  console.log("::img 매칭 결과:", imgMatches);
   // Windows 줄바꿈을 표준화
   let normalizedMarkdown = markdown.replace(/\r\n/g, '\n');
 
@@ -50,12 +56,20 @@ export const convertMarkdownToHtml = async (markdown) => {
   normalizedMarkdown = normalizedMarkdown.replace(
     /::img\{([^}]*)\}/g,
     (match, attributes) => {
+      console.log("매치된 ::img:", match);
+      console.log("추출된 속성:", attributes);
+
       const width = attributes.match(/width="([^"]*)"/)?.[1] || '';
       const src = attributes.match(/src="([^"]*)"/)?.[1] || '';
+
+      console.log("추출된 width:", width);
+      console.log("추출된 src:", src);
+
       if (!src) return match;
-      console.log(`src: ${src}`);
 
       const fullSrc = getFullImagePath(src);
+      console.log("변환된 src:", fullSrc);
+
       return `<img width="${width}" src="${fullSrc}" alt="" />`;
     },
   );
@@ -82,7 +96,8 @@ export const convertMarkdownToHtml = async (markdown) => {
       allowDangerousHtml: true, // HTML 태그 허용
     }) // HTML로 변환
     .process(normalizedMarkdown);
-
+  const finalHtml = String(file);
+  console.log("최종 HTML에 이미지 태그 포함 여부:", finalHtml.includes("<img"));
   // 최종 HTML에서 남아있을 수 있는 색상 태그와 토글 태그 처리
   let htmlResult = String(file)
     .replace(
@@ -156,3 +171,12 @@ function getFullImagePath(src) {
   // 기타 경우 그대로 반환
   return src;
 }
+function testDirective() {
+  const result = unified()
+    .use(remarkParse)
+    .use(remarkDirective)
+    .parse("::img{width=\"400\" src=\"/images/test.png\"}");
+
+  console.log("파싱 결과:", JSON.stringify(result, null, 2));
+}
+testDirective();
