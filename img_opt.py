@@ -12,6 +12,9 @@ Get-ChildItem -Recurse -Name "ORIGINAL_BACKUP_IMG_*" | Remove-Item
 
 # Linux/Mac
 find . -name "ORIGINAL_BACKUP_IMG_*" -delete
+
+# 주의사항: 최적화를 여러번 돌리면 이미지가 계속 줄어들 수 있습니다. 따라서 3 ~ 4개월에 한 번, 이미 최적화를 수행한 이미지에 대해서는 수행하지 않도록 합니다.
+# 이 문제를 해결하기 위해 코드를 수정했습니다.(2025/5/22) => 실행해보지는 않았으므로 문제가 생기면 롤백하세요.
 """
 
 import os
@@ -111,10 +114,14 @@ class ImageOptimizer:
         # 같은 디렉토리에 백업 접두사를 붙여서 백업 파일 생성
         backup_path = file_path.parent / f"{self.config['backup_prefix']}{file_path.name}"
         
-        if not backup_path.exists():
-            import shutil
-            shutil.copy2(file_path, backup_path)
-            self.logger.debug(f"원본 백업: {backup_path}")
+        # 백업 파일이 이미 존재하면 백업하지 않음 (이미 최적화된 상태)
+        if backup_path.exists():
+            self.logger.debug(f"백업 파일 이미 존재: {backup_path}")
+            return backup_path
+            
+        import shutil
+        shutil.copy2(file_path, backup_path)
+        self.logger.debug(f"원본 백업: {backup_path}")
         
         return backup_path
 
@@ -137,6 +144,13 @@ class ImageOptimizer:
     def optimize_image(self, file_path: Path) -> bool:
         """단일 이미지를 최적화합니다."""
         try:
+            # 이미 백업이 있는지 확인 (이미 최적화된 파일)
+            backup_path = file_path.parent / f"{self.config['backup_prefix']}{file_path.name}"
+            if backup_path.exists():
+                self.logger.info(f"건너뛰기 {file_path.name}: 이미 최적화됨 (백업 파일 존재)")
+                self.stats['skipped'] += 1
+                return True
+            
             original_size = self.get_file_size(file_path)
             self.stats['total_size_before'] += original_size
             
@@ -256,12 +270,23 @@ class ImageOptimizer:
             self.logger.warning("최적화할 이미지를 찾을 수 없습니다.")
             return
         
+        # 이미 백업이 있는 파일들 확인
+        already_optimized = []
+        for file_path in image_files:
+            backup_path = file_path.parent / f"{self.config['backup_prefix']}{file_path.name}"
+            if backup_path.exists():
+                already_optimized.append(file_path.name)
+        
+        if already_optimized:
+            self.logger.info(f"이미 최적화된 파일 {len(already_optimized)}개를 발견했습니다.")
+            self.logger.info("중복 최적화를 방지하기 위해 이 파일들은 건너뜁니다.")
+        
         for i, file_path in enumerate(image_files, 1):
             self.logger.info(f"[{i}/{len(image_files)}] 처리 중: {file_path.name}")
             
             # 이미 충분히 작은 파일은 건너뛰기
             file_size = self.get_file_size(file_path)
-            if file_size < 150 * 1024:  # 50KB 미만
+            if file_size < 50 * 1024:  # 50KB 미만
                 self.logger.info(f"건너뛰기 {file_path.name}: 이미 충분히 작음 ({self.format_size(file_size)})")
                 self.stats['skipped'] += 1
                 continue
@@ -289,35 +314,21 @@ class ImageOptimizer:
 def main():
     parser = argparse.ArgumentParser(description='Next.js 프로젝트 이미지 최적화')
     parser.add_argument('project_path', help='Next.js 프로젝트 경로')
-    parser.add_argument('--dirs', nargs='+', help='검색할 디렉토리 목록 (기본값: public, assets 등)')
-    parser.add_argument('--max-width', type=int, default=1920, help='최대 너비 (기본값: 1920)')
-    parser.add_argument('--max-height', type=int, default=1080, help='최대 높이 (기본값: 1080)')
-    parser.add_argument('--quality', type=int, default=85, help='JPEG 품질 (기본값: 85)')
-    parser.add_argument('--no-webp', action='store_true', help='WebP 변환 비활성화 (기본값: 비활성화됨)')
-    parser.add_argument('--no-backup', action='store_true', help='원본 백업 비활성화')
-    parser.add_argument('--backup-prefix', default='ORIGINAL_BACKUP_IMG_', help='백업 파일 접두사 (기본값: ORIGINAL_BACKUP_IMG_)')
     
     args = parser.parse_args()
     
-    # 설정 업데이트
-    config = {
-        'max_width': args.max_width,
-        'max_height': args.max_height,
-        'quality': args.quality,
-        'convert_to_webp': False,  # 확장자 변경 방지를 위해 항상 비활성화
-        'backup_original': not args.no_backup,
-        'backup_prefix': args.backup_prefix,
-    }
+    # 기본 설정 사용
+    config = CONFIG.copy()
     
     # 프로젝트 경로 확인
     project_path = Path(args.project_path)
     if not project_path.exists():
-        print(f"❌ 프로젝트 경로를 찾을 수 없습니다: {project_path}")
+        print(f"프로젝트 경로를 찾을 수 없습니다: {project_path}")
         sys.exit(1)
     
     # 최적화 실행
     optimizer = ImageOptimizer(project_path, config)
-    optimizer.optimize_all(args.dirs)
+    optimizer.optimize_all()
 
 
 if __name__ == '__main__':
