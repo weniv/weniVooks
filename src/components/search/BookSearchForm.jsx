@@ -11,7 +11,7 @@ export default function BookSearchForm({ onSearchChange }) {
   useEffect(() => {
     const timer = setTimeout(() => {
       onSearchChange(searchValue);
-    }, 300); // 300ms 디바운스
+    }, 300);
 
     return () => clearTimeout(timer);
   }, [searchValue, onSearchChange]);
